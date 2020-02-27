@@ -1,7 +1,6 @@
-package com.example.smarthome;
+package com.example.smart_home;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {

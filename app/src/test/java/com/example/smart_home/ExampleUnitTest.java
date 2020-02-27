@@ -1,4 +1,4 @@
-package com.example.smarthome;
+package com.example.smart_home;
 
 import org.junit.Test;
 
