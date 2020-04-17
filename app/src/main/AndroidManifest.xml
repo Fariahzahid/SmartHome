@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.smart_home" >
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +17,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Contact_Person_SignIn.Login"></activity>
+        <activity android:name=".Contact_Person_SignIn.Register"></activity>
+        <activity android:name=".Contact_Person_Screen.Contact_Person_Home"/>
+        <activity android:name=".Contact_Person_Screen.Contact_Person_Add_New_Users"/>
+        <activity android:name=".Contact_Person_Screen.Contact_Person_Users_List"/>
+        <activity android:name=".Contact_Person_Screen.Contact_Person_Modes"/>
+
     </application>
 
 </manifest>
