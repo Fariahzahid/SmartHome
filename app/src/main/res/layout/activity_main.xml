@@ -10,9 +10,11 @@
 
     <Button
         android:id="@+id/mainpage_contactperson"
-        android:layout_width="221dp"
-        android:layout_height="104dp"
+        android:layout_width="290dp"
+        android:layout_height="66dp"
         android:text="CONTACT PERSON"
+        android:background="@drawable/button_rectangle"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,9 +25,11 @@
 
     <Button
         android:id="@+id/mainpage_user"
-        android:layout_width="214dp"
-        android:layout_height="107dp"
+        android:layout_width="290dp"
+        android:layout_height="66dp"
+        android:background="@drawable/button_rectangle"
         android:text="USER"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

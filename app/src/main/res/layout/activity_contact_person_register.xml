@@ -74,8 +74,9 @@
         android:layout_height="71dp"
         android:layout_centerInParent="true"
         android:fontFamily="sans-serif-black"
+        android:background="@drawable/button_rectangle"
+        android:textColor="@color/white"
         android:text="register"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,7 +102,6 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

@@ -127,9 +127,10 @@
                             android:layout_height="73dp"
                             android:layout_gravity="center"
                             android:fontFamily="sans-serif-black"
+                            android:background="@drawable/button_rectangle"
+                            android:textColor="@color/white"
                             android:gravity="center|center_horizontal|center_vertical"
                             android:text="USER LIST"
-                            android:textColor="@color/cardview_dark_background"
                             android:textSize="23sp" />
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
@@ -194,7 +195,8 @@
                             android:fontFamily="sans-serif-black"
                             android:gravity="center|center_horizontal|center_vertical"
                             android:text="ADD NEW USER"
-                            android:textColor="@color/cardview_dark_background"
+                            android:background="@drawable/button_rectangle"
+                            android:textColor="@color/white"
                             android:textSize="23sp" />
                     </androidx.cardview.widget.CardView>
 
@@ -216,7 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:labelVisibilityMode="labeled"
-            android:background="@color/blue"
+            android:background="@color/purple_dark"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
             app:menu="@menu/bottom_navigation_menu"
