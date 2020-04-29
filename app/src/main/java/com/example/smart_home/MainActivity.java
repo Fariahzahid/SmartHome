@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.smart_home.Contact_Person_Screen.Contact_Person_Home;
+import com.example.smart_home.Contact_Person_Screen.Contact_Person_User_Profile;
 import com.example.smart_home.Contact_Person_SignIn.Login;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 // Opening new user registration activity using intent on button click.
-                Intent intent = new Intent(MainActivity.this, Login.class);
+                Intent intent = new Intent(MainActivity.this, Contact_Person_User_Profile.class);
                 startActivity(intent);
 
             }

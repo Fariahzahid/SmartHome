@@ -22,8 +22,10 @@
         <activity android:name=".Contact_Person_Screen.Contact_Person_Home"/>
         <activity android:name=".Contact_Person_Screen.Contact_Person_Add_New_Users"/>
         <activity android:name=".Contact_Person_Screen.Contact_Person_Users_List"/>
-        <activity android:name=".Contact_Person_Screen.Contact_Person_Modes"/>
+        <activity android:name=".Contact_Person_Screen.Contact_Person_User_Modes"/>
         <activity android:name=".Contact_Person_Screen.Contact_Person_Notification"/>
+        <activity android:name=".Contact_Person_Screen.Contact_Person_User_Profile"/>
+        <activity android:name=".Contact_Person_Screen.Contact_Person_User_Home"/>
 
     </application>
 

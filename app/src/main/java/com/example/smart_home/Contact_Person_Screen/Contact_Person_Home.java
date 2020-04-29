@@ -10,11 +10,8 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.smart_home.MainActivity;
 import com.example.smart_home.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
 public class Contact_Person_Home extends AppCompatActivity {
 
@@ -30,8 +27,8 @@ public class Contact_Person_Home extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(0);
         menuItem.setChecked(true);
 
-        Button user_list = (Button) findViewById(R.id.contact_person_user_list_button);
-        Button add_new_user = (Button) findViewById(R.id.contact_person_new_user_button);
+        Button user_list = (Button) findViewById(R.id.contact_person_user_home_profile_button);
+        Button add_new_user = (Button) findViewById(R.id.contact_person_user_home_modes_button);
 
         user_list.setOnClickListener(new View.OnClickListener() {
             @Override

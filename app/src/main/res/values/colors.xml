@@ -4,15 +4,19 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#ffffff</color>
-    <color name="purple_dark">#253793</color>
+    <color name="yellow">#ffd05c</color>
+    <color name="green">#9bbb59</color>
+    <color name="black">#000000</color>
     <color name="pink">#b98cb9 </color>
+    <color name="greenshade2">#4389A2</color>
+    <color name="greyshade1">#D3D3D3</color>
+    <color name="purple_dark">#253793</color>
     <color name="purple_dark2">#4a4771</color>
     <color name="purplelight1">#948ee3</color>
     <color name="purplelight2">#b4afeb</color>
     <color name="purplelight3">#9e99e5</color>
-    <color name="yellow">#ffd05c</color>
-    <color name="green">#9bbb59</color>
-    <color name="black">#000000</color>
     <color name="purpleshade1">#5C258D</color>
-    <color name="greenshade2">#4389A2</color>
+    <color name="purpleshade3">#512888</color>
+    <color name="purpleshade4">#483d8b</color>
+    <color name="blueshade1">#333399 </color>
 </resources>
