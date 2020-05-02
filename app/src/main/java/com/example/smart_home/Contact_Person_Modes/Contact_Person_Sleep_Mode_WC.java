@@ -6,13 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smart_home.R;
 
-public class Contact_Person_Sleep_Mode_WC {
-    public class Contact_Person_Add_New_Users extends AppCompatActivity {
+public class Contact_Person_Sleep_Mode_WC extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_contact_person_sleepmode_wc);
         }
     }
-
-}

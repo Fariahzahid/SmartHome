@@ -35,6 +35,8 @@
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Livingroom"></activity>
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_WC"></activity>
 
+        <activity android:name=".Users_SignIn.User_Login"></activity>
+        <activity android:name=".Users_Modes.User_Home"></activity>
     </application>
 
 </manifest>
