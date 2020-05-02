@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
+    tools:context=".Contact_Person_Screen.Fragment_Contact_Person_User_Mode_Settings">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/activity_dashboard"
@@ -22,17 +16,18 @@
             android:layout_height="match_parent"
             android:background="@drawable/background3"
 
-            android:paddingBottom="16dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="16dp"
+            android:paddingLeft="0dp"
+            android:paddingTop="10dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="40dp"
             tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Home">
 
 
             <ImageView
-                android:id="@+id/contact_person_sleep_mode_image"
+                android:id="@+id/contact_person_mode_settings_image"
                 android:layout_width="126dp"
                 android:layout_height="102dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.112"
@@ -42,7 +37,7 @@
                 app:srcCompat="@drawable/modes" />
 
             <TextView
-                android:id="@+id/contact_person_home"
+                android:id="@+id/contact_person_modesetting_text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
@@ -52,12 +47,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.433"
-                app:layout_constraintStart_toEndOf="@+id/contact_person_sleep_mode_image"
+                app:layout_constraintStart_toEndOf="@+id/contact_person_mode_settings_image"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.097" />
 
             <TextView
-                android:id="@+id/contact_person_home2"
+                android:id="@+id/contact_person_modetext1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
@@ -67,7 +62,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.356"
-                app:layout_constraintStart_toEndOf="@+id/contact_person_sleep_mode_image"
+                app:layout_constraintStart_toEndOf="@+id/contact_person_mode_settings_image"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.03" />
 
@@ -82,7 +77,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.586"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/contact_person_home">
+                app:layout_constraintTop_toBottomOf="@+id/contact_person_modesetting_text2">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="140dp"
@@ -121,7 +116,7 @@
                     app:cardElevation="0dp">
 
                     <Button
-                        android:id="@+id/button1"
+                        android:id="@+id/voicerecognition_on"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
@@ -142,7 +137,7 @@
                     app:cardElevation="0dp">
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/voicerecognition_off"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
@@ -179,7 +174,7 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView5"
+                            android:id="@+id/cp_sleepmodeimage1"
                             android:layout_width="89dp"
                             android:layout_height="113dp"
                             android:layout_gravity="center"
@@ -188,7 +183,7 @@
 
                         <TextView
 
-                            android:id="@+id/text_cp_user_name"
+                            android:id="@+id/text_cp_sleepmode"
                             android:layout_width="167dp"
                             android:layout_height="40dp"
                             android:layout_marginLeft="0dp"
@@ -196,8 +191,7 @@
                             android:gravity="center"
                             android:text="SLEEP"
                             android:textColor="@android:color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="imageView5">
+                            android:textSize="18sp">
 
                         </TextView>
 
@@ -223,7 +217,7 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView5"
+                            android:id="@+id/cp_moveoutmode_image"
                             android:layout_width="89dp"
                             android:layout_height="113dp"
                             android:layout_gravity="center"
@@ -232,7 +226,7 @@
 
                         <TextView
 
-                            android:id="@+id/text_cp_user_name"
+                            android:id="@+id/text_cp_moveoutmode"
                             android:layout_width="167dp"
                             android:layout_height="40dp"
                             android:layout_marginLeft="0dp"
@@ -241,8 +235,7 @@
                             android:paddingTop="10dp"
                             android:text="MOVE OUT"
                             android:textColor="@android:color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="imageView5">
+                            android:textSize="18sp">
 
                         </TextView>
 
@@ -280,7 +273,7 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView5"
+                            android:id="@+id/cp_automaticmode_image"
                             android:layout_width="89dp"
                             android:layout_height="113dp"
                             android:layout_gravity="center"
@@ -289,7 +282,7 @@
 
                         <TextView
 
-                            android:id="@+id/text_cp_user_name"
+                            android:id="@+id/text_cp_automaticmode"
                             android:layout_width="167dp"
                             android:layout_height="40dp"
                             android:layout_marginLeft="0dp"
@@ -297,8 +290,7 @@
                             android:gravity="center"
                             android:text="AUTOMATIC"
                             android:textColor="@android:color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="imageView5">
+                            android:textSize="18sp">
 
                         </TextView>
 
@@ -323,7 +315,7 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView5"
+                            android:id="@+id/cp_manualmode_image"
                             android:layout_width="89dp"
                             android:layout_height="113dp"
                             android:layout_gravity="center"
@@ -332,7 +324,7 @@
 
                         <TextView
 
-                            android:id="@+id/text_cp_user_name"
+                            android:id="@+id/text_cp_manualmode_image"
                             android:layout_width="167dp"
                             android:layout_height="40dp"
                             android:layout_marginLeft="0dp"
@@ -341,8 +333,7 @@
                             android:paddingTop="10dp"
                             android:text="MANUAL"
                             android:textColor="@android:color/black"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="imageView5">
+                            android:textSize="18sp">
 
                         </TextView>
 
@@ -352,7 +343,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/cp_user_mode_settings_save_button"
                 android:layout_width="180dp"
                 android:layout_height="59dp"
                 android:layout_marginStart="146dp"
@@ -371,27 +362,7 @@
                 app:layout_constraintVertical_bias="0.053" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
-        <RelativeLayout
-            android:id="@+id/bottomBar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true">
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:labelVisibilityMode="labeled"
-                android:background="@color/purple_dark"
-                app:itemIconTint="@color/white"
-                app:itemTextColor="@color/white"
-                app:menu="@menu/bottom_navigation_menu"
-                >
-
-
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
-        </RelativeLayout>
-    </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

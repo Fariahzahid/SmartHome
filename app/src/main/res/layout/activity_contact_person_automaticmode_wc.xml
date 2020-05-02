@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -38,7 +39,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/bedroom1" />
+                app:srcCompat="@drawable/toilet" />
 
             <Spinner
                 android:id="@+id/rooms_spinner"
@@ -130,6 +131,7 @@
                         android:orientation="vertical">
 
                         <LinearLayout
+                            android:id="@+id/linearLayout2"
                             android:layout_width="369dp"
                             android:layout_height="48dp"
                             android:layout_marginTop="12dp"
@@ -149,6 +151,7 @@
                                 app:cardElevation="0dp">
 
                                 <TextView
+                                    android:id="@+id/contact_person_user_weather_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -187,6 +190,7 @@
                             android:background="@color/white"></View>
 
                         <LinearLayout
+                            android:id="@+id/linearLayout3"
                             android:layout_width="369dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="12dp"
@@ -207,6 +211,7 @@
 
                                 <TextView
 
+                                    android:id="@+id/contact_person_user_ac_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -240,6 +245,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/linearLayout4"
                             android:layout_width="369dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="12dp"
@@ -260,6 +266,7 @@
 
                                 <TextView
 
+                                    android:id="@+id/contact_person_user_actemperature_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -293,6 +300,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/linearLayout5"
                             android:layout_width="369dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="12dp"
@@ -313,6 +321,7 @@
 
                                 <TextView
 
+                                    android:id="@+id/contact_person_user_heating_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -346,6 +355,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/linearLayout6"
                             android:layout_width="369dp"
                             android:layout_height="67dp"
                             android:layout_marginTop="12dp"
@@ -365,6 +375,8 @@
                                 app:cardElevation="0dp">
 
                                 <TextView
+
+                                    android:id="@+id/contact_person_user_heating_temperature_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -406,6 +418,7 @@
                         android:orientation="vertical">
 
                         <LinearLayout
+                            android:id="@+id/linearLayout7"
                             android:layout_width="369dp"
                             android:layout_height="48dp"
                             android:layout_marginTop="12dp"
@@ -426,6 +439,7 @@
 
                                 <TextView
 
+                                    android:id="@+id/contact_person_user_time_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -464,8 +478,8 @@
                             android:background="@color/white"></View>
 
                         <LinearLayout
-                            android:layout_width="369dp"
-                            android:layout_height="50dp"
+                            android:layout_width="265dp"
+                            android:layout_height="45dp"
                             android:layout_marginTop="12dp"
                             android:orientation="horizontal"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -491,7 +505,7 @@
                                     android:fontFamily="sans-serif-black"
                                     android:paddingLeft="20dp"
                                     android:paddingTop="0dp"
-                                    android:text="Window Blinds"
+                                    android:text="Bulb On"
                                     android:textColor="@android:color/white"
                                     android:textSize="20dp">
 
@@ -510,15 +524,31 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/window_blind_spinner"
-                                    android:layout_width="191dp"
+                                    android:id="@+id/bulb_on_spinner"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
-                        </LinearLayout>
 
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center"
+                                android:background="@drawable/rectangle"
+                                android:orientation="vertical"
+                                app:cardBackgroundColor="@android:color/transparent"
+                                app:cardCornerRadius="0dp"
+                                app:cardElevation="0dp">
+
+                                <Spinner
+                                    android:id="@+id/bulb_ampm_spinner"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="44dp" />
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
                         <LinearLayout
-                            android:layout_width="369dp"
-                            android:layout_height="50dp"
+                            android:layout_width="265dp"
+                            android:layout_height="45dp"
                             android:layout_marginTop="12dp"
                             android:orientation="horizontal"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -544,14 +574,13 @@
                                     android:fontFamily="sans-serif-black"
                                     android:paddingLeft="20dp"
                                     android:paddingTop="0dp"
-                                    android:text="Bulb"
+                                    android:text="Bulb Off"
                                     android:textColor="@android:color/white"
                                     android:textSize="20dp">
 
                                 </TextView>
 
                             </androidx.cardview.widget.CardView>
-
                             <androidx.cardview.widget.CardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -563,52 +592,14 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/bulb_spinner"
-                                    android:layout_width="191dp"
+                                    android:id="@+id/bulb_off_spinner"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="369dp"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="12dp"
-                            android:orientation="horizontal"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.068"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
-
                             <androidx.cardview.widget.CardView
-                                android:layout_width="178dp"
-                                android:layout_height="60dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="right|center"
-                                android:orientation="vertical"
-                                app:cardBackgroundColor="@android:color/transparent"
-                                app:cardCornerRadius="0dp"
-                                app:cardElevation="0dp">
-
-                                <TextView
-
-                                    android:layout_width="173dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center|center_horizontal|center_vertical"
-                                    android:layout_marginLeft="0dp"
-                                    android:fontFamily="sans-serif-black"
-                                    android:paddingLeft="20dp"
-                                    android:paddingTop="0dp"
-                                    android:text="Bulb Intensity"
-                                    android:textColor="@android:color/white"
-                                    android:textSize="20dp">
-
-                                </TextView>
-
-                            </androidx.cardview.widget.CardView>
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="left|center"
                                 android:background="@drawable/rectangle"
                                 android:orientation="vertical"
                                 app:cardBackgroundColor="@android:color/transparent"
@@ -616,12 +607,11 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/bulb_intensity_spinner"
-                                    android:layout_width="191dp"
-                                    android:layout_height="43dp" />
+                                    android:id="@+id/bulb_off_ampm_spinner"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="44dp" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
-
                         <LinearLayout
                             android:layout_width="369dp"
                             android:layout_height="67dp"
@@ -650,7 +640,7 @@
                                     android:fontFamily="sans-serif-black"
                                     android:paddingLeft="20dp"
                                     android:paddingTop="0dp"
-                                    android:text="Night Lamp"
+                                    android:text="Extractor Fan On"
                                     android:textColor="@android:color/white"
                                     android:textSize="20dp">
 
@@ -669,13 +659,27 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/night_lamp_spinner"
-                                    android:layout_width="191dp"
+                                    android:id="@+id/extfan_on_spinner"
+                                    android:layout_width="match_parent"
                                     android:layout_height="43dp" />
+                            </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center"
+                                android:background="@drawable/rectangle"
+                                android:orientation="vertical"
+                                app:cardBackgroundColor="@android:color/transparent"
+                                app:cardCornerRadius="0dp"
+                                app:cardElevation="0dp">
+
+                                <Spinner
+                                    android:id="@+id/extfan_onap_spinner"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="44dp" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
                             android:layout_width="369dp"
                             android:layout_height="67dp"
                             android:layout_marginTop="12dp"
@@ -703,7 +707,7 @@
                                     android:fontFamily="sans-serif-black"
                                     android:paddingLeft="20dp"
                                     android:paddingTop="0dp"
-                                    android:text="Charging Point"
+                                    android:text="Extractor Fan Off"
                                     android:textColor="@android:color/white"
                                     android:textSize="20dp">
 
@@ -722,11 +726,27 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/charging_point_spinner"
-                                    android:layout_width="191dp"
+                                    android:id="@+id/extfan_off_spinner"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center"
+                                android:background="@drawable/rectangle"
+                                android:orientation="vertical"
+                                app:cardBackgroundColor="@android:color/transparent"
+                                app:cardCornerRadius="0dp"
+                                app:cardElevation="0dp">
+
+                                <Spinner
+                                    android:id="@+id/extfan_off_ap_spinner"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="44dp" />
+                            </androidx.cardview.widget.CardView>
                         </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>

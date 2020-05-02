@@ -41,7 +41,7 @@
                 app:srcCompat="@drawable/livingroom" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/rooms_spinner"
                 android:layout_width="210dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="16dp"
@@ -101,7 +101,7 @@
                     app:cardElevation="0dp">
 
                     <Spinner
-                        android:id="@+id/spinner3"
+                        android:id="@+id/mode_spinner"
                         android:layout_width="191dp"
                         android:layout_height="43dp" />
                 </androidx.cardview.widget.CardView>
@@ -150,6 +150,7 @@
                                 app:cardElevation="0dp">
 
                                 <TextView
+                                    android:id="@+id/contact_person_user_weather_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -176,7 +177,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/weather_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -188,7 +189,7 @@
                             android:background="@color/white"></View>
 
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
+                            android:id="@+id/linearLayout3"
                             android:layout_width="369dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="12dp"
@@ -209,7 +210,7 @@
 
                                 <TextView
 
-                                    android:id="@+id/contact_person_user_voice_recognition_text3"
+                                    android:id="@+id/contact_person_user_ac_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -236,14 +237,14 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/ac_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
+                            android:id="@+id/linearLayout4"
                             android:layout_width="369dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="12dp"
@@ -264,7 +265,7 @@
 
                                 <TextView
 
-                                    android:id="@+id/contact_person_user_voice_recognition_text3"
+                                    android:id="@+id/contact_person_user_actemp_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -291,14 +292,14 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/ac_temp_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
+                            android:id="@+id/linearLayout5"
                             android:layout_width="369dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="12dp"
@@ -319,7 +320,7 @@
 
                                 <TextView
 
-                                    android:id="@+id/contact_person_user_voice_recognition_text3"
+                                    android:id="@+id/contact_person_user_heating_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -346,14 +347,14 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/heating_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
+                            android:id="@+id/linearLayout6"
                             android:layout_width="369dp"
                             android:layout_height="67dp"
                             android:layout_marginTop="12dp"
@@ -374,7 +375,7 @@
 
                                 <TextView
 
-                                    android:id="@+id/contact_person_user_voice_recognition_text3"
+                                    android:id="@+id/contact_person_user_heating_temperature_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -401,7 +402,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/heating_temp_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -416,7 +417,7 @@
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
+                            android:id="@+id/linearLayout7"
                             android:layout_width="369dp"
                             android:layout_height="48dp"
                             android:layout_marginTop="12dp"
@@ -437,7 +438,7 @@
 
                                 <TextView
 
-                                    android:id="@+id/contact_person_user_voice_recognition_text3"
+                                    android:id="@+id/contact_person_user_time_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -464,7 +465,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/time_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -476,7 +477,7 @@
                             android:background="@color/white"></View>
 
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
+                            android:id="@+id/linearLayout8"
                             android:layout_width="369dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="12dp"
@@ -497,7 +498,7 @@
 
                                 <TextView
 
-                                    android:id="@+id/contact_person_user_voice_recognition_text3"
+                                    android:id="@+id/contact_person_user_window_blinds_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -524,14 +525,14 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/win_blind_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
+                            android:id="@+id/linearLayout9"
                             android:layout_width="369dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="12dp"
@@ -552,7 +553,7 @@
 
                                 <TextView
 
-                                    android:id="@+id/contact_person_user_voice_recognition_text3"
+                                    android:id="@+id/contact_person_user_bulb_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -579,14 +580,14 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/bulb_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
+                            android:id="@+id/linearLayout10"
                             android:layout_width="369dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="12dp"
@@ -607,7 +608,7 @@
 
                                 <TextView
 
-                                    android:id="@+id/contact_person_user_voice_recognition_text3"
+                                    android:id="@+id/contact_person_user_bulb_intensity_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -634,14 +635,14 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/bulb_intensity_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
+                            android:id="@+id/linearLayout11"
                             android:layout_width="369dp"
                             android:layout_height="67dp"
                             android:layout_marginTop="12dp"
@@ -662,7 +663,7 @@
 
                                 <TextView
 
-                                    android:id="@+id/contact_person_user_voice_recognition_text3"
+                                    android:id="@+id/contact_person_user_tablelamp_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -689,13 +690,13 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/tablelamp_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
                         <LinearLayout
-                            android:id="@+id/linearLayout2"
+                            android:id="@+id/linearLayout12"
                             android:layout_width="369dp"
                             android:layout_height="67dp"
                             android:layout_marginTop="12dp"
@@ -716,7 +717,7 @@
 
                                 <TextView
 
-                                    android:id="@+id/contact_person_user_voice_recognition_text3"
+                                    android:id="@+id/contact_person_user_tv_text"
                                     android:layout_width="173dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
@@ -743,7 +744,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/spinner2"
+                                    android:id="@+id/tv_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>

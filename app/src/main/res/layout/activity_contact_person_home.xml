@@ -41,7 +41,7 @@
                 app:srcCompat="@drawable/icondisabled" />
 
             <TextView
-                android:id="@+id/contact_person_home"
+                android:id="@+id/contact_person_modesetting_text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
@@ -66,7 +66,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.436"
                 app:layout_constraintStart_toEndOf="@+id/contact_person_sleep_mode_image"
-                app:layout_constraintTop_toBottomOf="@+id/contact_person_home"
+                app:layout_constraintTop_toBottomOf="@+id/contact_person_modesetting_text2"
                 app:layout_constraintVertical_bias="0.0" />
 
             <androidx.cardview.widget.CardView

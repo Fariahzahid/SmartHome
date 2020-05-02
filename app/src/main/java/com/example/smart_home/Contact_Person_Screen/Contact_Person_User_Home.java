@@ -10,6 +10,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.smart_home.R;
 
@@ -17,42 +19,41 @@ import java.util.ArrayList;
 
 public class Contact_Person_User_Home extends AppCompatActivity {
     private Spinner mSpinner ;
+    Fragment_Contact_Person_User_Profile fragmentone;
+    Fragment_Contact_Person_User_Mode_Settings fragmenttwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_person_user_home);
 
-        ArrayList<String> categories = new ArrayList<>();
-        categories.add(0,"Select User Activities");
-        categories.add("User Profile");
-        categories.add("Modes Settings");
-        mSpinner = findViewById(R.id.spinner);
+        fragmentone = new Fragment_Contact_Person_User_Profile();
+        fragmenttwo = new Fragment_Contact_Person_User_Mode_Settings();
 
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,categories);
+        ArrayList<String> categories = new ArrayList<>();
+        categories.add(0,"User Profile");
+        categories.add("Modes Settings");
+        mSpinner = findViewById(R.id.user_activiities_selection);
+
+        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, categories);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner.setAdapter(aa);
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //mText.setText(parent.getItemAtPosition(position).toString());
-                if(parent.getItemAtPosition(position).equals("Select User Activities")){
+                if (parent.getItemAtPosition(position).equals("User Profile")) {
 
-                }
-                else {
+                    setFragment(fragmentone);
+                } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(),"Selected"+item,Toast.LENGTH_SHORT).show();
-                }
-                if(parent.getItemAtPosition(position).equals("User Profile")){
-                    Intent intent = new Intent(Contact_Person_User_Home.this, Contact_Person_User_Home.class);
-                    startActivity(intent);
-                }
-                if(parent.getItemAtPosition(position).equals("Modes Settings")){
-
-                    Intent intent = new Intent(Contact_Person_User_Home.this, Contact_Person_User_Modes.class);
-                    startActivity(intent);
+                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
 
+                if (parent.getItemAtPosition(position).equals("Modes Settings")) {
+
+                    setFragment(fragmenttwo);
+
+                }
             }
 
             @Override
@@ -61,5 +62,10 @@ public class Contact_Person_User_Home extends AppCompatActivity {
             }
         });
 
+    }
+    public void setFragment(Fragment fragment){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.contact_person_user_home_framelayout,fragment);
+        fragmentTransaction.commit();
     }
 }
