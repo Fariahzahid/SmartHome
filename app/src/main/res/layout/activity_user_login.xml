@@ -22,10 +22,10 @@
         android:background="@drawable/user_icon2"/>
 
     <EditText
-        android:id="@+id/contact_person_login_email"
+        android:id="@+id/user_login_email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_above="@+id/contact_person_login_password"
+        android:layout_above="@+id/user_login_password"
         android:layout_marginTop="60dp"
         android:inputType="textEmailAddress"
         android:padding="15dp"
@@ -34,7 +34,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/contact_person_login_password"
+        android:id="@+id/user_login_password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
@@ -42,11 +42,11 @@
         android:inputType="textPassword"
         android:padding="15dp"
         android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/contact_person_login_email"
+        app:layout_constraintTop_toBottomOf="@+id/user_login_email"
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
-        android:id="@+id/contact_person_btn_login"
+        android:id="@+id/user_btn_login"
         android:layout_width="400dp"
         android:layout_height="71dp"
         android:layout_below="@+id/contact_person_login_password"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_person_login_password"
+        app:layout_constraintTop_toBottomOf="@+id/user_login_password"
         app:layout_constraintVertical_bias="0.234" />
 
 

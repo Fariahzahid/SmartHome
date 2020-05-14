@@ -10,16 +10,16 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="202dp"
-        android:layout_height="209dp"
+        android:layout_width="158dp"
+        android:layout_height="144dp"
+        android:background="@drawable/user_icon2"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095"
-        android:background="@drawable/user_icon2"/>
+        app:layout_constraintVertical_bias="0.095" />
 
     <EditText
         android:id="@+id/contact_person_login_email"
@@ -47,30 +47,31 @@
 
     <Button
         android:id="@+id/contact_person_btn_login"
-        android:layout_width="400dp"
+        android:layout_width="0dp"
         android:layout_height="71dp"
         android:layout_below="@+id/contact_person_login_password"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_rectangle"
         android:fontFamily="sans-serif-black"
         android:text="LOGIN"
-        android:background="@drawable/button_rectangle"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contact_person_login_password"
         app:layout_constraintVertical_bias="0.234" />
 
     <Button
         android:id="@+id/contact_person_btn_signup"
-        android:layout_width="400dp"
+        android:layout_width="0dp"
         android:layout_height="71dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_rectangle"
         android:fontFamily="sans-serif-black"
         android:text="SIGNUP"
-        android:textSize="24sp"
-        android:background="@drawable/button_rectangle"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"

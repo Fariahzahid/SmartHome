@@ -26,10 +26,10 @@
             android:paddingTop="16dp"
             android:paddingRight="16dp"
             android:paddingBottom="16dp"
-            tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Home">
+            tools:context="com.example.smart_home.Users_Modes.User_Home">
 
             <ImageView
-                android:id="@+id/contact_person_sleep_mode_image"
+                android:id="@+id/user_main_mode_image"
                 android:layout_width="126dp"
                 android:layout_height="102dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -40,32 +40,47 @@
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/mode_user" />
 
+
             <TextView
-                android:id="@+id/contact_person_modesetting_text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/user_main_mode_emergency_text"
+                android:layout_width="178dp"
+                android:layout_height="46dp"
                 android:fontFamily="sans-serif-black"
-                android:text="MODES"
+                android:text="SELECTION"
                 android:textColor="@android:color/black"
                 android:textSize="32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.165"
-                app:layout_constraintStart_toEndOf="@+id/contact_person_sleep_mode_image"
+                app:layout_constraintHorizontal_bias="0.311"
+                app:layout_constraintStart_toEndOf="@+id/user_main_mode_image"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.054" />
+                app:layout_constraintVertical_bias="0.09" />
 
+            <TextView
+                android:id="@+id/user_main_mode_text"
+                android:layout_width="120dp"
+                android:layout_height="47dp"
+                android:fontFamily="sans-serif-black"
+                android:text="MODES "
+                android:textColor="@android:color/black"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toTopOf="@+id/user_main_mode_emergency_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.425"
+                app:layout_constraintStart_toEndOf="@+id/user_main_mode_image"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.571" />
 
             <LinearLayout
-                android:layout_width="366dp"
-                android:layout_height="524dp"
-                android:layout_marginTop="36dp"
+                android:layout_width="358dp"
+                android:layout_height="508dp"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.487"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/contact_person_modesetting_text2"
+                app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text"
                 app:layout_constraintVertical_bias="0.026">
 
                 <LinearLayout
@@ -77,7 +92,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/contact_person_modesetting_text2">
+                    app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
@@ -107,7 +122,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/contact_person_sleep_mode"
+                        android:id="@+id/user_home_sleep_mode"
                         android:layout_width="250dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
@@ -124,7 +139,7 @@
                         app:layout_constraintVertical_bias="0.25">
 
                         <LinearLayout
-                            android:id="@+id/layout_sleep_mode"
+                            android:id="@+id/layout_user_home_sleep_mode"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/rectangle"
@@ -161,7 +176,7 @@
                                 app:cardElevation="0dp">
 
                                 <Button
-                                    android:id="@+id/contact_person_sleep_mode_button"
+                                    android:id="@+id/user_home_sleep_mode_button"
                                     android:layout_width="123dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -186,7 +201,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/contact_person_modesetting_text2">
+                    app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
@@ -216,7 +231,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/contact_person_moveout_mode"
+                        android:id="@+id/user_home_moveout_mode"
                         android:layout_width="250dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
@@ -233,7 +248,7 @@
                         app:layout_constraintVertical_bias="0.25">
 
                         <LinearLayout
-                            android:id="@+id/layout_moveoutmode"
+                            android:id="@+id/layout_user_home_moveoutmode"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/rectangle"
@@ -270,7 +285,7 @@
                                 app:cardElevation="0dp">
 
                                 <Button
-                                    android:id="@+id/contact_person_moveoutmode_button"
+                                    android:id="@+id/user_home_moveoutmode_button"
                                     android:layout_width="118dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -295,7 +310,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/contact_person_modesetting_text2">
+                    app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
@@ -325,7 +340,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/contact_person_automatic_mode"
+                        android:id="@+id/user_home_automatic_mode"
                         android:layout_width="250dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
@@ -342,7 +357,7 @@
                         app:layout_constraintVertical_bias="0.25">
 
                         <LinearLayout
-                            android:id="@+id/layout_automatic_mode"
+                            android:id="@+id/layout_user_home_automatic_mode"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/rectangle"
@@ -379,7 +394,7 @@
                                 app:cardElevation="0dp">
 
                                 <Button
-                                    android:id="@+id/contact_person_automatic_mode_button"
+                                    android:id="@+id/user_home_automatic_mode_button"
                                     android:layout_width="120dp"
                                     android:layout_height="76dp"
                                     android:layout_gravity="center"
@@ -404,7 +419,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/contact_person_modesetting_text2">
+                    app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
@@ -434,7 +449,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/contact_person_manual_mode"
+                        android:id="@+id/user_home_manual_mode"
                         android:layout_width="250dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
@@ -451,7 +466,7 @@
                         app:layout_constraintVertical_bias="0.25">
 
                         <LinearLayout
-                            android:id="@+id/layout_manual_mode"
+                            android:id="@+id/layout_user_home_manual_mode"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/rectangle"
@@ -488,7 +503,7 @@
                                 app:cardElevation="0dp">
 
                                 <Button
-                                    android:id="@+id/contact_person_manual_mode_button"
+                                    android:id="@+id/user_home_manual_mode_button"
                                     android:layout_width="wrap_content"
                                     android:layout_height="63dp"
                                     android:layout_gravity="center"
@@ -512,7 +527,7 @@
         <RelativeLayout
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView

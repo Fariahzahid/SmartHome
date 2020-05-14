@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3"
+    tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_User_Modes"    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background3"
+
+                android:paddingLeft="0dp"
+                android:paddingTop="10dp"
+                android:paddingRight="0dp"
+                android:paddingBottom="40dp">
+
+
+                <ImageView
+                    android:id="@+id/contact_person_mode_settings_image"
+                    android:layout_width="126dp"
+                    android:layout_height="102dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.112"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/modes" />
+
+                <TextView
+                    android:id="@+id/user_main_mode_emergency_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="SETTINGS"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.378"
+                    app:layout_constraintStart_toEndOf="@+id/contact_person_mode_settings_image"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.112" />
+
+                <TextView
+                    android:id="@+id/contact_person_modetext1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="USER MODES"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.392"
+                    app:layout_constraintStart_toEndOf="@+id/contact_person_mode_settings_image"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.042" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout13"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="183dp"
+                        android:layout_gravity="right"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="0dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:id="@+id/contact_person_sleep_mode"
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="@drawable/rectangle"
+                            android:clickable="true"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/cp_sleepmodeimage1"
+                                android:layout_width="89dp"
+                                android:layout_height="113dp"
+                                android:layout_gravity="center"
+                                android:paddingTop="20dp"
+                                app:srcCompat="@drawable/sleepicon" />
+
+                            <TextView
+
+                                android:id="@+id/text_cp_sleepmode"
+                                android:layout_width="167dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="0dp"
+                                android:fontFamily="sans-serif-black"
+                                android:gravity="center"
+                                android:text="SLEEP"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="183dp"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="5dp"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="0dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:id="@+id/contact_person_moveout_mode"
+                            android:layout_width="match_parent"
+                            android:layout_height="183dp"
+                            android:background="@drawable/rectangle"
+                            android:clickable="true"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/cp_moveoutmode_image"
+                                android:layout_width="89dp"
+                                android:layout_height="113dp"
+                                android:layout_gravity="center"
+                                android:paddingTop="20dp"
+                                app:srcCompat="@drawable/moveout" />
+
+                            <TextView
+
+                                android:id="@+id/text_cp_moveoutmode"
+                                android:layout_width="167dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="0dp"
+                                android:fontFamily="sans-serif-black"
+                                android:gravity="center"
+                                android:paddingTop="10dp"
+                                android:text="MOVE OUT"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.296"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout13">
+
+                    <androidx.cardview.widget.CardView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="183dp"
+                        android:layout_gravity="right"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="0dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:id="@+id/contact_person_automatic_mode"
+                            android:layout_width="match_parent"
+                            android:layout_height="183dp"
+                            android:background="@drawable/rectangle"
+                            android:clickable="true"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/cp_automaticmode_image"
+                                android:layout_width="89dp"
+                                android:layout_height="113dp"
+                                android:layout_gravity="center"
+                                android:paddingTop="20dp"
+                                app:srcCompat="@drawable/automaticicon" />
+
+                            <TextView
+
+                                android:id="@+id/text_cp_automaticmode"
+                                android:layout_width="174dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="0dp"
+                                android:fontFamily="sans-serif-black"
+                                android:gravity="center"
+                                android:text="AUTOMATIC"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="183dp"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="5dp"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="0dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:id="@+id/contact_person_voice_mode"
+                            android:layout_width="match_parent"
+
+                            android:layout_height="183dp"
+                            android:background="@drawable/rectangle"
+                            android:clickable="true"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/cp_automaticmode_image2"
+                                android:layout_width="127dp"
+                                android:layout_height="93dp"
+                                android:layout_gravity="center"
+                                android:paddingTop="20dp"
+                                app:srcCompat="@drawable/voice2" />
+
+                            <TextView
+
+                                android:id="@+id/contact_person_user_voice_recognition_text2"
+                                android:layout_width="165dp"
+                                android:layout_height="72dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="0dp"
+                                android:fontFamily="sans-serif-black"
+                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:text="VOICE RECOGNITION"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+        <RelativeLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavView_Bar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:labelVisibilityMode="labeled"
+                android:background="@color/purple_dark"
+                app:itemIconTint="@color/white"
+                app:itemTextColor="@color/white"
+                app:menu="@menu/bottom_navigation_menu"
+                >
+
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

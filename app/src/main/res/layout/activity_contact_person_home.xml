@@ -29,7 +29,7 @@
             tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Home">
 
             <ImageView
-                android:id="@+id/contact_person_sleep_mode_image"
+                android:id="@+id/user_main_mode_image"
                 android:layout_width="126dp"
                 android:layout_height="102dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +41,7 @@
                 app:srcCompat="@drawable/icondisabled" />
 
             <TextView
-                android:id="@+id/contact_person_modesetting_text2"
+                android:id="@+id/user_main_mode_emergency_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
@@ -51,7 +51,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.469"
-                app:layout_constraintStart_toEndOf="@+id/contact_person_sleep_mode_image"
+                app:layout_constraintStart_toEndOf="@+id/user_main_mode_image"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.022" />
 
@@ -65,8 +65,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.436"
-                app:layout_constraintStart_toEndOf="@+id/contact_person_sleep_mode_image"
-                app:layout_constraintTop_toBottomOf="@+id/contact_person_modesetting_text2"
+                app:layout_constraintStart_toEndOf="@+id/user_main_mode_image"
+                app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text"
                 app:layout_constraintVertical_bias="0.0" />
 
             <androidx.cardview.widget.CardView

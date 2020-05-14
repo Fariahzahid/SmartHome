@@ -1,15 +1,23 @@
 package com.example.smart_home.Contact_Person_Modes;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.smart_home.R;
 
-public class Contact_Person_Sleep_Mode_WC extends AppCompatActivity {
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_contact_person_sleepmode_wc);
-        }
+public class Contact_Person_Sleep_Mode_WC extends Fragment {
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.activity_contact_person_sleepmode_wc, container, false);
     }
+}
+
+

@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.smart_home.Contact_Person_Screen.Contact_Person_Home;
+import com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List;
 import com.example.smart_home.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         if (mFirebaseAuth.getCurrentUser() != null) {
-            startActivity(new Intent(Login.this, Contact_Person_Home.class));
+            startActivity(new Intent(Login.this, Contact_Person_Users_List.class));
             finish();
         }
         contact_person_login.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +67,7 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(Login.this, "User Logged In.",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),Contact_Person_Home.class));
+                            startActivity(new Intent(getApplicationContext(), Contact_Person_Users_List.class));
                         }
                         else{
                             Toast.makeText(Login.this, "Error."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
@@ -84,7 +84,6 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // Opening new user registration activity using intent on button click.
                 Intent intent = new Intent(Login.this, Register.class);
                 startActivity(intent);
 

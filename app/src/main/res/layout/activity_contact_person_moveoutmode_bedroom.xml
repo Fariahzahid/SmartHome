@@ -1,122 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context="com.example.smart_home.Contact_Person_Modes.Contact_Person_Moveout_Mode_Bedroom"
+
     >
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/activity_dashboard"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background3"
-
-            android:paddingBottom="16dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="16dp"
-            tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Home">
-
-            <ImageView
-                android:id="@+id/contact_person_sleep_mode_image"
-                android:layout_width="126dp"
-                android:layout_height="102dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.021"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/bedroom1" />
-
-            <Spinner
-                android:id="@+id/rooms_spinner"
-                android:layout_width="210dp"
-                android:layout_height="57dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.703"
-                app:layout_constraintStart_toEndOf="@+id/contact_person_sleep_mode_image"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="373dp"
-                android:layout_height="68dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/rectangle2"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.068"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="178dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="right|center"
-                    android:orientation="vertical"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="0dp"
-                    app:cardElevation="0dp">
-
-                    <TextView
-
-                        android:id="@+id/contact_person_user_voice_recognition_text"
-                        android:layout_width="173dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|center_horizontal|center_vertical"
-                        android:layout_marginLeft="0dp"
-                        android:fontFamily="sans-serif-black"
-                        android:paddingTop="0dp"
-                        android:text="SELECT MODE"
-                        android:textColor="@android:color/white"
-                        android:textSize="24dp">
-
-                    </TextView>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left|center"
-                    android:background="@drawable/rectangle"
-                    android:orientation="vertical"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="0dp"
-                    app:cardElevation="0dp">
-
-                    <Spinner
-                        android:id="@+id/mode_spinner"
-                        android:layout_width="191dp"
-                        android:layout_height="43dp" />
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-
-            <ScrollView
-                android:layout_width="381dp"
-                android:layout_height="527dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                app:layout_constraintVertical_bias="0.0">
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="50dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -137,7 +35,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -175,7 +73,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/weather_spinner"
+                                    android:id="@+id/weather_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -194,7 +92,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -233,7 +131,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/ac_spinner"
+                                    android:id="@+id/ac_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -247,7 +145,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -286,7 +184,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/ac_temperature_spinner"
+                                    android:id="@+id/ac_temperature_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -300,7 +198,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -339,7 +237,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/heating_spinner"
+                                    android:id="@+id/heating_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -353,7 +251,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -391,7 +289,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/heating_temperature_spinner"
+                                    android:id="@+id/heating_temperature_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -413,7 +311,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -452,7 +350,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/time_spinner"
+                                    android:id="@+id/time_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -471,7 +369,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -510,7 +408,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/window_blind_spinner"
+                                    android:id="@+id/window_blind_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -524,7 +422,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -563,7 +461,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/bulb_spinner"
+                                    android:id="@+id/bulb_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -577,7 +475,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -616,7 +514,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/bulb_intensity_spinner"
+                                    android:id="@+id/bulb_intensity_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -630,7 +528,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -669,7 +567,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/night_lamp_spinner"
+                                    android:id="@+id/night_lamp_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -683,7 +581,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.068"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contact_person_sleep_mode_image">
+                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="178dp"
@@ -722,7 +620,7 @@
                                 app:cardElevation="0dp">
 
                                 <Spinner
-                                    android:id="@+id/charging_point_spinner"
+                                    android:id="@+id/charging_point_moveout_bedroom_spinner"
                                     android:layout_width="191dp"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
@@ -733,28 +631,8 @@
 
             </ScrollView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <RelativeLayout
-            android:id="@+id/bottomBar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true">
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:labelVisibilityMode="labeled"
-                android:background="@color/purple_dark"
-                app:itemIconTint="@color/white"
-                app:itemTextColor="@color/white"
-                app:menu="@menu/bottom_navigation_menu"
-                >
 
 
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
-        </RelativeLayout>
-    </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

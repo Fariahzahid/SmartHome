@@ -2,60 +2,80 @@ package com.example.smart_home.Contact_Person_Screen;
 
 public class User {
 
-    private String name;
-    private String email;
-    private String phoneno;
-    private String userName;
-    private String password;
+    private String UserID;
+    private String Name;
+    private String Email;
+    private String PhoneNo;
+    private String Password;
+    private String Address;
+    private String Gender;
 
     public User() {
     }
 
-    public User(String name, String email, String phoneno, String userName, String password) {
-        this.name = name;
-        this.email = email;
-        this.phoneno = phoneno;
-        this.userName = userName;
-        this.password = password;
+    public User(String UserID,String name, String email, String phoneno, String address,String gender,String password) {
+        this.Name = name;
+        this.Email = email;
+        this.PhoneNo = phoneno;
+        this.Address = address;
+        this.Gender = gender;
+        this.Password = password;
+        this.UserID = UserID;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.Email = email;
     }
 
-    public String getPhoneno() {
-        return phoneno;
+    public String getPhoneNo() {
+        return PhoneNo;
     }
 
-    public void setPhoneno(String phoneno) {
-        this.phoneno = phoneno;
+    public void setPhoneNo(String phoneno) {
+        this.PhoneNo = phoneno;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getAddress() {
+        return Address;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setAddress(String address) {
+        this.Address = address;
+    }
+
+    public String getGender() {
+        return Gender;
+    }
+
+    public void setGender(String gender) {
+        this.Gender = gender;
+    }
+
+    public String getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(String userName) {
+        this.UserID = userName;
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.Password = password;
     }
 }

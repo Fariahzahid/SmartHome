@@ -19,11 +19,16 @@
         </activity>
         <activity android:name=".Contact_Person_SignIn.Login"></activity>
         <activity android:name=".Contact_Person_SignIn.Register"></activity>
-        <activity android:name=".Contact_Person_Screen.Contact_Person_Home"/>
         <activity android:name=".Contact_Person_Screen.Contact_Person_Add_New_Users"/>
         <activity android:name=".Contact_Person_Screen.Contact_Person_Users_List"/>
         <activity android:name=".Contact_Person_Screen.Contact_Person_Notification"/>
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Home"/>
+        <activity android:name=".Contact_Person_Screen.Contact_Person_User_Profile"/>
+        <activity android:name=".Contact_Person_Screen.Contact_Person_User_Modes"/>
+        <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode"/>
+        <activity android:name=".Contact_Person_Modes.Contact_Person_MoveOut_Mode"/>
+        <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode"/>
+
 
         <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode_Bedroom"></activity>
         <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode_Livingroom"></activity>
@@ -34,9 +39,20 @@
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Bedroom"></activity>
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Livingroom"></activity>
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_WC"></activity>
+        <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Kitchen"></activity>
 
         <activity android:name=".Users_SignIn.User_Login"></activity>
         <activity android:name=".Users_Modes.User_Home"></activity>
+        <activity android:name=".Users_Modes.User_Sleep_Mode"></activity>
+        <activity android:name=".Users_Modes.User_Move_Out_Mode"></activity>
+        <activity android:name=".Users_Modes.User_Automatic_Mode_Bedroom"></activity>
+        <activity android:name=".Users_Modes.User_Automatic_Mode_Living_Room"></activity>
+        <activity android:name=".Users_Modes.User_Automatic_Mode_Kitchen"></activity>
+        <activity android:name=".Users_Modes.User_Automatic_Mode_WC"></activity>
+        <activity android:name=".Users_Modes.User_Manual_Mode_Bedroom"></activity>
+        <activity android:name=".Users_Modes.User_Manual_Mode_Living_Room"></activity>
+        <activity android:name=".Users_Modes.User_Manual_Mode_Kitchen"></activity>
+        <activity android:name=".Users_Modes.User_Manual_Mode_WC"></activity>
     </application>
 
 </manifest>
