@@ -12,32 +12,36 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List;
-import com.example.smart_home.Contact_Person_SignIn.Register;
 import com.example.smart_home.R;
 import com.example.smart_home.Users_Modes.User_Home;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class User_Login extends AppCompatActivity {
 
     EditText email, password;
     Button user_login;
     FirebaseAuth mFirebaseAuth;
+    FirebaseFirestore fStore;
+    String userID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
+        fStore = FirebaseFirestore.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+
 
         email = (EditText) findViewById(R.id.user_login_email);
         password = (EditText) findViewById(R.id.user_login_password);
         user_login = (Button) findViewById(R.id.user_btn_login);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
 
         if (mFirebaseAuth.getCurrentUser() != null) {
             startActivity(new Intent(User_Login.this, User_Home.class));
@@ -69,7 +73,15 @@ public class User_Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(User_Login.this, "User Logged In.",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), Contact_Person_Users_List.class));
+                            userID = mFirebaseAuth.getCurrentUser().getUid();
+                            //startActivity(new Intent(getApplicationContext(), User_Home.class));
+
+                            Intent intent = new Intent(User_Login.this,User_Home.class);
+                            intent.putExtra("UserID",userID);
+                            startActivity(intent);
+
+                            //Toast.makeText(User_Login.this, "User Id  " +userID +"UserName" +mFirebaseAuth.getCurrentUser().getEmail()  ,Toast.LENGTH_SHORT).show();
+
                         }
                         else{
                             Toast.makeText(User_Login.this, "Error."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();

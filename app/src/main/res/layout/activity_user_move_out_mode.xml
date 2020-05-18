@@ -139,7 +139,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/user_moveout_mode_card_one"
-                            android:layout_width="250dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
                             android:clickable="true"
@@ -156,7 +156,7 @@
 
                             <LinearLayout
                                 android:id="@+id/layout_moveout_mode_card_one"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:clickable="true"
                                 android:orientation="horizontal"
@@ -166,7 +166,7 @@
                                 android:paddingBottom="5dp">
 
                                 <androidx.cardview.widget.CardView
-                                    android:layout_width="105dp"
+                                    android:layout_width="92dp"
                                     android:layout_height="105dp"
                                     android:layout_gravity="left"
                                     app:cardBackgroundColor="@android:color/transparent"
@@ -284,7 +284,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/user_moveout_mode_card_two"
-                            android:layout_width="250dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
                             android:clickable="true"
@@ -311,7 +311,7 @@
                                 android:paddingBottom="5dp">
 
                                 <androidx.cardview.widget.CardView
-                                    android:layout_width="105dp"
+                                    android:layout_width="92dp"
                                     android:layout_height="105dp"
                                     android:layout_gravity="left"
                                     app:cardBackgroundColor="@android:color/transparent"
@@ -429,7 +429,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/user_moveout_mode_card_three"
-                            android:layout_width="250dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
                             android:clickable="true"
@@ -456,7 +456,7 @@
                                 android:paddingBottom="5dp">
 
                                 <androidx.cardview.widget.CardView
-                                    android:layout_width="105dp"
+                                    android:layout_width="92dp"
                                     android:layout_height="105dp"
                                     android:layout_gravity="left"
                                     app:cardBackgroundColor="@android:color/transparent"
@@ -574,7 +574,7 @@
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/user_moveout_mode_card_four"
-                            android:layout_width="250dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
                             android:clickable="true"
@@ -601,7 +601,7 @@
                                 android:paddingBottom="5dp">
 
                                 <androidx.cardview.widget.CardView
-                                    android:layout_width="105dp"
+                                    android:layout_width="92dp"
                                     android:layout_height="105dp"
                                     android:layout_gravity="left"
                                     app:cardBackgroundColor="@android:color/transparent"

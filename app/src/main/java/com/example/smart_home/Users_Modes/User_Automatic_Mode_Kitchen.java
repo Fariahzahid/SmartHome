@@ -35,7 +35,7 @@ public class User_Automatic_Mode_Kitchen extends AppCompatActivity {
         user_room_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(parent.getItemAtPosition(position).equals("KITCHEN")){
+                if(parent.getItemAtPosition(position).equals("BED ROOM")){
 
                 }else {
                     String item = parent.getItemAtPosition(position).toString();

@@ -37,8 +37,8 @@
 
                 <Spinner
                     android:id="@+id/cp_User_Profile"
-                    android:layout_width="136dp"
-                    android:layout_height="40dp"
+                    android:layout_width="243dp"
+                    android:layout_height="52dp"
                     android:fontFamily="sans-serif-black"
                     android:text="USER PROFILE"
                     android:textColor="@android:color/black"

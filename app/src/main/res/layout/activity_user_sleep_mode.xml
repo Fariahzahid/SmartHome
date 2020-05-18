@@ -74,6 +74,8 @@
             <ScrollView
                 android:layout_width="395dp"
                 android:layout_height="533dp"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="50dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -85,8 +87,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -138,8 +140,8 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/user_sleep_mode_card_one"
-                            android:layout_width="250dp"
+                            android:id="@+id/user_moveout_mode_card_one"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
                             android:clickable="true"
@@ -155,8 +157,8 @@
                             app:layout_constraintVertical_bias="0.25">
 
                             <LinearLayout
-                                android:id="@+id/layout_sleep_mode_card_one"
-                                android:layout_width="match_parent"
+                                android:id="@+id/layout_moveout_mode_card_one"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:clickable="true"
                                 android:orientation="horizontal"
@@ -166,7 +168,7 @@
                                 android:paddingBottom="5dp">
 
                                 <androidx.cardview.widget.CardView
-                                    android:layout_width="105dp"
+                                    android:layout_width="90dp"
                                     android:layout_height="105dp"
                                     android:layout_gravity="left"
                                     app:cardBackgroundColor="@android:color/transparent"
@@ -180,7 +182,7 @@
                                         android:orientation="vertical">
 
                                         <ImageView
-                                            android:id="@+id/user_sleep_mode_bedroom_bulb_image"
+                                            android:id="@+id/user_moveout_mode_bedroom_bulb_image"
                                             android:layout_width="80dp"
                                             android:layout_height="72dp"
                                             android:layout_gravity="center"
@@ -205,7 +207,7 @@
                                     app:cardElevation="0dp">
 
                                     <Button
-                                        android:id="@+id/user_sleepmode_bedroom_bulb_on_button"
+                                        android:id="@+id/user_moveout_bedroom_bulb_on_button"
                                         android:layout_width="57dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
@@ -226,8 +228,8 @@
                                     app:cardElevation="0dp">
 
                                     <Button
-                                        android:id="@+id/user_sleepmode_bedroom_bulb_off_button"
-                                        android:layout_width="60dp"
+                                        android:id="@+id/user_moveout_bedroom_bulb_off_button"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:background="@drawable/button_rectangle_grey"
@@ -248,8 +250,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="8dp"
-                        android:orientation="horizontal"
-                       >
+                        android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="103dp"
@@ -283,8 +284,8 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/user_sleep_mode_card_two"
-                            android:layout_width="250dp"
+                            android:id="@+id/user_moveout_mode_card_two"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
                             android:clickable="true"
@@ -301,7 +302,7 @@
 
                             <LinearLayout
                                 android:id="@+id/layout_sleep_mode_card_two"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:clickable="true"
                                 android:orientation="horizontal"
@@ -311,7 +312,7 @@
                                 android:paddingBottom="5dp">
 
                                 <androidx.cardview.widget.CardView
-                                    android:layout_width="105dp"
+                                    android:layout_width="92dp"
                                     android:layout_height="105dp"
                                     android:layout_gravity="left"
                                     app:cardBackgroundColor="@android:color/transparent"
@@ -325,7 +326,7 @@
                                         android:orientation="vertical">
 
                                         <ImageView
-                                            android:id="@+id/user_sleep_mode_wc_bulb_image"
+                                            android:id="@+id/user_moveout_mode_wc_bulb_image"
                                             android:layout_width="80dp"
                                             android:layout_height="72dp"
                                             android:layout_gravity="center"
@@ -350,7 +351,7 @@
                                     app:cardElevation="0dp">
 
                                     <Button
-                                        android:id="@+id/user_sleepmode_wc_bulb_on_button"
+                                        android:id="@+id/user_moveout_wc_bulb_on_button"
                                         android:layout_width="57dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
@@ -371,7 +372,7 @@
                                     app:cardElevation="0dp">
 
                                     <Button
-                                        android:id="@+id/user_sleepmode_wc_bulb_off_button"
+                                        android:id="@+id/user_moveout_wc_bulb_off_button"
                                         android:layout_width="60dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
@@ -393,8 +394,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="8dp"
-                        android:orientation="horizontal"
-                        >
+                        android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="103dp"
@@ -428,8 +428,8 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/user_sleep_mode_card_three"
-                            android:layout_width="250dp"
+                            android:id="@+id/user_moveout_mode_card_three"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
                             android:clickable="true"
@@ -445,7 +445,7 @@
                             app:layout_constraintVertical_bias="0.25">
 
                             <LinearLayout
-                                android:id="@+id/layout_sleep_mode_card_three"
+                                android:id="@+id/layout_moveout_mode_card_three"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:clickable="true"
@@ -456,7 +456,7 @@
                                 android:paddingBottom="5dp">
 
                                 <androidx.cardview.widget.CardView
-                                    android:layout_width="105dp"
+                                    android:layout_width="92dp"
                                     android:layout_height="105dp"
                                     android:layout_gravity="left"
                                     app:cardBackgroundColor="@android:color/transparent"
@@ -470,7 +470,7 @@
                                         android:orientation="vertical">
 
                                         <ImageView
-                                            android:id="@+id/user_sleep_mode_heating_image"
+                                            android:id="@+id/user_moveout_mode_heating_image"
                                             android:layout_width="80dp"
                                             android:layout_height="72dp"
                                             android:layout_gravity="center"
@@ -495,7 +495,7 @@
                                     app:cardElevation="0dp">
 
                                     <Button
-                                        android:id="@+id/user_sleepmode_heating_on_button"
+                                        android:id="@+id/user_moveout_mode_heating_on_button"
                                         android:layout_width="57dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
@@ -516,7 +516,7 @@
                                     app:cardElevation="0dp">
 
                                     <Button
-                                        android:id="@+id/user_sleepmode_heating_off_button"
+                                        android:id="@+id/user_moveout_mode_heating_off_button"
                                         android:layout_width="60dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
@@ -538,8 +538,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="8dp"
-                        android:orientation="horizontal"
-                        >
+                        android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="103dp"
@@ -573,8 +572,8 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/user_sleep_mode_card_four"
-                            android:layout_width="250dp"
+                            android:id="@+id/user_moveout_mode_card_four"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
                             android:clickable="true"
@@ -601,7 +600,7 @@
                                 android:paddingBottom="5dp">
 
                                 <androidx.cardview.widget.CardView
-                                    android:layout_width="105dp"
+                                    android:layout_width="92dp"
                                     android:layout_height="105dp"
                                     android:layout_gravity="left"
                                     app:cardBackgroundColor="@android:color/transparent"
@@ -615,7 +614,7 @@
                                         android:orientation="vertical">
 
                                         <ImageView
-                                            android:id="@+id/user_sleep_mode_AC_image"
+                                            android:id="@+id/user_moveout_mode_AC_image"
                                             android:layout_width="80dp"
                                             android:layout_height="72dp"
                                             android:layout_gravity="center"
@@ -640,7 +639,7 @@
                                     app:cardElevation="0dp">
 
                                     <Button
-                                        android:id="@+id/user_sleepmode_ac_on_button"
+                                        android:id="@+id/user_moveout_mode_ac_on_button"
                                         android:layout_width="57dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
@@ -661,7 +660,7 @@
                                     app:cardElevation="0dp">
 
                                     <Button
-                                        android:id="@+id/user_sleepmode_ac_off_button"
+                                        android:id="@+id/user_moveout_mode_ac_off_button"
                                         android:layout_width="60dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
@@ -676,7 +675,6 @@
 
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
-
 
 
                 </LinearLayout>

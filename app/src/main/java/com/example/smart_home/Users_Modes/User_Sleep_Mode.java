@@ -11,5 +11,6 @@ public class User_Sleep_Mode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_sleep_mode);
+
     }
 }

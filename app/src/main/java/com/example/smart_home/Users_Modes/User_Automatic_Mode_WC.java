@@ -35,7 +35,7 @@ public class User_Automatic_Mode_WC extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                if(parent.getItemAtPosition(position).equals("WC")){
+                if(parent.getItemAtPosition(position).equals("BED ROOM")){
 
                 }else {
                     String item = parent.getItemAtPosition(position).toString();
