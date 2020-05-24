@@ -3,6 +3,7 @@
     package="com.example.smart_home">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -20,21 +21,28 @@
         </activity>
         <activity android:name=".Contact_Person_SignIn.Login" />
         <activity android:name=".Contact_Person_SignIn.Register" />
+
         <activity android:name=".Contact_Person_Screen.Contact_Person_Add_New_Users" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_Users_List" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_Notification" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Home" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Profile" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Modes" />
+        <activity android:name=".Contact_Person_Screen.Contact_Person_Profile"/>
+
+
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_MoveOut_Mode" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode" />
+
         <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode_Bedroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode_Livingroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode_WC" />
+
         <activity android:name=".Contact_Person_Modes.Contact_Person_Moveout_Mode_Bedroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Moveout_Mode_Livingroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Moveout_Mode_WC" />
+
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Bedroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Livingroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_WC" />

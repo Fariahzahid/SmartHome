@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3"
+    tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Profile"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="676dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background3"
+
+                android:paddingLeft="0dp"
+                android:paddingTop="16dp"
+                android:paddingRight="0dp"
+                android:paddingBottom="40dp"
+                >
+
+                <ImageView
+                    android:id="@+id/contactperson_profile_image"
+                    android:layout_width="128dp"
+                    android:layout_height="112dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="20dp"
+                    app:srcCompat="@color/black" />
+
+                <LinearLayout
+                    android:id="@+id/layout_contactperson_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/rectangle"
+                    android:clickable="true"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/contactperson_profile_image">
+
+                            <TextView
+
+                                android:id="@+id/text_contactperson_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="0dp"
+                                android:fontFamily="sans-serif-black"
+                                android:paddingTop="10dp"
+                                android:text="User Name"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                            <EditText
+
+                                android:id="@+id/text_contactperson_name_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="sans-serif"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp">
+
+                            </EditText>
+                            <TextView
+
+                                android:id="@+id/text_contactperson_email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="0dp"
+                                android:fontFamily="sans-serif-black"
+                                android:paddingTop="10dp"
+                                android:text="User Email"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                            <EditText
+
+                                android:id="@+id/text_contactperson_email_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|center_horizontal"
+                                android:fontFamily="sans-serif"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp">
+
+                            </EditText>
+
+                            <TextView
+
+                                android:id="@+id/text_contactperson_phoneno"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="0dp"
+                                android:fontFamily="sans-serif-black"
+                                android:paddingTop="10dp"
+                                android:text="Phone Number"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                            <EditText
+
+                                android:id="@+id/text_contactperson_phoneno_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="sans-serif"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp">
+
+                            </EditText>
+                            <TextView
+
+                                android:id="@+id/text_contactperson_address"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="0dp"
+                                android:fontFamily="sans-serif-black"
+                                android:paddingTop="10dp"
+                                android:text="Address"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                            <EditText
+
+                                android:id="@+id/text_contactperson_address_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="sans-serif"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp">
+
+                            </EditText>
+
+                            <TextView
+
+                                android:id="@+id/text_contactperson_gender"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="0dp"
+                                android:fontFamily="sans-serif-black"
+                                android:paddingTop="10dp"
+                                android:text="Gender"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp">
+
+                            </TextView>
+
+                            <EditText
+
+                                android:id="@+id/text_contactperson_gender2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="sans-serif"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp">
+
+                            </EditText>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavView_Bar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:labelVisibilityMode="labeled"
+                android:background="@color/purple_dark"
+                app:itemIconTint="@color/white"
+                app:itemTextColor="@color/white"
+                app:menu="@menu/bottom_navigation_menu"
+                >
+
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

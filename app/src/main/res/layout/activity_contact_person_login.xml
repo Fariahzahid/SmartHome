@@ -8,76 +8,106 @@
     tools:context="com.example.smart_home.Contact_Person_SignIn.Login">
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="158dp"
-        android:layout_height="144dp"
-        android:background="@drawable/user_icon2"
-        android:padding="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095" />
-
-    <EditText
-        android:id="@+id/contact_person_login_email"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_above="@+id/contact_person_login_password"
-        android:layout_marginTop="60dp"
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <EditText
-        android:id="@+id/contact_person_login_password"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="40dp"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/contact_person_login_email"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <Button
-        android:id="@+id/contact_person_btn_login"
-        android:layout_width="0dp"
-        android:layout_height="71dp"
-        android:layout_below="@+id/contact_person_login_password"
-        android:layout_margin="20dp"
-        android:background="@drawable/button_rectangle"
-        android:fontFamily="sans-serif-black"
-        android:text="LOGIN"
-        android:textColor="@color/white"
-        android:textSize="24sp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_person_login_password"
-        app:layout_constraintVertical_bias="0.234" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/contact_person_btn_signup"
-        android:layout_width="0dp"
-        android:layout_height="71dp"
-        android:layout_margin="20dp"
-        android:background="@drawable/button_rectangle"
-        android:fontFamily="sans-serif-black"
-        android:text="SIGNUP"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_person_btn_login"
-        app:layout_constraintVertical_bias="0.0" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="158dp"
+                android:layout_height="144dp"
+                android:background="@drawable/user_icon2"
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.095" />
+
+            <EditText
+                android:id="@+id/contact_person_login_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_above="@+id/contact_person_login_password"
+                android:layout_marginTop="60dp"
+                android:inputType="textEmailAddress"
+                android:padding="15dp"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <EditText
+                android:id="@+id/contact_person_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="40dp"
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/contact_person_login_email"
+                tools:layout_editor_absoluteX="0dp" />
+
+
+            <Button
+                android:id="@+id/contact_person_login_forget_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@android:color/transparent"
+                android:text="Forget Password"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contact_person_login_password">
+
+            </Button>
+
+            <Button
+                android:id="@+id/contact_person_btn_login"
+                android:layout_width="0dp"
+                android:layout_height="71dp"
+                android:layout_below="@+id/contact_person_login_password"
+                android:layout_margin="0dp"
+                android:background="@drawable/button_rectangle"
+                android:fontFamily="sans-serif-black"
+                android:text="LOGIN"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contact_person_login_forget_password"
+                app:layout_constraintVertical_bias="0.234" />
+
+            <Button
+                android:id="@+id/contact_person_btn_signup"
+                android:layout_width="0dp"
+                android:layout_height="71dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/button_rectangle"
+                android:fontFamily="sans-serif-black"
+                android:text="SIGNUP"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.454"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contact_person_btn_login"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

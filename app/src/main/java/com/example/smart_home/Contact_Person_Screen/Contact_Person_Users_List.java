@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -22,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.smart_home.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -47,11 +49,21 @@ public class Contact_Person_Users_List extends AppCompatActivity {
     ArrayList<User> users;
 
 
+    BottomNavigationView bottomNavigation;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_person_user_list);
-        recycle = (RecyclerView) findViewById(R.id.recycle_view);
+
+        Intent intent = getIntent();
+        userid = intent.getStringExtra("userID");
+        System.out.println(userid +"USER ID ==");
+
+        bottomNavigation = findViewById(R.id.bottomNavView_Bar);
+        buttomNavigationBar(userid);
+
 
         FloatingActionButton addNewUser = findViewById(R.id.button_add_user);
         addNewUser.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +129,29 @@ public class Contact_Person_Users_List extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         adapter.startListening();
+    }
+
+        private void buttomNavigationBar(final String user_id){
+
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_profile:
+                        Intent a = new Intent(Contact_Person_Users_List.this,Contact_Person_Profile.class);
+                        a.putExtra("userID",user_id);
+                        startActivity(a);
+                        break;
+                    case R.id.navigation_notifications:
+                        Intent b = new Intent(Contact_Person_Users_List.this,Contact_Person_Notification.class);
+                        b.putExtra("userID",user_id);
+                        startActivity(b);
+                        break;
+
+                }
+                return false;
+            }
+        });
     }
 }
 
