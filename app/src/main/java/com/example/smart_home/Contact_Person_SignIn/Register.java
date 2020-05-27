@@ -30,6 +30,7 @@ import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List;
+import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -65,8 +66,6 @@ public class Register extends AppCompatActivity {
     ProgressDialog mDialog;
     //Strings
     String userID;
-    Uri imageUri;
-
     //USER ID
     private String user_id;
     //URI
@@ -228,7 +227,10 @@ public class Register extends AppCompatActivity {
                             String note = "Success";
                             String settext ="User Profile Created" ;
 
-                            AlertDoalogBoxSuccess(Register.this,note,settext,userID);
+                            GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
+                            globalVariable.setUserIDContactPerson(userID);              //Setting contact Person UserID in global Variables
+
+                            AlertDoalogBoxSuccess(Register.this,note,settext);
                             System.out.println(note +"note   "+settext +"setText");
 
                         }
@@ -309,10 +311,9 @@ public class Register extends AppCompatActivity {
     }
 
 
-    private  void AlertDoalogBoxSuccess(Activity activity,String note,String setetxt,String userID){
+    private  void AlertDoalogBoxSuccess(Activity activity,String note,String setetxt){
         String noteone = note;
         String settexttwo= setetxt;
-        final String USERID = userID;
         final Dialog dialog = new Dialog(activity);
         dialog.setContentView(R.layout.dialog_box);
 
@@ -324,27 +325,16 @@ public class Register extends AppCompatActivity {
         info.setText(settexttwo);
 
         Button okButton = (Button) dialog.findViewById(R.id.confirmbuttom);
-        okButton.setText("No,Thanks");
+        okButton.setText("OK");
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Close dialog
-                Intent intent = new Intent(Register.this, Contact_Person_Users_List.class);
-                intent.putExtra("userID",USERID);
-                startActivity(intent);
                 startActivity(new Intent(Register.this, Contact_Person_Users_List.class));
                 dialog.dismiss();
             }
         });
 
-        Button addpicture = (Button) dialog.findViewById(R.id.cancelbutton);
-        addpicture.setText("Add Picture?");
-        addpicture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
         dialog.show();
 
     }
@@ -372,14 +362,6 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        final Button addpicture = (Button) dialog.findViewById(R.id.cancelbutton);
-        addpicture.setText("Add Picture?");
-        addpicture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
         dialog.show();
 
     }

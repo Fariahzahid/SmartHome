@@ -4,14 +4,8 @@ package com.example.smart_home.Contact_Person_Screen;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,8 +14,8 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -48,7 +42,6 @@ public class Contact_Person_Users_List extends AppCompatActivity {
     Context context;
     ArrayList<User> users;
 
-
     BottomNavigationView bottomNavigation;
 
 
@@ -57,13 +50,8 @@ public class Contact_Person_Users_List extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_person_user_list);
 
-        Intent intent = getIntent();
-        userid = intent.getStringExtra("userID");
-        System.out.println(userid +"USER ID ==");
-
         bottomNavigation = findViewById(R.id.bottomNavView_Bar);
-        buttomNavigationBar(userid);
-
+        buttomNavigationBar();
 
         FloatingActionButton addNewUser = findViewById(R.id.button_add_user);
         addNewUser.setOnClickListener(new View.OnClickListener() {
@@ -106,16 +94,17 @@ public class Contact_Person_Users_List extends AppCompatActivity {
 
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
-                User note = documentSnapshot.toObject(User.class);
-                String userid = documentSnapshot.getId();
-               // String path = documentSnapshot.getReference().getPath();
+                GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
 
+                User note = documentSnapshot.toObject(User.class);
+                userid = documentSnapshot.getId();
+
+                globalVariable.setUserIDUser(userid);             //Setting UserID in global Variables
                 Intent intent = new Intent(Contact_Person_Users_List.this,Contact_Person_User_Profile.class);
-                intent.putExtra("UserId",userid);
-                //Log.d(TAG,"Button is click");
+               // intent.putExtra("UserId",userid);
                 Toast.makeText(Contact_Person_Users_List.this,"Position" +position+"ID------" +userid,Toast.LENGTH_SHORT).show();
                 startActivity(intent);
-                System.out.println("Name 2"  +userid);
+                //System.out.println("Name 2"  +userid);
             }
         });
     }
@@ -131,7 +120,7 @@ public class Contact_Person_Users_List extends AppCompatActivity {
         adapter.startListening();
     }
 
-        private void buttomNavigationBar(final String user_id){
+        private void buttomNavigationBar(){
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -139,12 +128,12 @@ public class Contact_Person_Users_List extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_profile:
                         Intent a = new Intent(Contact_Person_Users_List.this,Contact_Person_Profile.class);
-                        a.putExtra("userID",user_id);
+                        //a.putExtra("userID",user_id);
                         startActivity(a);
                         break;
                     case R.id.navigation_notifications:
                         Intent b = new Intent(Contact_Person_Users_List.this,Contact_Person_Notification.class);
-                        b.putExtra("userID",user_id);
+                        //b.putExtra("userID",user_id);
                         startActivity(b);
                         break;
 

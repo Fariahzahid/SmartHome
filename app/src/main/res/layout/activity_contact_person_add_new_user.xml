@@ -30,7 +30,7 @@
 
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/user_profile_image"
                     android:layout_width="86dp"
                     android:layout_height="72dp"
                     android:layout_gravity="center"

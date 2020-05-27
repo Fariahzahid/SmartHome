@@ -2,6 +2,8 @@ package com.example.smart_home.Contact_Person_Screen;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.smart_home.Contact_Person_SignIn.Login;
+import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,7 +32,8 @@ public class Contact_Person_Profile extends AppCompatActivity {
 
     TextView aname,aemail,aphoneno,aaddress,auserid,agender;
     ImageView profileimage;
-    String value,userid;
+    Button log_out;
+    //String value,userid;
     FirebaseAuth fAuth;
 
     //FIREBASE STORAGE
@@ -41,20 +46,33 @@ public class Contact_Person_Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_person_profile);
-//
-        Intent intent = getIntent();
-        value = intent.getStringExtra("userID");
-        System.out.println(value +"USER ID ==");
+
+        log_out = (Button) findViewById(R.id.contact_person_logout);
+        log_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Login.class));
+                FirebaseAuth.getInstance().signOut();
+                finish();
+            }
+        });
+        //final GlobalVariables globalVariable = (GlobalVariables) getApplicationContext();
+
+//        Intent intent = getIntent();
+//        value = intent.getStringExtra("userID");
+//        System.out.println(value +"USER ID ==");
 
         //FIREBASE STORAGE
         storageReference = FirebaseStorage.getInstance().getReference();
         //FIREBASE FIRSTORE
         fStore = FirebaseFirestore.getInstance();
 
-        userdata(value);
+        userdata();
+
 
     }
-    private void userdata(String value){
+    private void userdata(){
+        GlobalVariables globalVariable=(GlobalVariables)getApplication();
         aname = (TextView) findViewById(R.id.text_contactperson_name_2);
         aemail = (TextView) findViewById(R.id.text_contactperson_email_2);
         aphoneno = (TextView) findViewById(R.id.text_contactperson_phoneno_2);
@@ -62,14 +80,16 @@ public class Contact_Person_Profile extends AppCompatActivity {
         agender = (TextView) findViewById(R.id.text_contactperson_gender2);
         profileimage = (ImageView) findViewById(R.id.contactperson_profile_image);
 
+        final String userid  = globalVariable.getUserIDContactPerson();
 
         fStore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
 
-        System.out.println(value +"userid ");
-        final DocumentReference documentReference = fStore.collection("Contact Person").document(value);
+       // System.out.println(value +"userid ");
+
+        final DocumentReference documentReference = fStore.collection("Contact Person").document(userid);
         //RETREIVE DATA
-        fStore.collection("Contact Person").document(value).collection("ProfileImage").document().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        fStore.collection("Contact Person").document(userid).collection("ProfileImage").document().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {

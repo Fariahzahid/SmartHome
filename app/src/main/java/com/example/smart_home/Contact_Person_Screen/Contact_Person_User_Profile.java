@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -29,17 +30,17 @@ public class Contact_Person_User_Profile extends AppCompatActivity {
 
     TextView aname,aemail,aphoneno,aaddress,auserid,agender;
     FirebaseFirestore fStore;
-    String value;
     private Spinner user_settings;
+    String userid;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_person_user_profile);
 
-        Intent intent = getIntent();
-        value = intent.getStringExtra("UserId");
-        System.out.println(value +"USER ID ==");
+        GlobalVariables globalVariable=(GlobalVariables)getApplication();
+        userid  = globalVariable.getUserIDUser();
 
         ArrayList<String> categories = new ArrayList<>();
         categories.add(0,"USER PROFILE");
@@ -53,7 +54,7 @@ public class Contact_Person_User_Profile extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(parent.getItemAtPosition(position).equals("USER PROFILE")){
-                    userdata();
+                    userdata(userid);
 
                 }else {
                     String item = parent.getItemAtPosition(position).toString();
@@ -61,7 +62,7 @@ public class Contact_Person_User_Profile extends AppCompatActivity {
                 }
                 if(parent.getItemAtPosition(position).equals("USER MODES")){
                     Intent intent = new Intent(Contact_Person_User_Profile.this, Contact_Person_User_Modes.class);
-                    intent.putExtra("UserID",value);
+                    //intent.putExtra("UserID",value);
                     startActivity(intent);
                 }
             }
@@ -72,10 +73,8 @@ public class Contact_Person_User_Profile extends AppCompatActivity {
             }
         });
 
-
     }
-    private void userdata(){
-        //auserid = (TextView) findViewById(R.id.userid);
+    private void userdata(String id){
         aname = (TextView) findViewById(R.id.text_cp_user_name_2);
         aemail = (TextView) findViewById(R.id.text_cp_user_email_2);
         aphoneno = (TextView) findViewById(R.id.text_cp_user_phoneno_2);
@@ -83,11 +82,8 @@ public class Contact_Person_User_Profile extends AppCompatActivity {
         agender = (TextView) findViewById(R.id.text_cp_useraddress4);
 
         fStore = FirebaseFirestore.getInstance();
-       // System.out.println("User Id" +value +"NAme");
-        //Log.d(TAG,value);
 
-
-        final DocumentReference documentReference = fStore.collection("USER").document(value);
+        final DocumentReference documentReference = fStore.collection("USER").document(id);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {

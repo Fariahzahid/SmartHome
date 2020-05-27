@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +15,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List;
+import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -36,8 +36,9 @@ public class Login extends AppCompatActivity {
     FirebaseAuth mFirebaseAuth;
     Button forgetPassword;
     FirebaseFirestore fStore;
-
     private String userID;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +56,10 @@ public class Login extends AppCompatActivity {
 
         if (mFirebaseAuth.getCurrentUser() != null) {
             Intent intent = new Intent(Login.this, Contact_Person_Users_List.class);
-            userID =mFirebaseAuth.getCurrentUser().getUid();
-            intent.putExtra("userID",userID);
+            userID = mFirebaseAuth.getCurrentUser().getUid();
+
+            GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
+            globalVariable.setUserIDContactPerson(userID);              //Setting contact Person UserID in global Variables
             startActivity(intent);
             finish();
         }
@@ -76,10 +79,10 @@ public class Login extends AppCompatActivity {
                     password.setError("password is empty");
                     return;
                 }
-                if(regpassword.length()< 6){
-                    password.setError("Password must be 6 characters long");
-                    return;
-                }
+//                if(regpassword.length()< 6){
+//                    password.setError("Password must be 6 characters long");
+//                    return;
+//                }
 
 
                 mFirebaseAuth.signInWithEmailAndPassword(regemail,regpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -88,7 +91,9 @@ public class Login extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(Login.this, "User Logged In.",Toast.LENGTH_SHORT).show();
                             userID =mFirebaseAuth.getCurrentUser().getUid();
+                            GlobalVariables globalVariable=(GlobalVariables)getApplication();
 
+                            globalVariable.setUserIDContactPerson(userID);
                             DocumentReference documentReference = fStore.collection("Contact Person").document(userID);
 
                             documentReference.update("Password",regpassword)

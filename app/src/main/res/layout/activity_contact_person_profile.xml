@@ -19,7 +19,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="676dp">
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/activity_dashboard"
@@ -27,9 +27,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/background3"
 
-                android:paddingLeft="0dp"
                 android:paddingTop="16dp"
-                android:paddingRight="0dp"
                 android:paddingBottom="40dp"
                 >
 
@@ -59,147 +57,167 @@
                     android:paddingBottom="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/contactperson_profile_image">
+                    app:layout_constraintTop_toBottomOf="@+id/contactperson_profile_image"
+                    app:layout_constraintVertical_bias="0.022">
 
-                            <TextView
+                    <TextView
 
-                                android:id="@+id/text_contactperson_name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="0dp"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingTop="10dp"
-                                android:text="User Name"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp">
+                        android:id="@+id/text_contactperson_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="0dp"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="10dp"
+                        android:text="User Name"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp">
 
-                            </TextView>
+                    </TextView>
 
-                            <EditText
+                    <EditText
 
-                                android:id="@+id/text_contactperson_name_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp">
+                        android:id="@+id/text_contactperson_name_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
 
-                            </EditText>
-                            <TextView
+                    </EditText>
 
-                                android:id="@+id/text_contactperson_email"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="0dp"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingTop="10dp"
-                                android:text="User Email"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp">
+                    <TextView
 
-                            </TextView>
+                        android:id="@+id/text_contactperson_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="0dp"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="10dp"
+                        android:text="User Email"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp">
 
-                            <EditText
+                    </TextView>
 
-                                android:id="@+id/text_contactperson_email_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center|center_horizontal"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp">
+                    <EditText
 
-                            </EditText>
+                        android:id="@+id/text_contactperson_email_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|center_horizontal"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
 
-                            <TextView
+                    </EditText>
 
-                                android:id="@+id/text_contactperson_phoneno"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="0dp"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingTop="10dp"
-                                android:text="Phone Number"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp">
+                    <TextView
 
-                            </TextView>
+                        android:id="@+id/text_contactperson_phoneno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="0dp"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="10dp"
+                        android:text="Phone Number"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp">
 
-                            <EditText
+                    </TextView>
 
-                                android:id="@+id/text_contactperson_phoneno_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp">
+                    <EditText
 
-                            </EditText>
-                            <TextView
+                        android:id="@+id/text_contactperson_phoneno_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
 
-                                android:id="@+id/text_contactperson_address"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="0dp"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingTop="10dp"
-                                android:text="Address"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp">
+                    </EditText>
 
-                            </TextView>
+                    <TextView
 
-                            <EditText
+                        android:id="@+id/text_contactperson_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="0dp"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="10dp"
+                        android:text="Address"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp">
 
-                                android:id="@+id/text_contactperson_address_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp">
+                    </TextView>
 
-                            </EditText>
+                    <EditText
 
-                            <TextView
+                        android:id="@+id/text_contactperson_address_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
 
-                                android:id="@+id/text_contactperson_gender"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="0dp"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingTop="10dp"
-                                android:text="Gender"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp">
+                    </EditText>
 
-                            </TextView>
+                    <TextView
 
-                            <EditText
+                        android:id="@+id/text_contactperson_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="0dp"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="10dp"
+                        android:text="Gender"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp">
 
-                                android:id="@+id/text_contactperson_gender2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp">
+                    </TextView>
 
-                            </EditText>
+                    <EditText
+
+                        android:id="@+id/text_contactperson_gender2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
+
+                    </EditText>
 
                 </LinearLayout>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="71dp"
+                    android:id="@+id/contact_person_logout"
+                    android:background="@drawable/button_rectangle"
+                    android:text="LOG OUT"
+                    android:layout_margin="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_contactperson_profile"></Button>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
@@ -224,5 +242,6 @@
 
             </com.google.android.material.bottomnavigation.BottomNavigationView>
         </RelativeLayout>
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
