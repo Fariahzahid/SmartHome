@@ -1,6 +1,7 @@
 package com.example.smart_home.Contact_Person_Screen;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import com.example.smart_home.Contact_Person_SignIn.Login;
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -26,13 +28,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class Contact_Person_Profile extends AppCompatActivity {
     private static final String TAG = "MyActivity";
 
     TextView aname,aemail,aphoneno,aaddress,auserid,agender;
     ImageView profileimage;
-    Button log_out;
+    Button editprofile_button,log_out_button;
     //String value,userid;
     FirebaseAuth fAuth;
 
@@ -47,8 +50,16 @@ public class Contact_Person_Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_person_profile);
 
-        log_out = (Button) findViewById(R.id.contact_person_logout);
-        log_out.setOnClickListener(new View.OnClickListener() {
+        editprofile_button = (Button) findViewById(R.id.contact_person_editprofile);
+        editprofile_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Contact_Person_Profile.this,Contact_Person_Edit_Profile.class);
+                startActivity(intent);
+            }
+        });
+        log_out_button = (Button) findViewById(R.id.contact_person_logout);
+        log_out_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Login.class));
@@ -56,12 +67,6 @@ public class Contact_Person_Profile extends AppCompatActivity {
                 finish();
             }
         });
-        //final GlobalVariables globalVariable = (GlobalVariables) getApplicationContext();
-
-//        Intent intent = getIntent();
-//        value = intent.getStringExtra("userID");
-//        System.out.println(value +"USER ID ==");
-
         //FIREBASE STORAGE
         storageReference = FirebaseStorage.getInstance().getReference();
         //FIREBASE FIRSTORE
@@ -85,21 +90,12 @@ public class Contact_Person_Profile extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
 
-       // System.out.println(value +"userid ");
-
         final DocumentReference documentReference = fStore.collection("Contact Person").document(userid);
-        //RETREIVE DATA
-        fStore.collection("Contact Person").document(userid).collection("ProfileImage").document().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        StorageReference profileRef = storageReference.child("profile/" +fAuth.getCurrentUser().getUid()+".jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    if (task.getResult().exists()) {
-                        String image = task.getResult().getString("image");
-                        Glide.with(Contact_Person_Profile.this).load(image).into(profileimage);
-                    }
-                } else {
-                    Toast.makeText(Contact_Person_Profile.this, "ERROR", Toast.LENGTH_SHORT).show(); }
-
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profileimage);
             }
         });
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {

@@ -104,11 +104,6 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
             }
         });
 
-//        if(fAuth.getCurrentUser() != null){
-//            startActivity(new Intent(getApplicationContext(), Contact_Person_Add_New_Users.class));
-//            //FirebaseAuth.getInstance().signOut();
-//            finish();
-//        }
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

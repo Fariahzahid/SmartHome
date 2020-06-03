@@ -2,34 +2,42 @@ package com.example.smart_home.Users_Modes;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.smart_home.R;
-import com.example.smart_home.Users_SignIn.User_Login;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class User_Home  extends AppCompatActivity {
     private String value;
     private Button sleep_mode,moveout_mode,automatic_mode,manual_mode;
+    FirebaseAuth mFirebaseAuth;
+    FirebaseFirestore fStore;
+    String userID;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_home);
 
-        Intent intent = getIntent();
-        value = intent.getStringExtra("UserId");
-        System.out.println(value +"USER ID ==");
+        fStore = FirebaseFirestore.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+
 
         sleep_mode = (Button) findViewById(R.id.user_home_sleep_mode_button);
         moveout_mode = (Button) findViewById(R.id.user_home_moveoutmode_button);
         automatic_mode = (Button) findViewById(R.id.user_home_automatic_mode_button);
         manual_mode = (Button) findViewById(R.id.user_home_manual_mode_button);
+
 
         sleep_mode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +71,8 @@ public class User_Home  extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void SleepMode(View v){
         Intent intent = new Intent(User_Home.this, User_Sleep_Mode.class);

@@ -10,15 +10,22 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smart_home.R;
 import com.example.smart_home.Users_Modes.User_Home;
+import com.example.smart_home.Users_Modes.User_Home_Voice_Recognition;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 
 public class User_Login extends AppCompatActivity {
 
@@ -44,55 +51,69 @@ public class User_Login extends AppCompatActivity {
 
 
         if (mFirebaseAuth.getCurrentUser() != null) {
-            startActivity(new Intent(User_Login.this, User_Home.class));
+            fStore = FirebaseFirestore.getInstance();
+            userID = mFirebaseAuth.getCurrentUser().getUid();
+            startActivity(new Intent(User_Login.this, User_Home_Voice_Recognition.class));
             finish();
+
         }
-        user_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String regemail = email.getText().toString().trim();
-                String regpassword = password.getText().toString().trim();
+//            String compare = null;
+//            final DocumentReference documentReference = fStore.collection("Contact Person").document(userID);
+//            Query query = fStore.collection("Contact Person");
+//            String getcontactperson = query.toString();
+//            if(getcontactperson == "Contact Person"){
+//                FirebaseAuth.getInstance().signOut();
+//            }
+//            else {
+            //}
 
-                if(TextUtils.isEmpty(regemail)){
-                    email.setError("Email is required");
-                    return;
+//        }else {
+            user_login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String regemail = email.getText().toString().trim();
+                    String regpassword = password.getText().toString().trim();
 
-                }
+                    if(TextUtils.isEmpty(regemail)){
+                        email.setError("Email is required");
+                        return;
 
-                if(TextUtils.isEmpty(regpassword)){
-                    password.setError("password is empty");
-                    return;
-                }
-                if(regpassword.length()< 6){
-                    password.setError("Password must be 6 characters long");
-                    return;
-                }
-
-                mFirebaseAuth.signInWithEmailAndPassword(regemail,regpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(User_Login.this, "User Logged In.",Toast.LENGTH_SHORT).show();
-                            userID = mFirebaseAuth.getCurrentUser().getUid();
-                            //startActivity(new Intent(getApplicationContext(), User_Home.class));
-
-                            Intent intent = new Intent(User_Login.this,User_Home.class);
-                            intent.putExtra("UserID",userID);
-                            startActivity(intent);
-
-                            //Toast.makeText(User_Login.this, "User Id  " +userID +"UserName" +mFirebaseAuth.getCurrentUser().getEmail()  ,Toast.LENGTH_SHORT).show();
-
-                        }
-                        else{
-                            Toast.makeText(User_Login.this, "Error."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                            //startActivity(new Intent(getApplicationContext(),SignIn.class));
-
-                        }
                     }
-                });
 
-            }
-        });
+                    if(TextUtils.isEmpty(regpassword)){
+                        password.setError("password is empty");
+                        return;
+                    }
+                    if(regpassword.length()< 6){
+                        password.setError("Password must be 6 characters long");
+                        return;
+                    }
 
-    }
+                    mFirebaseAuth.signInWithEmailAndPassword(regemail,regpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(User_Login.this, "User Logged In.",Toast.LENGTH_SHORT).show();
+                                userID = mFirebaseAuth.getCurrentUser().getUid();
+                                //startActivity(new Intent(getApplicationContext(), User_Home.class));
+
+                                Intent intent = new Intent(User_Login.this, User_Home_Voice_Recognition.class);
+                                intent.putExtra("UserID",userID);
+                                startActivity(intent);
+
+                                //Toast.makeText(User_Login.this, "User Id  " +userID +"UserName" +mFirebaseAuth.getCurrentUser().getEmail()  ,Toast.LENGTH_SHORT).show();
+
+                            }
+                            else{
+                                Toast.makeText(User_Login.this, "Error."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                                //startActivity(new Intent(getApplicationContext(),SignIn.class));
+
+                            }
+                        }
+                    });
+
+                }
+            });
+        }
+    //}
 }

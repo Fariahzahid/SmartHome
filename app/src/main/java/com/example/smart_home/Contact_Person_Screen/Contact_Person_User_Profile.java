@@ -91,7 +91,6 @@ public class Contact_Person_User_Profile extends AppCompatActivity {
                 aemail.setText(documentSnapshot.getString("Email"));
                 aphoneno.setText(documentSnapshot.getString("PhoneNo"));
                 aaddress.setText(documentSnapshot.getString("Address"));
-                //auserid.setText(documentSnapshot.getString("UserId"));
                 agender.setText(documentSnapshot.getString("Gender"));
 
                 String a =  documentSnapshot.getString("Name");

@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
 
     <application
         android:name=".GlobalVariables"
@@ -30,6 +32,7 @@
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Profile" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Modes" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_Profile"/>
+        <activity android:name=".Contact_Person_Screen.Contact_Person_Edit_Profile"/>
 
 
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode" />
@@ -48,8 +51,12 @@
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Livingroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_WC" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Kitchen" />
+
         <activity android:name=".Users_SignIn.User_Login" />
+
         <activity android:name=".Users_Modes.User_Home" />
+        <activity android:name=".Users_Modes.User_Home_Voice_Recognition"/>
+
         <activity android:name=".Users_Modes.User_Sleep_Mode" />
         <activity android:name=".Users_Modes.User_Move_Out_Mode" />
         <activity android:name=".Users_Modes.User_Automatic_Mode_Bedroom" />

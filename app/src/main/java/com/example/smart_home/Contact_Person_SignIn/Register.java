@@ -221,6 +221,7 @@ public class Register extends AppCompatActivity {
                     user.put("PhoneNo", regphoneno);
                     user.put("Address", regaddress);
                     user.put("Gender", reggender);
+                    user.put("ContactPerson",  "Contact Person");
                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
