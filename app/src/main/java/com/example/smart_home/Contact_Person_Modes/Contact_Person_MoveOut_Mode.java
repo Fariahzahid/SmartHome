@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class Contact_Person_MoveOut_Mode extends AppCompatActivity {
     Contact_Person_Moveout_Mode_WC wc;
     Contact_Person_Moveout_Mode_Kitchen kitchen;
     ImageView room_image;
+    String userid;
 
 
     @Override
@@ -32,23 +34,13 @@ public class Contact_Person_MoveOut_Mode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_person_moveout_mode);
 
-        Intent intent = getIntent();
-        final String value = intent.getStringExtra("UserID");
-        System.out.println(value +"USER ID ---");
-        Log.d(TAG,"UserID   "+value);
-
-
-        Bundle bundle = new Bundle();
-        bundle.putString("UserID", value);
+        GlobalVariables globalVariables =(GlobalVariables)getApplication();
+        userid = globalVariables.getUserIDUser();
         bedroom = new Contact_Person_Moveout_Mode_Bedroom();
         livingroom = new Contact_Person_Moveout_Mode_Livingroom();
         wc = new Contact_Person_Moveout_Mode_WC();
         kitchen = new Contact_Person_Moveout_Mode_Kitchen();
 
-        bedroom.setArguments(bundle);
-        livingroom.setArguments(bundle);
-        wc.setArguments(bundle);
-        kitchen.setArguments(bundle);
 
         ArrayList<String> categories = new ArrayList<>();
         // categories.add(0,"Select Room");

@@ -125,12 +125,10 @@ public class Contact_Person_Users_List extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_profile:
                         Intent a = new Intent(Contact_Person_Users_List.this,Contact_Person_Profile.class);
-                        //a.putExtra("userID",user_id);
                         startActivity(a);
                         break;
                     case R.id.navigation_notifications:
                         Intent b = new Intent(Contact_Person_Users_List.this,Contact_Person_Notification.class);
-                        //b.putExtra("userID",user_id);
                         startActivity(b);
                         break;
 

@@ -22,12 +22,12 @@ import java.util.ArrayList;
 public class Contact_Person_Sleep_Mode extends AppCompatActivity {
     private static final String TAG = "MyActivity";
     private Spinner mSpinner ;
+    String userid;
     Contact_Person_Sleep_Mode_Bedroom bedroom;
     Contact_Person_Sleep_Mode_Livingroom livingroom;
     Contact_Person_Sleep_Mode_WC wc;
     Contact_Person_Sleep_Mode_Kitchen kitchen;
     ImageView room_image;
-    String value;
 
 
     @Override
@@ -35,8 +35,12 @@ public class Contact_Person_Sleep_Mode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_person_sleep_mode);
 
-        GlobalVariables globalVariables = new GlobalVariables();
-        value = globalVariables.getUserIDUser();
+        GlobalVariables globalVariables =(GlobalVariables)getApplication();
+        userid = globalVariables.getUserIDUser();
+        Intent intent = getIntent();
+        final String value = intent.getStringExtra("UserID");
+        System.out.println(value +"USER ID ---");
+        Log.d(TAG,"UserID   "+value);
 
 
         Bundle bundle = new Bundle();

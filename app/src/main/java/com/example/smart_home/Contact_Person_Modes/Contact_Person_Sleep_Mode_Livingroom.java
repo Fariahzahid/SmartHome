@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -42,12 +43,14 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        if(getArguments() != null){
-            userID= getArguments().getString("UserID");
-            System.out.println(userID +"userid");
-            Log.d(TAG,"UserID   "+userID);
-
-        }
+//        if(getArguments() != null){
+//            userID= getArguments().getString("UserID");
+//            System.out.println(userID +"userid");
+//            Log.d(TAG,"UserID   "+userID);
+//
+//        }
+        GlobalVariables globalVariables =(GlobalVariables)getActivity().getApplication();
+        userID = globalVariables.getUserIDUser();
         View v = inflater.inflate(R.layout.activity_contact_person_sleepmode_livingroom, container, false);
 
         bedroom = "Sleep_Mode_Livingroom";

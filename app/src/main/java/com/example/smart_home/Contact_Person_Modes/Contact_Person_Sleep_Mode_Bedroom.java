@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,16 +37,21 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
     String userID;
     Button save;
 
+
     android.widget.Spinner ac,actemp,heating,heatingtemp,time,winblind,bulb,bulbint,nightlamp,chrgpoint;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        if(getArguments() != null){
-            userID= getArguments().getString("UserID");
-            System.out.println(userID +"userid");
-            Log.d(TAG,"UserID   "+userID);
+//        if(getArguments() != null){
+//            userID= getArguments().getString("UserID");
+//            System.out.println(userID +"userid");
+//            Log.d(TAG,"UserID   "+userID);
+//
+//        }
 
-        }
+
+        GlobalVariables globalVariables =(GlobalVariables)getActivity().getApplication();
+        userID = globalVariables.getUserIDUser();
         View v = inflater.inflate(R.layout.activity_contact_person_sleepmode_bedroom, container, false);
 
         bedroom = "Sleep_Mode_Bedroom";
@@ -68,14 +75,12 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
             @Override
             public void onClick(View v) {
                 DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document();
-
                 Map<String,Object> user = new HashMap<>();
                 user.put("WindowBlinds",winblind.getSelectedItem().toString());
                 user.put("Bulb",bulb.getSelectedItem().toString());
                 user.put("BulbIntensity",bulbint.getSelectedItem().toString());
                 user.put("NightLamp",nightlamp.getSelectedItem().toString());
                 user.put("ChargingPoints",chrgpoint.getSelectedItem().toString());
-
 
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
