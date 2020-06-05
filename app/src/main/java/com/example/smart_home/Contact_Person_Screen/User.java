@@ -1,5 +1,7 @@
 package com.example.smart_home.Contact_Person_Screen;
 
+import android.widget.ImageView;
+
 public class User {
 
     private String UserID;
@@ -9,6 +11,7 @@ public class User {
     private String Password;
     private String Address;
     private String Gender;
+
 
     public User() {
     }

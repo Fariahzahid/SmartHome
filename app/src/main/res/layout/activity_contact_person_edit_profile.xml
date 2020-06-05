@@ -54,28 +54,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/contactperson_profile_image"
                     app:layout_constraintVertical_bias="0.022">
 
-                    <TextView
-
-                        android:id="@+id/text_contactperson_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="0dp"
-                        android:fontFamily="sans-serif-black"
-                        android:paddingTop="10dp"
-                        android:text="User Name"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp">
-
-                    </TextView>
-
                     <EditText
 
                         android:id="@+id/text_contactperson_editname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:hint="EDIT NAME"
+                        android:hint="NAME"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="sans-serif"
                         android:textColor="@android:color/black"
@@ -100,38 +85,11 @@
 
                     <EditText
 
-                        android:id="@+id/text_contactperson_editemail"
-                        android:layout_width="wrap_content"
-                        android:hint="EDIT EMAIL"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|center_horizontal"
-                        android:fontFamily="sans-serif"
-                        android:textColor="@android:color/black"
-                        android:textSize="15sp">
-
-                    </EditText>
-
-                    <TextView
-
-                        android:id="@+id/text_contactperson_phoneno"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="0dp"
-                        android:fontFamily="sans-serif-black"
-                        android:paddingTop="10dp"
-                        android:text="Phone Number"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp">
-
-                    </TextView>
-
-                    <EditText
-
                         android:id="@+id/text_contactperson_editphoneno"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="EDIT PHONE NUMBER"
+                        android:numeric="integer"
                         android:layout_gravity="center"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="sans-serif"
@@ -139,21 +97,6 @@
                         android:textSize="15sp">
 
                     </EditText>
-
-                    <TextView
-
-                        android:id="@+id/text_contactperson_address"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="0dp"
-                        android:fontFamily="sans-serif-black"
-                        android:paddingTop="10dp"
-                        android:text="Address"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp">
-
-                    </TextView>
 
                     <EditText
 
@@ -169,24 +112,23 @@
 
                     </EditText>
 
-                    <TextView
+                    <EditText
 
                         android:id="@+id/text_contactperson_gender"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:hint="EDIT GENDER"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="0dp"
-                        android:fontFamily="sans-serif-black"
-                        android:paddingTop="10dp"
-                        android:text="Gender"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp">
+                        android:textSize="15sp">
 
-                    </TextView>
+                    </EditText>
 
                     <Spinner
 
-                        android:id="@+id/text_contactperson_editgender"
+                        android:id="@+id/contactperson_editgender"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

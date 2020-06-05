@@ -33,7 +33,7 @@ import com.squareup.picasso.Picasso;
 public class Contact_Person_Profile extends AppCompatActivity {
     private static final String TAG = "MyActivity";
 
-    TextView aname,aemail,aphoneno,aaddress,auserid,agender;
+    TextView aname,aemail,aphoneno,aaddress,agender;
     ImageView profileimage;
     Button editprofile_button,log_out_button;
     //String value,userid;
@@ -106,14 +106,6 @@ public class Contact_Person_Profile extends AppCompatActivity {
                 aphoneno.setText(documentSnapshot.getString("PhoneNo"));
                 aaddress.setText(documentSnapshot.getString("Address"));
                 agender.setText(documentSnapshot.getString("Gender"));
-
-                String a =  documentSnapshot.getString("Name");
-                String b =  documentSnapshot.getString("Email");
-                String c =  documentSnapshot.getString("PhoneNo");
-                String d =  documentSnapshot.getString("Address");
-                String ef =  documentSnapshot.getString("Gender");
-
-                System.out.println("name    " +a +"     email     " +b +"    phoneno     " +c +"       address     "+d +"      gender    "+ef);
             }
         });
 

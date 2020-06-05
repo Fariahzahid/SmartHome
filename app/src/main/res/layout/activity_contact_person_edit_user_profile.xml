@@ -39,7 +39,7 @@
                     app:layout_constraintVertical_bias="0.026" />
 
                 <EditText
-                    android:id="@+id/user_register_name"
+                    android:id="@+id/user_edit_name"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="36dp"
@@ -50,18 +50,7 @@
                     tools:layout_editor_absoluteX="16dp" />
 
                 <EditText
-                    android:id="@+id/user_register_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="16dp"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:padding="15dp"
-                    android:textSize="15sp"
-                    tools:layout_editor_absoluteX="0dp" />
-
-                <EditText
-                    android:id="@+id/user_register_phoneno"
+                    android:id="@+id/user_edit_phoneno"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="28dp"
@@ -70,28 +59,58 @@
                     android:padding="15dp"
                     android:textSize="15sp"
                     tools:layout_editor_absoluteX="0dp" />
+                <TextView
+                    android:id="@+id/user_edit_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="28dp"
+                    android:hint="Email"
+                    android:padding="15dp"
+                    android:textSize="15sp"
+                    tools:layout_editor_absoluteX="0dp" />
+
 
                 <EditText
-                    android:id="@+id/user_register_address"
+                    android:id="@+id/user_edit_address"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="28dp"
                     android:hint="Address"
-                    android:inputType="textPassword"
+                    android:padding="15dp"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@+id/user_register_phoneno"
+                    tools:layout_editor_absoluteX="0dp" />
+
+
+                <EditText
+                    android:id="@+id/user_edit_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="28dp"
+                    android:hint="Gender"
                     android:padding="15dp"
                     android:textSize="15sp"
                     app:layout_constraintTop_toBottomOf="@+id/user_register_phoneno"
                     tools:layout_editor_absoluteX="0dp" />
 
                 <Spinner
-                    android:id="@+id/gender_spinner"
+                    android:id="@+id/edit_gender_spinner"
                     android:layout_width="398dp"
                     android:layout_height="62dp"
                     android:layout_marginTop="16dp"
-                    android:inputType="textPassword"
                     android:padding="15dp"
                     android:textSize="15sp" />
 
+                <EditText
+                    android:id="@+id/user_edit_disability"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="28dp"
+                    android:hint="Disability "
+                    android:padding="15dp"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@+id/user_register_phoneno"
+                    tools:layout_editor_absoluteX="0dp" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -100,15 +119,14 @@
 
                     <Spinner
                         android:id="@+id/disability_spinner_one"
-                        android:layout_width="344dp"
+                        android:layout_width="264dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:inputType="textPassword"
                         android:padding="15dp"
                         android:textSize="15sp" />
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/button_add_userone"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|end"
                         android:src="@drawable/plus2"
@@ -118,16 +136,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/dislayouttwo"
                     android:visibility="gone"
+                    android:id="@+id/dislayouttwo"
                     android:orientation="horizontal">
 
                     <Spinner
                         android:id="@+id/disability_spinner_two"
-                        android:layout_width="344dp"
+                        android:layout_width="264dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:inputType="textPassword"
                         android:padding="15dp"
                         android:textSize="15sp" />
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -148,44 +165,23 @@
 
                     <Spinner
                         android:id="@+id/disability_spinnerthree"
-                        android:layout_width="match_parent"
+                        android:layout_width="264dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:inputType="textPassword"
                         android:padding="15dp"
                         android:textSize="15sp" />
                 </LinearLayout>
 
 
-                <EditText
-                    android:id="@+id/user_register_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:padding="15dp"
-                    android:textSize="15sp" />
-
-                <EditText
-                    android:id="@+id/user_register_conpassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Confirm Passowrd"
-                    android:inputType="textPassword"
-                    android:padding="15dp"
-                    android:textSize="15sp"
-                    tools:layout_editor_absoluteX="0dp" />
-
-
                 <Button
-                    android:id="@+id/user_register_button"
+                    android:id="@+id/user_edit_button"
                     android:layout_width="match_parent"
                     android:layout_height="61dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginBottom="32dp"
                     android:background="@drawable/button_rectangle"
                     android:fontFamily="sans-serif-black"
-                    android:text="REGISTER"
+                    android:text="SAVE"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"

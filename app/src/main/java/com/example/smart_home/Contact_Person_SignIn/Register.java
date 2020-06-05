@@ -66,8 +66,6 @@ public class Register extends AppCompatActivity {
     ProgressDialog mDialog;
     //Strings
     String userID;
-    //USER ID
-    private String user_id;
     //URI
     private Uri mainImageURI;
     //REQUEST CODE
@@ -211,7 +209,7 @@ public class Register extends AppCompatActivity {
                     //Toast.makeText(Register.this, "User Created.", Toast.LENGTH_SHORT).show();
                     userID = fAuth.getCurrentUser().getUid();
                     DocumentReference documentReference = fStore.collection("Contact Person").document(userID);
-                    final StorageReference ImagesPath = storageReference.child("profile").child(user_id + ".jpg");
+                    final StorageReference ImagesPath = storageReference.child("profile").child(userID + ".jpg");
 
                     Map<String, Object> user = new HashMap<>();
                     user.put("UserID", userID);

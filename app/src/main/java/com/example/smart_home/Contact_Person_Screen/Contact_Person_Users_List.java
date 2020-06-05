@@ -98,13 +98,10 @@ public class Contact_Person_Users_List extends AppCompatActivity {
 
                 User note = documentSnapshot.toObject(User.class);
                 userid = documentSnapshot.getId();
+                globalVariable.setUserIDUser(userid);//Setting UserID in global Variables
 
-                globalVariable.setUserIDUser(userid);             //Setting UserID in global Variables
                 Intent intent = new Intent(Contact_Person_Users_List.this,Contact_Person_User_Profile.class);
-               // intent.putExtra("UserId",userid);
-                Toast.makeText(Contact_Person_Users_List.this,"Position" +position+"ID------" +userid,Toast.LENGTH_SHORT).show();
                 startActivity(intent);
-                //System.out.println("Name 2"  +userid);
             }
         });
     }

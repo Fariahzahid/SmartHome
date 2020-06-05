@@ -2,7 +2,7 @@
 
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,137 +10,65 @@
     android:background="@drawable/background3"
     tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_User_Profile"
     >
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="676dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/activity_dashboard"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            >
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/background3"
-
-                android:paddingLeft="0dp"
-                android:paddingTop="16dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="40dp"
-                >
-
-                <Spinner
-                    android:id="@+id/cp_User_Profile"
-                    android:layout_width="243dp"
-                    android:layout_height="52dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="USER PROFILE"
-                    android:textColor="@android:color/black"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.022" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/cp_user_profile_image"
                     android:layout_width="128dp"
                     android:layout_height="112dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/contact_person_user_list"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cp_User_Profile"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
                     app:srcCompat="@color/black" />
-
                 <LinearLayout
                     android:id="@+id/layout_cp_user_name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/rectangle"
-                    android:clickable="true"
+                    android:padding = "10dp"
                     android:orientation="vertical"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="10dp"
-                    android:paddingBottom="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cp_user_profile_image">
-
+                    >
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="10dp">
+                        android:layout_gravity="left"
+                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="210dp"
-                            android:layout_height="60dp"
-                            android:layout_gravity="left"
-                            android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/text_cp_user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="0dp"
+                            android:fontFamily="sans-serif-black"
+                            android:paddingTop="10dp"
+                            android:text="User Name"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp">
 
-                            <TextView
+                        </TextView>
 
-                                android:id="@+id/text_cp_user_name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="0dp"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingTop="10dp"
-                                android:text="User Name"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp">
+                        <TextView
 
-                            </TextView>
+                            android:id="@+id/text_cp_user_name_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp">
 
-                            <TextView
-
-                                android:id="@+id/text_cp_user_name_2"
-                                android:layout_width="90dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp">
-
-                            </TextView>
-                        </LinearLayout>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="90dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="right|center_vertical"
-                            app:cardBackgroundColor="@android:color/transparent"
-                            app:cardCornerRadius="0dp"
-                            app:cardElevation="0dp">
-
-                            <Button
-                                android:id="@+id/cp_edit_button_1"
-                                android:layout_width="90dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/button_rectangle"
-                                android:fontFamily="sans-serif-black"
-                                android:gravity="center|center_horizontal|center_vertical"
-                                android:paddingTop="10dp"
-                                android:text="EDIT"
-                                android:textColor="@color/white"
-                                android:textSize="18sp" />
-                        </androidx.cardview.widget.CardView>
+                        </TextView>
                     </LinearLayout>
 
                     <LinearLayout
@@ -150,8 +78,8 @@
                         android:padding="10dp">
 
                         <LinearLayout
-                            android:layout_width="210dp"
-                            android:layout_height="60dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="left"
                             android:orientation="vertical">
 
@@ -173,7 +101,7 @@
                             <TextView
 
                                 android:id="@+id/text_cp_user_email_2"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center|center_horizontal"
                                 android:fontFamily="sans-serif"
@@ -182,226 +110,142 @@
 
                             </TextView>
                         </LinearLayout>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="90dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="right|center_vertical"
-                            app:cardBackgroundColor="@android:color/transparent"
-                            app:cardCornerRadius="0dp"
-                            app:cardElevation="0dp">
-
-                            <Button
-                                android:id="@+id/cp_edit_button_2"
-                                android:layout_width="90dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/button_rectangle"
-                                android:fontFamily="sans-serif-black"
-                                android:gravity="center|center_horizontal|center_vertical"
-                                android:paddingTop="10dp"
-                                android:text="EDIT"
-                                android:textColor="@color/white"
-                                android:textSize="18sp" />
-                        </androidx.cardview.widget.CardView>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="10dp">
+                        android:layout_gravity="left"
+                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="210dp"
-                            android:layout_height="60dp"
-                            android:layout_gravity="left"
-                            android:orientation="vertical">
+                        <TextView
 
-                            <TextView
+                            android:id="@+id/text_cp_user_phoneno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="0dp"
+                            android:fontFamily="sans-serif-black"
+                            android:paddingTop="10dp"
+                            android:text="Phone Number"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp">
 
-                                android:id="@+id/text_cp_user_phoneno"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="0dp"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingTop="10dp"
-                                android:text="Phone Number"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp">
+                        </TextView>
 
-                            </TextView>
+                        <TextView
 
-                            <TextView
+                            android:id="@+id/text_cp_user_phoneno_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp">
 
-                                android:id="@+id/text_cp_user_phoneno_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp">
-
-                            </TextView>
-                        </LinearLayout>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="90dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="right|center_vertical"
-                            app:cardBackgroundColor="@android:color/transparent"
-                            app:cardCornerRadius="0dp"
-                            app:cardElevation="0dp">
-
-                            <Button
-                                android:id="@+id/cp_edit_button_3"
-                                android:layout_width="90dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/button_rectangle"
-                                android:fontFamily="sans-serif-black"
-                                android:gravity="center|center_horizontal|center_vertical"
-                                android:paddingTop="10dp"
-                                android:text="EDIT"
-                                android:textColor="@color/white"
-                                android:textSize="18sp" />
-                        </androidx.cardview.widget.CardView>
+                        </TextView>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="10dp">
+                        android:layout_gravity="left"
+                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="210dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="left"
-                            android:orientation="vertical">
+                        <TextView
 
-                            <TextView
+                            android:id="@+id/text_cp_user_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="0dp"
+                            android:fontFamily="sans-serif-black"
+                            android:paddingTop="10dp"
+                            android:text="Address"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp">
 
-                                android:id="@+id/text_cp_user_address"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="0dp"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingTop="10dp"
-                                android:text="Address"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp">
+                        </TextView>
 
-                            </TextView>
+                        <TextView
 
-                            <TextView
+                            android:id="@+id/text_cp_user_address_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp">
 
-                                android:id="@+id/text_cp_user_address_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp">
-
-                            </TextView>
-                        </LinearLayout>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="90dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="right|center_vertical"
-                            app:cardBackgroundColor="@android:color/transparent"
-                            app:cardCornerRadius="0dp"
-                            app:cardElevation="0dp">
-
-                            <Button
-                                android:id="@+id/cp_edit_button_4"
-                                android:layout_width="90dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/button_rectangle"
-                                android:fontFamily="sans-serif-black"
-                                android:gravity="center|center_horizontal|center_vertical"
-                                android:paddingTop="10dp"
-                                android:text="EDIT"
-                                android:textColor="@color/white"
-                                android:textSize="18sp" />
-                        </androidx.cardview.widget.CardView>
+                        </TextView>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="10dp">
+                        android:layout_gravity="left"
+                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="210dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="left"
-                            android:orientation="vertical">
+                        <TextView
 
-                            <TextView
+                            android:id="@+id/text_cp_useraddress3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="0dp"
+                            android:fontFamily="sans-serif-black"
+                            android:paddingTop="10dp"
+                            android:text="Gender"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp">
 
-                                android:id="@+id/text_cp_useraddress3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="0dp"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingTop="10dp"
-                                android:text="Gender"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp">
+                        </TextView>
 
-                            </TextView>
+                        <TextView
 
-                            <TextView
+                            android:id="@+id/text_cp_useraddress4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:fontFamily="sans-serif"
+                            android:text="Female"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp">
 
-                                android:id="@+id/text_cp_useraddress4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="5dp"
-                                android:fontFamily="sans-serif"
-                                android:text="Female"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp">
-
-                            </TextView>
-                        </LinearLayout>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="90dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="right|center_vertical"
-                            app:cardBackgroundColor="@android:color/transparent"
-                            app:cardCornerRadius="0dp"
-                            app:cardElevation="0dp">
-
-                            <Button
-                                android:id="@+id/cp_edit_button_5"
-                                android:layout_width="90dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/button_rectangle"
-                                android:fontFamily="sans-serif-black"
-                                android:gravity="center|center_horizontal|center_vertical"
-                                android:paddingTop="10dp"
-                                android:text="EDIT"
-                                android:textColor="@color/white"
-                                android:textSize="18sp" />
-                        </androidx.cardview.widget.CardView>
+                        </TextView>
                     </LinearLayout>
+
+                    <Button
+                        android:id="@+id/edit_user_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_rectangle"
+                        android:text="EDIT PROFILE"
+                        android:layout_margin="20dp"
+                        android:textSize="24dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"></Button>
+
+                    <Button
+                        android:id="@+id/edit_user_mode_settings"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/button_rectangle"
+                        android:text="MODE SETTINGS"
+                        android:textColor="@color/white"
+                        android:textSize="24dp"
+                        android:textStyle="bold"></Button>
 
                 </LinearLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
         </ScrollView>
 
         <RelativeLayout
@@ -414,15 +258,13 @@
                 android:id="@+id/bottomNavView_Bar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:labelVisibilityMode="labeled"
                 android:background="@color/purple_dark"
                 app:itemIconTint="@color/white"
                 app:itemTextColor="@color/white"
-                app:menu="@menu/bottom_navigation_menu"
-                >
+                app:labelVisibilityMode="labeled"
+                app:menu="@menu/bottom_navigation_menu">
 
 
             </com.google.android.material.bottomnavigation.BottomNavigationView>
         </RelativeLayout>
     </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>

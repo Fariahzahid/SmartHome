@@ -30,6 +30,7 @@
         <activity android:name=".Contact_Person_Screen.Contact_Person_Notification" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Home" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Profile" />
+        <activity android:name=".Contact_Person_Screen.Contact_Person_Edit_User_Profile"/>
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Modes" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_Profile"/>
         <activity android:name=".Contact_Person_Screen.Contact_Person_Edit_Profile"/>

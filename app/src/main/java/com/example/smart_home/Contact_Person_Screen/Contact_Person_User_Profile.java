@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,21 +17,32 @@ import androidx.annotation.Nullable;
 
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-
-import java.util.ArrayList;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class Contact_Person_User_Profile extends AppCompatActivity {
     private static final String TAG = "MyActivity";
 
-    TextView aname,aemail,aphoneno,aaddress,auserid,agender;
-    FirebaseFirestore fStore;
-    private Spinner user_settings;
+    Button edit_profile,mode_settings;
+    TextView aname,aemail,aphoneno,aaddress,agender;
+    ImageView profileimage;
+
     String userid;
+    //FIREBASE STORAGE
+    StorageReference storageReference;
+    //String value,userid;
+    FirebaseAuth fAuth;
+
+    //FIREBASE FIRESTORE
+    private FirebaseFirestore fStore;
 
 
     @Override
@@ -42,34 +53,23 @@ public class Contact_Person_User_Profile extends AppCompatActivity {
         GlobalVariables globalVariable=(GlobalVariables)getApplication();
         userid  = globalVariable.getUserIDUser();
 
-        ArrayList<String> categories = new ArrayList<>();
-        categories.add(0,"USER PROFILE");
-        categories.add("USER MODES");
+        storageReference = FirebaseStorage.getInstance().getReference();
 
-        user_settings = findViewById(R.id.cp_User_Profile);
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,categories);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        user_settings.setAdapter(aa);
-        user_settings.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        userdata(userid);
+        edit_profile = (Button) findViewById(R.id.edit_user_profile);
+        edit_profile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(parent.getItemAtPosition(position).equals("USER PROFILE")){
-                    userdata(userid);
-
-                }else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(),"Selected"+item,Toast.LENGTH_SHORT).show();
-                }
-                if(parent.getItemAtPosition(position).equals("USER MODES")){
-                    Intent intent = new Intent(Contact_Person_User_Profile.this, Contact_Person_User_Modes.class);
-                    //intent.putExtra("UserID",value);
-                    startActivity(intent);
-                }
+            public void onClick(View v) {
+                Intent intent = new Intent(Contact_Person_User_Profile.this, Contact_Person_Edit_User_Profile.class);
+                startActivity(intent);
             }
-
+        });
+        mode_settings = (Button) findViewById(R.id.edit_user_mode_settings);
+        mode_settings.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+            public void onClick(View v) {
+                Intent intent = new Intent(Contact_Person_User_Profile.this, Contact_Person_User_Modes.class);
+                startActivity(intent);
             }
         });
 
@@ -80,10 +80,17 @@ public class Contact_Person_User_Profile extends AppCompatActivity {
         aphoneno = (TextView) findViewById(R.id.text_cp_user_phoneno_2);
         aaddress = (TextView) findViewById(R.id.text_cp_user_address_2);
         agender = (TextView) findViewById(R.id.text_cp_useraddress4);
-
+        profileimage = (ImageView) findViewById(R.id.cp_user_profile_image);
         fStore = FirebaseFirestore.getInstance();
 
         final DocumentReference documentReference = fStore.collection("USER").document(id);
+        StorageReference profileRef = storageReference.child("User_Profile/" +id+".jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profileimage);
+            }
+        });
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
@@ -92,14 +99,6 @@ public class Contact_Person_User_Profile extends AppCompatActivity {
                 aphoneno.setText(documentSnapshot.getString("PhoneNo"));
                 aaddress.setText(documentSnapshot.getString("Address"));
                 agender.setText(documentSnapshot.getString("Gender"));
-
-                String a =  documentSnapshot.getString("Name");
-                String b =  documentSnapshot.getString("Email");
-                String c =  documentSnapshot.getString("PhoneNo");
-                String d =  documentSnapshot.getString("Address");
-                String ef =  documentSnapshot.getString("Gender");
-
-                System.out.println("name    " +a +"     email     " +b +"    phoneno     " +c +"       address     "+d +"      gender    "+ef);
             }
         });
     }

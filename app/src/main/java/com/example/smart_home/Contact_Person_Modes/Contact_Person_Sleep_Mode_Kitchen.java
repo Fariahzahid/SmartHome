@@ -51,8 +51,6 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
         View v = inflater.inflate(R.layout.activity_contact_person_sleepmode_kitchen, container, false);
 
         bedroom = "Sleep_Mode_Kitchen";
-       // temperature = (TextView) v.findViewById(R.id.temp_text);
-        //temperature.setText("20");
 
         windowblind =v.findViewById(R.id.window_blind_sleepmode_kitchen_spinner);
         bulb = v.findViewById(R.id.bulb_sleepmode_kitchen_spinner);
@@ -111,7 +109,6 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
         timearray.add("OPEN");
         timearray.add("CLOSE");
 
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, timearray);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         windowblind.setAdapter(adapter);
@@ -143,7 +140,6 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
         timearray.add(0, "Select Status");
         timearray.add("ON");
         timearray.add("OFF");
-
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, timearray);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
