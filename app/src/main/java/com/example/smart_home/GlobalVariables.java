@@ -6,9 +6,15 @@ public class GlobalVariables extends  Application{
 
     private String UserIDContactPerson;
     private String UserIDUser;
-    private String ON;
-    private String OFF;
 
+    //WEATHER STRINGS
+    private String city;
+    private String windspeed;
+    private String weather;
+    private String humidity;
+    private String sunset;
+    private String sunrise;
+    private String temperature;
     //    BED ROOM
     private String bedroom_light;
     private String bedroom_fan;
@@ -64,6 +70,62 @@ public class GlobalVariables extends  Application{
     public void setUserIDUser(String useriduser) {
 
         UserIDUser = useriduser;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getWindspeed() {
+        return windspeed;
+    }
+
+    public void setWindspeed(String windspeed) {
+        this.windspeed = windspeed;
+    }
+
+    public String getWeather() {
+        return weather;
+    }
+
+    public void setWeather(String weather) {
+        this.weather = weather;
+    }
+
+    public String getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(String humidity) {
+        this.humidity = humidity;
+    }
+
+    public String getSunset() {
+        return sunset;
+    }
+
+    public void setSunset(String sunset) {
+        this.sunset = sunset;
+    }
+
+    public String getSunrise() {
+        return sunrise;
+    }
+
+    public void setSunrise(String sunrise) {
+        this.sunrise = sunrise;
+    }
+
+    public String getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
     }
 
     public String getBedroom_light() {

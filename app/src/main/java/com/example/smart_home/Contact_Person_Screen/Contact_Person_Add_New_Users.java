@@ -146,7 +146,7 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
     }
     private void DisabilitySpinnerOne(){
             ArrayList<String> categories = new ArrayList<>();
-        categories.add(0,"NUll");
+        categories.add(0,"");
         categories.add("Mute");
         categories.add("HearingImpairment");
         categories.add("PhysicalImpairment");
@@ -169,7 +169,7 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
     }
     private void DisabilitySpinnerTwo(){
         ArrayList<String> categories = new ArrayList<>();
-        categories.add(0,"NUll");
+        categories.add(0,"");
         categories.add("Mute");
         categories.add("HearingImpairment");
         categories.add("PhysicalImpairment");
@@ -191,7 +191,7 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
     }
     private void DisabilitySpinnerThree(){
         ArrayList<String> categories = new ArrayList<>();
-        categories.add(0,"NUll");
+        categories.add(0,"");
         categories.add("Mute");
         categories.add("HearingImpairment");
         categories.add("PhysicalImpairment");
@@ -297,6 +297,7 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
                             user.put("Phone No", regphoneno);
                             user.put("Address", regaddress);
                             user.put("Gender",reggender);
+                            user.put("Role",  "User");
                             user.put("ContactPersonUserId",cp_userid);
                             if(disablityone!=null){
                                 user.put("DisabilityOne",disablityone);

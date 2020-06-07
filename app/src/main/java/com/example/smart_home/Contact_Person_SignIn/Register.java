@@ -219,7 +219,7 @@ public class Register extends AppCompatActivity {
                     user.put("PhoneNo", regphoneno);
                     user.put("Address", regaddress);
                     user.put("Gender", reggender);
-                    user.put("ContactPerson",  "Contact Person");
+                    user.put("Role",  "Contact Person");
                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -229,7 +229,9 @@ public class Register extends AppCompatActivity {
                             GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
                             globalVariable.setUserIDContactPerson(userID);              //Setting contact Person UserID in global Variables
 
-                            AlertDoalogBoxSuccess(Register.this,note,settext);
+                            Toast.makeText(Register.this, "Success: User Profile Created", Toast.LENGTH_SHORT).show();
+
+                           // AlertDoalogBoxSuccess(Register.this,note,settext);
                             System.out.println(note +"note   "+settext +"setText");
 
                         }
@@ -238,7 +240,7 @@ public class Register extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                             String note = "Failure";
                             String settext ="User Profile not Created" ;
-                            AlertDoalogBoxFailure(Register.this,note,settext);
+                            Toast.makeText(Register.this, "Failure: User Profile Not Created", Toast.LENGTH_SHORT).show();
 
                         }
                     });
@@ -310,60 +312,60 @@ public class Register extends AppCompatActivity {
     }
 
 
-    private  void AlertDoalogBoxSuccess(Activity activity,String note,String setetxt){
-        String noteone = note;
-        String settexttwo= setetxt;
-        final Dialog dialog = new Dialog(activity);
-        dialog.setContentView(R.layout.dialog_box);
-
-
-        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
-        TextView info = (TextView) dialog.findViewById(R.id.Text);
-        final ImageView image = (ImageView) findViewById(R.id.profileimage);
-        notetext.setText(noteone);
-        info.setText(settexttwo);
-
-        Button okButton = (Button) dialog.findViewById(R.id.confirmbuttom);
-        okButton.setText("OK");
-        okButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Close dialog
-                startActivity(new Intent(Register.this, Contact_Person_Users_List.class));
-                dialog.dismiss();
-            }
-        });
-
-        dialog.show();
-
-    }
-
-    private  void AlertDoalogBoxFailure(Activity activity,String note,String setetxt){
-        String noteone = note;
-        String settexttwo= setetxt;
-        final Dialog dialog = new Dialog(activity);
-        dialog.setContentView(R.layout.dialog_box);
-
-
-        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
-        TextView info = (TextView) dialog.findViewById(R.id.Text);
-        ImageView image = (ImageView) findViewById(R.id.profileimage);
-        notetext.setText(noteone);
-        info.setText(settexttwo);
-
-        Button okButton = (Button) dialog.findViewById(R.id.confirmbuttom);
-        okButton.setText("OK");
-        okButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Close dialog
-                dialog.dismiss();
-            }
-        });
-
-        dialog.show();
-
-    }
+//    private  void AlertDoalogBoxSuccess(Activity activity,String note,String setetxt){
+//        String noteone = note;
+//        String settexttwo= setetxt;
+//        final Dialog dialog = new Dialog(activity);
+//        dialog.setContentView(R.layout.dialog_box);
+//
+//
+//        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
+//        TextView info = (TextView) dialog.findViewById(R.id.Text);
+//        final ImageView image = (ImageView) findViewById(R.id.profileimage);
+//        notetext.setText(noteone);
+//        info.setText(settexttwo);
+//
+//        Button okButton = (Button) dialog.findViewById(R.id.confirmbuttom);
+//        okButton.setText("OK");
+//        okButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Close dialog
+//                startActivity(new Intent(Register.this, Contact_Person_Users_List.class));
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        dialog.show();
+//
+//    }
+//
+//    private  void AlertDoalogBoxFailure(Activity activity,String note,String setetxt){
+//        String noteone = note;
+//        String settexttwo= setetxt;
+//        final Dialog dialog = new Dialog(activity);
+//        dialog.setContentView(R.layout.dialog_box);
+//
+//
+//        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
+//        TextView info = (TextView) dialog.findViewById(R.id.Text);
+//        ImageView image = (ImageView) findViewById(R.id.profileimage);
+//        notetext.setText(noteone);
+//        info.setText(settexttwo);
+//
+//        Button okButton = (Button) dialog.findViewById(R.id.confirmbuttom);
+//        okButton.setText("OK");
+//        okButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Close dialog
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        dialog.show();
+//
+//    }
 }
 
 

@@ -73,7 +73,7 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document();
+                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("Kitchen");
                 Map<String,Object> user = new HashMap<>();
                 //user.put("UserID",userID);
                 user.put("WindowBlinds",windowblind.getSelectedItem().toString());

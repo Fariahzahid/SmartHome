@@ -71,7 +71,7 @@ public class Contact_Person_Sleep_Mode_WC extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document();
+                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("WC");
                 Map<String,Object> user = new HashMap<>();
                 user.put("Bulb",bulb.getSelectedItem().toString());
                 user.put("Extractorfan",fan.getSelectedItem().toString());

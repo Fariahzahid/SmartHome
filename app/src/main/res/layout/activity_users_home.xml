@@ -35,12 +35,12 @@
                     android:id="@+id/user_main_mode_image"
                     android:layout_width="96dp"
                     android:layout_height="64dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp"
                     app:srcCompat="@drawable/mode_user" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
@@ -66,9 +66,15 @@
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
 
-
-
                 </LinearLayout>
+                <Button
+                    android:id="@+id/user_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_rectangle_grey"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:text="LOG OUT"></Button>
 
             </LinearLayout>
 

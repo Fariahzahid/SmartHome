@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.example.smart_home.Users_Modes.User_Home;
 import com.example.smart_home.Users_Modes.User_Home_Voice_Recognition;
@@ -53,21 +54,12 @@ public class User_Login extends AppCompatActivity {
         if (mFirebaseAuth.getCurrentUser() != null) {
             fStore = FirebaseFirestore.getInstance();
             userID = mFirebaseAuth.getCurrentUser().getUid();
-            startActivity(new Intent(User_Login.this, User_Home_Voice_Recognition.class));
+            GlobalVariables globalVariable=(GlobalVariables)getApplication();
+            globalVariable.setUserIDUser(userID);
+            startActivity(new Intent(User_Login.this, User_Home.class));
             finish();
 
         }
-//            String compare = null;
-//            final DocumentReference documentReference = fStore.collection("Contact Person").document(userID);
-//            Query query = fStore.collection("Contact Person");
-//            String getcontactperson = query.toString();
-//            if(getcontactperson == "Contact Person"){
-//                FirebaseAuth.getInstance().signOut();
-//            }
-//            else {
-            //}
-
-//        }else {
             user_login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -96,17 +88,13 @@ public class User_Login extends AppCompatActivity {
                                 Toast.makeText(User_Login.this, "User Logged In.",Toast.LENGTH_SHORT).show();
                                 userID = mFirebaseAuth.getCurrentUser().getUid();
                                 //startActivity(new Intent(getApplicationContext(), User_Home.class));
-
-                                Intent intent = new Intent(User_Login.this, User_Home_Voice_Recognition.class);
-                                intent.putExtra("UserID",userID);
+                                GlobalVariables globalVariable=(GlobalVariables)getApplication();
+                                globalVariable.setUserIDUser(userID);
+                                Intent intent = new Intent(User_Login.this, User_Home.class);
                                 startActivity(intent);
-
-                                //Toast.makeText(User_Login.this, "User Id  " +userID +"UserName" +mFirebaseAuth.getCurrentUser().getEmail()  ,Toast.LENGTH_SHORT).show();
-
                             }
                             else{
                                 Toast.makeText(User_Login.this, "Error."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                                //startActivity(new Intent(getApplicationContext(),SignIn.class));
 
                             }
                         }

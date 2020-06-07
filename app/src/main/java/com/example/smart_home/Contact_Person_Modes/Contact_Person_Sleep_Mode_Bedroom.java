@@ -74,7 +74,7 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document();
+                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("Bedroom");
                 Map<String,Object> user = new HashMap<>();
                 user.put("WindowBlinds",winblind.getSelectedItem().toString());
                 user.put("Bulb",bulb.getSelectedItem().toString());
@@ -176,6 +176,7 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
 
         ArrayList<String> timearray = new ArrayList<>();
         timearray.add(0, "Select Intensity");
+        timearray.add("OFF");
         timearray.add("HIGH");
         timearray.add("LOW");
 
@@ -192,6 +193,9 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
+                }
+                if (parent.getItemAtPosition(position).equals("OFF")) {
+
                 }
                 if (parent.getItemAtPosition(position).equals("HIGH")) {
 
