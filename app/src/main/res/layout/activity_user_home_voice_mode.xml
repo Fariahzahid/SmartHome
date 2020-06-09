@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    tools:context="com.example.smart_home.Users_Modes.User_Home_Voice_Recognition"
+    tools:context="com.example.smart_home.User_Disability_Mode.User_Home_Voice_Recognition"
     android:descendantFocusability="blocksDescendants"
     android:id="@+id/speechlayout"
     >

@@ -1,4 +1,4 @@
-package com.example.smart_home.Users_Modes;
+package com.example.smart_home.User_Disability_Mode;
 
 import android.Manifest;
 import android.content.Intent;
@@ -11,30 +11,23 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.example.smart_home.R;
-import com.example.smart_home.Users_SignIn.User_Login;
+import com.example.smart_home.Users_Modes.User_Automatic_Mode_Bedroom;
+import com.example.smart_home.Users_Modes.User_Manual_Mode_Bedroom;
+import com.example.smart_home.Users_Modes.User_Move_Out_Mode;
+import com.example.smart_home.Users_Modes.User_Sleep_Mode;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -84,7 +77,6 @@ public class User_Home_Voice_Recognition  extends AppCompatActivity {
         });
 
         final SpeechRecognizer mSpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
-
 
         final Intent mSpeechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,

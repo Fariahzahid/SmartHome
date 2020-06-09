@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,244 +8,47 @@
     android:background="@drawable/background3"
     tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_User_Profile"
     >
-        <ScrollView
-            android:layout_width="match_parent"
+    <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:id="@+id/drawer_layout"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".NavigationBar"
+        tools:openDrawer="start">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            >
-            <LinearLayout
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/purple_dark"
+                android:id="@+id/toolbar"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:popupTheme= "@style/ThemeOverlay.AppCompat.Light"
+                android:elevation="4dp"></androidx.appcompat.widget.Toolbar >
 
-                <ImageView
-                    android:id="@+id/cp_user_profile_image"
-                    android:layout_width="128dp"
-                    android:layout_height="112dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    app:srcCompat="@color/black" />
-                <LinearLayout
-                    android:id="@+id/layout_cp_user_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rectangle"
-                    android:padding = "10dp"
-                    android:orientation="vertical"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:orientation="vertical">
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
-                        <TextView
-                            android:id="@+id/text_cp_user_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="0dp"
-                            android:fontFamily="sans-serif-black"
-                            android:paddingTop="10dp"
-                            android:text="User Name"
-                            android:textColor="@android:color/black"
-                            android:textSize="18sp">
+        </LinearLayout>
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width = "wrap_content"
+            android:layout_height = "match_parent"
+            android:layout_gravity = "start"
+            android:id="@+id/nav_view"
+            app:headerLayout ="@layout/nav_header"
+            app:menu="@menu/drawer_menu"
+            />
 
-                        </TextView>
-
-                        <TextView
-
-                            android:id="@+id/text_cp_user_name_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="5dp"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp">
-
-                        </TextView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:orientation="vertical">
-
-                            <TextView
-
-                                android:id="@+id/text_cp_user_email"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="0dp"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingTop="10dp"
-                                android:text="User Email"
-                                android:textColor="@android:color/black"
-                                android:textSize="18sp">
-
-                            </TextView>
-
-                            <TextView
-
-                                android:id="@+id/text_cp_user_email_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center|center_horizontal"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@android:color/black"
-                                android:textSize="15sp">
-
-                            </TextView>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:orientation="vertical">
-
-                        <TextView
-
-                            android:id="@+id/text_cp_user_phoneno"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="0dp"
-                            android:fontFamily="sans-serif-black"
-                            android:paddingTop="10dp"
-                            android:text="Phone Number"
-                            android:textColor="@android:color/black"
-                            android:textSize="18sp">
-
-                        </TextView>
-
-                        <TextView
-
-                            android:id="@+id/text_cp_user_phoneno_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="5dp"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp">
-
-                        </TextView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:orientation="vertical">
-
-                        <TextView
-
-                            android:id="@+id/text_cp_user_address"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="0dp"
-                            android:fontFamily="sans-serif-black"
-                            android:paddingTop="10dp"
-                            android:text="Address"
-                            android:textColor="@android:color/black"
-                            android:textSize="18sp">
-
-                        </TextView>
-
-                        <TextView
-
-                            android:id="@+id/text_cp_user_address_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="5dp"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp">
-
-                        </TextView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:orientation="vertical">
-
-                        <TextView
-
-                            android:id="@+id/text_cp_useraddress3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="0dp"
-                            android:fontFamily="sans-serif-black"
-                            android:paddingTop="10dp"
-                            android:text="Gender"
-                            android:textColor="@android:color/black"
-                            android:textSize="18sp">
-
-                        </TextView>
-
-                        <TextView
-
-                            android:id="@+id/text_cp_useraddress4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="5dp"
-                            android:fontFamily="sans-serif"
-                            android:text="Female"
-                            android:textColor="@android:color/black"
-                            android:textSize="15sp">
-
-                        </TextView>
-                    </LinearLayout>
-
-                    <Button
-                        android:id="@+id/edit_user_profile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/button_rectangle"
-                        android:text="EDIT PROFILE"
-                        android:layout_margin="20dp"
-                        android:textSize="24dp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"></Button>
-
-                    <Button
-                        android:id="@+id/edit_user_mode_settings"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:background="@drawable/button_rectangle"
-                        android:text="MODE SETTINGS"
-                        android:textColor="@color/white"
-                        android:textSize="24dp"
-                        android:textStyle="bold"></Button>
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-        </ScrollView>
-
+    </androidx.drawerlayout.widget.DrawerLayout>
         <RelativeLayout
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"

@@ -65,7 +65,8 @@
         <activity android:name=".Users_SignIn.User_Login" />
 
         <activity android:name=".Users_Modes.User_Home" />
-        <activity android:name=".Users_Modes.User_Home_Voice_Recognition"/>
+        <activity android:name=".Users_Modes.User_Guide_Video"/>
+        <activity android:name=".User_Disability_Mode.User_Home_Voice_Recognition"/>
 
         <activity android:name=".Users_Modes.User_Sleep_Mode" />
         <activity android:name=".Users_Modes.User_Move_Out_Mode" />

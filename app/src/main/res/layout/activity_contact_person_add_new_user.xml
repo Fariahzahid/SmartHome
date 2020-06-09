@@ -95,43 +95,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/dislayoutone"
+                    android:id="@+id/adddisability"
                     android:orientation="horizontal">
 
-                    <Spinner
-                        android:id="@+id/disability_spinner_one"
-                        android:layout_width="344dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:inputType="textPassword"
-                        android:padding="15dp"
-                        android:textSize="15sp" />
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/button_add_userone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|end"
-                        android:src="@drawable/plus2"
-                        app:backgroundTint="@color/purple_dark2"
-                        ></com.google.android.material.floatingactionbutton.FloatingActionButton>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/dislayouttwo"
-                    android:visibility="gone"
-                    android:orientation="horizontal">
-
-                    <Spinner
+                    <TextView
                         android:id="@+id/disability_spinner_two"
-                        android:layout_width="344dp"
+                        android:layout_width="276dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:inputType="textPassword"
                         android:padding="15dp"
+                        android:text="Add Disability"
                         android:textSize="15sp" />
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/button_add_usertwo"
+                        android:id="@+id/button_add_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|end"
@@ -139,22 +115,122 @@
                         app:backgroundTint="@color/purple_dark2"
                         ></com.google.android.material.floatingactionbutton.FloatingActionButton>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:id="@+id/dislayoutthree"
-                    android:orientation="horizontal">
 
-                    <Spinner
-                        android:id="@+id/disability_spinnerthree"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:inputType="textPassword"
-                        android:padding="15dp"
-                        android:textSize="15sp" />
-                </LinearLayout>
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:visibility="gone"
+                   android:id="@+id/Disability">
+                   <LinearLayout
+                       android:layout_width="344dp"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/dislayoutone"
+                       android:paddingLeft="15dp"
+                       android:orientation="horizontal">
+
+                       <androidx.appcompat.widget.SwitchCompat
+                           android:id="@+id/switch1"
+                           android:layout_width="314dp"
+                           android:layout_height="wrap_content"
+                           android:layout_centerInParent="true"
+                           android:text="Muteness Disability"
+                           android:textOff="No"
+                           android:textOn="Yes"
+                           android:thumb="@drawable/swtich_button"
+                           />
+                   </LinearLayout>
+                   <LinearLayout
+                       android:layout_width="344dp"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/dislayouttwo"
+                       android:paddingLeft="15dp"
+                       android:orientation="horizontal">
+
+                       <androidx.appcompat.widget.SwitchCompat
+                           android:id="@+id/switch2"
+                           android:layout_width="314dp"
+                           android:layout_height="wrap_content"
+                           android:layout_centerInParent="true"
+                           android:text="Hearing Impairment"
+                           android:textOff="No"
+                           android:textOn="Yes"
+                           android:thumb="@drawable/swtich_button"
+                           />
+                   </LinearLayout>
+                   <LinearLayout
+                       android:layout_width="344dp"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/dislayoutthree"
+                       android:paddingLeft="15dp"
+                       android:orientation="horizontal">
+
+                       <androidx.appcompat.widget.SwitchCompat
+                           android:id="@+id/switch3"
+                           android:layout_width="314dp"
+                           android:layout_height="wrap_content"
+                           android:layout_centerInParent="true"
+                           android:text="Physical Impairment"
+                           android:textOff="No"
+                           android:textOn="Yes"
+                           android:thumb="@drawable/swtich_button"
+                           />
+                   </LinearLayout>
+                   <LinearLayout
+                       android:layout_width="344dp"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/dislayoutfour"
+                       android:paddingLeft="15dp"
+                       android:orientation="horizontal">
+
+                       <androidx.appcompat.widget.SwitchCompat
+                           android:id="@+id/switch4"
+                           android:layout_width="314dp"
+                           android:layout_height="wrap_content"
+                           android:layout_centerInParent="true"
+                           android:text="Color Blindness"
+                           android:textOff="No"
+                           android:textOn="Yes"
+                           android:thumb="@drawable/swtich_button"
+                           />
+                   </LinearLayout>
+                   <LinearLayout
+                       android:layout_width="344dp"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/dislayoutfive"
+                       android:paddingLeft="15dp"
+                       android:orientation="horizontal">
+
+                       <androidx.appcompat.widget.SwitchCompat
+                           android:id="@+id/switch5"
+                           android:layout_width="314dp"
+                           android:layout_height="wrap_content"
+                           android:layout_centerInParent="true"
+                           android:text="Vision Impairment"
+                           android:textOff="No"
+                           android:textOn="Yes"
+                           android:thumb="@drawable/swtich_button"
+                           />
+                   </LinearLayout>
+                   <LinearLayout
+                       android:layout_width="344dp"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/dislayoutsix"
+                       android:paddingLeft="15dp"
+                       android:orientation="horizontal">
+
+                       <androidx.appcompat.widget.SwitchCompat
+                           android:id="@+id/switch6"
+                           android:layout_width="314dp"
+                           android:layout_height="wrap_content"
+                           android:layout_centerInParent="true"
+                           android:text="Dylexia Disorder"
+                           android:textOff="No"
+                           android:textOn="Yes"
+                           android:thumb="@drawable/swtich_button"
+                           />
+                   </LinearLayout>
+               </LinearLayout>
 
 
                 <EditText

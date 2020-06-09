@@ -30,4 +30,17 @@
     <color name="greyshade9">#c4c4c4</color>
     <color name="greyshade10">#dbdbdb</color>
 
+    <color name="saddlebrown">#8B4513</color>
+    <color name="redishbrown">#A0522D</color>
+    <color name="darkbrown1">#4B2600</color>
+    <color name="darkbrown2">#713800</color>
+    <color name="darkbrown3">#834200</color>
+    <color name="darkbrown4">#381C00</color>
+    <color name="woodcolor">#643D01</color>
+    <color name="woodcolortwo">#8C6529</color>
+    <color name="lightbrownone">#B48D51</color>
+
+    
+    
+
 </resources>

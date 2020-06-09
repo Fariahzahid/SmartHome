@@ -54,15 +54,6 @@ public class Login extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-//        if (mFirebaseAuth.getCurrentUser() != null) {
-//            Intent intent = new Intent(Login.this, Contact_Person_Users_List.class);
-//            userID = mFirebaseAuth.getCurrentUser().getUid();
-//
-//            GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
-//            globalVariable.setUserIDContactPerson(userID);              //Setting contact Person UserID in global Variables
-//            startActivity(intent);
-//            finish();
-//        }
         contact_person_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

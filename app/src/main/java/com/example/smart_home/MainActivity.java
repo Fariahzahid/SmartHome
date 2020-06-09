@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.smart_home.Contact_Person_Modes.Contact_Person_Sleep_Mode;
 import com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List;
 import com.example.smart_home.Contact_Person_SignIn.Login;
+import com.example.smart_home.Users_Modes.User_Guide_Video;
 import com.example.smart_home.Users_Modes.User_Home;
 import com.example.smart_home.Users_SignIn.User_Login;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                             GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
                             globalVariable.setUserIDContactPerson(userID);
                             startActivity(intent);
-                            finish();
+                            //finish();
                         } else {
                             Log.d(TAG, "Document does not exist!");
                         }
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                             GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
                             globalVariable.setUserIDUser(userID);
                             startActivity(intent);
-                            finish();
+                           // finish();
                         } else {
                             Log.d(TAG, "Document does not exist!");
                         }
