@@ -38,7 +38,7 @@ public class Contact_Person_Sleep_Mode_WC extends Fragment {
     TextView temperature;
     Button save;
 
-    private android.widget.Spinner ac, actemp, heating, heatingtemp, bulb, fan;
+    private android.widget.Spinner heating, heatingtemp, bulb, fan;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -120,11 +120,6 @@ public class Contact_Person_Sleep_Mode_WC extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -152,11 +147,6 @@ public class Contact_Person_Sleep_Mode_WC extends Fragment {
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("ON")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
                 }
             }
             @Override

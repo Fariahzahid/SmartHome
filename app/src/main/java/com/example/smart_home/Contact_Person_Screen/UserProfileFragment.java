@@ -56,7 +56,7 @@ public class UserProfileFragment extends Fragment {
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
-        userdata(v,userid);
+       userdata(v,userid);
         return v;
     }
     private void userdata(View v,String id){
@@ -83,7 +83,7 @@ public class UserProfileFragment extends Fragment {
                 //User user = documentSnapshot.toObject(User.class);
                 aname.setText(documentSnapshot.getString("Name"));
                 aemail.setText(documentSnapshot.getString("Email"));
-                aphoneno.setText(documentSnapshot.getString("PhoneNo"));
+                aphoneno.setText(documentSnapshot.getString("Phone No"));
                 aaddress.setText(documentSnapshot.getString("Address"));
                 agender.setText(documentSnapshot.getString("Gender"));
             }

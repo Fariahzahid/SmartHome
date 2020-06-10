@@ -3,15 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:title="USER DETAILS">
-        <menu>
-            <item android:id="@+id/nav_profile"
-                android:icon="@drawable/ic_profile"
-                android:title="Share"></item>
-            <item android:id="@+id/nav_modes"
-                android:icon="@drawable/ic_modes"
-                android:title="Send"></item>
-        </menu>
-    </item>
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile"/>
+    </group>
+    <item android:title="MODES DETAILS"
+        android:icon="@drawable/ic_modes">
+                <menu>
+                    <item android:id="@+id/nav_sleep_mode"
+                        android:icon="@drawable/ic_sleep_mode"
+                        android:title="Sleep Mode">
+                    </item>
+                    <item android:id="@+id/nav_move_out_mode"
+                        android:icon="@drawable/ic_move_out"
+                        android:title="Move Out Mode">
+                    </item>
+                    <item android:id="@+id/nav_automatic_mode"
+                        android:icon="@drawable/ic_automatic_mode"
+                        android:title="Automatic Mode">
+                    </item>
 
+                </menu>
+            </item>
 </menu>

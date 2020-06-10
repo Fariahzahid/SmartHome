@@ -144,16 +144,16 @@ public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
                 distwo.setVisibility(View.GONE);
             }
         });
-//        save_button = (Button) findViewById(R.id.contact_person_saveeditprofile);
-//
-//        save_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                updateuserprofile(userid);
-//                Intent intent = new Intent(Contact_Person_Edit_User_Profile.this,Contact_Person_User_Profile.class);
-//                startActivity(intent);
-//            }
-//        });
+        save_button = (Button) findViewById(R.id.contact_person_saveeditprofile);
+
+        save_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateuserprofile(userid);
+                Intent intent = new Intent(Contact_Person_Edit_User_Profile.this,Contact_Person_User_Profile.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

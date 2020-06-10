@@ -37,7 +37,8 @@
         <activity android:name=".Contact_Person_Screen.Contact_Person_Users_List" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_Notification" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Home" />
-        <activity android:name=".Contact_Person_Screen.Contact_Person_User_Profile" />
+        <activity android:name=".Contact_Person_Screen.Contact_Person_User_Profile"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Contact_Person_Screen.Contact_Person_Edit_User_Profile"/>
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Modes" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Modes_Show"/>
@@ -66,7 +67,7 @@
 
         <activity android:name=".Users_Modes.User_Home" />
         <activity android:name=".Users_Modes.User_Guide_Video"/>
-        <activity android:name=".User_Disability_Mode.User_Home_Voice_Recognition"/>
+        <activity android:name=".User_Voice_Mode.User_Home_Voice_Recognition"/>
 
         <activity android:name=".Users_Modes.User_Sleep_Mode" />
         <activity android:name=".Users_Modes.User_Move_Out_Mode" />

@@ -1,4 +1,4 @@
-package com.example.smart_home.User_Disability_Mode;
+package com.example.smart_home.User_Voice_Mode;
 
 import android.Manifest;
 import android.content.Intent;

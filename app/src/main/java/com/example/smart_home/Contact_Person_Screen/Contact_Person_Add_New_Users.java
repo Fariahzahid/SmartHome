@@ -140,8 +140,6 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RegisterUser();
-                Intent intent = new Intent(Contact_Person_Add_New_Users.this, Contact_Person_User_Modes.class);
-                startActivity(intent);
             }
         });
 
@@ -334,20 +332,20 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
                                 public void onSuccess(Void aVoid) {
                                     Log.d(TAG, "OnSuccess: User Profile Created " +userID);
                                     Toast.makeText(Contact_Person_Add_New_Users.this, "User Profile is Created !",Toast.LENGTH_SHORT).show();
-
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     Log.d(TAG, "OnFailire: User Profile Created " +e.toString());
-
                                 }
                             });
 
-                            Intent intent = new Intent(Contact_Person_Add_New_Users.this,Contact_Person_Users_List.class);
+//                            Intent intent = new Intent(Contact_Person_Add_New_Users.this,Contact_Person_Users_List.class);
+//                            startActivity(intent);
+                            SAVE_NAME_AND_PHOTO(userID);
+                            Intent intent = new Intent(Contact_Person_Add_New_Users.this, Contact_Person_User_Modes.class);
                             startActivity(intent);
 
-                            SAVE_NAME_AND_PHOTO(userID);
                         }else {
                             Toast.makeText(Contact_Person_Add_New_Users.this, "Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
 

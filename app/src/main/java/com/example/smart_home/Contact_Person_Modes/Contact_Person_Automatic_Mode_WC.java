@@ -43,8 +43,8 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
     float batteryTemp;
     String currentBatterytemp = "Current Battery temp :";
 
-    private android.widget.Spinner bulbon,bulboff,bulbonampm,bulboffampm,
-            fanon,fanoff,fanonampm,fanoffampm;
+    private android.widget.Spinner bulbon,bulboff,
+            fanon,fanoff;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,25 +57,16 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
         bedroom = "Automatic_Mode_WC";
 
         bulbon = v.findViewById(R.id.bulb_on_automaticmode_wc_spinner);
-        bulbonampm = v.findViewById(R.id.bulb_on_ampm_automaticmode_wc_spinner);
         bulboff = v.findViewById(R.id.bulb_off_automaticmode_wc_spinner);
-        bulboffampm = v.findViewById(R.id.bulb_off_ampm_automaticmode_wc_spinner);
         fanon = v.findViewById(R.id.extfan_on_automaticmode_wc_spinner);
-        fanonampm = v.findViewById(R.id.extfan_onap_automaticmode_wc_spinner);
         fanoff = v.findViewById(R.id.extfan_off_automaticmode_wc_spinner);
-        fanoffampm = v.findViewById(R.id.extfan_off_ap_automaticmode_wc_spinner);
         save = (Button) v.findViewById(R.id.wc_automaticmode_save);
 
 
         BulbOn();
-        BulbOnAmpm();
         BulbOff();
-        BulbOffAmPm();
-
         FanOn();
-        FanOnAmPm();
         FanOff();
-        FanOffAmPm();
 
 
         fAuth = FirebaseAuth.getInstance();
@@ -83,13 +74,13 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document();
+                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("WC");
                 Map<String, Object> user = new HashMap<>();
                 //user.put("UserID",userID);
-                user.put("BulbOn", bulbon.getSelectedItem().toString()+"   " +bulbonampm.getSelectedItem().toString());
-                user.put("BulbOff", bulboff.getSelectedItem().toString() +"   " +bulboffampm.getSelectedItem().toString());
-                user.put("FanOn", fanon.getSelectedItem().toString() +"  " +fanonampm.getSelectedItem().toString());
-                user.put("FanOff", fanoff.getSelectedItem().toString() +"  " +fanoffampm.getSelectedItem().toString());
+                user.put("BulbOn", bulbon.getSelectedItem().toString());
+                user.put("BulbOff", bulboff.getSelectedItem().toString());
+                user.put("FanOn", fanon.getSelectedItem().toString());
+                user.put("FanOff", fanoff.getSelectedItem().toString());
 
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -127,6 +118,18 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
         bulb.add("10");
         bulb.add("11");
         bulb.add("12");
+        bulb.add("13");
+        bulb.add("14");
+        bulb.add("15");
+        bulb.add("16");
+        bulb.add("17");
+        bulb.add("18");
+        bulb.add("19");
+        bulb.add("20");
+        bulb.add("21");
+        bulb.add("22");
+        bulb.add("23");
+        bulb.add("24");
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, bulb);
         adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
@@ -140,63 +143,6 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("1")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("2")) {
-                }
-                if (parent.getItemAtPosition(position).equals("3")) {
-                }
-                if (parent.getItemAtPosition(position).equals("4")) {
-                }
-                if (parent.getItemAtPosition(position).equals("5")) {
-                }
-                if (parent.getItemAtPosition(position).equals("6")) {
-                }
-                if (parent.getItemAtPosition(position).equals("7")) {
-                }
-                if (parent.getItemAtPosition(position).equals("8")) {
-                }
-                if (parent.getItemAtPosition(position).equals("9")) {
-                }
-                if (parent.getItemAtPosition(position).equals("10")) {
-                }
-                if (parent.getItemAtPosition(position).equals("11")) {
-                }
-                if (parent.getItemAtPosition(position).equals("12")) {
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
-    private void BulbOnAmpm(){
-        ArrayList<String> windowblind = new ArrayList<>();
-        windowblind.add(0, "Hour");
-        windowblind.add("AM");
-        windowblind.add("PM");
-
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, windowblind);
-        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        bulbonampm.setAdapter(adapter2);
-
-        bulbonampm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Hour")) {
-
-                } else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("AM")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("PM")) {
                 }
             }
 
@@ -221,6 +167,18 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
         bulb.add("10");
         bulb.add("11");
         bulb.add("12");
+        bulb.add("13");
+        bulb.add("14");
+        bulb.add("15");
+        bulb.add("16");
+        bulb.add("17");
+        bulb.add("18");
+        bulb.add("19");
+        bulb.add("20");
+        bulb.add("21");
+        bulb.add("22");
+        bulb.add("23");
+        bulb.add("24");
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, bulb);
         adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
@@ -234,63 +192,6 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("1")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("2")) {
-                }
-                if (parent.getItemAtPosition(position).equals("3")) {
-                }
-                if (parent.getItemAtPosition(position).equals("4")) {
-                }
-                if (parent.getItemAtPosition(position).equals("5")) {
-                }
-                if (parent.getItemAtPosition(position).equals("6")) {
-                }
-                if (parent.getItemAtPosition(position).equals("7")) {
-                }
-                if (parent.getItemAtPosition(position).equals("8")) {
-                }
-                if (parent.getItemAtPosition(position).equals("9")) {
-                }
-                if (parent.getItemAtPosition(position).equals("10")) {
-                }
-                if (parent.getItemAtPosition(position).equals("11")) {
-                }
-                if (parent.getItemAtPosition(position).equals("12")) {
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
-    private void BulbOffAmPm(){
-        ArrayList<String> windowblind = new ArrayList<>();
-        windowblind.add(0, "Hour");
-        windowblind.add("AM");
-        windowblind.add("PM");
-
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, windowblind);
-        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        bulboffampm.setAdapter(adapter2);
-
-        bulboffampm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Hour")) {
-
-                } else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("AM")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("PM")) {
                 }
             }
 
@@ -316,6 +217,18 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
         bulb.add("10");
         bulb.add("11");
         bulb.add("12");
+        bulb.add("13");
+        bulb.add("14");
+        bulb.add("15");
+        bulb.add("16");
+        bulb.add("17");
+        bulb.add("18");
+        bulb.add("19");
+        bulb.add("20");
+        bulb.add("21");
+        bulb.add("22");
+        bulb.add("23");
+        bulb.add("24");
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, bulb);
         adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
@@ -330,31 +243,6 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("1")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("2")) {
-                }
-                if (parent.getItemAtPosition(position).equals("3")) {
-                }
-                if (parent.getItemAtPosition(position).equals("4")) {
-                }
-                if (parent.getItemAtPosition(position).equals("5")) {
-                }
-                if (parent.getItemAtPosition(position).equals("6")) {
-                }
-                if (parent.getItemAtPosition(position).equals("7")) {
-                }
-                if (parent.getItemAtPosition(position).equals("8")) {
-                }
-                if (parent.getItemAtPosition(position).equals("9")) {
-                }
-                if (parent.getItemAtPosition(position).equals("10")) {
-                }
-                if (parent.getItemAtPosition(position).equals("11")) {
-                }
-                if (parent.getItemAtPosition(position).equals("12")) {
-                }
             }
 
             @Override
@@ -363,39 +251,6 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
             }
         });
     }
-    private void FanOnAmPm(){
-        ArrayList<String> windowblind = new ArrayList<>();
-        windowblind.add(0, "Hour");
-        windowblind.add("AM");
-        windowblind.add("PM");
-
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, windowblind);
-        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        fanonampm.setAdapter(adapter2);
-
-        fanonampm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Hour")) {
-
-                } else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("AM")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("PM")) {
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
-
     private void FanOff() {
         ArrayList<String> bulb = new ArrayList<>();
         bulb.add(0, "Time");
@@ -411,12 +266,24 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
         bulb.add("10");
         bulb.add("11");
         bulb.add("12");
+        bulb.add("13");
+        bulb.add("14");
+        bulb.add("15");
+        bulb.add("16");
+        bulb.add("17");
+        bulb.add("18");
+        bulb.add("19");
+        bulb.add("20");
+        bulb.add("21");
+        bulb.add("22");
+        bulb.add("23");
+        bulb.add("24");
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, bulb);
         adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         fanoff.setAdapter(adapter2);
 
-        fanoffampm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        fanoff.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (parent.getItemAtPosition(position).equals("Time")) {
@@ -425,31 +292,6 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("1")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("2")) {
-                }
-                if (parent.getItemAtPosition(position).equals("3")) {
-                }
-                if (parent.getItemAtPosition(position).equals("4")) {
-                }
-                if (parent.getItemAtPosition(position).equals("5")) {
-                }
-                if (parent.getItemAtPosition(position).equals("6")) {
-                }
-                if (parent.getItemAtPosition(position).equals("7")) {
-                }
-                if (parent.getItemAtPosition(position).equals("8")) {
-                }
-                if (parent.getItemAtPosition(position).equals("9")) {
-                }
-                if (parent.getItemAtPosition(position).equals("10")) {
-                }
-                if (parent.getItemAtPosition(position).equals("11")) {
-                }
-                if (parent.getItemAtPosition(position).equals("12")) {
-                }
             }
 
             @Override
@@ -458,37 +300,5 @@ public class Contact_Person_Automatic_Mode_WC extends Fragment {
             }
         });
     }
-    private void FanOffAmPm(){
-        ArrayList<String> windowblind = new ArrayList<>();
-        windowblind.add(0, "Hour");
-        windowblind.add("AM");
-        windowblind.add("PM");
-
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, windowblind);
-        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        fanoffampm.setAdapter(adapter2);
-
-        fanoffampm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Hour")) {
-                } else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("AM")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("PM")) {
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
-
 }
 

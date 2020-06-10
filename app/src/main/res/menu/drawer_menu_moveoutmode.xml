@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="MOVE OUT MODE"
+        android:icon="@drawable/ic_modes">
+        <menu>
+            <item android:id="@+id/nav_moveoutmode_bedroom"
+                android:icon="@drawable/ic_bedroom"
+                android:title="BEDROOM">
+            </item>
+            <item android:id="@+id/nav_moveoutmode_livingroom"
+                android:icon="@drawable/ic_livingroom"
+                android:title="LIVING ROOM">
+            </item>
+            <item android:id="@+id/nav_moveoutmode_kitchen"
+                android:icon="@drawable/ic_kitchen"
+                android:title="KITCHEN">
+            </item>
+            <item android:id="@+id/nav_moveoutmode_wc"
+                android:icon="@drawable/ic_wc"
+                android:title="TOILET">
+            </item>
+
+        </menu>
+    </item>
+</menu>

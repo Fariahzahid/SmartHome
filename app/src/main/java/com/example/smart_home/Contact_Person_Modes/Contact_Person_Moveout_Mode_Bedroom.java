@@ -59,7 +59,6 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
 
         bedroom = "Move_Out_Mode_BedRoom";
 
-        temperature = (TextView) v.findViewById(R.id.temp_text);
         //temperature.setText("20");
 
         ac = v.findViewById(R.id.ac_moveout_bedroom_spinner);
@@ -91,10 +90,10 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document();
+                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("Bedroom");
                 Map<String, Object> user = new HashMap<>();
                 //user.put("UserID",userID);
-                user.put("Temperature", temperature.toString());
+                //user.put("Temperature", temperature.toString());
                 user.put("AC", ac.getSelectedItem().toString());
                 user.put("ACtemperature", actemp.getSelectedItem().toString());
                 user.put("Heating", heating.getSelectedItem().toString());
@@ -161,11 +160,6 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -206,37 +200,6 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("0")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("5")) {
-                }
-                if (parent.getItemAtPosition(position).equals("10")) {
-                }
-                if (parent.getItemAtPosition(position).equals("15")) {
-                }
-                if (parent.getItemAtPosition(position).equals("20")) {
-                }
-                if (parent.getItemAtPosition(position).equals("21")) {
-                }
-                if (parent.getItemAtPosition(position).equals("22")) {
-                }
-                if (parent.getItemAtPosition(position).equals("23")) {
-                }
-                if (parent.getItemAtPosition(position).equals("24")) {
-                }
-                if (parent.getItemAtPosition(position).equals("25")) {
-                }
-                if (parent.getItemAtPosition(position).equals("26")) {
-                }
-                if (parent.getItemAtPosition(position).equals("27")) {
-                }
-                if (parent.getItemAtPosition(position).equals("28")) {
-                }
-                if (parent.getItemAtPosition(position).equals("29")) {
-                }
-                if (parent.getItemAtPosition(position).equals("30")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -262,11 +225,6 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -277,6 +235,7 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
     private void HeatingTemperature(){
         ArrayList<String> acarray = new ArrayList<>();
         acarray.add(0, "Select Temperature");
+        acarray.add("0");
         acarray.add("25");
         acarray.add("26");
         acarray.add("27");
@@ -302,37 +261,6 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("0")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("5")) {
-                }
-                if (parent.getItemAtPosition(position).equals("10")) {
-                }
-                if (parent.getItemAtPosition(position).equals("15")) {
-                }
-                if (parent.getItemAtPosition(position).equals("20")) {
-                }
-                if (parent.getItemAtPosition(position).equals("21")) {
-                }
-                if (parent.getItemAtPosition(position).equals("22")) {
-                }
-                if (parent.getItemAtPosition(position).equals("23")) {
-                }
-                if (parent.getItemAtPosition(position).equals("24")) {
-                }
-                if (parent.getItemAtPosition(position).equals("25")) {
-                }
-                if (parent.getItemAtPosition(position).equals("26")) {
-                }
-                if (parent.getItemAtPosition(position).equals("27")) {
-                }
-                if (parent.getItemAtPosition(position).equals("28")) {
-                }
-                if (parent.getItemAtPosition(position).equals("29")) {
-                }
-                if (parent.getItemAtPosition(position).equals("30")) {
                 }
             }
             @Override
@@ -362,11 +290,6 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("OPEN")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("CLOSE")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -395,11 +318,6 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -411,6 +329,7 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
 
         ArrayList<String> timearray = new ArrayList<>();
         timearray.add(0, "Select Intensity");
+        timearray.add("OFF");
         timearray.add("HIGH");
         timearray.add("LOW");
 
@@ -427,11 +346,6 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("HIGH")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("LOW")) {
                 }
             }
             @Override
@@ -461,11 +375,7 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
 
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -493,11 +403,6 @@ public class Contact_Person_Moveout_Mode_Bedroom extends Fragment {
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("ON")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
                 }
             }
             @Override

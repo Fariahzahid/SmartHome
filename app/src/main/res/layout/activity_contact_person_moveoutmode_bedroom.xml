@@ -24,75 +24,50 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/rectangle3"
-                        android:orientation="vertical">
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/rectangle"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="16dp">
 
-                        <LinearLayout
-                            android:layout_width="369dp"
-                            android:layout_height="48dp"
-                            android:layout_marginTop="12dp"
-                            android:orientation="horizontal"
+                        <ImageView
+                            android:id="@+id/user_main_mode_image"
+                            android:layout_width="120dp"
+                            android:layout_height="80dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.068"
+                            app:layout_constraintHorizontal_bias="0.021"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="178dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="right|center"
-                                android:orientation="vertical"
-                                app:cardBackgroundColor="@android:color/transparent"
-                                app:cardCornerRadius="0dp"
-                                app:cardElevation="0dp">
-
-                                <TextView
-                                    android:layout_width="173dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center|center_horizontal|center_vertical"
-                                    android:layout_marginLeft="0dp"
-                                    android:fontFamily="sans-serif-black"
-                                    android:paddingLeft="20dp"
-                                    android:paddingTop="0dp"
-                                    android:text="TEMPERATURE"
-                                    android:textColor="@android:color/white"
-                                    android:textSize="20dp">
-
-                                </TextView>
-
-                            </androidx.cardview.widget.CardView>
-
-                            <androidx.cardview.widget.CardView
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0"
+                            app:srcCompat="@drawable/bedroom1" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="left|center"
-                                android:orientation="vertical"
-                                app:cardBackgroundColor="@android:color/transparent"
-                                app:cardCornerRadius="0dp"
-                                app:cardElevation="0dp">
-
-                                <TextView
-                                    android:id="@+id/temp_text"
-                                    android:layout_width="173dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center|center_horizontal|center_vertical"
-                                    android:layout_marginLeft="0dp"
-                                    android:fontFamily="sans-serif-black"
-                                    android:paddingLeft="20dp"
-                                    android:paddingTop="0dp"
-                                    android:text="20 C"
-                                    android:textColor="@android:color/white"
-                                    android:textSize="20dp">
-
-                                </TextView>
-
-                            </androidx.cardview.widget.CardView>
+                                android:text="BEDROOM"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginLeft="20dp"
+                                android:textSize="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"></TextView>
                         </LinearLayout>
 
-                        <View
-                            android:layout_width="wrap_content"
-                            android:layout_height="4dp"
-                            android:background="@color/white"></View>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rectangle3"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="369dp"
@@ -310,6 +285,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
+                        android:padding="10dp"
                         android:background="@drawable/rectangle4"
                         android:orientation="vertical">
 
@@ -595,6 +571,7 @@
                             android:layout_gravity="center|center_horizontal|center_vertical"
                             android:background="@drawable/button_rectangle"
                             android:text="SAVE"
+                            android:layout_margin="10dp"
                             android:textColor="@color/white"
                             android:textSize="25dp"></Button>
                     </androidx.cardview.widget.CardView>

@@ -27,11 +27,22 @@
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/purple_dark"
+                android:background="@color/purplelight1"
                 android:id="@+id/toolbar"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 app:popupTheme= "@style/ThemeOverlay.AppCompat.Light"
-                android:elevation="4dp"></androidx.appcompat.widget.Toolbar >
+                android:elevation="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USER PROFILE DETAILS"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_gravity="left"
+                    android:id="@+id/toolbar_title" />
+
+
+            </androidx.appcompat.widget.Toolbar >
 
             <FrameLayout
                 android:id="@+id/fragment_container"
@@ -44,7 +55,7 @@
             android:layout_height = "match_parent"
             android:layout_gravity = "start"
             android:id="@+id/nav_view"
-            app:headerLayout ="@layout/nav_header"
+            app:headerLayout ="@layout/nav_header_profile"
             app:menu="@menu/drawer_menu"
             />
 

@@ -125,11 +125,7 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("OPEN")) {
 
-                }
-                if (parent.getItemAtPosition(position).equals("CLOSE")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -157,11 +153,7 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
 
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -190,11 +182,7 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
 
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -223,11 +211,7 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
 
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -256,11 +240,7 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
 
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {

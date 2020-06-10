@@ -47,7 +47,7 @@ public class Contact_Person_Moveout_Mode_WC extends Fragment {
     float batteryTemp;
     String currentBatterytemp="Current Battery temp :";
 
-    private android.widget.Spinner  ac, actemp, heating, heatingtemp, bulb, fan;
+    private android.widget.Spinner  heating, heatingtemp, bulb, fan;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,11 +61,8 @@ public class Contact_Person_Moveout_Mode_WC extends Fragment {
 
         bedroom = "Move_Out_Mode_WC";
 
-        temperature = (TextView) v.findViewById(R.id.temp_text);
         //temperature.setText("20");
 
-        ac = v.findViewById(R.id.ac_moveout_wc_spinner);
-        actemp = v.findViewById(R.id.ac_temperature_moveout_wc_spinner);
         heating = v.findViewById(R.id.heating_moveout_wc_spinner);
         heatingtemp = v.findViewById(R.id.heating_temperature_moveout_wc_spinner);
         bulb = v.findViewById(R.id.bulb_moveout_wc_spinner);
@@ -74,8 +71,6 @@ public class Contact_Person_Moveout_Mode_WC extends Fragment {
 
 
         Temperature();
-        AcStatus();
-        AcTemperature();
         HeatingStatus();
         HeatingTemperature();
         Bulb();
@@ -86,11 +81,8 @@ public class Contact_Person_Moveout_Mode_WC extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document();
+                DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("WC");
                 Map<String, Object> user = new HashMap<>();
-                user.put("Temperature", temperature.toString());
-                user.put("AC", ac.getSelectedItem().toString());
-                user.put("ACtemperature", actemp.getSelectedItem().toString());
                 user.put("Heating", heating.getSelectedItem().toString());
                 user.put("HeatingTemperature", heatingtemp.getSelectedItem().toString());
                 user.put("Bulb", bulb.getSelectedItem().toString());
@@ -131,107 +123,7 @@ public class Contact_Person_Moveout_Mode_WC extends Fragment {
             }
         };
     }
-    private void AcStatus(){
-        ArrayList<String> acarray = new ArrayList<>();
-        acarray.add(0, "Select Status");
-        acarray.add("ON");
-        acarray.add("OFF");
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, acarray);
-        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        ac.setAdapter(adapter2);
 
-        ac.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Select Status")) {
-
-                } else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("ON")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
-    private void AcTemperature(){
-        ArrayList<String> acarray = new ArrayList<>();
-        acarray.add(0, "Select Temperature");
-        acarray.add("0");
-        acarray.add("5");
-        acarray.add("10");
-        acarray.add("15");
-        acarray.add("20");
-        acarray.add("21");
-        acarray.add("22");
-        acarray.add("23");
-        acarray.add("24");
-        acarray.add("25");
-        acarray.add("26");
-        acarray.add("27");
-        acarray.add("28");
-        acarray.add("29");
-        acarray.add("30");
-
-
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, acarray);
-        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        actemp.setAdapter(adapter2);
-
-        actemp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Select Temperature")) {
-
-                } else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("0")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("5")) {
-                }
-                if (parent.getItemAtPosition(position).equals("10")) {
-                }
-                if (parent.getItemAtPosition(position).equals("15")) {
-                }
-                if (parent.getItemAtPosition(position).equals("20")) {
-                }
-                if (parent.getItemAtPosition(position).equals("21")) {
-                }
-                if (parent.getItemAtPosition(position).equals("22")) {
-                }
-                if (parent.getItemAtPosition(position).equals("23")) {
-                }
-                if (parent.getItemAtPosition(position).equals("24")) {
-                }
-                if (parent.getItemAtPosition(position).equals("25")) {
-                }
-                if (parent.getItemAtPosition(position).equals("26")) {
-                }
-                if (parent.getItemAtPosition(position).equals("27")) {
-                }
-                if (parent.getItemAtPosition(position).equals("28")) {
-                }
-                if (parent.getItemAtPosition(position).equals("29")) {
-                }
-                if (parent.getItemAtPosition(position).equals("30")) {
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
     private void HeatingStatus(){
         ArrayList<String> acarray = new ArrayList<>();
         acarray.add(0, "Select Status");
@@ -250,11 +142,7 @@ public class Contact_Person_Moveout_Mode_WC extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
 
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -265,6 +153,7 @@ public class Contact_Person_Moveout_Mode_WC extends Fragment {
     private void HeatingTemperature(){
         ArrayList<String> acarray = new ArrayList<>();
         acarray.add(0, "Select Temperature");
+        acarray.add("0");
         acarray.add("25");
         acarray.add("26");
         acarray.add("27");
@@ -290,37 +179,6 @@ public class Contact_Person_Moveout_Mode_WC extends Fragment {
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("0")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("5")) {
-                }
-                if (parent.getItemAtPosition(position).equals("10")) {
-                }
-                if (parent.getItemAtPosition(position).equals("15")) {
-                }
-                if (parent.getItemAtPosition(position).equals("20")) {
-                }
-                if (parent.getItemAtPosition(position).equals("21")) {
-                }
-                if (parent.getItemAtPosition(position).equals("22")) {
-                }
-                if (parent.getItemAtPosition(position).equals("23")) {
-                }
-                if (parent.getItemAtPosition(position).equals("24")) {
-                }
-                if (parent.getItemAtPosition(position).equals("25")) {
-                }
-                if (parent.getItemAtPosition(position).equals("26")) {
-                }
-                if (parent.getItemAtPosition(position).equals("27")) {
-                }
-                if (parent.getItemAtPosition(position).equals("28")) {
-                }
-                if (parent.getItemAtPosition(position).equals("29")) {
-                }
-                if (parent.getItemAtPosition(position).equals("30")) {
                 }
             }
             @Override
@@ -350,11 +208,6 @@ public class Contact_Person_Moveout_Mode_WC extends Fragment {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
-                if (parent.getItemAtPosition(position).equals("ON")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
-                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -382,11 +235,6 @@ public class Contact_Person_Moveout_Mode_WC extends Fragment {
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-                if (parent.getItemAtPosition(position).equals("ON")) {
-
-                }
-                if (parent.getItemAtPosition(position).equals("OFF")) {
                 }
             }
             @Override

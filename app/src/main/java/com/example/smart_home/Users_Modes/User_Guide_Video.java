@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
-import com.example.smart_home.User_Disability_Mode.User_Home_Voice_Recognition;
+import com.example.smart_home.User_Voice_Mode.User_Home_Voice_Recognition;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="SLEEP MODE"
+        android:icon="@drawable/ic_modes">
+        <menu>
+            <item android:id="@+id/nav_sleepmode_bedroom"
+                android:icon="@drawable/ic_bedroom"
+                android:title="BEDROOM">
+            </item>
+            <item android:id="@+id/nav_sleepmode_livingroom"
+                android:icon="@drawable/ic_livingroom"
+                android:title="LIVING ROOM">
+            </item>
+            <item android:id="@+id/nav_sleepmode_kitchen"
+                android:icon="@drawable/ic_kitchen"
+                android:title="KITCHEN">
+            </item>
+            <item android:id="@+id/nav_sleepmode_wc"
+                android:icon="@drawable/ic_wc"
+                android:title="TOILET">
+            </item>
+        </menu>
+    </item>
+
+    <item android:title="MOVE OUT MODE"
+        android:icon="@drawable/ic_modes">
+        <menu>
+            <item android:id="@+id/nav_moveoutmode_bedroom"
+                android:icon="@drawable/ic_bedroom"
+                android:title="BEDROOM">
+            </item>
+            <item android:id="@+id/nav_moveoutmode_livingroom"
+                android:icon="@drawable/ic_livingroom"
+                android:title="LIVING ROOM">
+            </item>
+            <item android:id="@+id/nav_moveoutmode_kitchen"
+                android:icon="@drawable/ic_kitchen"
+                android:title="KITCHEN">
+            </item>
+            <item android:id="@+id/nav_moveoutmode_wc"
+                android:icon="@drawable/ic_wc"
+                android:title="TOILET">
+            </item>
+
+        </menu>
+    </item>
+
+    <item android:title="AUTOMATIC MODE"
+        android:icon="@drawable/ic_modes">
+        <menu>
+            <item android:id="@+id/nav_automaticmode_bedroom"
+                android:icon="@drawable/ic_bedroom"
+                android:title="BEDROOM">
+            </item>
+            <item android:id="@+id/nav_automaticmode_livingroom"
+                android:icon="@drawable/ic_livingroom"
+                android:title="LIVING ROOM">
+            </item>
+            <item android:id="@+id/nav_automaticmode_kitchen"
+                android:icon="@drawable/ic_kitchen"
+                android:title="KITCHEN">
+            </item>
+            <item android:id="@+id/nav_automaticmode_wc"
+                android:icon="@drawable/ic_wc"
+                android:title="TOILET">
+            </item>
+
+        </menu>
+    </item>
+</menu>
