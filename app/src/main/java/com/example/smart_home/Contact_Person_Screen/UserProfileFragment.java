@@ -1,5 +1,6 @@
 package com.example.smart_home.Contact_Person_Screen;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,16 +34,15 @@ public class UserProfileFragment extends Fragment {
 
     private static final String TAG = "MyActivity";
 
-    Button edit_profile,mode_settings;
-    TextView aname,aemail,aphoneno,aaddress,agender;
+    Button edit_profile;
+    TextView aname,aemail,aphoneno,aaddress,agender,
+            disabilityone,disabilitytwo,disabilitythree,disabilityfour,disabilityfive,disabilitysix;
     ImageView profileimage;
-
-    String userid;
+    String userid, no ="NO";
     //FIREBASE STORAGE
     StorageReference storageReference;
     //String value,userid;
     FirebaseAuth fAuth;
-
     //FIREBASE FIRESTORE
     private FirebaseFirestore fStore;
 
@@ -56,6 +57,14 @@ public class UserProfileFragment extends Fragment {
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
+        edit_profile = (Button) v.findViewById(R.id.edit_user_profile);
+        edit_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Contact_Person_Edit_User_Profile.class);
+                startActivity(intent);
+            }
+        });
        userdata(v,userid);
         return v;
     }
@@ -65,7 +74,14 @@ public class UserProfileFragment extends Fragment {
         aphoneno = (TextView) v.findViewById(R.id.text_cp_user_phoneno_2);
         aaddress = (TextView) v.findViewById(R.id.text_cp_user_address_2);
         agender = (TextView) v.findViewById(R.id.text_cp_useraddress4);
+        disabilityone = (TextView) v.findViewById(R.id.text_disabilityone);
+        disabilitytwo = (TextView) v.findViewById(R.id.text_disabilitytwo);
+        disabilitythree = (TextView) v.findViewById(R.id.text_disabilitythree);
+        disabilityfour = (TextView) v.findViewById(R.id.text_disabilityfour);
+        disabilityfive = (TextView) v.findViewById(R.id.text_disabilityfive);
+        disabilitysix = (TextView) v.findViewById(R.id.text_disabilitysix);
         profileimage = (ImageView) v.findViewById(R.id.cp_user_profile_image);
+
         fStore = FirebaseFirestore.getInstance();
 
         final DocumentReference documentReference = fStore.collection("USER").document(id);
@@ -86,6 +102,38 @@ public class UserProfileFragment extends Fragment {
                 aphoneno.setText(documentSnapshot.getString("Phone No"));
                 aaddress.setText(documentSnapshot.getString("Address"));
                 agender.setText(documentSnapshot.getString("Gender"));
+                String colorblind = documentSnapshot.getString("Color Blindness");
+                String blind = documentSnapshot.getString("Vision Impairment");
+                String mute = documentSnapshot.getString("Muteness Disability");
+                String deaf = documentSnapshot.getString("Hearing Impairment");
+                String dylexia = documentSnapshot.getString("Dylexia Disorder");
+                String physical = documentSnapshot.getString("Physical Impairment");
+
+
+                if(!colorblind.equals(no)){
+                    disabilityone.setText("Color Blindness");
+                }
+                if(!blind.equals(no)){
+                    disabilitytwo.setText("Vision Impairment");
+                    disabilitytwo.setVisibility(View.VISIBLE);
+                }
+                if(!mute.equals(no)){
+                    disabilitythree.setText("Muteness Disability");
+                    disabilitythree.setVisibility(View.VISIBLE);
+                }
+                if(!deaf.equals(no)){
+                    disabilityfour.setText("Hearing Impairment");
+                    disabilityfour.setVisibility(View.VISIBLE);
+                }
+                if(!dylexia.equals(no)){
+                    disabilityfive.setText("Dylexia Disorder");
+                    disabilityfive.setVisibility(View.VISIBLE);
+                }
+                if(!physical.equals(no)){
+                    disabilitysix.setText("Physical Impairment");
+                    disabilitysix.setVisibility(View.VISIBLE);
+
+                }
             }
         });
 

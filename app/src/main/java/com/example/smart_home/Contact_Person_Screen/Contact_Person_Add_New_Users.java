@@ -397,7 +397,7 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
                     userMap.put("image", downUri.toString());
 
                     Glide.with(Contact_Person_Add_New_Users.this).load(downUri).into(profileimage);
-                    fStore.collection("USER").document(user_id).collection("ProfileImage").document().set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    fStore.collection("USER").document(user_id).collection("ProfileImage").document("Image").set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                         }

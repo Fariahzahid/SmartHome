@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/grey_bakground"
-    tools:context="com.example.smart_home.Users_Modes.User_Move_Out_Mode">
+    tools:context="com.example.smart_home.Users_Modes.User_Move_Out_Mode_Colored">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -161,7 +161,7 @@
                                     android:layout_width="80dp"
                                     android:layout_height="72dp"
                                     android:layout_gravity="center"
-                                    app:srcCompat="@drawable/usersleepicon" />
+                                    app:srcCompat="@drawable/ic_bulbwhite" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -297,7 +297,7 @@
                                     android:layout_width="80dp"
                                     android:layout_height="72dp"
                                     android:layout_gravity="center"
-                                    app:srcCompat="@drawable/usersleepicon" />
+                                    app:srcCompat="@drawable/ic_bulbwhite" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -431,7 +431,7 @@
                                     android:layout_width="80dp"
                                     android:layout_height="72dp"
                                     android:layout_gravity="center"
-                                    app:srcCompat="@drawable/usersleepicon" />
+                                    app:srcCompat="@drawable/ic_heater" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -565,7 +565,7 @@
                                     android:layout_width="80dp"
                                     android:layout_height="72dp"
                                     android:layout_gravity="center"
-                                    app:srcCompat="@drawable/usersleepicon" />
+                                    app:srcCompat="@drawable/ic_air_conditioner2" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -699,7 +699,7 @@
                                     android:layout_width="80dp"
                                     android:layout_height="72dp"
                                     android:layout_gravity="center"
-                                    app:srcCompat="@drawable/usersleepicon" />
+                                    app:srcCompat="@drawable/ic_lampnightlamp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"

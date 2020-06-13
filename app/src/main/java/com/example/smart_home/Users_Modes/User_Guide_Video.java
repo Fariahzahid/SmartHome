@@ -80,7 +80,7 @@ public class User_Guide_Video extends AppCompatActivity {
                 || userdisabilitytwo == "Vision Impairment" || userdisabilitytwo == "Physical Impairment"
                 || userdisabilitythree == "Vision Impairment" || userdisabilitythree == "Physical Impairment"){
                     Toast.makeText(User_Guide_Video.this, "Voice and Screen Video Display",Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(User_Guide_Video.this,User_Home.class);
+                    Intent intent = new Intent(User_Guide_Video.this, User_Home_Colored.class);
                     startActivity(intent);
                 }
 

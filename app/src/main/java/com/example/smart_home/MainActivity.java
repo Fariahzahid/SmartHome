@@ -1,7 +1,6 @@
 package com.example.smart_home;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,30 +8,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.smart_home.Contact_Person_Modes.Contact_Person_Sleep_Mode;
 import com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List;
 import com.example.smart_home.Contact_Person_SignIn.Login;
-import com.example.smart_home.Users_Modes.User_Guide_Video;
-import com.example.smart_home.Users_Modes.User_Home;
+import com.example.smart_home.Users_Modes.User_Home_Colored;
 import com.example.smart_home.Users_SignIn.User_Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
-import org.w3c.dom.Text;
-
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
+import User_Modes_Black_White.User_Home;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyActivity";
@@ -85,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
                             GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
                             globalVariable.setUserIDUser(userID);
                             startActivity(intent);
-                           // finish();
                         } else {
                             Log.d(TAG, "Document does not exist!");
                         }

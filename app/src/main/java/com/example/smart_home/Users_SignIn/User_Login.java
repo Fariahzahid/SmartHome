@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.example.smart_home.Users_Modes.User_Guide_Video;
+import com.example.smart_home.Users_Modes.User_Home_Colored;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -49,7 +50,7 @@ public class User_Login extends AppCompatActivity {
             userID = mFirebaseAuth.getCurrentUser().getUid();
             GlobalVariables globalVariable=(GlobalVariables)getApplication();
             globalVariable.setUserIDUser(userID);
-            startActivity(new Intent(User_Login.this, User_Guide_Video.class));
+            startActivity(new Intent(User_Login.this, User_Home_Colored.class));
             finish();
 
         }
@@ -80,7 +81,7 @@ public class User_Login extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 Toast.makeText(User_Login.this, "User Logged In.",Toast.LENGTH_SHORT).show();
                                 userID = mFirebaseAuth.getCurrentUser().getUid();
-                                //startActivity(new Intent(getApplicationContext(), User_Home.class));
+                                //startActivity(new Intent(getApplicationContext(), User_Home_Colored.class));
                                 GlobalVariables globalVariable=(GlobalVariables)getApplication();
                                 globalVariable.setUserIDUser(userID);
                                 Intent intent = new Intent(User_Login.this, User_Guide_Video.class);

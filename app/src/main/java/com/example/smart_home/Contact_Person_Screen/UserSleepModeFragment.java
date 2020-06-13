@@ -150,7 +150,7 @@ public class UserSleepModeFragment extends Fragment {
                 lr_light.setText(documentSnapshot.getString("Bulb"));
                 lr_lightintensity.setText(documentSnapshot.getString("Bulb Intensity"));
                 lr_blinds.setText(documentSnapshot.getString("WindowBlinds"));
-                lrlamp.setText(documentSnapshot.getString("Night Lamp"));
+                lrlamp.setText(documentSnapshot.getString("Table Lamp"));
                 lr_tv.setText(documentSnapshot.getString("Television"));
             }
         });

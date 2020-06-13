@@ -14,7 +14,7 @@
         android:background="@android:color/transparent"
         android:layout_marginBottom="50dp">
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <LinearLayout
@@ -60,12 +60,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_margin="10dp"
                         android:layout_marginTop="20dp"
+                        android:padding="10dp"
                         android:background="@drawable/rectangle4"
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:layout_marginTop="12dp"
                             android:orientation="horizontal"
@@ -119,7 +121,7 @@
 
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:layout_marginTop="12dp"
                             android:orientation="horizontal"
@@ -171,7 +173,7 @@
 
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="67dp"
                             android:layout_marginTop="12dp"
                             android:orientation="horizontal"
@@ -224,7 +226,7 @@
 
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="67dp"
                             android:layout_marginTop="12dp"
                             android:orientation="horizontal"

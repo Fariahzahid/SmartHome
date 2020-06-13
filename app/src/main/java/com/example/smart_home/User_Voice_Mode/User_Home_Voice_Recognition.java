@@ -22,10 +22,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.example.smart_home.R;
-import com.example.smart_home.Users_Modes.User_Automatic_Mode_Bedroom;
-import com.example.smart_home.Users_Modes.User_Manual_Mode_Bedroom;
-import com.example.smart_home.Users_Modes.User_Move_Out_Mode;
-import com.example.smart_home.Users_Modes.User_Sleep_Mode;
+import com.example.smart_home.Users_Modes.User_Automatic_Mode_Colored;
+import com.example.smart_home.Users_Modes.User_Manual_Mode_Colored;
+import com.example.smart_home.Users_Modes.User_Move_Out_Mode_Colored;
+import com.example.smart_home.Users_Modes.User_Sleep_Mode_Colored;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -202,19 +202,19 @@ public class User_Home_Voice_Recognition  extends AppCompatActivity {
         String numberfive = "5";
 
         if(test.equals(numberone)) {
-            Intent intent = new Intent(User_Home_Voice_Recognition.this, User_Sleep_Mode.class);
+            Intent intent = new Intent(User_Home_Voice_Recognition.this, User_Sleep_Mode_Colored.class);
             startActivity(intent);
         }else if(test.equals(numbertwo)){
-            Intent intent = new Intent(User_Home_Voice_Recognition.this, User_Move_Out_Mode.class);
+            Intent intent = new Intent(User_Home_Voice_Recognition.this, User_Move_Out_Mode_Colored.class);
             startActivity(intent);
         }else if(test.equals(numberthree)){
-            Intent intent = new Intent(User_Home_Voice_Recognition.this, User_Automatic_Mode_Bedroom.class);
+            Intent intent = new Intent(User_Home_Voice_Recognition.this, User_Automatic_Mode_Colored.class);
             startActivity(intent);
         }else if(test.equals(numberfour)){
-            Intent intent = new Intent(User_Home_Voice_Recognition.this, User_Manual_Mode_Bedroom.class);
+            Intent intent = new Intent(User_Home_Voice_Recognition.this, User_Manual_Mode_Colored.class);
             startActivity(intent);
         }else if(test.equals(numberfive)){
-            Intent intent = new Intent(User_Home_Voice_Recognition.this, User_Sleep_Mode.class);
+            Intent intent = new Intent(User_Home_Voice_Recognition.this, User_Sleep_Mode_Colored.class);
             startActivity(intent);
         }else {
             textofspeech.setText("Sorry to understand your voice ,      Please Speck Again !");

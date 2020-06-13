@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -51,13 +53,19 @@ import java.util.Map;
 public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
     private static final String TAG = "MyActivity";
 
-    TextView editemail;
-    EditText editgender,editdisability,editname,editphoneno,editaddress;
+    TextView editemail,editgender,disabilityone,disabilitytwo,disabilitythree,disabilityfour,disabilityfive,disabilitysix;
+    EditText editname,editphoneno,editaddress;
     ImageView profileimage;
     Button save_button;
-    FloatingActionButton disone,distwo;
-    private Spinner gender ,disabilityspinnerone,disbilityspinnertwo,disbilityspinnerthree;
-    LinearLayout dislayoutone,dislayouttwo,dislayoutthree;
+    private Spinner gender;
+
+    FloatingActionButton adddisability;
+    SwitchCompat mutedisability,hearingdisability,physicaldisability,colorblindness,visiondisability,dylexiadisorder;
+    LinearLayout DisabilityLayouut;
+    Boolean status = false;
+    private String no = "NO";
+    private String mute = "NO",deaf="NO",phydisability="NO",blind="NO",dylexia="NO",colorblind="NO";
+
     //String value,userid;
     FirebaseAuth fAuth;
 
@@ -83,7 +91,7 @@ public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
         setContentView(R.layout.activity_contact_person_edit_user_profile);
 
         GlobalVariables globalVariable=(GlobalVariables)getApplication();
-        userid  = globalVariable.getUserIDContactPerson();
+        userid  = globalVariable.getUserIDUser();
 
         // user = fAuth.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -96,16 +104,27 @@ public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
         editemail = (TextView) findViewById(R.id.user_edit_email);
         editaddress = (EditText) findViewById(R.id.user_edit_address);
         editphoneno = (EditText) findViewById(R.id.user_edit_phoneno);
-        editgender = (EditText) findViewById(R.id.user_edit_gender);
-        editdisability = (EditText) findViewById(R.id.user_edit_disability);
+        editgender = (TextView) findViewById(R.id.user_edit_gender);
         gender = (Spinner) findViewById(R.id.edit_gender_spinner);
-        disabilityspinnerone = findViewById(R.id.disability_spinner_one);
-        disbilityspinnertwo = findViewById(R.id.disability_spinner_two);
-        disbilityspinnerthree = findViewById(R.id.disability_spinnerthree);
-        disone = findViewById(R.id.button_add_userone);
-        distwo = findViewById(R.id.button_add_usertwo);
-        dislayouttwo = (LinearLayout) findViewById(R.id.dislayouttwo);
-        dislayoutthree = (LinearLayout) findViewById(R.id.dislayoutthree);
+
+        disabilityone = (TextView) findViewById(R.id.text_disabilityone);
+        disabilitytwo = (TextView) findViewById(R.id.text_disabilitytwo);
+        disabilitythree = (TextView) findViewById(R.id.text_disabilitythree);
+        disabilityfour = (TextView) findViewById(R.id.text_disabilityfour);
+        disabilityfive = (TextView) findViewById(R.id.text_disabilityfive);
+        disabilitysix = (TextView) findViewById(R.id.text_disabilitysix);
+
+        mutedisability = findViewById(R.id.switch1);
+        hearingdisability = findViewById(R.id.switch2);
+        physicaldisability = findViewById(R.id.switch3);
+        colorblindness = findViewById(R.id.switch4);
+        visiondisability = findViewById(R.id.switch5);
+        dylexiadisorder = findViewById(R.id.switch6);
+
+        adddisability = findViewById(R.id.button_add_user);
+
+        DisabilityLayouut = (LinearLayout) findViewById(R.id.Disability);
+
         profileimage = (ImageView) findViewById(R.id.user_profile_image);
 
         profileimage.setOnClickListener(new View.OnClickListener() {
@@ -126,32 +145,114 @@ public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
             }
         });
         GenderSpinner();
-        DisabilitySpinnerOne();
-        DisabilitySpinnerTwo();
-        DisabilitySpinnerThree();
+        AddDisabilities();
 
-        disone.setOnClickListener(new View.OnClickListener() {
+        adddisability.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dislayouttwo.setVisibility(View.VISIBLE);
-                disone.setVisibility(View.GONE);
+                DisabilityLayouut.setVisibility(View.VISIBLE);
             }
         });
-        distwo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dislayoutthree.setVisibility(View.VISIBLE);
-                distwo.setVisibility(View.GONE);
-            }
-        });
-        save_button = (Button) findViewById(R.id.contact_person_saveeditprofile);
+
+        save_button = (Button) findViewById(R.id.save_update_user);
 
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updateuserprofile(userid);
+
                 Intent intent = new Intent(Contact_Person_Edit_User_Profile.this,Contact_Person_User_Profile.class);
                 startActivity(intent);
+            }
+        });
+
+
+    }
+
+    private void AddDisabilities(){
+        mutedisability.setChecked(status);
+        hearingdisability.setChecked(status);
+        physicaldisability.setChecked(status);
+        colorblindness.setChecked(status);
+        visiondisability.setChecked(status);
+        dylexiadisorder.setChecked(status);
+
+        mutedisability.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+
+                if(isChecked){
+                    mute = "YES";
+                }else if (!isChecked){
+                    mute ="NO";
+                }
+
+            }
+        });
+        hearingdisability.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+
+                if(isChecked){
+                    deaf = "YES";
+                }else if (!isChecked){
+                    deaf ="NO";
+                }
+
+            }
+        });
+        physicaldisability.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+
+                if(isChecked){
+                    phydisability = "YES";
+                }else if (!isChecked){
+                    phydisability ="NO";
+                }
+
+            }
+        });
+        colorblindness.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+
+                if(isChecked){
+                    colorblind = "YES";
+                }else if (!isChecked){
+                    colorblind ="NO";
+                }
+
+            }
+        });
+        visiondisability.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+
+                if(isChecked){
+                    blind = "YES";
+                }else if (!isChecked){
+                    blind ="NO";
+                }
+
+            }
+        });
+        dylexiadisorder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+
+                if(isChecked){
+                    dylexia = "YES";
+                }else if (!isChecked){
+                    dylexia ="NO";
+                }
+
             }
         });
 
@@ -167,7 +268,7 @@ public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
                 Picasso.get().load(uri).into(profileimage);
             }
         });
-        final DocumentReference documentReference = fStore.collection("Contact Person").document(UserID);
+        final DocumentReference documentReference = fStore.collection("USER").document(UserID);
 
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -177,19 +278,39 @@ public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
                 editphoneno.setText(documentSnapshot.getString("PhoneNo"));
                 editaddress.setText(documentSnapshot.getString("Address"));
                 editgender.setText(documentSnapshot.getString("Gender"));
-                String one = documentSnapshot.getString("DisabilityOne");
-                String two = documentSnapshot.getString("DisabilityTwo");
-                String three = documentSnapshot.getString("DisabilityThree");
+                String colorblind = documentSnapshot.getString("Color Blindness");
+                String blind = documentSnapshot.getString("Vision Impairment");
+                String mute = documentSnapshot.getString("Muteness Disability");
+                String deaf = documentSnapshot.getString("Hearing Impairment");
+                String dylexia = documentSnapshot.getString("Dylexia Disorder");
+                String physical = documentSnapshot.getString("Physical Impairment");
 
-                if(one!=null && two!=null &&three!=null){
-                    editdisability.setText("Disability One : " +one +"Disability Two : "+two +"Disability Three : " +three);
-
-                }else if(one!= null && two!=null){
-                    editdisability.setText("Disability One : " +one +"Disability Two : "+two);
-
-                }else{
-                    editdisability.setText("Disability One : " +one);
+                if(!colorblind.equals(no)){
+                    disabilityone.setText("Color Blindness");
                 }
+                if(!blind.equals(no)){
+                    disabilitytwo.setText("Vision Impairment");
+                    disabilitytwo.setVisibility(View.VISIBLE);
+                }
+                if(!mute.equals(no)){
+                    disabilitythree.setText("Muteness Disability");
+                    disabilitythree.setVisibility(View.VISIBLE);
+                }
+                if(!deaf.equals(no)){
+                    disabilityfour.setText("Hearing Impairment");
+                    disabilityfour.setVisibility(View.VISIBLE);
+                }
+                if(!dylexia.equals(no)){
+                    disabilityfive.setText("Dylexia Disorder");
+                    disabilityfive.setVisibility(View.VISIBLE);
+                }
+                if(!physical.equals(no)){
+                    disabilitysix.setText("Physical Impairment");
+                    disabilitysix.setVisibility(View.VISIBLE);
+
+                }
+
+
 
 
             }
@@ -197,9 +318,6 @@ public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
     }
     private void updateuserprofile(final String UserID){
          user = fAuth.getCurrentUser();
-            final String disablityone = disabilityspinnerone.getSelectedItem().toString();
-            final String disabilitytwo = disbilityspinnertwo.getSelectedItem().toString();
-            final String disabilitythree = disbilityspinnerthree.getSelectedItem().toString();
 
                     DocumentReference documentReference = fStore.collection("USER").document(UserID);
                     Map<String,Object> edited = new HashMap<>();
@@ -207,15 +325,13 @@ public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
                     edited.put("Phone No",editphoneno.getText().toString());
                     edited.put("Address",editaddress.getText().toString());
                     edited.put("Gender",gender.getSelectedItem().toString());
-                    if(disablityone!=null){
-                        edited.put("DisabilityOne",disablityone);
-                    }
-                    if(disabilitytwo!=null){
-                        edited.put("DisabilityTwo",disabilitytwo);
-                    }
-                    if(disabilitythree!=null){
-                        edited.put("DisabilityThree",disabilitythree);
-                    }
+                    edited.put("Muteness Disability",mute);
+                    edited.put("Hearing Impairment",deaf);
+                    edited.put("Vision Impairment",blind);
+                    edited.put("Color Blindness",colorblind);
+                    edited.put("Physical Impairment",phydisability);
+                    edited.put("Dylexia Disorder",dylexia);
+
                     //SAVE_NAME_AND_PHOTO(UserID);
                     documentReference.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -232,75 +348,6 @@ public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
                     });
     }
 
-    private void DisabilitySpinnerOne(){
-        ArrayList<String> categories = new ArrayList<>();
-        categories.add(0,"NUll");
-        categories.add("Mute");
-        categories.add("HearingImpairment");
-        categories.add("PhysicalImpairment");
-        categories.add("ColorBlindness");
-        categories.add("VisionImpairment");
-
-        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, categories);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        disabilityspinnerone.setAdapter(aa);
-        disabilityspinnerone.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String gender = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Selected: " + gender,          Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView <?> parent) {
-            }
-        });
-    }
-    private void DisabilitySpinnerTwo(){
-        ArrayList<String> categories = new ArrayList<>();
-        categories.add(0,"NUll");
-        categories.add("Mute");
-        categories.add("HearingImpairment");
-        categories.add("PhysicalImpairment");
-        categories.add("ColorBlindness");
-        categories.add("VisionImpairment");
-
-        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, categories);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        disbilityspinnertwo.setAdapter(aa);
-        disbilityspinnertwo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String gender = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Selected: " + gender,          Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView <?> parent) {
-            }
-        });
-    }
-    private void DisabilitySpinnerThree(){
-        ArrayList<String> categories = new ArrayList<>();
-        categories.add(0,"NUll");
-        categories.add("Mute");
-        categories.add("HearingImpairment");
-        categories.add("PhysicalImpairment");
-        categories.add("ColorBlindness");
-        categories.add("VisionImpairment");
-
-        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, categories);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        disbilityspinnerthree.setAdapter(aa);
-        disbilityspinnerthree.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String gender = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Selected: " + gender,          Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView <?> parent) {
-            }
-        });
-    }
     private void GenderSpinner(){
         ArrayList<String> categories = new ArrayList<>();
         categories.add(0,"Male");
@@ -364,7 +411,7 @@ public class Contact_Person_Edit_User_Profile extends AppCompatActivity {
                     userMap.put("image", downUri.toString());
 
                     Glide.with(Contact_Person_Edit_User_Profile.this).load(downUri).into(profileimage);
-                    fStore.collection("USER").document(user_id).collection("ProfileImage").document().set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    fStore.collection("USER").document(user_id).collection("ProfileImage").document("Image").set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                         }

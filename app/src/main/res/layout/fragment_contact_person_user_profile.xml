@@ -200,7 +200,6 @@
                     </TextView>
 
                     <TextView
-
                         android:id="@+id/text_cp_useraddress4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -211,6 +210,99 @@
                         android:textColor="@android:color/black"
                         android:textSize="15sp">
 
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="0dp"
+                        android:fontFamily="sans-serif-black"
+                        android:paddingTop="10dp"
+                        android:text="Disabilities"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/text_disabilityone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
+                        android:text="None"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/text_disabilitytwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
+                        android:text="Female"
+                        android:visibility="gone"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+
+                        android:id="@+id/text_disabilitythree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
+                        android:visibility="gone"
+                        android:text="Female"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/text_disabilityfour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
+                        android:text="Female"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/text_disabilityfive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
+                        android:text="Female"
+                        android:visibility="gone"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/text_disabilitysix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif"
+                        android:text="Female"
+                        android:visibility="gone"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp">
                     </TextView>
                 </LinearLayout>
 
