@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
+    android:background="@drawable/grey_bakground"
     tools:context="com.example.smart_home.User_Voice_Mode.User_Home_Voice_Recognition"
     android:descendantFocusability="blocksDescendants"
     android:id="@+id/speechlayout"
     >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/activity_dashboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:addStatesFromChildren="true"
+        android:orientation="vertical"
         android:clickable="false"
         android:focusable="false"
-        android:background="@drawable/grey_bakground"
-        android:padding = "16dp"
 
         >
 
@@ -26,7 +26,7 @@
             android:id="@+id/textofspeech"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
+            android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></TextView>
@@ -35,23 +35,20 @@
             android:id="@+id/speechthetext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></TextView>
+            android:visibility="gone"
+            ></TextView>
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="377dp"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
             android:orientation="horizontal"
             android:padding="5dp"
+            android:layout_marginTop="5dp"
             android:addStatesFromChildren="true"
             android:clickable="false"
             android:focusable="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            >
 
             <ImageView
                 android:id="@+id/user_main_mode_image"
@@ -95,19 +92,13 @@
 
         <LinearLayout
             android:id="@+id/linearLayout14"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="20dp"
             android:addStatesFromChildren="true"
             android:clickable="false"
-            android:focusable="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.026">
+            android:focusable="false">
 
             <LinearLayout
                 android:id="@+id/layoutone"
@@ -149,7 +140,7 @@
 
                     <TextView
                         android:id="@+id/user_home_sleep_mode_button"
-                        android:layout_width="100dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="sans-serif-black"
@@ -165,12 +156,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text">
+                android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="100dp"
@@ -202,7 +190,7 @@
 
                             <TextView
                                 android:id="@+id/user_home_moveoutmode_button"
-                                android:layout_width="100dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="sans-serif-black"
@@ -218,12 +206,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text">
+                android:orientation="horizontal">
 
 
                         <ImageView
@@ -256,7 +241,7 @@
 
                             <TextView
                                 android:id="@+id/user_home_automatic_mode_button"
-                                android:layout_width="100dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="sans-serif-black"
@@ -272,12 +257,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text">
+                android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="100dp"
@@ -308,7 +290,7 @@
 
                         <TextView
                             android:id="@+id/user_home_manual_mode_button"
-                            android:layout_width="115dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="sans-serif-black"
@@ -325,12 +307,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user_main_mode_emergency_text">
+                android:orientation="horizontal">
 
 
                         <ImageView
@@ -362,7 +341,7 @@
 
                         <TextView
                             android:id="@+id/user_home_contact_person_button"
-                            android:layout_width="121dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="sans-serif-black"
@@ -375,6 +354,6 @@
 
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </ScrollView>

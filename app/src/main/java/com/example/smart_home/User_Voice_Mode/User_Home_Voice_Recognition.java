@@ -45,7 +45,7 @@ public class User_Home_Voice_Recognition  extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_home_voice_mode);
+        setContentView(R.layout.activity_users_home_voice_mode);
 
         fStore = FirebaseFirestore.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
