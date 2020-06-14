@@ -2,14 +2,17 @@ package User_Modes_Black_White;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.os.BatteryManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +26,7 @@ import androidx.core.app.ActivityCompat;
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.MainActivity;
 import com.example.smart_home.R;
+import com.example.smart_home.Users_Modes.User_Home_Colored;
 import com.example.smart_home.Weather_Information.Common.Common;
 import com.example.smart_home.Weather_Information.Helper.Helper;
 import com.example.smart_home.Weather_Information.Model.OpenWeatherMap;
@@ -42,6 +46,9 @@ public class User_Home  extends AppCompatActivity implements LocationListener {
     String provider;
     static double lat, lng;
     OpenWeatherMap openWeatherMap = new OpenWeatherMap();
+    IntentFilter intentfilter;
+    float batteryTemp;
+    String currentBatterytemp ="Current Battery temp :",currectTemperature;
 
     int MY_PERMISSION = 0;
 
@@ -51,7 +58,6 @@ public class User_Home  extends AppCompatActivity implements LocationListener {
     FirebaseFirestore fStore;
     String userID;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +66,8 @@ public class User_Home  extends AppCompatActivity implements LocationListener {
         fStore = FirebaseFirestore.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
 
+        intentfilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        User_Home.this.registerReceiver(broadcastreceiver,intentfilter);
 
         sleep_mode = (Button) findViewById(R.id.user_home_sleep_mode_button);
         moveout_mode = (Button) findViewById(R.id.user_home_moveoutmode_button);
@@ -130,7 +138,131 @@ public class User_Home  extends AppCompatActivity implements LocationListener {
         }
 
     }
+    private BroadcastReceiver broadcastreceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
 
+
+            batteryTemp = (float)(intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE,0))/10;
+
+            currectTemperature = currentBatterytemp +" "+batteryTemp +" "+ (char) 0x00B0 +"C";
+            GlobalVariables globalVariable=(GlobalVariables)getApplication();
+            globalVariable.setCurrentTemperature(batteryTemp);
+            if(batteryTemp <=25){
+                globalVariable.setSleep_mode_bedroom_ac("OFF");
+                globalVariable.setSleep_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                globalVariable.setSleep_mode_bedroom_heating("ON");
+                globalVariable.setSleep_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setManual_mode_bedroom_ac("OFF");
+                globalVariable.setManual_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                globalVariable.setManual_mode_bedroom_heating("ON");
+                globalVariable.setManual_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setAutomatic_mode_bedroom_ac("OFF");
+                globalVariable.setAutomatic_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                globalVariable.setAutomatic_mode_bedroom_heating("ON");
+                globalVariable.setAutomatic_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setSleep_mode_livingroom_ac("OFF");
+                globalVariable.setSleep_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                globalVariable.setSleep_mode_livingroom_heating("ON");
+                globalVariable.setSleep_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setManual_mode_livingroom_ac("OFF");
+                globalVariable.setManual_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                globalVariable.setManual_mode_livingroom_heating("ON");
+                globalVariable.setManual_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setAutomatic_mode_livingroom_ac("OFF");
+                globalVariable.setAutomatic_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                globalVariable.setAutomatic_mode_livingroom_heating("ON");
+                globalVariable.setAutomatic_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setSleep_mode_kitchen_ac("OFF");
+                globalVariable.setSleep_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
+                globalVariable.setSleep_mode_kitchen_heating("ON");
+                globalVariable.setSleep_mode_kitchen_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setManual_mode_kitchen_ac("OFF");
+                globalVariable.setManual_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
+                globalVariable.setManual_mode_kitchen_heating("ON");
+                globalVariable.setManual_mode_kitchen_ac_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setAutomatic_mode_kitchen_ac("OFF");
+                globalVariable.setAutomatic_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
+                globalVariable.setAutomatic_mode_kitchen_heating("ON");
+                globalVariable.setAutomatic_mode_kitchen_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setSleep_mode_wc_heating("ON");
+                globalVariable.setSleep_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setManual_mode_wc_heating("ON");
+                globalVariable.setManual_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setAutomatic_mode_wc_heating("ON");
+                globalVariable.setAutomatic_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+
+            }
+            if(batteryTemp >= 25){
+                globalVariable.setSleep_mode_bedroom_ac("ON");
+                globalVariable.setSleep_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                globalVariable.setSleep_mode_bedroom_heating("OFF");
+                globalVariable.setSleep_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setManual_mode_bedroom_ac("ON");
+                globalVariable.setManual_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                globalVariable.setManual_mode_bedroom_heating("OFF");
+                globalVariable.setManual_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setAutomatic_mode_bedroom_ac("ON");
+                globalVariable.setAutomatic_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                globalVariable.setAutomatic_mode_bedroom_heating("OFF");
+                globalVariable.setAutomatic_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setSleep_mode_livingroom_ac("ON");
+                globalVariable.setSleep_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                globalVariable.setSleep_mode_livingroom_heating("OFF");
+                globalVariable.setSleep_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setManual_mode_livingroom_ac("ON");
+                globalVariable.setManual_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                globalVariable.setManual_mode_livingroom_heating("OFF");
+                globalVariable.setManual_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setAutomatic_mode_livingroom_ac("ON");
+                globalVariable.setAutomatic_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                globalVariable.setAutomatic_mode_livingroom_heating("OFF");
+                globalVariable.setAutomatic_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setSleep_mode_kitchen_ac("ON");
+                globalVariable.setSleep_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
+                globalVariable.setSleep_mode_kitchen_heating("OFF");
+                globalVariable.setSleep_mode_kitchen_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setManual_mode_kitchen_ac("ON");
+                globalVariable.setManual_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
+                globalVariable.setManual_mode_kitchen_heating("OFF");
+                globalVariable.setManual_mode_kitchen_ac_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setAutomatic_mode_kitchen_ac("ON");
+                globalVariable.setAutomatic_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
+                globalVariable.setAutomatic_mode_kitchen_heating("OFF");
+                globalVariable.setAutomatic_mode_kitchen_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setSleep_mode_wc_heating("OFF");
+                globalVariable.setSleep_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setManual_mode_wc_heating("OFF");
+                globalVariable.setManual_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                globalVariable.setAutomatic_mode_wc_heating("OFF");
+                globalVariable.setAutomatic_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+            }
+
+        }
+    };
 
     @Override
     protected void onPause() {

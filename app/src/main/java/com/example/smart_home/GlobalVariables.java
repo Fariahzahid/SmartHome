@@ -6,6 +6,7 @@ public class GlobalVariables extends  Application{
 
     private String UserIDContactPerson;
     private String UserIDUser;
+    private float currentTemperature;
 
     //WEATHER STRINGS
     private String city;
@@ -15,42 +16,179 @@ public class GlobalVariables extends  Application{
     private String sunset;
     private String sunrise;
     private String temperature;
-    //    BED ROOM
-    private String bedroom_light;
-    private String bedroom_fan;
-    private String bedroom_windowblind;
-    private String bedroom_nightlamp;
-    private String bedroom_ac;
-    private String bedroom_heating;
+    //    SLEEP_MODE_BED ROOM
+    private String sleep_mode_bedroom_light;
+    private String sleep_mode_bedroom_charging;
+    private String sleep_mode_bedroom_windowblind;
+    private String sleep_mode_bedroom_nightlamp;
+    private String sleep_mode_bedroom_lightintensity;
+    private String sleep_mode_bedroom_ac;
+    private String sleep_mode_bedroom_heating;
+    private String sleep_mode_bedroom_ac_temperature;
+    private String sleep_mode_bedroom_heating_temperature;
+
+    //    SLEEP_MODE_KITCHEN
+    private String sleep_mode_kitchen_light;
+    private String sleep_mode_kitchen_windowblind;
+    private String sleep_mode_kitchen_stove;
+    private String sleep_mode_kitchen_oven;
+    private String sleep_mode_kitchen_refrigrator;
+    private String sleep_mode_kitchen_heating;
+    private String sleep_mode_kitchen_ac;
+    private String sleep_mode_kitchen_ac_temperature;
+    private String sleep_mode_kitchen_heating_temperature;
+    //    SLEEP_MODE_LIVING ROOM
+    private String sleep_mode_livingroom_light;
+    private String sleep_mode_livingroom_windowblind;
+    private String sleep_mode_livingroom_tablelamp;
+    private String sleep_mode_livingroom_television;
+    private String sleep_mode_livingroom_lightintensity;
+    private String sleep_mode_livingroom_heating;
+    private String sleep_mode_livingroom_ac;
+    private String sleep_mode_livingroom_ac_temperature;
+    private String sleep_mode_livingroom_heating_temperature;
+    //SLEEP_MODE_WC
+    private String sleep_mode_wc_light;
+    private String sleep_mode_wc_fan;
+    private String sleep_mode_wc_windowblind;
+    private String sleep_mode_wc_heating;
+    private String sleep_mode_wc_heating_temperature;
+    //SLEEP_MODE_BATH ROOM
+    private String sleep_mode_bathroom_light;
+    private String sleep_mode_bathroom_fan;
+    private String sleep_mode_bathroom_windowblind;
+    private String sleep_mode_bathroom_heating;
+
+
+    //    MOVE_OUT_BED ROOM
+    private String moveout_mode_bedroom_light;
+    private String moveout_mode_bedroom_charging;
+    private String moveout_mode_bedroom_windowblind;
+    private String moveout_mode_bedroom_nightlamp;
+    private String moveout_mode_bedroom_lightintensity;
+    private String moveout_mode_bedroom_ac;
+    private String moveout_mode_bedroom_heating;
+    private String moveout_mode_bedroom_ac_temperature;
+    private String moveout_mode_bedroom_heating_temperature;
 
     //    KITCHEN
-    private String kitchen_light;
-    private String kitchen_fan;
-    private String kitchen_windowblind;
-    private String kitchen_stove;
-    private String kitchen_oven;
-    private String kitchen_heating;
-    private String kitchen_ac;
+    private String moveout_mode_kitchen_light;
+    private String moveout_mode_kitchen_windowblind;
+    private String moveout_mode_kitchen_stove;
+    private String moveout_mode_kitchen_oven;
+    private String moveout_mode_kitchen_refrigrator;
+    private String moveout_mode_kitchen_heating;
+    private String moveout_mode_kitchen_ac;
+    private String moveout_mode_kitchen_ac_temperature;
+    private String moveout_mode_kitchen_heating_temperature;
     //    LIVING ROOM
-    private String livingroom_light;
-    private String livingroom_fan;
-    private String livingroom_windowblind;
-    private String livingroom_tablelamp;
-    private String livingroom_television;
-    private String livingroom_heating;
-    private String livingroom_ac;
+    private String moveout_mode_livingroom_light;
+    private String moveout_mode_livingroom_windowblind;
+    private String moveout_mode_livingroom_tablelamp;
+    private String moveout_mode_livingroom_television;
+    private String moveout_mode_livingroom_heating;
+    private String moveout_mode_livingroom_lightintensity;
+    private String moveout_mode_livingroom_ac;
+    private String moveout_mode_livingroom_ac_temperature;
+    private String moveout_mode_livingroom_heating_temperature;
     //WC
-    private String wc_light;
-    private String wc_fan;
-    private String wc_windowblind;
-    private String wc_heating;
+    private String moveout_mode_wc_light;
+    private String moveout_mode_wc_fan;
+    private String moveout_mode_wc_windowblind;
+    private String moveout_mode_wc_heating;
+    private String moveout_mode_wc_heating_temperature;
     //BATH ROOM
-    private String bathroom_light;
-    private String bathroom_fan;
-    private String bathroom_windowblind;
-    private String bathroom_heating;
+    private String moveout_mode_bathroom_light;
+    private String moveout_mode_bathroom_fan;
+    private String moveout_mode_bathroom_windowblind;
+    private String moveout_mode_bathroom_heating;
 
 
+    //Manual Mode
+    //    BED ROOM
+    private String manual_mode_bedroom_light;
+    private String manual_mode_bedroom_charging;
+    private String manual_mode_bedroom_windowblind;
+    private String manual_mode_bedroom_nightlamp;
+    private String manual_mode_bedroom_lightintensity;
+    private String manual_mode_bedroom_ac;
+    private String manual_mode_bedroom_heating;
+    private String manual_mode_bedroom_ac_temperature;
+    private String manual_mode_bedroom_heating_temperature;
+
+    //    KITCHEN
+    private String manual_mode_kitchen_light;
+    private String manual_mode_kitchen_windowblind;
+    private String manual_mode_kitchen_stove;
+    private String manual_mode_kitchen_oven;
+    private String manual_mode_kitchen_heating;
+    private String manual_mode_kitchen_ac;
+    private String manual_mode_kitchen_ac_temperature;
+    private String manual_mode_kitchen_heating_temperature;
+    //    LIVING ROOM
+    private String manual_mode_livingroom_light;
+    private String manual_mode_livingroom_windowblind;
+    private String manual_mode_livingroom_tablelamp;
+    private String manual_mode_livingroom_television;
+    private String manual_mode_livingroom_lightintensity;
+    private String manual_mode_livingroom_heating;
+    private String manual_mode_livingroom_ac;
+    private String manual_mode_livingroom_ac_temperature;
+    private String manual_mode_livingroom_heating_temperature;
+    //WC
+    private String manual_mode_wc_light;
+    private String manual_mode_wc_fan;
+    private String manual_mode_wc_windowblind;
+    private String manual_mode_wc_heating;
+    private String manual_mode_wc_heating_temperature;
+    //BATH ROOM
+    private String manual_mode_bathroom_light;
+    private String manual_mode_bathroom_fan;
+    private String manual_mode_bathroom_windowblind;
+    private String manual_mode_bathroom_heating;
+
+    //AUTOMATIC Mode
+    //    BED ROOM
+//    private String automatic_mode_bedroom_light;
+//    private String automatic_mode_bedroom_charging;
+//    private String automatic_mode_bedroom_windowblind;
+//    private String automatic_mode_bedroom_nightlamp;
+//    private String automatic_mode_bedroom_lightintensity;
+    private String automatic_mode_bedroom_ac;
+    private String automatic_mode_bedroom_heating;
+    private String automatic_mode_bedroom_ac_temperature;
+    private String automatic_mode_bedroom_heating_temperature;
+
+    //    KITCHEN
+//    private String automatic_mode_kitchen_light;
+//    private String automatic_mode_kitchen_windowblind;
+//    private String automatic_mode_kitchen_stove;
+//    private String automatic_mode_kitchen_oven;
+    private String automatic_mode_kitchen_heating;
+    private String automatic_mode_kitchen_ac;
+    private String automatic_mode_kitchen_ac_temperature;
+    private String automatic_mode_kitchen_heating_temperature;
+    //    LIVING ROOM
+//    private String automatic_mode_livingroom_light;
+//    private String automatic_mode_livingroom_windowblind;
+//    private String automatic_mode_livingroom_tablelamp;
+//    private String automatic_mode_livingroom_television;
+//    private String automatic_mode_livingroom_lightintensity;
+    private String automatic_mode_livingroom_heating;
+    private String automatic_mode_livingroom_ac;
+    private String automatic_mode_livingroom_ac_temperature;
+    private String automatic_mode_livingroom_heating_temperature;
+    //WC
+//    private String automatic_mode_wc_light;
+//    private String automatic_mode_wc_fan;
+//    private String automatic_mode_wc_windowblind;
+    private String automatic_mode_wc_heating;
+    private String automatic_mode_wc_heating_temperature;
+    //BATH ROOM
+//    private String automatic_mode_bathroom_light;
+//    private String automatic_mode_bathroom_fan;
+    private String automatic_mode_bathroom_windowblind;
+    private String automatic_mode_bathroom_heating;
     public String getUserIDContactPerson() {
 
         return UserIDContactPerson;
@@ -70,6 +208,14 @@ public class GlobalVariables extends  Application{
     public void setUserIDUser(String useriduser) {
 
         UserIDUser = useriduser;
+    }
+
+    public float getCurrentTemperature() {
+        return currentTemperature;
+    }
+
+    public void setCurrentTemperature(float currentTemperature) {
+        this.currentTemperature = currentTemperature;
     }
 
     public String getCity() {
@@ -128,232 +274,987 @@ public class GlobalVariables extends  Application{
         this.temperature = temperature;
     }
 
-    public String getBedroom_light() {
-        return bedroom_light;
+    public String getSleep_mode_bedroom_light() {
+        return sleep_mode_bedroom_light;
     }
 
-    public void setBedroom_light(String bedroom_light) {
-        this.bedroom_light = bedroom_light;
+    public void setSleep_mode_bedroom_light(String sleep_mode_bedroom_light) {
+        this.sleep_mode_bedroom_light = sleep_mode_bedroom_light;
     }
 
-    public String getBedroom_fan() {
-        return bedroom_fan;
+    public String getSleep_mode_bedroom_charging() {
+        return sleep_mode_bedroom_charging;
     }
 
-    public void setBedroom_fan(String bedroom_fan) {
-        this.bedroom_fan = bedroom_fan;
+    public void setSleep_mode_bedroom_charging(String sleep_mode_bedroom_charging) {
+        this.sleep_mode_bedroom_charging = sleep_mode_bedroom_charging;
     }
 
-    public String getBedroom_windowblind() {
-        return bedroom_windowblind;
+    public String getSleep_mode_bedroom_windowblind() {
+        return sleep_mode_bedroom_windowblind;
     }
 
-    public void setBedroom_windowblind(String bedroom_windowblind) {
-        this.bedroom_windowblind = bedroom_windowblind;
+    public void setSleep_mode_bedroom_windowblind(String sleep_mode_bedroom_windowblind) {
+        this.sleep_mode_bedroom_windowblind = sleep_mode_bedroom_windowblind;
     }
 
-    public String getBedroom_nightlamp() {
-        return bedroom_nightlamp;
+    public String getSleep_mode_bedroom_nightlamp() {
+        return sleep_mode_bedroom_nightlamp;
     }
 
-    public void setBedroom_nightlamp(String bedroom_nightlamp) {
-        this.bedroom_nightlamp = bedroom_nightlamp;
+    public void setSleep_mode_bedroom_nightlamp(String sleep_mode_bedroom_nightlamp) {
+        this.sleep_mode_bedroom_nightlamp = sleep_mode_bedroom_nightlamp;
     }
 
-    public String getBedroom_ac() {
-        return bedroom_ac;
+    public String getSleep_mode_bedroom_lightintensity() {
+        return sleep_mode_bedroom_lightintensity;
     }
 
-    public void setBedroom_ac(String bedroom_ac) {
-        this.bedroom_ac = bedroom_ac;
+    public void setSleep_mode_bedroom_lightintensity(String sleep_mode_bedroom_lightintensity) {
+        this.sleep_mode_bedroom_lightintensity = sleep_mode_bedroom_lightintensity;
     }
 
-    public String getBedroom_heating() {
-        return bedroom_heating;
+    public String getSleep_mode_bedroom_ac() {
+        return sleep_mode_bedroom_ac;
     }
 
-    public void setBedroom_heating(String bedroom_heating) {
-        this.bedroom_heating = bedroom_heating;
+    public void setSleep_mode_bedroom_ac(String sleep_mode_bedroom_ac) {
+        this.sleep_mode_bedroom_ac = sleep_mode_bedroom_ac;
     }
 
-    public String getKitchen_light() {
-        return kitchen_light;
+    public String getSleep_mode_bedroom_heating() {
+        return sleep_mode_bedroom_heating;
     }
 
-    public void setKitchen_light(String kitchen_light) {
-        this.kitchen_light = kitchen_light;
+    public void setSleep_mode_bedroom_heating(String sleep_mode_bedroom_heating) {
+        this.sleep_mode_bedroom_heating = sleep_mode_bedroom_heating;
     }
 
-    public String getKitchen_fan() {
-        return kitchen_fan;
+    public String getSleep_mode_bedroom_ac_temperature() {
+        return sleep_mode_bedroom_ac_temperature;
     }
 
-    public void setKitchen_fan(String kitchen_fan) {
-        this.kitchen_fan = kitchen_fan;
+    public void setSleep_mode_bedroom_ac_temperature(String sleep_mode_bedroom_ac_temperature) {
+        this.sleep_mode_bedroom_ac_temperature = sleep_mode_bedroom_ac_temperature;
     }
 
-    public String getKitchen_windowblind() {
-        return kitchen_windowblind;
+    public String getSleep_mode_bedroom_heating_temperature() {
+        return sleep_mode_bedroom_heating_temperature;
     }
 
-    public void setKitchen_windowblind(String kitchen_windowblind) {
-        this.kitchen_windowblind = kitchen_windowblind;
+    public void setSleep_mode_bedroom_heating_temperature(String sleep_mode_bedroom_heating_temperature) {
+        this.sleep_mode_bedroom_heating_temperature = sleep_mode_bedroom_heating_temperature;
     }
 
-    public String getKitchen_stove() {
-        return kitchen_stove;
+    public String getSleep_mode_kitchen_light() {
+        return sleep_mode_kitchen_light;
     }
 
-    public void setKitchen_stove(String kitchen_stove) {
-        this.kitchen_stove = kitchen_stove;
+    public void setSleep_mode_kitchen_light(String sleep_mode_kitchen_light) {
+        this.sleep_mode_kitchen_light = sleep_mode_kitchen_light;
     }
 
-    public String getKitchen_oven() {
-        return kitchen_oven;
+    public String getSleep_mode_kitchen_windowblind() {
+        return sleep_mode_kitchen_windowblind;
     }
 
-    public void setKitchen_oven(String kitchen_oven) {
-        this.kitchen_oven = kitchen_oven;
+    public void setSleep_mode_kitchen_windowblind(String sleep_mode_kitchen_windowblind) {
+        this.sleep_mode_kitchen_windowblind = sleep_mode_kitchen_windowblind;
     }
 
-    public String getKitchen_heating() {
-        return kitchen_heating;
+    public String getSleep_mode_kitchen_stove() {
+        return sleep_mode_kitchen_stove;
     }
 
-    public void setKitchen_heating(String kitchen_heating) {
-        this.kitchen_heating = kitchen_heating;
+    public void setSleep_mode_kitchen_stove(String sleep_mode_kitchen_stove) {
+        this.sleep_mode_kitchen_stove = sleep_mode_kitchen_stove;
     }
 
-    public String getKitchen_ac() {
-        return kitchen_ac;
+    public String getSleep_mode_kitchen_oven() {
+        return sleep_mode_kitchen_oven;
     }
 
-    public void setKitchen_ac(String kitchen_ac) {
-        this.kitchen_ac = kitchen_ac;
+    public void setSleep_mode_kitchen_oven(String sleep_mode_kitchen_oven) {
+        this.sleep_mode_kitchen_oven = sleep_mode_kitchen_oven;
     }
 
-    public String getLivingroom_light() {
-        return livingroom_light;
+    public String getSleep_mode_kitchen_refrigrator() {
+        return sleep_mode_kitchen_refrigrator;
     }
 
-    public void setLivingroom_light(String livingroom_light) {
-        this.livingroom_light = livingroom_light;
+    public void setSleep_mode_kitchen_refrigrator(String sleep_mode_kitchen_refrigrator) {
+        this.sleep_mode_kitchen_refrigrator = sleep_mode_kitchen_refrigrator;
     }
 
-    public String getLivingroom_fan() {
-        return livingroom_fan;
+    public String getSleep_mode_kitchen_heating() {
+        return sleep_mode_kitchen_heating;
     }
 
-    public void setLivingroom_fan(String livingroom_fan) {
-        this.livingroom_fan = livingroom_fan;
+    public void setSleep_mode_kitchen_heating(String sleep_mode_kitchen_heating) {
+        this.sleep_mode_kitchen_heating = sleep_mode_kitchen_heating;
     }
 
-    public String getLivingroom_windowblind() {
-        return livingroom_windowblind;
+    public String getSleep_mode_kitchen_ac() {
+        return sleep_mode_kitchen_ac;
     }
 
-    public void setLivingroom_windowblind(String livingroom_windowblind) {
-        this.livingroom_windowblind = livingroom_windowblind;
+    public void setSleep_mode_kitchen_ac(String sleep_mode_kitchen_ac) {
+        this.sleep_mode_kitchen_ac = sleep_mode_kitchen_ac;
     }
 
-    public String getLivingroom_tablelamp() {
-        return livingroom_tablelamp;
+    public String getSleep_mode_kitchen_ac_temperature() {
+        return sleep_mode_kitchen_ac_temperature;
     }
 
-    public void setLivingroom_tablelamp(String livingroom_tablelamp) {
-        this.livingroom_tablelamp = livingroom_tablelamp;
+    public void setSleep_mode_kitchen_ac_temperature(String sleep_mode_kitchen_ac_temperature) {
+        this.sleep_mode_kitchen_ac_temperature = sleep_mode_kitchen_ac_temperature;
     }
 
-    public String getLivingroom_television() {
-        return livingroom_television;
+    public String getSleep_mode_kitchen_heating_temperature() {
+        return sleep_mode_kitchen_heating_temperature;
     }
 
-    public void setLivingroom_television(String livingroom_television) {
-        this.livingroom_television = livingroom_television;
+    public void setSleep_mode_kitchen_heating_temperature(String sleep_mode_kitchen_heating_temperature) {
+        this.sleep_mode_kitchen_heating_temperature = sleep_mode_kitchen_heating_temperature;
     }
 
-    public String getLivingroom_heating() {
-        return livingroom_heating;
+    public String getSleep_mode_livingroom_light() {
+        return sleep_mode_livingroom_light;
     }
 
-    public void setLivingroom_heating(String livingroom_heating) {
-        this.livingroom_heating = livingroom_heating;
+    public void setSleep_mode_livingroom_light(String sleep_mode_livingroom_light) {
+        this.sleep_mode_livingroom_light = sleep_mode_livingroom_light;
     }
 
-    public String getLivingroom_ac() {
-        return livingroom_ac;
+    public String getSleep_mode_livingroom_windowblind() {
+        return sleep_mode_livingroom_windowblind;
     }
 
-    public void setLivingroom_ac(String livingroom_ac) {
-        this.livingroom_ac = livingroom_ac;
+    public void setSleep_mode_livingroom_windowblind(String sleep_mode_livingroom_windowblind) {
+        this.sleep_mode_livingroom_windowblind = sleep_mode_livingroom_windowblind;
     }
 
-    public String getWc_light() {
-        return wc_light;
+    public String getSleep_mode_livingroom_tablelamp() {
+        return sleep_mode_livingroom_tablelamp;
     }
 
-    public void setWc_light(String wc_light) {
-        this.wc_light = wc_light;
+    public void setSleep_mode_livingroom_tablelamp(String sleep_mode_livingroom_tablelamp) {
+        this.sleep_mode_livingroom_tablelamp = sleep_mode_livingroom_tablelamp;
     }
 
-    public String getWc_fan() {
-        return wc_fan;
+    public String getSleep_mode_livingroom_television() {
+        return sleep_mode_livingroom_television;
     }
 
-    public void setWc_fan(String wc_fan) {
-        this.wc_fan = wc_fan;
+    public void setSleep_mode_livingroom_television(String sleep_mode_livingroom_television) {
+        this.sleep_mode_livingroom_television = sleep_mode_livingroom_television;
     }
 
-    public String getWc_windowblind() {
-        return wc_windowblind;
+    public String getSleep_mode_livingroom_lightintensity() {
+        return sleep_mode_livingroom_lightintensity;
     }
 
-    public void setWc_windowblind(String wc_windowblind) {
-        this.wc_windowblind = wc_windowblind;
+    public void setSleep_mode_livingroom_lightintensity(String sleep_mode_livingroom_lightintensity) {
+        this.sleep_mode_livingroom_lightintensity = sleep_mode_livingroom_lightintensity;
     }
 
-    public String getWc_heating() {
-        return wc_heating;
+    public String getSleep_mode_livingroom_heating() {
+        return sleep_mode_livingroom_heating;
     }
 
-    public void setWc_heating(String wc_heating) {
-        this.wc_heating = wc_heating;
+    public void setSleep_mode_livingroom_heating(String sleep_mode_livingroom_heating) {
+        this.sleep_mode_livingroom_heating = sleep_mode_livingroom_heating;
     }
 
-    public String getBathroom_light() {
-        return bathroom_light;
+    public String getSleep_mode_livingroom_ac() {
+        return sleep_mode_livingroom_ac;
     }
 
-    public void setBathroom_light(String bathroom_light) {
-        this.bathroom_light = bathroom_light;
+    public void setSleep_mode_livingroom_ac(String sleep_mode_livingroom_ac) {
+        this.sleep_mode_livingroom_ac = sleep_mode_livingroom_ac;
     }
 
-    public String getBathroom_fan() {
-        return bathroom_fan;
+    public String getSleep_mode_livingroom_ac_temperature() {
+        return sleep_mode_livingroom_ac_temperature;
     }
 
-    public void setBathroom_fan(String bathroom_fan) {
-        this.bathroom_fan = bathroom_fan;
+    public void setSleep_mode_livingroom_ac_temperature(String sleep_mode_livingroom_ac_temperature) {
+        this.sleep_mode_livingroom_ac_temperature = sleep_mode_livingroom_ac_temperature;
     }
 
-    public String getBathroom_windowblind() {
-        return bathroom_windowblind;
+    public String getSleep_mode_livingroom_heating_temperature() {
+        return sleep_mode_livingroom_heating_temperature;
     }
 
-    public void setBathroom_windowblind(String bathroom_windowblind) {
-        this.bathroom_windowblind = bathroom_windowblind;
+    public void setSleep_mode_livingroom_heating_temperature(String sleep_mode_livingroom_heating_temperature) {
+        this.sleep_mode_livingroom_heating_temperature = sleep_mode_livingroom_heating_temperature;
     }
 
-    public String getBathroom_heating() {
-        return bathroom_heating;
+    public String getSleep_mode_wc_light() {
+        return sleep_mode_wc_light;
     }
 
-    public void setBathroom_heating(String bathroom_heating) {
-        this.bathroom_heating = bathroom_heating;
+    public void setSleep_mode_wc_light(String sleep_mode_wc_light) {
+        this.sleep_mode_wc_light = sleep_mode_wc_light;
     }
 
+    public String getSleep_mode_wc_fan() {
+        return sleep_mode_wc_fan;
+    }
 
+    public void setSleep_mode_wc_fan(String sleep_mode_wc_fan) {
+        this.sleep_mode_wc_fan = sleep_mode_wc_fan;
+    }
 
+    public String getSleep_mode_wc_windowblind() {
+        return sleep_mode_wc_windowblind;
+    }
 
+    public void setSleep_mode_wc_windowblind(String sleep_mode_wc_windowblind) {
+        this.sleep_mode_wc_windowblind = sleep_mode_wc_windowblind;
+    }
 
+    public String getSleep_mode_wc_heating() {
+        return sleep_mode_wc_heating;
+    }
+
+    public void setSleep_mode_wc_heating(String sleep_mode_wc_heating) {
+        this.sleep_mode_wc_heating = sleep_mode_wc_heating;
+    }
+
+    public String getSleep_mode_wc_heating_temperature() {
+        return sleep_mode_wc_heating_temperature;
+    }
+
+    public void setSleep_mode_wc_heating_temperature(String sleep_mode_wc_heating_temperature) {
+        this.sleep_mode_wc_heating_temperature = sleep_mode_wc_heating_temperature;
+    }
+
+    public String getSleep_mode_bathroom_light() {
+        return sleep_mode_bathroom_light;
+    }
+
+    public void setSleep_mode_bathroom_light(String sleep_mode_bathroom_light) {
+        this.sleep_mode_bathroom_light = sleep_mode_bathroom_light;
+    }
+
+    public String getSleep_mode_bathroom_fan() {
+        return sleep_mode_bathroom_fan;
+    }
+
+    public void setSleep_mode_bathroom_fan(String sleep_mode_bathroom_fan) {
+        this.sleep_mode_bathroom_fan = sleep_mode_bathroom_fan;
+    }
+
+    public String getSleep_mode_bathroom_windowblind() {
+        return sleep_mode_bathroom_windowblind;
+    }
+
+    public void setSleep_mode_bathroom_windowblind(String sleep_mode_bathroom_windowblind) {
+        this.sleep_mode_bathroom_windowblind = sleep_mode_bathroom_windowblind;
+    }
+
+    public String getSleep_mode_bathroom_heating() {
+        return sleep_mode_bathroom_heating;
+    }
+
+    public void setSleep_mode_bathroom_heating(String sleep_mode_bathroom_heating) {
+        this.sleep_mode_bathroom_heating = sleep_mode_bathroom_heating;
+    }
+
+    public String getMoveout_mode_bedroom_light() {
+        return moveout_mode_bedroom_light;
+    }
+
+    public void setMoveout_mode_bedroom_light(String moveout_mode_bedroom_light) {
+        this.moveout_mode_bedroom_light = moveout_mode_bedroom_light;
+    }
+
+    public String getMoveout_mode_bedroom_charging() {
+        return moveout_mode_bedroom_charging;
+    }
+
+    public void setMoveout_mode_bedroom_charging(String moveout_mode_bedroom_charging) {
+        this.moveout_mode_bedroom_charging = moveout_mode_bedroom_charging;
+    }
+
+    public String getMoveout_mode_bedroom_windowblind() {
+        return moveout_mode_bedroom_windowblind;
+    }
+
+    public void setMoveout_mode_bedroom_windowblind(String moveout_mode_bedroom_windowblind) {
+        this.moveout_mode_bedroom_windowblind = moveout_mode_bedroom_windowblind;
+    }
+
+    public String getMoveout_mode_bedroom_nightlamp() {
+        return moveout_mode_bedroom_nightlamp;
+    }
+
+    public void setMoveout_mode_bedroom_nightlamp(String moveout_mode_bedroom_nightlamp) {
+        this.moveout_mode_bedroom_nightlamp = moveout_mode_bedroom_nightlamp;
+    }
+
+    public String getMoveout_mode_bedroom_lightintensity() {
+        return moveout_mode_bedroom_lightintensity;
+    }
+
+    public void setMoveout_mode_bedroom_lightintensity(String moveout_mode_bedroom_lightintensity) {
+        this.moveout_mode_bedroom_lightintensity = moveout_mode_bedroom_lightintensity;
+    }
+
+    public String getMoveout_mode_bedroom_ac() {
+        return moveout_mode_bedroom_ac;
+    }
+
+    public void setMoveout_mode_bedroom_ac(String moveout_mode_bedroom_ac) {
+        this.moveout_mode_bedroom_ac = moveout_mode_bedroom_ac;
+    }
+
+    public String getMoveout_mode_bedroom_heating() {
+        return moveout_mode_bedroom_heating;
+    }
+
+    public void setMoveout_mode_bedroom_heating(String moveout_mode_bedroom_heating) {
+        this.moveout_mode_bedroom_heating = moveout_mode_bedroom_heating;
+    }
+
+    public String getMoveout_mode_bedroom_ac_temperature() {
+        return moveout_mode_bedroom_ac_temperature;
+    }
+
+    public void setMoveout_mode_bedroom_ac_temperature(String moveout_mode_bedroom_ac_temperature) {
+        this.moveout_mode_bedroom_ac_temperature = moveout_mode_bedroom_ac_temperature;
+    }
+
+    public String getMoveout_mode_bedroom_heating_temperature() {
+        return moveout_mode_bedroom_heating_temperature;
+    }
+
+    public void setMoveout_mode_bedroom_heating_temperature(String moveout_mode_bedroom_heating_temperature) {
+        this.moveout_mode_bedroom_heating_temperature = moveout_mode_bedroom_heating_temperature;
+    }
+
+    public String getMoveout_mode_kitchen_light() {
+        return moveout_mode_kitchen_light;
+    }
+
+    public void setMoveout_mode_kitchen_light(String moveout_mode_kitchen_light) {
+        this.moveout_mode_kitchen_light = moveout_mode_kitchen_light;
+    }
+
+    public String getMoveout_mode_kitchen_windowblind() {
+        return moveout_mode_kitchen_windowblind;
+    }
+
+    public void setMoveout_mode_kitchen_windowblind(String moveout_mode_kitchen_windowblind) {
+        this.moveout_mode_kitchen_windowblind = moveout_mode_kitchen_windowblind;
+    }
+
+    public String getMoveout_mode_kitchen_stove() {
+        return moveout_mode_kitchen_stove;
+    }
+
+    public void setMoveout_mode_kitchen_stove(String moveout_mode_kitchen_stove) {
+        this.moveout_mode_kitchen_stove = moveout_mode_kitchen_stove;
+    }
+
+    public String getMoveout_mode_kitchen_oven() {
+        return moveout_mode_kitchen_oven;
+    }
+
+    public void setMoveout_mode_kitchen_oven(String moveout_mode_kitchen_oven) {
+        this.moveout_mode_kitchen_oven = moveout_mode_kitchen_oven;
+    }
+
+    public String getMoveout_mode_kitchen_refrigrator() {
+        return moveout_mode_kitchen_refrigrator;
+    }
+
+    public void setMoveout_mode_kitchen_refrigrator(String moveout_mode_kitchen_refrigrator) {
+        this.moveout_mode_kitchen_refrigrator = moveout_mode_kitchen_refrigrator;
+    }
+
+    public String getMoveout_mode_kitchen_heating() {
+        return moveout_mode_kitchen_heating;
+    }
+
+    public void setMoveout_mode_kitchen_heating(String moveout_mode_kitchen_heating) {
+        this.moveout_mode_kitchen_heating = moveout_mode_kitchen_heating;
+    }
+
+    public String getMoveout_mode_kitchen_ac() {
+        return moveout_mode_kitchen_ac;
+    }
+
+    public void setMoveout_mode_kitchen_ac(String moveout_mode_kitchen_ac) {
+        this.moveout_mode_kitchen_ac = moveout_mode_kitchen_ac;
+    }
+
+    public String getMoveout_mode_kitchen_ac_temperature() {
+        return moveout_mode_kitchen_ac_temperature;
+    }
+
+    public void setMoveout_mode_kitchen_ac_temperature(String moveout_mode_kitchen_ac_temperature) {
+        this.moveout_mode_kitchen_ac_temperature = moveout_mode_kitchen_ac_temperature;
+    }
+
+    public String getMoveout_mode_kitchen_heating_temperature() {
+        return moveout_mode_kitchen_heating_temperature;
+    }
+
+    public void setMoveout_mode_kitchen_heating_temperature(String moveout_mode_kitchen_heating_temperature) {
+        this.moveout_mode_kitchen_heating_temperature = moveout_mode_kitchen_heating_temperature;
+    }
+
+    public String getMoveout_mode_livingroom_light() {
+        return moveout_mode_livingroom_light;
+    }
+
+    public void setMoveout_mode_livingroom_light(String moveout_mode_livingroom_light) {
+        this.moveout_mode_livingroom_light = moveout_mode_livingroom_light;
+    }
+
+    public String getMoveout_mode_livingroom_windowblind() {
+        return moveout_mode_livingroom_windowblind;
+    }
+
+    public void setMoveout_mode_livingroom_windowblind(String moveout_mode_livingroom_windowblind) {
+        this.moveout_mode_livingroom_windowblind = moveout_mode_livingroom_windowblind;
+    }
+
+    public String getMoveout_mode_livingroom_tablelamp() {
+        return moveout_mode_livingroom_tablelamp;
+    }
+
+    public void setMoveout_mode_livingroom_tablelamp(String moveout_mode_livingroom_tablelamp) {
+        this.moveout_mode_livingroom_tablelamp = moveout_mode_livingroom_tablelamp;
+    }
+
+    public String getMoveout_mode_livingroom_television() {
+        return moveout_mode_livingroom_television;
+    }
+
+    public void setMoveout_mode_livingroom_television(String moveout_mode_livingroom_television) {
+        this.moveout_mode_livingroom_television = moveout_mode_livingroom_television;
+    }
+
+    public String getMoveout_mode_livingroom_heating() {
+        return moveout_mode_livingroom_heating;
+    }
+
+    public void setMoveout_mode_livingroom_heating(String moveout_mode_livingroom_heating) {
+        this.moveout_mode_livingroom_heating = moveout_mode_livingroom_heating;
+    }
+
+    public String getMoveout_mode_livingroom_lightintensity() {
+        return moveout_mode_livingroom_lightintensity;
+    }
+
+    public void setMoveout_mode_livingroom_lightintensity(String moveout_mode_livingroom_lightintensity) {
+        this.moveout_mode_livingroom_lightintensity = moveout_mode_livingroom_lightintensity;
+    }
+
+    public String getMoveout_mode_livingroom_ac() {
+        return moveout_mode_livingroom_ac;
+    }
+
+    public void setMoveout_mode_livingroom_ac(String moveout_mode_livingroom_ac) {
+        this.moveout_mode_livingroom_ac = moveout_mode_livingroom_ac;
+    }
+
+    public String getMoveout_mode_livingroom_ac_temperature() {
+        return moveout_mode_livingroom_ac_temperature;
+    }
+
+    public void setMoveout_mode_livingroom_ac_temperature(String moveout_mode_livingroom_ac_temperature) {
+        this.moveout_mode_livingroom_ac_temperature = moveout_mode_livingroom_ac_temperature;
+    }
+
+    public String getMoveout_mode_livingroom_heating_temperature() {
+        return moveout_mode_livingroom_heating_temperature;
+    }
+
+    public void setMoveout_mode_livingroom_heating_temperature(String moveout_mode_livingroom_heating_temperature) {
+        this.moveout_mode_livingroom_heating_temperature = moveout_mode_livingroom_heating_temperature;
+    }
+
+    public String getMoveout_mode_wc_light() {
+        return moveout_mode_wc_light;
+    }
+
+    public void setMoveout_mode_wc_light(String moveout_mode_wc_light) {
+        this.moveout_mode_wc_light = moveout_mode_wc_light;
+    }
+
+    public String getMoveout_mode_wc_fan() {
+        return moveout_mode_wc_fan;
+    }
+
+    public void setMoveout_mode_wc_fan(String moveout_mode_wc_fan) {
+        this.moveout_mode_wc_fan = moveout_mode_wc_fan;
+    }
+
+    public String getMoveout_mode_wc_windowblind() {
+        return moveout_mode_wc_windowblind;
+    }
+
+    public void setMoveout_mode_wc_windowblind(String moveout_mode_wc_windowblind) {
+        this.moveout_mode_wc_windowblind = moveout_mode_wc_windowblind;
+    }
+
+    public String getMoveout_mode_wc_heating() {
+        return moveout_mode_wc_heating;
+    }
+
+    public void setMoveout_mode_wc_heating(String moveout_mode_wc_heating) {
+        this.moveout_mode_wc_heating = moveout_mode_wc_heating;
+    }
+
+    public String getMoveout_mode_wc_heating_temperature() {
+        return moveout_mode_wc_heating_temperature;
+    }
+
+    public void setMoveout_mode_wc_heating_temperature(String moveout_mode_wc_heating_temperature) {
+        this.moveout_mode_wc_heating_temperature = moveout_mode_wc_heating_temperature;
+    }
+
+    public String getMoveout_mode_bathroom_light() {
+        return moveout_mode_bathroom_light;
+    }
+
+    public void setMoveout_mode_bathroom_light(String moveout_mode_bathroom_light) {
+        this.moveout_mode_bathroom_light = moveout_mode_bathroom_light;
+    }
+
+    public String getMoveout_mode_bathroom_fan() {
+        return moveout_mode_bathroom_fan;
+    }
+
+    public void setMoveout_mode_bathroom_fan(String moveout_mode_bathroom_fan) {
+        this.moveout_mode_bathroom_fan = moveout_mode_bathroom_fan;
+    }
+
+    public String getMoveout_mode_bathroom_windowblind() {
+        return moveout_mode_bathroom_windowblind;
+    }
+
+    public void setMoveout_mode_bathroom_windowblind(String moveout_mode_bathroom_windowblind) {
+        this.moveout_mode_bathroom_windowblind = moveout_mode_bathroom_windowblind;
+    }
+
+    public String getMoveout_mode_bathroom_heating() {
+        return moveout_mode_bathroom_heating;
+    }
+
+    public void setMoveout_mode_bathroom_heating(String moveout_mode_bathroom_heating) {
+        this.moveout_mode_bathroom_heating = moveout_mode_bathroom_heating;
+    }
+
+    public String getManual_mode_bedroom_light() {
+        return manual_mode_bedroom_light;
+    }
+
+    public void setManual_mode_bedroom_light(String manual_mode_bedroom_light) {
+        this.manual_mode_bedroom_light = manual_mode_bedroom_light;
+    }
+
+    public String getManual_mode_bedroom_charging() {
+        return manual_mode_bedroom_charging;
+    }
+
+    public void setManual_mode_bedroom_charging(String manual_mode_bedroom_charging) {
+        this.manual_mode_bedroom_charging = manual_mode_bedroom_charging;
+    }
+
+    public String getManual_mode_bedroom_windowblind() {
+        return manual_mode_bedroom_windowblind;
+    }
+
+    public void setManual_mode_bedroom_windowblind(String manual_mode_bedroom_windowblind) {
+        this.manual_mode_bedroom_windowblind = manual_mode_bedroom_windowblind;
+    }
+
+    public String getManual_mode_bedroom_nightlamp() {
+        return manual_mode_bedroom_nightlamp;
+    }
+
+    public void setManual_mode_bedroom_nightlamp(String manual_mode_bedroom_nightlamp) {
+        this.manual_mode_bedroom_nightlamp = manual_mode_bedroom_nightlamp;
+    }
+
+    public String getManual_mode_bedroom_lightintensity() {
+        return manual_mode_bedroom_lightintensity;
+    }
+
+    public void setManual_mode_bedroom_lightintensity(String manual_mode_bedroom_lightintensity) {
+        this.manual_mode_bedroom_lightintensity = manual_mode_bedroom_lightintensity;
+    }
+
+    public String getManual_mode_bedroom_ac() {
+        return manual_mode_bedroom_ac;
+    }
+
+    public void setManual_mode_bedroom_ac(String manual_mode_bedroom_ac) {
+        this.manual_mode_bedroom_ac = manual_mode_bedroom_ac;
+    }
+
+    public String getManual_mode_bedroom_heating() {
+        return manual_mode_bedroom_heating;
+    }
+
+    public void setManual_mode_bedroom_heating(String manual_mode_bedroom_heating) {
+        this.manual_mode_bedroom_heating = manual_mode_bedroom_heating;
+    }
+
+    public String getManual_mode_bedroom_ac_temperature() {
+        return manual_mode_bedroom_ac_temperature;
+    }
+
+    public void setManual_mode_bedroom_ac_temperature(String manual_mode_bedroom_ac_temperature) {
+        this.manual_mode_bedroom_ac_temperature = manual_mode_bedroom_ac_temperature;
+    }
+
+    public String getManual_mode_bedroom_heating_temperature() {
+        return manual_mode_bedroom_heating_temperature;
+    }
+
+    public void setManual_mode_bedroom_heating_temperature(String manual_mode_bedroom_heating_temperature) {
+        this.manual_mode_bedroom_heating_temperature = manual_mode_bedroom_heating_temperature;
+    }
+
+    public String getManual_mode_kitchen_light() {
+        return manual_mode_kitchen_light;
+    }
+
+    public void setManual_mode_kitchen_light(String manual_mode_kitchen_light) {
+        this.manual_mode_kitchen_light = manual_mode_kitchen_light;
+    }
+
+    public String getManual_mode_kitchen_windowblind() {
+        return manual_mode_kitchen_windowblind;
+    }
+
+    public void setManual_mode_kitchen_windowblind(String manual_mode_kitchen_windowblind) {
+        this.manual_mode_kitchen_windowblind = manual_mode_kitchen_windowblind;
+    }
+
+    public String getManual_mode_kitchen_stove() {
+        return manual_mode_kitchen_stove;
+    }
+
+    public void setManual_mode_kitchen_stove(String manual_mode_kitchen_stove) {
+        this.manual_mode_kitchen_stove = manual_mode_kitchen_stove;
+    }
+
+    public String getManual_mode_kitchen_oven() {
+        return manual_mode_kitchen_oven;
+    }
+
+    public void setManual_mode_kitchen_oven(String manual_mode_kitchen_oven) {
+        this.manual_mode_kitchen_oven = manual_mode_kitchen_oven;
+    }
+
+    public String getManual_mode_kitchen_heating() {
+        return manual_mode_kitchen_heating;
+    }
+
+    public void setManual_mode_kitchen_heating(String manual_mode_kitchen_heating) {
+        this.manual_mode_kitchen_heating = manual_mode_kitchen_heating;
+    }
+
+    public String getManual_mode_kitchen_ac() {
+        return manual_mode_kitchen_ac;
+    }
+
+    public void setManual_mode_kitchen_ac(String manual_mode_kitchen_ac) {
+        this.manual_mode_kitchen_ac = manual_mode_kitchen_ac;
+    }
+
+    public String getManual_mode_kitchen_ac_temperature() {
+        return manual_mode_kitchen_ac_temperature;
+    }
+
+    public void setManual_mode_kitchen_ac_temperature(String manual_mode_kitchen_ac_temperature) {
+        this.manual_mode_kitchen_ac_temperature = manual_mode_kitchen_ac_temperature;
+    }
+
+    public String getManual_mode_kitchen_heating_temperature() {
+        return manual_mode_kitchen_heating_temperature;
+    }
+
+    public void setManual_mode_kitchen_heating_temperature(String manual_mode_kitchen_heating_temperature) {
+        this.manual_mode_kitchen_heating_temperature = manual_mode_kitchen_heating_temperature;
+    }
+
+    public String getManual_mode_livingroom_light() {
+        return manual_mode_livingroom_light;
+    }
+
+    public void setManual_mode_livingroom_light(String manual_mode_livingroom_light) {
+        this.manual_mode_livingroom_light = manual_mode_livingroom_light;
+    }
+
+    public String getManual_mode_livingroom_windowblind() {
+        return manual_mode_livingroom_windowblind;
+    }
+
+    public void setManual_mode_livingroom_windowblind(String manual_mode_livingroom_windowblind) {
+        this.manual_mode_livingroom_windowblind = manual_mode_livingroom_windowblind;
+    }
+
+    public String getManual_mode_livingroom_tablelamp() {
+        return manual_mode_livingroom_tablelamp;
+    }
+
+    public void setManual_mode_livingroom_tablelamp(String manual_mode_livingroom_tablelamp) {
+        this.manual_mode_livingroom_tablelamp = manual_mode_livingroom_tablelamp;
+    }
+
+    public String getManual_mode_livingroom_television() {
+        return manual_mode_livingroom_television;
+    }
+
+    public void setManual_mode_livingroom_television(String manual_mode_livingroom_television) {
+        this.manual_mode_livingroom_television = manual_mode_livingroom_television;
+    }
+
+    public String getManual_mode_livingroom_lightintensity() {
+        return manual_mode_livingroom_lightintensity;
+    }
+
+    public void setManual_mode_livingroom_lightintensity(String manual_mode_livingroom_lightintensity) {
+        this.manual_mode_livingroom_lightintensity = manual_mode_livingroom_lightintensity;
+    }
+
+    public String getManual_mode_livingroom_heating() {
+        return manual_mode_livingroom_heating;
+    }
+
+    public void setManual_mode_livingroom_heating(String manual_mode_livingroom_heating) {
+        this.manual_mode_livingroom_heating = manual_mode_livingroom_heating;
+    }
+
+    public String getManual_mode_livingroom_ac() {
+        return manual_mode_livingroom_ac;
+    }
+
+    public void setManual_mode_livingroom_ac(String manual_mode_livingroom_ac) {
+        this.manual_mode_livingroom_ac = manual_mode_livingroom_ac;
+    }
+
+    public String getManual_mode_livingroom_ac_temperature() {
+        return manual_mode_livingroom_ac_temperature;
+    }
+
+    public void setManual_mode_livingroom_ac_temperature(String manual_mode_livingroom_ac_temperature) {
+        this.manual_mode_livingroom_ac_temperature = manual_mode_livingroom_ac_temperature;
+    }
+
+    public String getManual_mode_livingroom_heating_temperature() {
+        return manual_mode_livingroom_heating_temperature;
+    }
+
+    public void setManual_mode_livingroom_heating_temperature(String manual_mode_livingroom_heating_temperature) {
+        this.manual_mode_livingroom_heating_temperature = manual_mode_livingroom_heating_temperature;
+    }
+
+    public String getManual_mode_wc_light() {
+        return manual_mode_wc_light;
+    }
+
+    public void setManual_mode_wc_light(String manual_mode_wc_light) {
+        this.manual_mode_wc_light = manual_mode_wc_light;
+    }
+
+    public String getManual_mode_wc_fan() {
+        return manual_mode_wc_fan;
+    }
+
+    public void setManual_mode_wc_fan(String manual_mode_wc_fan) {
+        this.manual_mode_wc_fan = manual_mode_wc_fan;
+    }
+
+    public String getManual_mode_wc_windowblind() {
+        return manual_mode_wc_windowblind;
+    }
+
+    public void setManual_mode_wc_windowblind(String manual_mode_wc_windowblind) {
+        this.manual_mode_wc_windowblind = manual_mode_wc_windowblind;
+    }
+
+    public String getManual_mode_wc_heating() {
+        return manual_mode_wc_heating;
+    }
+
+    public void setManual_mode_wc_heating(String manual_mode_wc_heating) {
+        this.manual_mode_wc_heating = manual_mode_wc_heating;
+    }
+
+    public String getManual_mode_wc_heating_temperature() {
+        return manual_mode_wc_heating_temperature;
+    }
+
+    public void setManual_mode_wc_heating_temperature(String manual_mode_wc_heating_temperature) {
+        this.manual_mode_wc_heating_temperature = manual_mode_wc_heating_temperature;
+    }
+
+    public String getManual_mode_bathroom_light() {
+        return manual_mode_bathroom_light;
+    }
+
+    public void setManual_mode_bathroom_light(String manual_mode_bathroom_light) {
+        this.manual_mode_bathroom_light = manual_mode_bathroom_light;
+    }
+
+    public String getManual_mode_bathroom_fan() {
+        return manual_mode_bathroom_fan;
+    }
+
+    public void setManual_mode_bathroom_fan(String manual_mode_bathroom_fan) {
+        this.manual_mode_bathroom_fan = manual_mode_bathroom_fan;
+    }
+
+    public String getManual_mode_bathroom_windowblind() {
+        return manual_mode_bathroom_windowblind;
+    }
+
+    public void setManual_mode_bathroom_windowblind(String manual_mode_bathroom_windowblind) {
+        this.manual_mode_bathroom_windowblind = manual_mode_bathroom_windowblind;
+    }
+
+    public String getManual_mode_bathroom_heating() {
+        return manual_mode_bathroom_heating;
+    }
+
+    public void setManual_mode_bathroom_heating(String manual_mode_bathroom_heating) {
+        this.manual_mode_bathroom_heating = manual_mode_bathroom_heating;
+    }
+
+    public String getAutomatic_mode_bedroom_ac() {
+        return automatic_mode_bedroom_ac;
+    }
+
+    public void setAutomatic_mode_bedroom_ac(String automatic_mode_bedroom_ac) {
+        this.automatic_mode_bedroom_ac = automatic_mode_bedroom_ac;
+    }
+
+    public String getAutomatic_mode_bedroom_heating() {
+        return automatic_mode_bedroom_heating;
+    }
+
+    public void setAutomatic_mode_bedroom_heating(String automatic_mode_bedroom_heating) {
+        this.automatic_mode_bedroom_heating = automatic_mode_bedroom_heating;
+    }
+
+    public String getAutomatic_mode_bedroom_ac_temperature() {
+        return automatic_mode_bedroom_ac_temperature;
+    }
+
+    public void setAutomatic_mode_bedroom_ac_temperature(String automatic_mode_bedroom_ac_temperature) {
+        this.automatic_mode_bedroom_ac_temperature = automatic_mode_bedroom_ac_temperature;
+    }
+
+    public String getAutomatic_mode_bedroom_heating_temperature() {
+        return automatic_mode_bedroom_heating_temperature;
+    }
+
+    public void setAutomatic_mode_bedroom_heating_temperature(String automatic_mode_bedroom_heating_temperature) {
+        this.automatic_mode_bedroom_heating_temperature = automatic_mode_bedroom_heating_temperature;
+    }
+
+    public String getAutomatic_mode_kitchen_heating() {
+        return automatic_mode_kitchen_heating;
+    }
+
+    public void setAutomatic_mode_kitchen_heating(String automatic_mode_kitchen_heating) {
+        this.automatic_mode_kitchen_heating = automatic_mode_kitchen_heating;
+    }
+
+    public String getAutomatic_mode_kitchen_ac() {
+        return automatic_mode_kitchen_ac;
+    }
+
+    public void setAutomatic_mode_kitchen_ac(String automatic_mode_kitchen_ac) {
+        this.automatic_mode_kitchen_ac = automatic_mode_kitchen_ac;
+    }
+
+    public String getAutomatic_mode_kitchen_ac_temperature() {
+        return automatic_mode_kitchen_ac_temperature;
+    }
+
+    public void setAutomatic_mode_kitchen_ac_temperature(String automatic_mode_kitchen_ac_temperature) {
+        this.automatic_mode_kitchen_ac_temperature = automatic_mode_kitchen_ac_temperature;
+    }
+
+    public String getAutomatic_mode_kitchen_heating_temperature() {
+        return automatic_mode_kitchen_heating_temperature;
+    }
+
+    public void setAutomatic_mode_kitchen_heating_temperature(String automatic_mode_kitchen_heating_temperature) {
+        this.automatic_mode_kitchen_heating_temperature = automatic_mode_kitchen_heating_temperature;
+    }
+
+    public String getAutomatic_mode_livingroom_heating() {
+        return automatic_mode_livingroom_heating;
+    }
+
+    public void setAutomatic_mode_livingroom_heating(String automatic_mode_livingroom_heating) {
+        this.automatic_mode_livingroom_heating = automatic_mode_livingroom_heating;
+    }
+
+    public String getAutomatic_mode_livingroom_ac() {
+        return automatic_mode_livingroom_ac;
+    }
+
+    public void setAutomatic_mode_livingroom_ac(String automatic_mode_livingroom_ac) {
+        this.automatic_mode_livingroom_ac = automatic_mode_livingroom_ac;
+    }
+
+    public String getAutomatic_mode_livingroom_ac_temperature() {
+        return automatic_mode_livingroom_ac_temperature;
+    }
+
+    public void setAutomatic_mode_livingroom_ac_temperature(String automatic_mode_livingroom_ac_temperature) {
+        this.automatic_mode_livingroom_ac_temperature = automatic_mode_livingroom_ac_temperature;
+    }
+
+    public String getAutomatic_mode_livingroom_heating_temperature() {
+        return automatic_mode_livingroom_heating_temperature;
+    }
+
+    public void setAutomatic_mode_livingroom_heating_temperature(String automatic_mode_livingroom_heating_temperature) {
+        this.automatic_mode_livingroom_heating_temperature = automatic_mode_livingroom_heating_temperature;
+    }
+
+    public String getAutomatic_mode_wc_heating() {
+        return automatic_mode_wc_heating;
+    }
+
+    public void setAutomatic_mode_wc_heating(String automatic_mode_wc_heating) {
+        this.automatic_mode_wc_heating = automatic_mode_wc_heating;
+    }
+
+    public String getAutomatic_mode_wc_heating_temperature() {
+        return automatic_mode_wc_heating_temperature;
+    }
+
+    public void setAutomatic_mode_wc_heating_temperature(String automatic_mode_wc_heating_temperature) {
+        this.automatic_mode_wc_heating_temperature = automatic_mode_wc_heating_temperature;
+    }
+
+    public String getAutomatic_mode_bathroom_windowblind() {
+        return automatic_mode_bathroom_windowblind;
+    }
+
+    public void setAutomatic_mode_bathroom_windowblind(String automatic_mode_bathroom_windowblind) {
+        this.automatic_mode_bathroom_windowblind = automatic_mode_bathroom_windowblind;
+    }
+
+    public String getAutomatic_mode_bathroom_heating() {
+        return automatic_mode_bathroom_heating;
+    }
+
+    public void setAutomatic_mode_bathroom_heating(String automatic_mode_bathroom_heating) {
+        this.automatic_mode_bathroom_heating = automatic_mode_bathroom_heating;
+    }
 }

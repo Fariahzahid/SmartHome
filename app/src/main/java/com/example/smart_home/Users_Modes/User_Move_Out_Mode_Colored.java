@@ -11,5 +11,7 @@ public class User_Move_Out_Mode_Colored extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_move_out_mode_wooden);
+
+
     }
 }

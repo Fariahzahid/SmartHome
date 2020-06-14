@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List;
 import com.example.smart_home.Contact_Person_SignIn.Login;
+import com.example.smart_home.Users_Modes.User_Guide_Video;
 import com.example.smart_home.Users_Modes.User_Home_Colored;
 import com.example.smart_home.Users_SignIn.User_Login;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button contact_person,user;
     FirebaseAuth mFirebaseAuth;
     private FirebaseFirestore fStore;
-    String userID,role;
+    String userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
                             Log.d(TAG, "Document exists!");
-                            Intent intent = new Intent(MainActivity.this, User_Home.class);
+                            Intent intent = new Intent(MainActivity.this, User_Guide_Video.class);
                             GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
                             globalVariable.setUserIDUser(userID);
                             startActivity(intent);
@@ -101,15 +102,3 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
 }
-
-
-//        text = (TextView) findViewById(R.id.textView);
-//        Calendar c = Calendar.getInstance();
-//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        String formattedDate = df.format(c.getTime());
-//        System.out.println("Current time => "+c.getTime());
-//        String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
-
-// textView is the TextView view that should display it
-//        text.setText(formattedDate);
-

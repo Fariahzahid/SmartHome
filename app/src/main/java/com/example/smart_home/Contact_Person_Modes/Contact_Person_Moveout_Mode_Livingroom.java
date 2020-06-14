@@ -96,8 +96,8 @@ public class Contact_Person_Moveout_Mode_Livingroom extends Fragment {
                 user.put("WindowBlinds", winblind.getSelectedItem().toString());
                 user.put("Bulb", bulb.getSelectedItem().toString());
                 user.put("BulbIntensity", bulbint.getSelectedItem().toString());
-                user.put("NightLamp", tablelamp.getSelectedItem().toString());
-                user.put("ChargingPoints", television.getSelectedItem().toString());
+                user.put("TableLamp", tablelamp.getSelectedItem().toString());
+                user.put("Television", television.getSelectedItem().toString());
 
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

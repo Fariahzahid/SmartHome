@@ -96,7 +96,6 @@ public class UserProfileFragment extends Fragment {
         documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                //User user = documentSnapshot.toObject(User.class);
                 aname.setText(documentSnapshot.getString("Name"));
                 aemail.setText(documentSnapshot.getString("Email"));
                 aphoneno.setText(documentSnapshot.getString("Phone No"));
