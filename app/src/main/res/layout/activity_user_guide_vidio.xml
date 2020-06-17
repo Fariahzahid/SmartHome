@@ -3,16 +3,26 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/layout"
     android:background="@drawable/user_background">
 
     <VideoView
+        android:clickable="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="8"
+        android:layout_height="800dp"
         android:id="@+id/videoPlayer"/>
-    <Button
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_Play"
-        android:text="PLAY"/>
+        android:layout_height="match_parent"
+        android:id="@+id/identify"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:text=""
+        android:visibility="gone"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/texttovoice"
+        android:visibility="gone"></TextView>
 </LinearLayout>

@@ -1,5 +1,11 @@
-package User_Modes_Black_White;
+package com.example.smart_home.User_Modes_Black_White;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
+import android.os.BatteryManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,11 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
+
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
+
 
 public class User_Sleep_Mode extends AppCompatActivity {
     String UserId;
@@ -28,14 +32,13 @@ public class User_Sleep_Mode extends AppCompatActivity {
     //FIREBASE FIRESTORE
     private FirebaseFirestore fStore;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_sleep_mode);
-
-    getValues();
+        getValues();
     }
+
     public void getValues(){
         GlobalVariables globalVariable=(GlobalVariables)getApplication();
         bedroom_light_on = (Button) findViewById(R.id.user_sleepmode_bedroom_bulb_on_button);
@@ -94,6 +97,7 @@ public class User_Sleep_Mode extends AppCompatActivity {
             nightlamp_on.setVisibility(View.VISIBLE);
             nightlamp_off.setVisibility(View.GONE);
         }
+
         bedroom_light_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -45,16 +45,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_sleep_mode_wooden);
-
-
-//        Calendar c = Calendar.getInstance();
-//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        currentTime = df.format(c.getTime());
-
-
        getValues();
     }
-
 
     public void getValues(){
         GlobalVariables globalVariable=(GlobalVariables)getApplication();
@@ -114,6 +106,7 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
             nightlamp_on.setVisibility(View.VISIBLE);
             nightlamp_off.setVisibility(View.GONE);
         }
+
         bedroom_light_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

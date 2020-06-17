@@ -149,39 +149,56 @@ public class GlobalVariables extends  Application{
 
     //AUTOMATIC Mode
     //    BED ROOM
-//    private String automatic_mode_bedroom_light;
-//    private String automatic_mode_bedroom_charging;
-//    private String automatic_mode_bedroom_windowblind;
-//    private String automatic_mode_bedroom_nightlamp;
-//    private String automatic_mode_bedroom_lightintensity;
+    private String automatic_mode_bedroom_bulbon;
+    private String automatic_mode_bedroom_bulboff;
+    private String automatic_mode_bedroom_nightlampon;
+    private String automatic_mode_bedroom_nightlampoff;
+    private String automatic_mode_bedroom_windowblindon;
+    private String automatic_mode_bedroom_windowblindoff;
+    private String automatic_mode_bedroom_lightintensity;
+
     private String automatic_mode_bedroom_ac;
     private String automatic_mode_bedroom_heating;
     private String automatic_mode_bedroom_ac_temperature;
     private String automatic_mode_bedroom_heating_temperature;
 
     //    KITCHEN
-//    private String automatic_mode_kitchen_light;
-//    private String automatic_mode_kitchen_windowblind;
-//    private String automatic_mode_kitchen_stove;
-//    private String automatic_mode_kitchen_oven;
+    private String automatic_mode_kitchen_bulbon;
+    private String automatic_mode_kitchen_bulboff;
+    private String automatic_mode_kitchen_stoveon;
+    private String automatic_mode_kitchen_stoveoff;
+    private String automatic_mode_kitchen_windowblindon;
+    private String automatic_mode_kitchen_windowblindoff;
+    private String automatic_mode_kitchen_lightintensity;
+    private String automatic_mode_kitchen_refrigrator;
+
+
     private String automatic_mode_kitchen_heating;
     private String automatic_mode_kitchen_ac;
     private String automatic_mode_kitchen_ac_temperature;
     private String automatic_mode_kitchen_heating_temperature;
     //    LIVING ROOM
-//    private String automatic_mode_livingroom_light;
-//    private String automatic_mode_livingroom_windowblind;
-//    private String automatic_mode_livingroom_tablelamp;
-//    private String automatic_mode_livingroom_television;
-//    private String automatic_mode_livingroom_lightintensity;
+
+    private String automatic_mode_livingroom_bulbon;
+    private String automatic_mode_livingroom_bulboff;
+    private String automatic_mode_livingroom_tablelampon;
+    private String automatic_mode_livingroom_tablelampoff;
+    private String automatic_mode_livingroom_televisionon;
+    private String automatic_mode_livingroom_televisionoff;
+
+    private String automatic_mode_livingroom_windowblindon;
+    private String automatic_mode_livingroom_windowblindoff;
+    private String automatic_mode_livingroom_lightintensity;
+
     private String automatic_mode_livingroom_heating;
     private String automatic_mode_livingroom_ac;
     private String automatic_mode_livingroom_ac_temperature;
     private String automatic_mode_livingroom_heating_temperature;
     //WC
-//    private String automatic_mode_wc_light;
-//    private String automatic_mode_wc_fan;
-//    private String automatic_mode_wc_windowblind;
+    private String automatic_mode_wc_bulbon;
+    private String automatic_mode_wc_bulboff;
+    private String automatic_mode_wc_fan_on;
+    private String automatic_mode_wc_fan_off;
     private String automatic_mode_wc_heating;
     private String automatic_mode_wc_heating_temperature;
     //BATH ROOM
@@ -1256,5 +1273,229 @@ public class GlobalVariables extends  Application{
 
     public void setAutomatic_mode_bathroom_heating(String automatic_mode_bathroom_heating) {
         this.automatic_mode_bathroom_heating = automatic_mode_bathroom_heating;
+    }
+
+    public String getAutomatic_mode_bedroom_bulbon() {
+        return automatic_mode_bedroom_bulbon;
+    }
+
+    public void setAutomatic_mode_bedroom_bulbon(String automatic_mode_bedroom_bulbon) {
+        this.automatic_mode_bedroom_bulbon = automatic_mode_bedroom_bulbon;
+    }
+
+    public String getAutomatic_mode_bedroom_bulboff() {
+        return automatic_mode_bedroom_bulboff;
+    }
+
+    public void setAutomatic_mode_bedroom_bulboff(String automatic_mode_bedroom_bulboff) {
+        this.automatic_mode_bedroom_bulboff = automatic_mode_bedroom_bulboff;
+    }
+
+    public String getAutomatic_mode_bedroom_nightlampon() {
+        return automatic_mode_bedroom_nightlampon;
+    }
+
+    public void setAutomatic_mode_bedroom_nightlampon(String automatic_mode_bedroom_nightlampon) {
+        this.automatic_mode_bedroom_nightlampon = automatic_mode_bedroom_nightlampon;
+    }
+
+    public String getAutomatic_mode_bedroom_nightlampoff() {
+        return automatic_mode_bedroom_nightlampoff;
+    }
+
+    public void setAutomatic_mode_bedroom_nightlampoff(String automatic_mode_bedroom_nightlampoff) {
+        this.automatic_mode_bedroom_nightlampoff = automatic_mode_bedroom_nightlampoff;
+    }
+
+    public String getAutomatic_mode_bedroom_windowblindon() {
+        return automatic_mode_bedroom_windowblindon;
+    }
+
+    public void setAutomatic_mode_bedroom_windowblindon(String automatic_mode_bedroom_windowblindon) {
+        this.automatic_mode_bedroom_windowblindon = automatic_mode_bedroom_windowblindon;
+    }
+
+    public String getAutomatic_mode_bedroom_windowblindoff() {
+        return automatic_mode_bedroom_windowblindoff;
+    }
+
+    public void setAutomatic_mode_bedroom_windowblindoff(String automatic_mode_bedroom_windowblindoff) {
+        this.automatic_mode_bedroom_windowblindoff = automatic_mode_bedroom_windowblindoff;
+    }
+
+    public String getAutomatic_mode_bedroom_lightintensity() {
+        return automatic_mode_bedroom_lightintensity;
+    }
+
+    public void setAutomatic_mode_bedroom_lightintensity(String automatic_mode_bedroom_lightintensity) {
+        this.automatic_mode_bedroom_lightintensity = automatic_mode_bedroom_lightintensity;
+    }
+
+    public String getAutomatic_mode_kitchen_bulbon() {
+        return automatic_mode_kitchen_bulbon;
+    }
+
+    public void setAutomatic_mode_kitchen_bulbon(String automatic_mode_kitchen_bulbon) {
+        this.automatic_mode_kitchen_bulbon = automatic_mode_kitchen_bulbon;
+    }
+
+    public String getAutomatic_mode_kitchen_bulboff() {
+        return automatic_mode_kitchen_bulboff;
+    }
+
+    public void setAutomatic_mode_kitchen_bulboff(String automatic_mode_kitchen_bulboff) {
+        this.automatic_mode_kitchen_bulboff = automatic_mode_kitchen_bulboff;
+    }
+
+    public String getAutomatic_mode_kitchen_stoveon() {
+        return automatic_mode_kitchen_stoveon;
+    }
+
+    public void setAutomatic_mode_kitchen_stoveon(String automatic_mode_kitchen_stoveon) {
+        this.automatic_mode_kitchen_stoveon = automatic_mode_kitchen_stoveon;
+    }
+
+    public String getAutomatic_mode_kitchen_stoveoff() {
+        return automatic_mode_kitchen_stoveoff;
+    }
+
+    public void setAutomatic_mode_kitchen_stoveoff(String automatic_mode_kitchen_stoveoff) {
+        this.automatic_mode_kitchen_stoveoff = automatic_mode_kitchen_stoveoff;
+    }
+
+    public String getAutomatic_mode_kitchen_windowblindon() {
+        return automatic_mode_kitchen_windowblindon;
+    }
+
+    public void setAutomatic_mode_kitchen_windowblindon(String automatic_mode_kitchen_windowblindon) {
+        this.automatic_mode_kitchen_windowblindon = automatic_mode_kitchen_windowblindon;
+    }
+
+    public String getAutomatic_mode_kitchen_windowblindoff() {
+        return automatic_mode_kitchen_windowblindoff;
+    }
+
+    public void setAutomatic_mode_kitchen_windowblindoff(String automatic_mode_kitchen_windowblindoff) {
+        this.automatic_mode_kitchen_windowblindoff = automatic_mode_kitchen_windowblindoff;
+    }
+
+    public String getAutomatic_mode_kitchen_lightintensity() {
+        return automatic_mode_kitchen_lightintensity;
+    }
+
+    public void setAutomatic_mode_kitchen_lightintensity(String automatic_mode_kitchen_lightintensity) {
+        this.automatic_mode_kitchen_lightintensity = automatic_mode_kitchen_lightintensity;
+    }
+
+    public String getAutomatic_mode_livingroom_bulbon() {
+        return automatic_mode_livingroom_bulbon;
+    }
+
+    public void setAutomatic_mode_livingroom_bulbon(String automatic_mode_livingroom_bulbon) {
+        this.automatic_mode_livingroom_bulbon = automatic_mode_livingroom_bulbon;
+    }
+
+    public String getAutomatic_mode_livingroom_bulboff() {
+        return automatic_mode_livingroom_bulboff;
+    }
+
+    public void setAutomatic_mode_livingroom_bulboff(String automatic_mode_livingroom_bulboff) {
+        this.automatic_mode_livingroom_bulboff = automatic_mode_livingroom_bulboff;
+    }
+
+    public String getAutomatic_mode_livingroom_tablelampon() {
+        return automatic_mode_livingroom_tablelampon;
+    }
+
+    public void setAutomatic_mode_livingroom_tablelampon(String automatic_mode_livingroom_tablelampon) {
+        this.automatic_mode_livingroom_tablelampon = automatic_mode_livingroom_tablelampon;
+    }
+
+    public String getAutomatic_mode_livingroom_tablelampoff() {
+        return automatic_mode_livingroom_tablelampoff;
+    }
+
+    public void setAutomatic_mode_livingroom_tablelampoff(String automatic_mode_livingroom_tablelampoff) {
+        this.automatic_mode_livingroom_tablelampoff = automatic_mode_livingroom_tablelampoff;
+    }
+
+    public String getAutomatic_mode_livingroom_windowblindon() {
+        return automatic_mode_livingroom_windowblindon;
+    }
+
+    public void setAutomatic_mode_livingroom_windowblindon(String automatic_mode_livingroom_windowblindon) {
+        this.automatic_mode_livingroom_windowblindon = automatic_mode_livingroom_windowblindon;
+    }
+
+    public String getAutomatic_mode_livingroom_windowblindoff() {
+        return automatic_mode_livingroom_windowblindoff;
+    }
+
+    public void setAutomatic_mode_livingroom_windowblindoff(String automatic_mode_livingroom_windowblindoff) {
+        this.automatic_mode_livingroom_windowblindoff = automatic_mode_livingroom_windowblindoff;
+    }
+
+    public String getAutomatic_mode_livingroom_lightintensity() {
+        return automatic_mode_livingroom_lightintensity;
+    }
+
+    public void setAutomatic_mode_livingroom_lightintensity(String automatic_mode_livingroom_lightintensity) {
+        this.automatic_mode_livingroom_lightintensity = automatic_mode_livingroom_lightintensity;
+    }
+
+    public String getAutomatic_mode_wc_bulbon() {
+        return automatic_mode_wc_bulbon;
+    }
+
+    public void setAutomatic_mode_wc_bulbon(String automatic_mode_wc_bulbon) {
+        this.automatic_mode_wc_bulbon = automatic_mode_wc_bulbon;
+    }
+
+    public String getAutomatic_mode_wc_bulboff() {
+        return automatic_mode_wc_bulboff;
+    }
+
+    public void setAutomatic_mode_wc_bulboff(String automatic_mode_wc_bulboff) {
+        this.automatic_mode_wc_bulboff = automatic_mode_wc_bulboff;
+    }
+
+    public String getAutomatic_mode_wc_fan_on() {
+        return automatic_mode_wc_fan_on;
+    }
+
+    public void setAutomatic_mode_wc_fan_on(String automatic_mode_wc_fan_on) {
+        this.automatic_mode_wc_fan_on = automatic_mode_wc_fan_on;
+    }
+
+    public String getAutomatic_mode_wc_fan_off() {
+        return automatic_mode_wc_fan_off;
+    }
+
+    public void setAutomatic_mode_wc_fan_off(String automatic_mode_wc_fan_off) {
+        this.automatic_mode_wc_fan_off = automatic_mode_wc_fan_off;
+    }
+
+    public String getAutomatic_mode_livingroom_televisionon() {
+        return automatic_mode_livingroom_televisionon;
+    }
+
+    public void setAutomatic_mode_livingroom_televisionon(String automatic_mode_livingroom_televisionon) {
+        this.automatic_mode_livingroom_televisionon = automatic_mode_livingroom_televisionon;
+    }
+
+    public String getAutomatic_mode_livingroom_televisionoff() {
+        return automatic_mode_livingroom_televisionoff;
+    }
+
+    public void setAutomatic_mode_livingroom_televisionoff(String automatic_mode_livingroom_televisionoff) {
+        this.automatic_mode_livingroom_televisionoff = automatic_mode_livingroom_televisionoff;
+    }
+
+    public String getAutomatic_mode_kitchen_refrigrator() {
+        return automatic_mode_kitchen_refrigrator;
+    }
+
+    public void setAutomatic_mode_kitchen_refrigrator(String automatic_mode_kitchen_refrigrator) {
+        this.automatic_mode_kitchen_refrigrator = automatic_mode_kitchen_refrigrator;
     }
 }

@@ -100,7 +100,22 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:background="@drawable/rectangle"
+                    android:orientation="vertical"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="0dp">
+
+                    <Spinner
+                        android:id="@+id/bulb_on_automaticmode_kitchen_spinner"
                         android:layout_width="wrap_content"
+                        android:layout_height="43dp" />
+                </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center"
                         android:background="@drawable/rectangle"
@@ -110,7 +125,7 @@
                         app:cardElevation="0dp">
 
                         <Spinner
-                            android:id="@+id/bulb_on_automaticmode_kitchen_spinner"
+                            android:id="@+id/bulb_onmin_automaticmode_kitchen_spinner"
                             android:layout_width="wrap_content"
                             android:layout_height="43dp" />
                     </androidx.cardview.widget.CardView>
@@ -152,7 +167,22 @@
 
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:background="@drawable/rectangle"
+                    android:orientation="vertical"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="0dp">
+
+                    <Spinner
+                        android:id="@+id/bulb_off_automaticmode_kitchen_spinner"
                         android:layout_width="wrap_content"
+                        android:layout_height="43dp" />
+                </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center"
                         android:background="@drawable/rectangle"
@@ -162,7 +192,7 @@
                         app:cardElevation="0dp">
 
                         <Spinner
-                            android:id="@+id/bulb_off_automaticmode_kitchen_spinner"
+                            android:id="@+id/bulb_offmin_automaticmode_kitchen_spinner"
                             android:layout_width="wrap_content"
                             android:layout_height="43dp" />
                     </androidx.cardview.widget.CardView>
@@ -257,7 +287,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center"
                         android:background="@drawable/rectangle"
@@ -268,6 +298,21 @@
 
                         <Spinner
                             android:id="@+id/stove_on_automaticmode_kitchen_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="43dp" />
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:background="@drawable/rectangle"
+                        android:orientation="vertical"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="0dp"
+                        app:cardElevation="0dp">
+
+                        <Spinner
+                            android:id="@+id/stove_onmin_automaticmode_kitchen_spinner"
                             android:layout_width="wrap_content"
                             android:layout_height="43dp" />
                     </androidx.cardview.widget.CardView>
@@ -310,7 +355,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center"
                         android:background="@drawable/rectangle"
@@ -321,6 +366,21 @@
 
                         <Spinner
                             android:id="@+id/stove_off_automaticmode_kitchen_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="43dp" />
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:background="@drawable/rectangle"
+                        android:orientation="vertical"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="0dp"
+                        app:cardElevation="0dp">
+
+                        <Spinner
+                            android:id="@+id/stove_offmin_automaticmode_kitchen_spinner"
                             android:layout_width="wrap_content"
                             android:layout_height="43dp" />
                     </androidx.cardview.widget.CardView>

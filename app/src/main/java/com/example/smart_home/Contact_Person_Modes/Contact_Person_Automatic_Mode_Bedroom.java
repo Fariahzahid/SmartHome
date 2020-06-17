@@ -42,9 +42,8 @@ public class Contact_Person_Automatic_Mode_Bedroom extends Fragment {
     float batteryTemp;
     String currentBatterytemp = "Current Battery temp :";
 
-    private android.widget.Spinner windowblindOn,windowblindOff,
-            bulbon,bulboff,bulbintensity,
-            nightlampon,nightlampoff;
+    private android.widget.Spinner bulbonmin,bulboffmin,bulbon,bulboff,bulbintensity,
+            nightlampon,nightlampoff,nightlamponmin,nightlampoffmin;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,22 +54,28 @@ public class Contact_Person_Automatic_Mode_Bedroom extends Fragment {
         View v = inflater.inflate(R.layout.activity_contact_person_automaticmode_bedroom, container, false);
         bedroom = "Automatic_Mode_BedRoom";
 
-        windowblindOn = v.findViewById(R.id.windowblind_on_automaticmode_bedroom_spinner);
-        windowblindOff = v.findViewById(R.id.windowblind_off_automaticmode_bedroom_spinner);
         bulbon = v.findViewById(R.id.bulb_on_automaticmode_bedroom_spinner);
+        bulbonmin = v.findViewById(R.id.bulb_onmin_automaticmode_bedroom_spinner);
         bulboff = v.findViewById(R.id.bulb_off_automaticmode_bedroom_spinner);
+        bulboffmin = v.findViewById(R.id.bulb_offmin_automaticmode_bedroom_spinner);
         bulbintensity = v.findViewById(R.id.bulb_intensity_automaticmode_bedroom_spinner);
         nightlampon = v.findViewById(R.id.nl_on_automaticmode_bedroom_spinner);
+        nightlamponmin = v.findViewById(R.id.nl_onmin_automaticmode_bedroom_spinner);
         nightlampoff = v.findViewById(R.id.nl_off_automaticmode_bedroom_spinner);
+        nightlampoffmin = v.findViewById(R.id.nl_offmin_automaticmode_bedroom_spinner);
+
         save = (Button) v.findViewById(R.id.bedroom_automaticmode_save);
 
-        WindowBlindOn();
-        WindowBlindOff();
+
         BulbOn();
+        BulbOnMin();
         BulbOff();
+        BulbOffMin();
         BulbIntensity();
         NightLampOn();
+        NightLampOnMin();
         NightLampOff();
+        NIghtLampOffMin();
 
 
         fAuth = FirebaseAuth.getInstance();
@@ -80,13 +85,11 @@ public class Contact_Person_Automatic_Mode_Bedroom extends Fragment {
             public void onClick(View v) {
                 DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("Bedroom");
                 Map<String, Object> user = new HashMap<>();
-                user.put("WindowBlindsON", windowblindOn.getSelectedItem().toString());
-                user.put("WindowBlindsOFF", windowblindOff.getSelectedItem().toString());
-                user.put("BulbOn", bulbon.getSelectedItem().toString());
-                user.put("BulbOff", bulboff.getSelectedItem().toString());
-                user.put("BulbIntensity", bulbintensity.getSelectedItem().toString());
-                user.put("NightLampOn", nightlampon.getSelectedItem().toString());
-                user.put("NightLampOff", nightlampoff.getSelectedItem().toString());
+                user.put("BulbOn", bulbon.getSelectedItem()+":"+bulbonmin.getSelectedItem());
+                user.put("BulbOff", bulboff.getSelectedItem() +":" +bulboffmin.getSelectedItem());
+                user.put("BulbIntensity", bulbintensity.getSelectedItem());
+                user.put("NightLampOn", nightlampon.getSelectedItem()+":" +nightlamponmin.getSelectedItem());
+                user.put("NightLampOff", nightlampoff.getSelectedItem()+":"+nightlampoffmin.getSelectedItem());
 
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -109,107 +112,6 @@ public class Contact_Person_Automatic_Mode_Bedroom extends Fragment {
         return v;
     }
 
-    private void WindowBlindOn() {
-        ArrayList<String> windowblind = new ArrayList<>();
-        windowblind.add(0, "Time");
-        windowblind.add("1");
-        windowblind.add("2");
-        windowblind.add("3");
-        windowblind.add("4");
-        windowblind.add("5");
-        windowblind.add("6");
-        windowblind.add("7");
-        windowblind.add("8");
-        windowblind.add("9");
-        windowblind.add("10");
-        windowblind.add("11");
-        windowblind.add("12");
-        windowblind.add("13");
-        windowblind.add("14");
-        windowblind.add("15");
-        windowblind.add("16");
-        windowblind.add("17");
-        windowblind.add("18");
-        windowblind.add("19");
-        windowblind.add("20");
-        windowblind.add("21");
-        windowblind.add("22");
-        windowblind.add("23");
-        windowblind.add("24");
-
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, windowblind);
-        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        windowblindOn.setAdapter(adapter2);
-
-        windowblindOn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Time")) {
-
-                } else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
-
-    private void WindowBlindOff() {
-        ArrayList<String> windowblind = new ArrayList<>();
-        windowblind.add(0, "Time");
-        windowblind.add("1");
-        windowblind.add("2");
-        windowblind.add("3");
-        windowblind.add("4");
-        windowblind.add("5");
-        windowblind.add("6");
-        windowblind.add("7");
-        windowblind.add("8");
-        windowblind.add("9");
-        windowblind.add("10");
-        windowblind.add("11");
-        windowblind.add("12");
-        windowblind.add("13");
-        windowblind.add("14");
-        windowblind.add("15");
-        windowblind.add("16");
-        windowblind.add("17");
-        windowblind.add("18");
-        windowblind.add("19");
-        windowblind.add("20");
-        windowblind.add("21");
-        windowblind.add("22");
-        windowblind.add("23");
-        windowblind.add("24");
-
-
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, windowblind);
-        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        windowblindOff.setAdapter(adapter2);
-
-        windowblindOff.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Time")) {
-
-                } else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
     private void BulbOn() {
         ArrayList<String> bulb = new ArrayList<>();
         bulb.add(0, "Time");
@@ -263,6 +165,95 @@ public class Contact_Person_Automatic_Mode_Bedroom extends Fragment {
             }
         });
     }
+    private void BulbOnMin() {
+        ArrayList<String> bulb = new ArrayList<>();
+        bulb.add(0, "Min");
+        bulb.add("1");
+        bulb.add("2");
+        bulb.add("3");
+        bulb.add("4");
+        bulb.add("5");
+        bulb.add("6");
+        bulb.add("7");
+        bulb.add("8");
+        bulb.add("9");
+        bulb.add("10");
+        bulb.add("11");
+        bulb.add("12");
+        bulb.add("13");
+        bulb.add("14");
+        bulb.add("15");
+        bulb.add("16");
+        bulb.add("17");
+        bulb.add("18");
+        bulb.add("19");
+        bulb.add("20");
+        bulb.add("21");
+        bulb.add("22");
+        bulb.add("23");
+        bulb.add("24");
+        bulb.add("25");
+        bulb.add("26");
+        bulb.add("27");
+        bulb.add("28");
+        bulb.add("29");
+        bulb.add("30");
+        bulb.add("31");
+        bulb.add("32");
+        bulb.add("33");
+        bulb.add("34");
+        bulb.add("35");
+        bulb.add("36");
+        bulb.add("37");
+        bulb.add("38");
+        bulb.add("39");
+        bulb.add("40");
+        bulb.add("41");
+        bulb.add("42");
+        bulb.add("43");
+        bulb.add("44");
+        bulb.add("45");
+        bulb.add("46");
+        bulb.add("47");
+        bulb.add("48");
+        bulb.add("49");
+        bulb.add("50");
+        bulb.add("51");
+        bulb.add("52");
+        bulb.add("53");
+        bulb.add("54");
+        bulb.add("55");
+        bulb.add("56");
+        bulb.add("57");
+        bulb.add("58");
+        bulb.add("59");
+        bulb.add("00");
+
+
+
+
+
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, bulb);
+        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        bulbonmin.setAdapter(adapter2);
+
+        bulbonmin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (parent.getItemAtPosition(position).equals("Min")) {
+
+                } else {
+                    String item = parent.getItemAtPosition(position).toString();
+                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
     private void BulbOff() {
         ArrayList<String> bulb = new ArrayList<>();
         bulb.add(0, "Time");
@@ -299,6 +290,95 @@ public class Contact_Person_Automatic_Mode_Bedroom extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (parent.getItemAtPosition(position).equals("Time")) {
+
+                } else {
+                    String item = parent.getItemAtPosition(position).toString();
+                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    private void BulbOffMin(){
+        ArrayList<String> bulb = new ArrayList<>();
+        bulb.add(0, "Min");
+        bulb.add("1");
+        bulb.add("2");
+        bulb.add("3");
+        bulb.add("4");
+        bulb.add("5");
+        bulb.add("6");
+        bulb.add("7");
+        bulb.add("8");
+        bulb.add("9");
+        bulb.add("10");
+        bulb.add("11");
+        bulb.add("12");
+        bulb.add("13");
+        bulb.add("14");
+        bulb.add("15");
+        bulb.add("16");
+        bulb.add("17");
+        bulb.add("18");
+        bulb.add("19");
+        bulb.add("20");
+        bulb.add("21");
+        bulb.add("22");
+        bulb.add("23");
+        bulb.add("24");
+        bulb.add("25");
+        bulb.add("26");
+        bulb.add("27");
+        bulb.add("28");
+        bulb.add("29");
+        bulb.add("30");
+        bulb.add("31");
+        bulb.add("32");
+        bulb.add("33");
+        bulb.add("34");
+        bulb.add("35");
+        bulb.add("36");
+        bulb.add("37");
+        bulb.add("38");
+        bulb.add("39");
+        bulb.add("40");
+        bulb.add("41");
+        bulb.add("42");
+        bulb.add("43");
+        bulb.add("44");
+        bulb.add("45");
+        bulb.add("46");
+        bulb.add("47");
+        bulb.add("48");
+        bulb.add("49");
+        bulb.add("50");
+        bulb.add("51");
+        bulb.add("52");
+        bulb.add("53");
+        bulb.add("54");
+        bulb.add("55");
+        bulb.add("56");
+        bulb.add("57");
+        bulb.add("58");
+        bulb.add("59");
+        bulb.add("00");
+
+
+
+
+
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, bulb);
+        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        bulboffmin.setAdapter(adapter2);
+
+        bulboffmin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (parent.getItemAtPosition(position).equals("Min")) {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
@@ -391,6 +471,95 @@ public class Contact_Person_Automatic_Mode_Bedroom extends Fragment {
             }
         });
     }
+    private void NightLampOnMin(){
+        ArrayList<String> bulb = new ArrayList<>();
+        bulb.add(0, "Min");
+        bulb.add("1");
+        bulb.add("2");
+        bulb.add("3");
+        bulb.add("4");
+        bulb.add("5");
+        bulb.add("6");
+        bulb.add("7");
+        bulb.add("8");
+        bulb.add("9");
+        bulb.add("10");
+        bulb.add("11");
+        bulb.add("12");
+        bulb.add("13");
+        bulb.add("14");
+        bulb.add("15");
+        bulb.add("16");
+        bulb.add("17");
+        bulb.add("18");
+        bulb.add("19");
+        bulb.add("20");
+        bulb.add("21");
+        bulb.add("22");
+        bulb.add("23");
+        bulb.add("24");
+        bulb.add("25");
+        bulb.add("26");
+        bulb.add("27");
+        bulb.add("28");
+        bulb.add("29");
+        bulb.add("30");
+        bulb.add("31");
+        bulb.add("32");
+        bulb.add("33");
+        bulb.add("34");
+        bulb.add("35");
+        bulb.add("36");
+        bulb.add("37");
+        bulb.add("38");
+        bulb.add("39");
+        bulb.add("40");
+        bulb.add("41");
+        bulb.add("42");
+        bulb.add("43");
+        bulb.add("44");
+        bulb.add("45");
+        bulb.add("46");
+        bulb.add("47");
+        bulb.add("48");
+        bulb.add("49");
+        bulb.add("50");
+        bulb.add("51");
+        bulb.add("52");
+        bulb.add("53");
+        bulb.add("54");
+        bulb.add("55");
+        bulb.add("56");
+        bulb.add("57");
+        bulb.add("58");
+        bulb.add("59");
+        bulb.add("00");
+
+
+
+
+
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, bulb);
+        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        nightlamponmin.setAdapter(adapter2);
+
+        nightlamponmin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (parent.getItemAtPosition(position).equals("Min")) {
+
+                } else {
+                    String item = parent.getItemAtPosition(position).toString();
+                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
     private void NightLampOff() {
         ArrayList<String> bulb = new ArrayList<>();
         bulb.add(0, "Time");
@@ -433,6 +602,95 @@ public class Contact_Person_Automatic_Mode_Bedroom extends Fragment {
                     Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
 
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    private void NIghtLampOffMin(){
+        ArrayList<String> bulb = new ArrayList<>();
+        bulb.add(0, "Min");
+        bulb.add("1");
+        bulb.add("2");
+        bulb.add("3");
+        bulb.add("4");
+        bulb.add("5");
+        bulb.add("6");
+        bulb.add("7");
+        bulb.add("8");
+        bulb.add("9");
+        bulb.add("10");
+        bulb.add("11");
+        bulb.add("12");
+        bulb.add("13");
+        bulb.add("14");
+        bulb.add("15");
+        bulb.add("16");
+        bulb.add("17");
+        bulb.add("18");
+        bulb.add("19");
+        bulb.add("20");
+        bulb.add("21");
+        bulb.add("22");
+        bulb.add("23");
+        bulb.add("24");
+        bulb.add("25");
+        bulb.add("26");
+        bulb.add("27");
+        bulb.add("28");
+        bulb.add("29");
+        bulb.add("30");
+        bulb.add("31");
+        bulb.add("32");
+        bulb.add("33");
+        bulb.add("34");
+        bulb.add("35");
+        bulb.add("36");
+        bulb.add("37");
+        bulb.add("38");
+        bulb.add("39");
+        bulb.add("40");
+        bulb.add("41");
+        bulb.add("42");
+        bulb.add("43");
+        bulb.add("44");
+        bulb.add("45");
+        bulb.add("46");
+        bulb.add("47");
+        bulb.add("48");
+        bulb.add("49");
+        bulb.add("50");
+        bulb.add("51");
+        bulb.add("52");
+        bulb.add("53");
+        bulb.add("54");
+        bulb.add("55");
+        bulb.add("56");
+        bulb.add("57");
+        bulb.add("58");
+        bulb.add("59");
+        bulb.add("00");
+
+
+
+
+
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, bulb);
+        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        nightlampoffmin.setAdapter(adapter2);
+
+        nightlampoffmin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (parent.getItemAtPosition(position).equals("Min")) {
+
+                } else {
+                    String item = parent.getItemAtPosition(position).toString();
+                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

@@ -12,7 +12,6 @@ import android.widget.Button;
 import com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List;
 import com.example.smart_home.Contact_Person_SignIn.Login;
 import com.example.smart_home.Users_Modes.User_Guide_Video;
-import com.example.smart_home.Users_Modes.User_Home_Colored;
 import com.example.smart_home.Users_SignIn.User_Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,8 +19,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import User_Modes_Black_White.User_Home;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyActivity";

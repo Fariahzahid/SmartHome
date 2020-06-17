@@ -1,20 +1,20 @@
-package com.example.smart_home.Users_Modes;
+package com.example.smart_home.User_Voice_Mode;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class User_Automatic_Mode_Colored extends AppCompatActivity {
+public class User_Automatic_Mode_Voice_Mode extends AppCompatActivity {
     private static final String TAG = "MyActivity";
 
     Button  manualmode_wc_plus_button,manualmode_wc_minus_button,
@@ -142,13 +142,13 @@ public class User_Automatic_Mode_Colored extends AppCompatActivity {
                   if(mm > sunrisetwo && mm < sunsettwo){
                         manualmode_bedroom_blinds_on.setVisibility(View.GONE);
                         manualmode_bedroom_blinds_off.setVisibility(View.VISIBLE);
-                      Toast.makeText(User_Automatic_Mode_Colored.this, "Blinds On", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(User_Automatic_Mode_Voice_Mode.this, "Blinds On", Toast.LENGTH_SHORT).show();
                    }
                 }else
                 {
                     manualmode_bedroom_blinds_on.setVisibility(View.VISIBLE);
                     manualmode_bedroom_blinds_off.setVisibility(View.GONE);
-                    Toast.makeText(User_Automatic_Mode_Colored.this, "Blinds Off", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(User_Automatic_Mode_Voice_Mode.this, "Blinds Off", Toast.LENGTH_SHORT).show();
                 }
 
                 String nightlampOn = globalVariable.getAutomatic_mode_bedroom_nightlampon();
@@ -163,12 +163,12 @@ public class User_Automatic_Mode_Colored extends AppCompatActivity {
 
                 if(HH > nightlamponhour && HH < nightlampoffhour){
                     if(mm > nightlamponmin && mm < nightlampoffmin){
-                        Toast.makeText(User_Automatic_Mode_Colored.this, "Night Lamp On", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(User_Automatic_Mode_Voice_Mode.this, "Night Lamp On", Toast.LENGTH_SHORT).show();
                     }
 
                 }
                 else {
-                    Toast.makeText(User_Automatic_Mode_Colored.this, "Night Lamp Off", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(User_Automatic_Mode_Voice_Mode.this, "Night Lamp Off", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -203,10 +203,10 @@ public class User_Automatic_Mode_Colored extends AppCompatActivity {
 
                 if(HH > bulbonhour && HH < bulboffhour){
                     if(mm >bulbonmin && mm <bulboffmin ){
-                        Toast.makeText(User_Automatic_Mode_Colored.this, "Bulb On", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(User_Automatic_Mode_Voice_Mode.this, "Bulb On", Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    Toast.makeText(User_Automatic_Mode_Colored.this, "Bulb Off", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(User_Automatic_Mode_Voice_Mode.this, "Bulb Off", Toast.LENGTH_SHORT).show();
 
                 }
                 String tablelampOn = globalVariable.getAutomatic_mode_livingroom_tablelampon();
@@ -221,10 +221,10 @@ public class User_Automatic_Mode_Colored extends AppCompatActivity {
 
                 if(HH > tablelamponhour && HH < tablelampoffhour){
                     if(mm >tablelamponmin && mm <tablelampoffmin ){
-                        Toast.makeText(User_Automatic_Mode_Colored.this, "Table Lamp On", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(User_Automatic_Mode_Voice_Mode.this, "Table Lamp On", Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    Toast.makeText(User_Automatic_Mode_Colored.this, "Table Lamp Off", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(User_Automatic_Mode_Voice_Mode.this, "Table Lamp Off", Toast.LENGTH_SHORT).show();
 
                 }
                 String televisionon = globalVariable.getAutomatic_mode_livingroom_televisionon();
@@ -239,10 +239,10 @@ public class User_Automatic_Mode_Colored extends AppCompatActivity {
 
                 if(HH > televisiononhour && HH < televisionoffhour){
                     if(mm >televisiononmin && mm <televisionoffmin ){
-                        Toast.makeText(User_Automatic_Mode_Colored.this, "Television On", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(User_Automatic_Mode_Voice_Mode.this, "Television On", Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    Toast.makeText(User_Automatic_Mode_Colored.this, "Television Off", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(User_Automatic_Mode_Voice_Mode.this, "Television Off", Toast.LENGTH_SHORT).show();
 
                 }
             }

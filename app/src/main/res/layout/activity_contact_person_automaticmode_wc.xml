@@ -103,7 +103,7 @@
                             </androidx.cardview.widget.CardView>
 
                             <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="left|center"
                                 android:background="@drawable/rectangle"
@@ -115,6 +115,23 @@
                                 <Spinner
                                     android:id="@+id/bulb_on_automaticmode_wc_spinner"
                                     android:layout_width="wrap_content"
+                                    android:autofillHints="Hour"
+                                    android:layout_height="43dp" />
+                            </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left|center"
+                                android:background="@drawable/rectangle"
+                                android:orientation="vertical"
+                                app:cardBackgroundColor="@android:color/transparent"
+                                app:cardCornerRadius="0dp"
+                                app:cardElevation="0dp">
+
+                                <Spinner
+                                    android:id="@+id/bulb_onmin_automaticmode_wc_spinner"
+                                    android:layout_width="wrap_content"
+                                    android:autofillHints="Min"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
 
@@ -156,7 +173,7 @@
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="left|center"
                                 android:background="@drawable/rectangle"
@@ -168,9 +185,25 @@
                                 <Spinner
                                     android:id="@+id/bulb_off_automaticmode_wc_spinner"
                                     android:layout_width="wrap_content"
+                                    android:autofillHints="Hour"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left|center"
+                                android:background="@drawable/rectangle"
+                                android:orientation="vertical"
+                                app:cardBackgroundColor="@android:color/transparent"
+                                app:cardCornerRadius="0dp"
+                                app:cardElevation="0dp">
 
+                                <Spinner
+                                    android:id="@+id/bulb_offmin_automaticmode_wc_spinner"
+                                    android:layout_width="wrap_content"
+                                    android:autofillHints="Min"
+                                    android:layout_height="43dp" />
+                            </androidx.cardview.widget.CardView>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -209,7 +242,7 @@
                             </androidx.cardview.widget.CardView>
 
                             <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="left|center"
                                 android:background="@drawable/rectangle"
@@ -221,6 +254,23 @@
                                 <Spinner
                                     android:id="@+id/extfan_on_automaticmode_wc_spinner"
                                     android:layout_width="match_parent"
+                                    android:autofillHints="Hour"
+                                    android:layout_height="43dp" />
+                            </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left|center"
+                                android:background="@drawable/rectangle"
+                                android:orientation="vertical"
+                                app:cardBackgroundColor="@android:color/transparent"
+                                app:cardCornerRadius="0dp"
+                                app:cardElevation="0dp">
+
+                                <Spinner
+                                    android:id="@+id/extfan_onmin_automaticmode_wc_spinner"
+                                    android:layout_width="match_parent"
+                                    android:autofillHints="Min"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
 
@@ -262,7 +312,7 @@
                             </androidx.cardview.widget.CardView>
 
                             <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="left|center"
                                 android:background="@drawable/rectangle"
@@ -274,6 +324,23 @@
                                 <Spinner
                                     android:id="@+id/extfan_off_automaticmode_wc_spinner"
                                     android:layout_width="wrap_content"
+                                    android:autofillHints="Hour"
+                                    android:layout_height="43dp" />
+                            </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left|center"
+                                android:background="@drawable/rectangle"
+                                android:orientation="vertical"
+                                app:cardBackgroundColor="@android:color/transparent"
+                                app:cardCornerRadius="0dp"
+                                app:cardElevation="0dp">
+
+                                <Spinner
+                                    android:id="@+id/extfan_offmin_automaticmode_wc_spinner"
+                                    android:layout_width="wrap_content"
+                                    android:autofillHints="Min"
                                     android:layout_height="43dp" />
                             </androidx.cardview.widget.CardView>
 

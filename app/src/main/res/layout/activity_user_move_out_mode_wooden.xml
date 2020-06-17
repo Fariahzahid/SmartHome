@@ -6,6 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/user_moveout_mode_layout"
     android:background="@drawable/brownbackground"
     tools:context="com.example.smart_home.Users_Modes.User_Move_Out_Mode_Colored">
 
@@ -15,7 +16,6 @@
         android:orientation="vertical"
         >
         <LinearLayout
-            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -25,7 +25,6 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/user_main_mode_image"
                 android:layout_width="96dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="30dp"
@@ -47,7 +46,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/user_main_mode_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
@@ -56,7 +54,6 @@
                     android:textSize="26sp" />
 
                 <TextView
-                    android:id="@+id/user_main_mode_emergency_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"

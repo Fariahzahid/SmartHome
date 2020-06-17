@@ -1,16 +1,24 @@
-package User_Modes_Black_White;
+package com.example.smart_home.User_Modes_Black_White;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
+import com.example.smart_home.Users_Modes.User_Automatic_Mode_Colored;
 
-public class User_Manual_Mode  extends AppCompatActivity {
-    Button manualmode_wc_plus_button,manualmode_wc_minus_button,
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+public class User_Automatic_Mode extends AppCompatActivity {
+    private static final String TAG = "MyActivity";
+
+    Button  manualmode_wc_plus_button,manualmode_wc_minus_button,
             manualmode_bedroom_plus_button,manualmode_bedroom_minus_button,
             manualmode_lr_plus_button,manualmode_lr_minus_button,
             manualmode_kitchen_plus_button,manualmode_kitchen_minus_button,
@@ -28,12 +36,39 @@ public class User_Manual_Mode  extends AppCompatActivity {
             manualmode_kitchen_blinds_on, manualmode_kitchen_blinds_off,
             manualmode_kitchen_oven_on, manualmode_kitchen_oven_off,
             manualmode_kitchen_stove_on, manualmode_kitchen_stove_off;
+    String currentTime,sunrise,sunset,weather,windspeed;
+    int HH,mm,sunsetone,sunsettwo,sunriseone,sunrisetwo,nightlamponhour,nightlamponmin
+            ,nightlampoffhour,nightlampoffmin;
 
     LinearLayout manualmode_wc_layout, manualmode_bedroom_layout, manualmode_lr_layout, manualmode_kitchen_layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_manual_mode);
+        setContentView(R.layout.activity_user_automatic_mode);
+
+
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+        currentTime = df.format(c.getTime());
+
+        final GlobalVariables globalVariable=(GlobalVariables)getApplication();
+        sunrise = globalVariable.getSunrise();
+        sunset = globalVariable.getSunset();
+        weather = globalVariable.getWeather();
+        windspeed = globalVariable.getWindspeed();
+
+        String[] currenttimeArray = currentTime.split(":");
+        HH = Integer.parseInt(currenttimeArray[0]);
+        mm = Integer.parseInt(currenttimeArray[1]);
+
+        String[] sunsettimearray = sunset.split(":");
+        sunsetone = Integer.parseInt(sunsettimearray[0]);
+        sunsettwo = Integer.parseInt(sunsettimearray[1]);
+
+        String[] sunrisetimearray = sunrise.split(":");
+        sunriseone = Integer.parseInt(sunrisetimearray[0]);
+        sunrisetwo = Integer.parseInt(sunrisetimearray[1]);
+
 
         manualmode_wc_plus_button = (Button) findViewById(R.id.manualmode_wc_plus_button);
         manualmode_wc_minus_button = (Button) findViewById(R.id.manualmode_wc_minus_button);
@@ -104,6 +139,40 @@ public class User_Manual_Mode  extends AppCompatActivity {
                 manualmode_bedroom_plus_button.setVisibility(View.GONE);
                 manualmode_bedroom_layout.setVisibility(View.VISIBLE);
                 manualmode_bedroom_minus_button.setVisibility(View.VISIBLE);
+                if(HH > sunriseone && HH < sunsetone ){
+                    if(mm > sunrisetwo && mm < sunsettwo){
+                        manualmode_bedroom_blinds_on.setVisibility(View.GONE);
+                        manualmode_bedroom_blinds_off.setVisibility(View.VISIBLE);
+                        Toast.makeText(User_Automatic_Mode.this, "Blinds On", Toast.LENGTH_SHORT).show();
+                    }
+                }else
+                {
+                    manualmode_bedroom_blinds_on.setVisibility(View.VISIBLE);
+                    manualmode_bedroom_blinds_off.setVisibility(View.GONE);
+                    Toast.makeText(User_Automatic_Mode.this, "Blinds Off", Toast.LENGTH_SHORT).show();
+                }
+
+                String nightlampOn = globalVariable.getAutomatic_mode_bedroom_nightlampon();
+                String[] nightlampOnArray = nightlampOn.split(":");
+                nightlamponhour = Integer.parseInt(nightlampOnArray[0]);
+                nightlamponmin = Integer.parseInt(nightlampOnArray[1]);
+
+                String nightLampOff = globalVariable.getAutomatic_mode_bedroom_nightlampoff();
+                String[] nightLampOffArray = nightLampOff.split(":");
+                nightlampoffhour = Integer.parseInt(nightLampOffArray[0]);
+                nightlampoffmin = Integer.parseInt(nightLampOffArray[1]);
+
+                if(HH > nightlamponhour && HH < nightlampoffhour){
+                    if(mm > nightlamponmin && mm < nightlampoffmin){
+                        Toast.makeText(User_Automatic_Mode.this, "Night Lamp On", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                else {
+                    Toast.makeText(User_Automatic_Mode.this, "Night Lamp Off", Toast.LENGTH_SHORT).show();
+
+                }
+
             }
         });
         //BEDROOM LAYOUT INVISIBLE
@@ -122,6 +191,61 @@ public class User_Manual_Mode  extends AppCompatActivity {
                 manualmode_lr_plus_button.setVisibility(View.GONE);
                 manualmode_lr_layout.setVisibility(View.VISIBLE);
                 manualmode_lr_minus_button.setVisibility(View.VISIBLE);
+
+                String bulbOn = globalVariable.getAutomatic_mode_livingroom_bulbon();
+                String[] bulbOnArray = bulbOn.split(":");
+                int bulbonhour = Integer.parseInt(bulbOnArray[0]);
+                int bulbonmin = Integer.parseInt(bulbOnArray[1]);
+
+                String bulboff = globalVariable.getAutomatic_mode_livingroom_bulboff();
+                String[] bulboffArray = bulboff.split(":");
+                int bulboffhour = Integer.parseInt(bulboffArray[0]);
+                int bulboffmin = Integer.parseInt(bulboffArray[1]);
+
+                if(HH > bulbonhour && HH < bulboffhour){
+                    if(mm >bulbonmin && mm <bulboffmin ){
+                        Toast.makeText(User_Automatic_Mode.this, "Bulb On", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(User_Automatic_Mode.this, "Bulb Off", Toast.LENGTH_SHORT).show();
+
+                }
+                String tablelampOn = globalVariable.getAutomatic_mode_livingroom_tablelampon();
+                String tablelampoff = globalVariable.getAutomatic_mode_livingroom_tablelampoff();
+
+                String[] tablelampOnArray = tablelampOn.split(":");
+                int tablelamponhour = Integer.parseInt(tablelampOnArray[0]);
+                int tablelamponmin = Integer.parseInt(tablelampOnArray[1]);
+                String[] tablelampOffArray = tablelampoff.split(":");
+                int tablelampoffhour = Integer.parseInt(tablelampOffArray[0]);
+                int tablelampoffmin = Integer.parseInt(tablelampOffArray[1]);
+
+                if(HH > tablelamponhour && HH < tablelampoffhour){
+                    if(mm >tablelamponmin && mm <tablelampoffmin ){
+                        Toast.makeText(User_Automatic_Mode.this, "Table Lamp On", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(User_Automatic_Mode.this, "Table Lamp Off", Toast.LENGTH_SHORT).show();
+
+                }
+                String televisionon = globalVariable.getAutomatic_mode_livingroom_televisionon();
+                String televisionoff = globalVariable.getAutomatic_mode_livingroom_televisionoff();
+
+                String[] televisiononArray = televisionon.split(":");
+                int televisiononhour = Integer.parseInt(televisiononArray[0]);
+                int televisiononmin = Integer.parseInt(televisiononArray[1]);
+                String[] televisionoffArray = televisionoff.split(":");
+                int televisionoffhour = Integer.parseInt(televisionoffArray[0]);
+                int televisionoffmin = Integer.parseInt(televisionoffArray[1]);
+
+                if(HH > televisiononhour && HH < televisionoffhour){
+                    if(mm >televisiononmin && mm <televisionoffmin ){
+                        Toast.makeText(User_Automatic_Mode.this, "Television On", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(User_Automatic_Mode.this, "Television Off", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
         //LIVING ROOM LAYOUT INVISIBLE

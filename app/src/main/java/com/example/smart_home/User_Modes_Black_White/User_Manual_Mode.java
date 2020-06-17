@@ -1,4 +1,4 @@
-package User_Modes_Black_White;
+package com.example.smart_home.User_Modes_Black_White;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smart_home.R;
 
-public class User_Automatic_Mode extends AppCompatActivity {
-    Button  manualmode_wc_plus_button,manualmode_wc_minus_button,
+public class User_Manual_Mode  extends AppCompatActivity {
+    Button manualmode_wc_plus_button,manualmode_wc_minus_button,
             manualmode_bedroom_plus_button,manualmode_bedroom_minus_button,
             manualmode_lr_plus_button,manualmode_lr_minus_button,
             manualmode_kitchen_plus_button,manualmode_kitchen_minus_button,
@@ -33,7 +33,7 @@ public class User_Automatic_Mode extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_automatic_mode);
+        setContentView(R.layout.activity_user_manual_mode);
 
         manualmode_wc_plus_button = (Button) findViewById(R.id.manualmode_wc_plus_button);
         manualmode_wc_minus_button = (Button) findViewById(R.id.manualmode_wc_minus_button);
