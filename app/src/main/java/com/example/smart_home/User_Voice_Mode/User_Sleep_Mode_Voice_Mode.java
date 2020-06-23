@@ -73,8 +73,11 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
         nightlamp_on = (TextView) findViewById(R.id.user_sleep_mode_nl_on_button);
         nightlamp_off = (TextView) findViewById(R.id.user_sleep_mode_nl_off_button);
 
-        texttovoice.setText("Speak 1 for Bedroom Bulb On, Speak 2 for Toilet Bulb On,Speak 3 for heating On," +
-                "Speak 4 for cooling On, Speak 5 for night lamp on");
+        texttovoice.setText("Speak 1 On or 1 Off for Bedroom Bulb Status, " +
+                "Speak 2 On or 2 Off for Toilet Bulb Status," +
+                "Speak 3 On or 3 Off for heating Status," +
+                "Speak 4 On or 4 Off for cooling Status, " +
+                "Speak 5 On or 5 Off for night lamp Status");
         // Init TextToSpeech
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
