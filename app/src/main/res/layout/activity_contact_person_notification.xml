@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background3"
+    android:background="@drawable/brownbackground"
     tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Notification"
 
     >
@@ -13,37 +13,26 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/progress"
-            ></ImageView>
-
-        <RelativeLayout
-            android:id="@+id/bottomBar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true">
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNavView_Bar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:labelVisibilityMode="labeled"
-                android:background="@color/purple_dark"
-                app:itemIconTint="@color/white"
-                app:itemTextColor="@color/white"
-                app:menu="@menu/bottom_navigation_menu"
-                >
+        <TextView
+            android:id="@+id/waittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Follow the voice commands to operate the application"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textColor="@color/black"></TextView>
 
 
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
-        </RelativeLayout>
+
+
+
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

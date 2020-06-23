@@ -6,266 +6,242 @@
     android:background="@drawable/background3"
     tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Add_New_Users">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/background3"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/background3"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/user_profile_image"
+                android:layout_width="86dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/user_icon2"
+                app:layout_constraintVertical_bias="0.026" />
+
+            <EditText
+                android:id="@+id/user_register_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="36dp"
+                android:hint="Full name"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <EditText
+                android:id="@+id/user_register_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="15dp"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <EditText
+                android:id="@+id/user_register_phoneno"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="28dp"
+                android:hint="Phone Number"
+                android:numeric="integer"
+                android:padding="15dp"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <EditText
+                android:id="@+id/user_register_address"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="28dp"
+                android:hint="Address"
+                android:padding="15dp"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/user_register_phoneno"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <Spinner
+                android:id="@+id/gender_spinner"
+                android:layout_width="398dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="16dp"
+                android:padding="15dp"
+                android:textSize="15sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/Disability"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:id="@+id/dislayoutone"
+                    android:layout_width="344dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp">
 
-                <ImageView
-                    android:id="@+id/user_profile_image"
-                    android:layout_width="86dp"
-                    android:layout_height="72dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/user_icon2"
-                    app:layout_constraintVertical_bias="0.026" />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch1"
+                        android:layout_width="314dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Muteness Disability"
+                        android:textOff="No"
+                        android:textOn="Yes"
+                        android:thumb="@drawable/swtich_button" />
+                </LinearLayout>
 
-                <EditText
-                    android:id="@+id/user_register_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="36dp"
-                    android:hint="Full name"
-                    android:inputType="textPersonName"
-                    android:padding="15dp"
-                    android:textSize="15sp"
-                    tools:layout_editor_absoluteX="16dp" />
+                <LinearLayout
+                    android:id="@+id/dislayouttwo"
+                    android:layout_width="344dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp">
 
-                <EditText
-                    android:id="@+id/user_register_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="16dp"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:padding="15dp"
-                    android:textSize="15sp"
-                    tools:layout_editor_absoluteX="0dp" />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch2"
+                        android:layout_width="314dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Hearing Impairment"
+                        android:textOff="No"
+                        android:textOn="Yes"
+                        android:thumb="@drawable/swtich_button" />
+                </LinearLayout>
 
-                <EditText
-                    android:id="@+id/user_register_phoneno"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="28dp"
-                    android:hint="Phone Number"
-                    android:numeric="integer"
-                    android:padding="15dp"
-                    android:textSize="15sp"
-                    tools:layout_editor_absoluteX="0dp" />
+                <LinearLayout
+                    android:id="@+id/dislayoutthree"
+                    android:layout_width="344dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp">
 
-                <EditText
-                    android:id="@+id/user_register_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="28dp"
-                    android:hint="Address"
-                    android:padding="15dp"
-                    android:textSize="15sp"
-                    app:layout_constraintTop_toBottomOf="@+id/user_register_phoneno"
-                    tools:layout_editor_absoluteX="0dp" />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch3"
+                        android:layout_width="314dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Physical Impairment"
+                        android:textOff="No"
+                        android:textOn="Yes"
+                        android:thumb="@drawable/swtich_button" />
+                </LinearLayout>
 
-                <Spinner
-                    android:id="@+id/gender_spinner"
-                    android:layout_width="398dp"
-                    android:layout_height="62dp"
-                    android:layout_marginTop="16dp"
-                    android:padding="15dp"
-                    android:textSize="15sp" />
+                <LinearLayout
+                    android:id="@+id/dislayoutfour"
+                    android:layout_width="344dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp">
 
-               <LinearLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:orientation="vertical"
-                   android:id="@+id/Disability">
-                   <LinearLayout
-                       android:layout_width="344dp"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/dislayoutone"
-                       android:paddingLeft="15dp"
-                       android:orientation="horizontal">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch4"
+                        android:layout_width="314dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Color Blindness"
+                        android:textOff="No"
+                        android:textOn="Yes"
+                        android:thumb="@drawable/swtich_button" />
+                </LinearLayout>
 
-                       <androidx.appcompat.widget.SwitchCompat
-                           android:id="@+id/switch1"
-                           android:layout_width="314dp"
-                           android:layout_height="wrap_content"
-                           android:layout_centerInParent="true"
-                           android:text="Muteness Disability"
-                           android:textOff="No"
-                           android:textOn="Yes"
-                           android:thumb="@drawable/swtich_button"
-                           />
-                   </LinearLayout>
-                   <LinearLayout
-                       android:layout_width="344dp"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/dislayouttwo"
-                       android:paddingLeft="15dp"
-                       android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/dislayoutfive"
+                    android:layout_width="344dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp">
 
-                       <androidx.appcompat.widget.SwitchCompat
-                           android:id="@+id/switch2"
-                           android:layout_width="314dp"
-                           android:layout_height="wrap_content"
-                           android:layout_centerInParent="true"
-                           android:text="Hearing Impairment"
-                           android:textOff="No"
-                           android:textOn="Yes"
-                           android:thumb="@drawable/swtich_button"
-                           />
-                   </LinearLayout>
-                   <LinearLayout
-                       android:layout_width="344dp"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/dislayoutthree"
-                       android:paddingLeft="15dp"
-                       android:orientation="horizontal">
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch5"
+                        android:layout_width="314dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Vision Impairment"
+                        android:textOff="No"
+                        android:textOn="Yes"
+                        android:thumb="@drawable/swtich_button" />
+                </LinearLayout>
 
-                       <androidx.appcompat.widget.SwitchCompat
-                           android:id="@+id/switch3"
-                           android:layout_width="314dp"
-                           android:layout_height="wrap_content"
-                           android:layout_centerInParent="true"
-                           android:text="Physical Impairment"
-                           android:textOff="No"
-                           android:textOn="Yes"
-                           android:thumb="@drawable/swtich_button"
-                           />
-                   </LinearLayout>
-                   <LinearLayout
-                       android:layout_width="344dp"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/dislayoutfour"
-                       android:paddingLeft="15dp"
-                       android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/dislayoutsix"
+                    android:layout_width="344dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp">
 
-                       <androidx.appcompat.widget.SwitchCompat
-                           android:id="@+id/switch4"
-                           android:layout_width="314dp"
-                           android:layout_height="wrap_content"
-                           android:layout_centerInParent="true"
-                           android:text="Color Blindness"
-                           android:textOff="No"
-                           android:textOn="Yes"
-                           android:thumb="@drawable/swtich_button"
-                           />
-                   </LinearLayout>
-                   <LinearLayout
-                       android:layout_width="344dp"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/dislayoutfive"
-                       android:paddingLeft="15dp"
-                       android:orientation="horizontal">
-
-                       <androidx.appcompat.widget.SwitchCompat
-                           android:id="@+id/switch5"
-                           android:layout_width="314dp"
-                           android:layout_height="wrap_content"
-                           android:layout_centerInParent="true"
-                           android:text="Vision Impairment"
-                           android:textOff="No"
-                           android:textOn="Yes"
-                           android:thumb="@drawable/swtich_button"
-                           />
-                   </LinearLayout>
-                   <LinearLayout
-                       android:layout_width="344dp"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/dislayoutsix"
-                       android:paddingLeft="15dp"
-                       android:orientation="horizontal">
-
-                       <androidx.appcompat.widget.SwitchCompat
-                           android:id="@+id/switch6"
-                           android:layout_width="314dp"
-                           android:layout_height="wrap_content"
-                           android:layout_centerInParent="true"
-                           android:text="Dylexia Disorder"
-                           android:textOff="No"
-                           android:textOn="Yes"
-                           android:thumb="@drawable/swtich_button"
-                           />
-                   </LinearLayout>
-               </LinearLayout>
-
-
-                <EditText
-                    android:id="@+id/user_register_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:padding="15dp"
-                    android:textSize="15sp" />
-
-                <EditText
-                    android:id="@+id/user_register_conpassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Confirm Passowrd"
-                    android:inputType="textPassword"
-                    android:padding="15dp"
-                    android:textSize="15sp"
-                    tools:layout_editor_absoluteX="0dp" />
-
-
-                <Button
-                    android:id="@+id/user_register_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="61dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="32dp"
-                    android:background="@drawable/button_rectangle"
-                    android:fontFamily="sans-serif-black"
-                    android:text="REGISTER"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/contact_person_register_conpassword"
-                    app:layout_constraintVertical_bias="0.0" />
-
-
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch6"
+                        android:layout_width="314dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Dylexia Disorder"
+                        android:textOff="No"
+                        android:textOn="Yes"
+                        android:thumb="@drawable/swtich_button" />
+                </LinearLayout>
             </LinearLayout>
 
-        </ScrollView>
 
-        <RelativeLayout
-            android:id="@+id/bottomBar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true">
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNavView_Bar"
+            <EditText
+                android:id="@+id/user_register_password"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/purple_dark"
-                app:itemIconTint="@color/white"
-                app:itemTextColor="@color/white"
-                app:labelVisibilityMode="labeled"
-                app:menu="@menu/bottom_navigation_menu">
+                android:layout_height="50dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/user_register_conpassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Confirm Passowrd"
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="0dp" />
 
 
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
-        </RelativeLayout>
-    </RelativeLayout>
+            <Button
+                android:id="@+id/user_register_button"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/button_rectangle"
+                android:fontFamily="sans-serif-black"
+                android:text="REGISTER"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contact_person_register_conpassword"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

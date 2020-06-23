@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smart_home.GlobalVariables;
+import com.example.smart_home.MainActivity;
 import com.example.smart_home.R;
 import com.example.smart_home.Users_Modes.User_Guide_Video;
 import com.example.smart_home.Users_Modes.User_Home_Colored;
@@ -50,7 +51,7 @@ public class User_Login extends AppCompatActivity {
             userID = mFirebaseAuth.getCurrentUser().getUid();
             GlobalVariables globalVariable=(GlobalVariables)getApplication();
             globalVariable.setUserIDUser(userID);
-            startActivity(new Intent(User_Login.this, User_Home_Colored.class));
+            startActivity(new Intent(User_Login.this, MainActivity.class));
             finish();
 
         }

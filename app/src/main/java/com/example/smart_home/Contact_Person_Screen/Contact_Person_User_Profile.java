@@ -19,6 +19,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Contact_Person_User_Profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

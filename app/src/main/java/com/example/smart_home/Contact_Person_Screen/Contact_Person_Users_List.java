@@ -128,7 +128,8 @@ public class Contact_Person_Users_List extends AppCompatActivity {
                         startActivity(a);
                         break;
                     case R.id.navigation_notifications:
-
+                        Intent b = new Intent(Contact_Person_Users_List.this,Contact_Person_Notification.class);
+                        startActivity(b);
                         break;
 
                 }

@@ -72,8 +72,7 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
         textofspeech.setText("To activate sleep mode speak one   ," +
                 "  To activate move out speak two  ,  " +
                 " To activate automatic mode speak three  ," +
-                " To activate manual mode speak four ,  " +
-                " To contact with codinator speak five");
+                " To contact with codinator speak four");
 
         // Init TextToSpeech
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -214,7 +213,7 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
         String numbertwo = "2";
         String numberthree = "3";
         String numberfour = "4";
-        String numberfive = "5";
+
 
         if (test.equals(numberone)) {
 //            textofspeech.setText("Sleep Mode Activated");
@@ -234,16 +233,12 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
         } else if (test.equals(numberfour)) {
 //            textofspeech.setText("Manual Mode Activated");
 //            textspeak();
-            Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Manual_Mode_Voice_Mode.class);
-            startActivity(intent);
-        } else if (test.equals(numberfive)) {
             Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Sleep_Mode_Voice_Mode.class);
             startActivity(intent);
         } else {
             textofspeech.setText("Sorry to understand your voice ,      Please Speck Again !");
             textspeak();
         }
-
     }
 
     private void textspeak() {

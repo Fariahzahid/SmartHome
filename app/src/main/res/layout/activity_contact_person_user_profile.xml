@@ -60,23 +60,5 @@
             />
 
     </androidx.drawerlayout.widget.DrawerLayout>
-        <RelativeLayout
-            android:id="@+id/bottomBar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true">
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNavView_Bar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/purple_dark"
-                app:itemIconTint="@color/white"
-                app:itemTextColor="@color/white"
-                app:labelVisibilityMode="labeled"
-                app:menu="@menu/bottom_navigation_menu">
-
-
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
-        </RelativeLayout>
     </RelativeLayout>
