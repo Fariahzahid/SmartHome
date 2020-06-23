@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_container"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -824,17 +825,6 @@
                 android:layout_height="5dp"
                 android:background="@android:color/darker_gray"/>
 
-
-            <Button
-                android:id="@+id/edit_moveout_mode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_rectangle"
-                android:text="EDIT MOVE OUT MODE"
-                android:layout_margin="20dp"
-                android:textSize="24dp"
-                android:textColor="@color/white"
-                android:textStyle="bold"></Button>
 
         </LinearLayout>
     </ScrollView>

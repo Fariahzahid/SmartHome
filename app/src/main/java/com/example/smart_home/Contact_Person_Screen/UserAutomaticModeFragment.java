@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.smart_home.Contact_Person_Modes.Contact_Person_Automatic_Mode;
 import com.example.smart_home.Contact_Person_Modes.Contact_Person_Automatic_Mode_Bedroom;
@@ -18,6 +19,7 @@ import com.example.smart_home.Contact_Person_Modes.Contact_Person_Automatic_Mode
 import com.example.smart_home.Contact_Person_Modes.Contact_Person_Automatic_Mode_Livingroom;
 import com.example.smart_home.Contact_Person_Modes.Contact_Person_Automatic_Mode_WC;
 import com.example.smart_home.Contact_Person_Modes.Contact_Person_MoveOut_Mode;
+import com.example.smart_home.Contact_Person_Modes.Contact_Person_Moveout_Mode_WC;
 import com.example.smart_home.Contact_Person_Modes.Contact_Person_Sleep_Mode_Bedroom;
 import com.example.smart_home.Contact_Person_Modes.Contact_Person_Sleep_Mode_Kitchen;
 import com.example.smart_home.Contact_Person_Modes.Contact_Person_Sleep_Mode_Livingroom;
@@ -33,7 +35,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class UserAutomaticModeFragment extends Fragment {
-    Button edit_auto_mode;
     private static final String TAG = "MyActivity";
     TextView edit_bedroom,edit_livingroom,edit_kitchen,edit_wc;
     TextView bedroom_light_on,bedroom_light_off,bedroon_lightintensity,bedroom_blinds_on,bedroom_blinds_off,
@@ -70,39 +71,51 @@ public class UserAutomaticModeFragment extends Fragment {
         edit_bedroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Contact_Person_Automatic_Mode_Bedroom.class);
-                startActivity(intent);
+                Contact_Person_Automatic_Mode_Bedroom fragment2 = new Contact_Person_Automatic_Mode_Bedroom();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment2 ); // give your fragment container id in first parameter
+                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                transaction.commit();
+
+
             }
         });
         edit_kitchen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Contact_Person_Automatic_Mode_Kitchen.class);
-                startActivity(intent);
+                Contact_Person_Automatic_Mode_Kitchen fragment2 = new Contact_Person_Automatic_Mode_Kitchen();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment2 ); // give your fragment container id in first parameter
+                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                transaction.commit();
+
             }
         });
         edit_livingroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Contact_Person_Automatic_Mode_Livingroom.class);
-                startActivity(intent);
+                Contact_Person_Automatic_Mode_Livingroom fragment2 = new Contact_Person_Automatic_Mode_Livingroom();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment2 ); // give your fragment container id in first parameter
+                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                transaction.commit();
+
+
             }
         });
         edit_wc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Contact_Person_Automatic_Mode_WC.class);
-                startActivity(intent);
+                Contact_Person_Automatic_Mode_WC fragment2 = new Contact_Person_Automatic_Mode_WC();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment2 ); // give your fragment container id in first parameter
+                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+                transaction.commit();
+
+
             }
         });
-        edit_auto_mode = (Button) v.findViewById(R.id.edit_automatic_mode);
-        edit_auto_mode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Contact_Person_Automatic_Mode.class);
-                startActivity(intent);
-            }
-        });
+
         return v;
     }
     private void userdatabedroom(View v,String id){

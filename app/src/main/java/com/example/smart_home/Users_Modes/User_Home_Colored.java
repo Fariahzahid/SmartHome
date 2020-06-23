@@ -30,9 +30,7 @@ import com.example.smart_home.Weather_Information.Model.OpenWeatherMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Calendar;
 
 import android.content.Intent;
 import android.view.View;
@@ -41,7 +39,6 @@ import android.widget.Button;
 import com.example.smart_home.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.squareup.picasso.Picasso;
 
 public class User_Home_Colored extends AppCompatActivity implements LocationListener{
     private static final String TAG = "My Activity";

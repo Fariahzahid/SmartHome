@@ -6,6 +6,8 @@ public class GlobalVariables extends  Application{
 
     private String UserIDContactPerson;
     private String UserIDUser;
+    private String contactpersonemail;
+    private String contactpersonpassword;
     private float currentTemperature;
 
     //WEATHER STRINGS
@@ -225,6 +227,22 @@ public class GlobalVariables extends  Application{
     public void setUserIDUser(String useriduser) {
 
         UserIDUser = useriduser;
+    }
+
+    public String getContactpersonemail() {
+        return contactpersonemail;
+    }
+
+    public void setContactpersonemail(String contactpersonemail) {
+        this.contactpersonemail = contactpersonemail;
+    }
+
+    public String getContactpersonpassword() {
+        return contactpersonpassword;
+    }
+
+    public void setContactpersonpassword(String contactpersonpassword) {
+        this.contactpersonpassword = contactpersonpassword;
     }
 
     public float getCurrentTemperature() {

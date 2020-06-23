@@ -28,10 +28,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
+import com.example.smart_home.Contact_Person_SignIn.Login;
 import com.example.smart_home.Contact_Person_SignIn.Register;
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.MainActivity;
 import com.example.smart_home.R;
+import com.example.smart_home.Users_Modes.User_Guide_Video;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -41,6 +43,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -55,14 +58,13 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
     //LAYOUT
     EditText name,email,phoneno,password,repassword,address;
     Button register;
-    FloatingActionButton adddisability;
     Spinner gender;
     SwitchCompat mutedisability,hearingdisability,physicaldisability,colorblindness,visiondisability,dylexiadisorder;
     ImageView profileimage;
-    LinearLayout DisabilityLayouut;
     Boolean status = false;
     TextView test;
     private String mute = "NO",deaf="NO",phydisability="NO",blind="NO",dylexia="NO",colorblind="NO";
+    String contactemail,contactpassword;
     //USER ID
     private String userID;
     //URI
@@ -98,10 +100,6 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
         visiondisability = findViewById(R.id.switch5);
         dylexiadisorder = findViewById(R.id.switch6);
 
-        adddisability = findViewById(R.id.button_add_user);
-
-        DisabilityLayouut = (LinearLayout) findViewById(R.id.Disability);
-
         profileimage = findViewById(R.id.user_profile_image);
 
         fAuth = FirebaseAuth.getInstance();
@@ -110,12 +108,6 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
         GenderSpinner();
         AddDisabilities();
 
-        adddisability.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DisabilityLayouut.setVisibility(View.VISIBLE);
-            }
-        });
 
         profileimage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -343,8 +335,7 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
 //                            Intent intent = new Intent(Contact_Person_Add_New_Users.this,Contact_Person_Users_List.class);
 //                            startActivity(intent);
                             SAVE_NAME_AND_PHOTO(userID);
-                            Intent intent = new Intent(Contact_Person_Add_New_Users.this, Contact_Person_User_Modes.class);
-                            startActivity(intent);
+
 
                         }else {
                             Toast.makeText(Contact_Person_Add_New_Users.this, "Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
@@ -352,6 +343,31 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
                         }
                     }
                 });
+        contactemail = globalVariable.getContactpersonemail();
+        contactpassword = globalVariable.getContactpersonpassword();
+        userID = fAuth.getCurrentUser().getUid();
+        fAuth.signOut();
+
+        fAuth.signInWithEmailAndPassword(contactemail,contactpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(Contact_Person_Add_New_Users.this, "User Logged In.",Toast.LENGTH_SHORT).show();
+                    userID =fAuth.getCurrentUser().getUid();
+                    GlobalVariables globalVariable=(GlobalVariables)getApplication();
+                    globalVariable.setUserIDContactPerson(userID);
+
+                    Intent intent = new Intent(Contact_Person_Add_New_Users.this, Contact_Person_User_Modes.class);
+                    startActivity(intent);
+
+                }
+                else{
+                    //Toast.makeText(Contact_Person_Add_New_Users.this, "Error."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
     }
 
     private void CHOOSEFOTO() {

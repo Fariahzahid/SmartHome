@@ -14,12 +14,14 @@ import android.speech.tts.TextToSpeech;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import com.example.smart_home.GlobalVariables;
@@ -46,6 +48,7 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
     ScrollView user_sleep_mode_layout;
     TextToSpeech textToSpeech;
     String speaktotext;
+    ImageView user_layout;
 
     //FIREBASE FIRESTORE
     private FirebaseFirestore fStore;
@@ -56,6 +59,7 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
         setContentView(R.layout.activity_user_sleepmode_voice_mode_wooden);
 
         user_sleep_mode_layout = (ScrollView) findViewById(R.id.user_sleep_mode_layout);
+
         texttovoice = (TextView) findViewById(R.id.texttovoice);
         voicetotext = (TextView) findViewById(R.id.voicetotext);
         bedroom_light_on = (TextView) findViewById(R.id.user_sleepmode_bedroom_bulb_on_button);

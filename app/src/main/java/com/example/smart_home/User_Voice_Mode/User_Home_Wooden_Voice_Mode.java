@@ -31,11 +31,6 @@ import androidx.core.content.ContextCompat;
 
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
-import com.example.smart_home.Users_Modes.User_Automatic_Mode_Colored;
-import com.example.smart_home.Users_Modes.User_Home_Colored;
-import com.example.smart_home.Users_Modes.User_Manual_Mode_Colored;
-import com.example.smart_home.Users_Modes.User_Move_Out_Mode_Colored;
-import com.example.smart_home.Users_Modes.User_Sleep_Mode_Colored;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -222,15 +217,23 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
         String numberfive = "5";
 
         if (test.equals(numberone)) {
+//            textofspeech.setText("Sleep Mode Activated");
+//            textspeak();
             Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Sleep_Mode_Voice_Mode.class);
             startActivity(intent);
         } else if (test.equals(numbertwo)) {
+//            textofspeech.setText("Move Out Mode Activated");
+//            textspeak();
             Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Move_Out_Mode_Voice_Mode.class);
             startActivity(intent);
         } else if (test.equals(numberthree)) {
+//            textofspeech.setText("Automatic Mode Activated");
+//            textspeak();
             Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Automatic_Mode_Voice_Mode.class);
             startActivity(intent);
         } else if (test.equals(numberfour)) {
+//            textofspeech.setText("Manual Mode Activated");
+//            textspeak();
             Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Manual_Mode_Voice_Mode.class);
             startActivity(intent);
         } else if (test.equals(numberfive)) {

@@ -14,6 +14,7 @@ import com.example.smart_home.Contact_Person_SignIn.Login;
 import com.example.smart_home.Users_Modes.User_Guide_Video;
 import com.example.smart_home.Users_SignIn.User_Login;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button contact_person,user;
     FirebaseAuth mFirebaseAuth;
     private FirebaseFirestore fStore;
-    String userID;
+    String userID,email,password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
         if (mFirebaseAuth.getCurrentUser() != null) {
             userID = mFirebaseAuth.getCurrentUser().getUid();
 
-            DocumentReference documentReference = fStore.collection("Contact Person").document(userID);
+
+            final DocumentReference documentReference = fStore.collection("Contact Person").document(userID);
+
             documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -47,8 +50,20 @@ public class MainActivity extends AppCompatActivity {
                         if (document.exists()) {
                             Log.d(TAG, "Document exists!");
                             Intent intent = new Intent(MainActivity.this, Contact_Person_Users_List.class);
+                            documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    email = documentSnapshot.getString("Email");
+                                    password =documentSnapshot.getString("Password");
+                                    GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
+                                   // globalVariable.setUserIDContactPerson(userID);
+                                    globalVariable.setContactpersonemail(email);
+                                    globalVariable.setContactpersonpassword(password);
+                                }
+                            });
                             GlobalVariables globalVariable=(GlobalVariables)getApplication();  //Call the global variable class
                             globalVariable.setUserIDContactPerson(userID);
+
                             startActivity(intent);
                             //finish();
                         } else {

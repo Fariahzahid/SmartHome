@@ -98,7 +98,7 @@ public class User_Guide_Video extends AppCompatActivity {
                 if(mutenessdisorder.equals(yes) || hearingimpairment.equals(yes)){
                     Toast.makeText(User_Guide_Video.this, "Sign Language Video Display",Toast.LENGTH_LONG).show();
                     String videoPath =
-                            "android.resource://com.example.smart_home/"+R.raw.mutedeaf;
+                            "android.resource://com.example.smart_home/"+R.raw.mutedeaf2;
                     Uri uri = Uri.parse(videoPath);
                     myVideo.setVideoURI(uri);
                     myVideo.setMediaController(mediaController);
@@ -124,6 +124,22 @@ public class User_Guide_Video extends AppCompatActivity {
                     });
                 }
                 if(colorblind.equals(yes)){
+                    String videoPath =
+                            "android.resource://com.example.smart_home/"+R.raw.colourblind;
+                    Uri uri = Uri.parse(videoPath);
+                    myVideo.setVideoURI(uri);
+                    myVideo.setMediaController(mediaController);
+                    mediaController.setAnchorView(myVideo);
+                    myVideo.start();
+                    myVideo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            Intent intent = new Intent(User_Guide_Video.this, User_Home_Weather.class);
+                            startActivity(intent);
+                        }
+
+                    });
                     Toast.makeText(User_Guide_Video.this, "Black And White Video Display",Toast.LENGTH_LONG).show();
                     identify.setVisibility(View.VISIBLE);
                     identify.setText("COLOUR BLIND VIDIO IN PROGRESS");
