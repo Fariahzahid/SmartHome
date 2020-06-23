@@ -46,7 +46,7 @@ public class User_Guide_Video extends AppCompatActivity {
     private FirebaseFirestore fStore;
     private static final String TAG = "MyActivity";
     TextView identify;
-    Button skip;
+    Button skip,skipcolorblind;
 
     String sleep_mode_bedroomlight,sleep_mode_bedroom_blinds,sleep_mode_bedroom_light_intensity,sleep_mode_bedrroom_nightlamp,sleep_mode_bedroom_chargingpoint,
             sleep_mode_lr_light,sleep_mode_lr_lightintensity,sleep_mode_lr_blinds,sleep_mode_lr_tablelamp,sleep_mode_lr_television,
@@ -72,6 +72,7 @@ public class User_Guide_Video extends AppCompatActivity {
         //btnPlay = (Button) findViewById(R.id.btn_Play);
         myVideo = (VideoView) findViewById(R.id.videoPlayer);
         skip = (Button) findViewById(R.id.skipbutton);
+        skipcolorblind = (Button) findViewById(R.id.skipbuttoncolour);
         final GlobalVariables globalVariable=(GlobalVariables)getApplication();
         userid  = globalVariable.getUserIDUser();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -81,13 +82,7 @@ public class User_Guide_Video extends AppCompatActivity {
         mediaController = new MediaController(this);
 
 
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(User_Guide_Video.this, User_Home_Colored.class);
-                startActivity(intent);
-            }
-        });
+
         final DocumentReference documentReference = fStore.collection("USER").document(userid);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -113,15 +108,15 @@ public class User_Guide_Video extends AppCompatActivity {
                     myVideo.setMediaController(mediaController);
                     mediaController.setAnchorView(myVideo);
                     myVideo.start();
-                    myVideo.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            Intent intent = new Intent(User_Guide_Video.this, User_Home_Colored.class);
-                            startActivity(intent);
-                        }
-
-                    });
+//                    myVideo.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//
+//                            Intent intent = new Intent(User_Guide_Video.this, User_Home_Colored.class);
+//                            startActivity(intent);
+//                        }
+//
+//                    });
                     layout.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -130,6 +125,13 @@ public class User_Guide_Video extends AppCompatActivity {
                             startActivity(intent);
                         }
 
+                    });
+                    skip.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(User_Guide_Video.this, User_Home_Colored.class);
+                            startActivity(intent);
+                        }
                     });
                 }
                 if(colorblind.equals(yes)){
@@ -144,10 +146,21 @@ public class User_Guide_Video extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
 
-                            Intent intent = new Intent(User_Guide_Video.this, User_Home_Weather.class);
+                            Intent intent = new Intent(User_Guide_Video.this, User_Home.class);
                             startActivity(intent);
                         }
 
+                    });
+                    layout.setBackgroundResource(R.drawable.grey_bakground);
+                    skip.setVisibility(View.GONE);
+                    skipcolorblind.setVisibility(View.VISIBLE);
+
+                    skipcolorblind.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(User_Guide_Video.this, User_Home.class);
+                            startActivity(intent);
+                        }
                     });
                     Toast.makeText(User_Guide_Video.this, "Black And White Video Display",Toast.LENGTH_LONG).show();
 
@@ -164,12 +177,47 @@ public class User_Guide_Video extends AppCompatActivity {
                     mediaController.setAnchorView(myVideo);
                     myVideo.start();
 
+                    myVideo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
+                            Intent intent = new Intent(User_Guide_Video.this, User_Home_Weather.class);
+                            startActivity(intent);
+                        }
+
+                    });
+                    layout.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                Intent intent = new Intent(User_Guide_Video.this, User_Home_Weather.class);
+                                startActivity(intent);
+                            }
+
+                        });
+                    skip.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(User_Guide_Video.this, User_Home_Weather.class);
+                                startActivity(intent);
+                            }
+                        });
                 }
                 if(dylexiadisorder.equals(yes) || physicalimpairement.equals(yes)){
-//                    identify.setVisibility(View.VISIBLE);
-//                    identify.setText("TUTORIAL VIDIO IN PROGRESS");
-//                    Toast.makeText(User_Guide_Video.this, "Normal Video Display",Toast.LENGTH_LONG).show();
+                    String videoPath =
+                            "android.resource://com.example.smart_home/"+R.raw.physical;
+                    Uri uri = Uri.parse(videoPath);
+                    myVideo.setVideoURI(uri);
+                    myVideo.setMediaController(mediaController);
+                    mediaController.setAnchorView(myVideo);
+                    myVideo.start();
+                    skip.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(User_Guide_Video.this, User_Home_Colored.class);
+                            startActivity(intent);
+                        }
+                    });
 
                 }
             }

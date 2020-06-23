@@ -36,4 +36,14 @@
         android:text="SKIP TUTORIAL VIDEO"
         android:textColor="@color/white"
         android:layout_margin="10dp"></Button>
+    <Button
+        android:id="@+id/skipbuttoncolour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="@drawable/button_rectangle_grey"
+        android:textSize="20dp"
+        android:text="SKIP TUTORIAL VIDEO"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"></Button>
 </LinearLayout>
