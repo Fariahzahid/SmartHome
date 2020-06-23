@@ -3,6 +3,7 @@ package com.example.smart_home.Contact_Person_Screen;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import com.example.smart_home.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -33,9 +35,9 @@ import com.squareup.picasso.Picasso;
 public class Contact_Person_Profile extends AppCompatActivity {
     private static final String TAG = "MyActivity";
 
-    TextView aname,aemail,aphoneno,aaddress,agender;
+    TextView aname, aemail, aphoneno, aaddress, agender;
     ImageView profileimage;
-    Button editprofile_button,log_out_button;
+    Button editprofile_button, log_out_button;
     //String value,userid;
     FirebaseAuth fAuth;
 
@@ -44,17 +46,21 @@ public class Contact_Person_Profile extends AppCompatActivity {
 
     //FIREBASE FIRESTORE
     private FirebaseFirestore fStore;
+    BottomNavigationView bottomNavigation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_person_profile);
 
+        bottomNavigation = findViewById(R.id.bottomNavView_Bar);
+        buttomNavigationBar();
         editprofile_button = (Button) findViewById(R.id.contact_person_editprofile);
         editprofile_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Contact_Person_Profile.this,Contact_Person_Edit_Profile.class);
+                Intent intent = new Intent(Contact_Person_Profile.this, Contact_Person_Edit_Profile.class);
                 startActivity(intent);
             }
         });
@@ -76,8 +82,9 @@ public class Contact_Person_Profile extends AppCompatActivity {
 
 
     }
-    private void userdata(){
-        GlobalVariables globalVariable=(GlobalVariables)getApplication();
+
+    private void userdata() {
+        GlobalVariables globalVariable = (GlobalVariables) getApplication();
         aname = (TextView) findViewById(R.id.text_contactperson_name_2);
         aemail = (TextView) findViewById(R.id.text_contactperson_email_2);
         aphoneno = (TextView) findViewById(R.id.text_contactperson_phoneno_2);
@@ -85,13 +92,13 @@ public class Contact_Person_Profile extends AppCompatActivity {
         agender = (TextView) findViewById(R.id.text_contactperson_gender2);
         profileimage = (ImageView) findViewById(R.id.contactperson_profile_image);
 
-        final String userid  = globalVariable.getUserIDContactPerson();
+        final String userid = globalVariable.getUserIDContactPerson();
 
         fStore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
 
         final DocumentReference documentReference = fStore.collection("Contact Person").document(userid);
-        StorageReference profileRef = storageReference.child("profile/" +fAuth.getCurrentUser().getUid()+".jpg");
+        StorageReference profileRef = storageReference.child("profile/" + fAuth.getCurrentUser().getUid() + ".jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -110,5 +117,26 @@ public class Contact_Person_Profile extends AppCompatActivity {
         });
 
 
+    }
+
+    private void buttomNavigationBar() {
+
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_profile:
+                        Intent a = new Intent(Contact_Person_Profile.this, Contact_Person_Profile.class);
+                        startActivity(a);
+                        break;
+                    case R.id.navigation_notifications:
+                        Intent b = new Intent(Contact_Person_Profile.this, Contact_Person_Notification.class);
+                        startActivity(b);
+                        break;
+
+                }
+                return false;
+            }
+        });
     }
 }
