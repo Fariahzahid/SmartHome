@@ -336,6 +336,30 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
 //                            startActivity(intent);
                             SAVE_NAME_AND_PHOTO(userID);
 
+                            contactemail = globalVariable.getContactpersonemail();
+                            contactpassword = globalVariable.getContactpersonpassword();
+                            userID = fAuth.getCurrentUser().getUid();
+                            fAuth.signOut();
+                            fAuth.signInWithEmailAndPassword(contactemail,contactpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(Contact_Person_Add_New_Users.this, "User Logged In.",Toast.LENGTH_SHORT).show();
+                                        userID =fAuth.getCurrentUser().getUid();
+                                        GlobalVariables globalVariable=(GlobalVariables)getApplication();
+                                        globalVariable.setUserIDContactPerson(userID);
+
+                                        Intent intent = new Intent(Contact_Person_Add_New_Users.this, Contact_Person_User_Modes.class);
+                                        startActivity(intent);
+
+                                    }
+                                    else{
+                                        //Toast.makeText(Contact_Person_Add_New_Users.this, "Error."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+
+                                    }
+                                }
+                            });
+
 
                         }else {
                             Toast.makeText(Contact_Person_Add_New_Users.this, "Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
@@ -343,30 +367,7 @@ public class Contact_Person_Add_New_Users extends AppCompatActivity {
                         }
                     }
                 });
-        contactemail = globalVariable.getContactpersonemail();
-        contactpassword = globalVariable.getContactpersonpassword();
-        userID = fAuth.getCurrentUser().getUid();
-        fAuth.signOut();
 
-        fAuth.signInWithEmailAndPassword(contactemail,contactpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(Contact_Person_Add_New_Users.this, "User Logged In.",Toast.LENGTH_SHORT).show();
-                    userID =fAuth.getCurrentUser().getUid();
-                    GlobalVariables globalVariable=(GlobalVariables)getApplication();
-                    globalVariable.setUserIDContactPerson(userID);
-
-                    Intent intent = new Intent(Contact_Person_Add_New_Users.this, Contact_Person_User_Modes.class);
-                    startActivity(intent);
-
-                }
-                else{
-                    //Toast.makeText(Contact_Person_Add_New_Users.this, "Error."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        });
 
     }
 
