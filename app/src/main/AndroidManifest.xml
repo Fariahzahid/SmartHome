@@ -3,17 +3,14 @@
     package="com.example.smart_home">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
         android:name=".GlobalVariables"
@@ -32,58 +29,50 @@
         </activity>
         <activity android:name=".Contact_Person_SignIn.Login" />
         <activity android:name=".Contact_Person_SignIn.Register" />
-
         <activity android:name=".Contact_Person_Screen.Contact_Person_Add_New_Users" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_Users_List" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_Notification" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Home" />
-        <activity android:name=".Contact_Person_Screen.Contact_Person_User_Profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Contact_Person_Screen.Contact_Person_Edit_User_Profile"/>
+        <activity
+            android:name=".Contact_Person_Screen.Contact_Person_User_Profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Contact_Person_Screen.Contact_Person_Edit_User_Profile" />
         <activity android:name=".Contact_Person_Screen.Contact_Person_User_Modes" />
-        <activity android:name=".Contact_Person_Screen.Contact_Person_Profile"/>
-        <activity android:name=".Contact_Person_Screen.Contact_Person_Edit_Profile"/>
-
-
+        <activity android:name=".Contact_Person_Screen.Contact_Person_Profile" />
+        <activity android:name=".Contact_Person_Screen.Contact_Person_Edit_Profile" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_MoveOut_Mode" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode" />
-
         <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode_Bedroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode_Livingroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Automatic_Mode_WC" />
-
         <activity android:name=".Contact_Person_Modes.Contact_Person_Moveout_Mode_Bedroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Moveout_Mode_Livingroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Moveout_Mode_WC" />
-
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Bedroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Livingroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_WC" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Kitchen" />
+        <activity android:name=".Contact_Person_Screen.ContactPersonMessageActivity"/>
 
         <activity android:name=".Users_SignIn.User_Login" />
-        <activity android:name=".Users_Modes.User_Guide_Video"/>
-        <activity android:name=".User_Voice_Mode.User_Home_Weather"/>
-
-
-        <activity android:name=".User_Voice_Mode.User_Home_Wooden_Voice_Mode"/>
-        <activity android:name=".User_Voice_Mode.User_Sleep_Mode_Voice_Mode"/>
-        <activity android:name=".User_Voice_Mode.User_Automatic_Mode_Voice_Mode"/>
-        <activity android:name=".User_Voice_Mode.User_Manual_Mode_Voice_Mode"/>
-        <activity android:name=".User_Voice_Mode.User_Move_Out_Mode_Voice_Mode"/>
-
+        <activity android:name=".Users_Modes.User_Guide_Video" />
+        <activity android:name=".User_Voice_Mode.User_Home_Weather" />
+        <activity android:name=".User_Voice_Mode.User_Home_Wooden_Voice_Mode" />
+        <activity android:name=".User_Voice_Mode.User_Sleep_Mode_Voice_Mode" />
+        <activity android:name=".User_Voice_Mode.User_Automatic_Mode_Voice_Mode" />
+        <activity android:name=".User_Voice_Mode.User_Manual_Mode_Voice_Mode" />
+        <activity android:name=".User_Voice_Mode.User_Move_Out_Mode_Voice_Mode" />
         <activity android:name=".Users_Modes.User_Home_Colored" />
         <activity android:name=".Users_Modes.User_Sleep_Mode_Colored" />
         <activity android:name=".Users_Modes.User_Move_Out_Mode_Colored" />
-        <activity android:name=".Users_Modes.User_Manual_Mode_Colored"/>
-        <activity android:name=".Users_Modes.User_Automatic_Mode_Colored"/>
-
-        <activity android:name="com.example.smart_home.User_Modes_Black_White.User_Home"/>
-        <activity android:name="com.example.smart_home.User_Modes_Black_White.User_Sleep_Mode"/>
-        <activity android:name="com.example.smart_home.User_Modes_Black_White.User_Move_Out_Mode"/>
-        <activity android:name="com.example.smart_home.User_Modes_Black_White.User_Manual_Mode"/>
-        <activity android:name="com.example.smart_home.User_Modes_Black_White.User_Automatic_Mode"/>
+        <activity android:name=".Users_Modes.User_Manual_Mode_Colored" />
+        <activity android:name=".Users_Modes.User_Automatic_Mode_Colored" />
+        <activity android:name=".User_Modes_Black_White.User_Home" />
+        <activity android:name=".User_Modes_Black_White.User_Sleep_Mode" />
+        <activity android:name=".User_Modes_Black_White.User_Move_Out_Mode" />
+        <activity android:name=".User_Modes_Black_White.User_Manual_Mode" />
+        <activity android:name=".User_Modes_Black_White.User_Automatic_Mode" />
     </application>
 
 </manifest>

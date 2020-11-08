@@ -61,7 +61,9 @@ public class UserProfileFragment extends Fragment {
         edit_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Contact_Person_Edit_User_Profile.class);
+
+                Intent intent = new Intent(getActivity(), ContactPersonMessageActivity.class);
+                intent.putExtra("userid",userid);
                 startActivity(intent);
             }
         });

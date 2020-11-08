@@ -48,9 +48,9 @@
             android:id="@+id/contact_person_register_phoneno"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:inputType="numberSigned"
             android:layout_marginTop="28dp"
             android:hint="Phone Number"
-            android:inputType="textPassword"
             android:padding="15dp"
             android:textSize="15sp"
             tools:layout_editor_absoluteX="0dp" />

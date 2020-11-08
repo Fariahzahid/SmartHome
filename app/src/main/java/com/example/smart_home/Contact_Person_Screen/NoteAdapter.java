@@ -2,6 +2,7 @@ package com.example.smart_home.Contact_Person_Screen;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +39,12 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<User,NoteAdapter.NoteH
         super(options);
     }
 
+    @NonNull
+    @Override
+    public NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_cardview,parent,false);
+        return new NoteHolder(v);
+    }
     @Override
     protected void onBindViewHolder(@NonNull final NoteHolder holder, int position, @NonNull User model) {
 
@@ -66,14 +73,11 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<User,NoteAdapter.NoteH
                 Log.d(TAG,"Failure");
             }
         });
+
+        
     }
 
-    @NonNull
-    @Override
-    public NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_cardview,parent,false);
-        return new NoteHolder(v);
-    }
+
     public void deleteitem(int position){
         getSnapshots().getSnapshot(position).getReference().delete();
     }
