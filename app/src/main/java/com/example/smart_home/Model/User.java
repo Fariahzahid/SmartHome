@@ -1,4 +1,4 @@
-package com.example.smart_home.Contact_Person_Screen;
+package com.example.smart_home.Model;
 
 import android.widget.ImageView;
 

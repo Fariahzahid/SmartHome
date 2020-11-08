@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +13,9 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.smart_home.Adapter.NoteAdapter;
 import com.example.smart_home.GlobalVariables;
+import com.example.smart_home.Model.User;
 import com.example.smart_home.R;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -35,7 +36,6 @@ public class Contact_Person_Users_List extends AppCompatActivity {
     FirebaseAuth fAuth;
     private FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     private CollectionReference notebook = fStore.collection("USER");
-    RecyclerView recycle;
     //private FirestoreRecyclerAdapter adapter;
     private NoteAdapter adapter;
 
