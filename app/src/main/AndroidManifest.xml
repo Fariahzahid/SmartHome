@@ -53,7 +53,7 @@
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Livingroom" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_WC" />
         <activity android:name=".Contact_Person_Modes.Contact_Person_Sleep_Mode_Kitchen" />
-        <activity android:name=".Contact_Person_Screen.ContactPersonMessageActivity"/>
+        <activity android:name=".Contact_Person_Chat_Room.ContactPersonMessageActivity"/>
 
         <activity android:name=".Users_SignIn.User_Login" />
         <activity android:name=".Users_Modes.User_Guide_Video" />
@@ -73,6 +73,27 @@
         <activity android:name=".User_Modes_Black_White.User_Move_Out_Mode" />
         <activity android:name=".User_Modes_Black_White.User_Manual_Mode" />
         <activity android:name=".User_Modes_Black_White.User_Automatic_Mode" />
+
+        <activity android:name=".User_Chat_Room.User_Contact_List"/>
+        <activity android:name=".User_Chat_Room.Test_Chatting"/>
+        <activity android:name=".User_Chat_Room.User_Message_Activity"></activity>
+
+        <service android:name=".Notifications.MyFirebaseIdService"
+        android:enabled="true"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+    </service>
+
+        <service android:name=".Notifications.MyFireBaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

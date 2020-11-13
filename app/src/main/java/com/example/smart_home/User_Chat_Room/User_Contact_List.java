@@ -1,13 +1,8 @@
-package com.example.smart_home.Contact_Person_Screen;
+package com.example.smart_home.User_Chat_Room;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,59 +14,32 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.smart_home.Contact_Person_Chat_Room.Contact_Person_Chat_Fragment;
 import com.example.smart_home.Contact_Person_Chat_Room.Contact_Person_Users_Fragment;
+import com.example.smart_home.Contact_Person_Screen.Contact_Person_Notification;
+import com.example.smart_home.Contact_Person_Screen.Contact_Person_Profile;
 import com.example.smart_home.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
-public class Contact_Person_Notification extends AppCompatActivity {
-    BottomNavigationView bottomNavigation;
-
+public class User_Contact_List extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_person_notification);
-        bottomNavigation = findViewById(R.id.bottomNavView_Bar);
-        buttomNavigationBar();
+        setContentView(R.layout.activity_user_contact_list);
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         ViewPager viewPager = findViewById(R.id.view_pager);
 
-        ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager());
+        User_Contact_List.ViewPageAdapter viewPageAdapter = new User_Contact_List.ViewPageAdapter(getSupportFragmentManager());
 
-        viewPageAdapter.addFragment(new Contact_Person_Users_Fragment(),"Users");
-        viewPageAdapter.addFragment(new Contact_Person_Chat_Fragment(),"Chat");
+        viewPageAdapter.addFragment(new Fragment_Users(),"Users");
 
         viewPager.setAdapter(viewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
     }
 
-
-
-    private void buttomNavigationBar(){
-
-        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navigation_profile:
-                        Intent a = new Intent(Contact_Person_Notification.this,Contact_Person_Profile.class);
-                        startActivity(a);
-                        break;
-                    case R.id.navigation_notifications:
-                        Intent b = new Intent(Contact_Person_Notification.this,Contact_Person_Notification.class);
-                        startActivity(b);
-                        break;
-
-                }
-                return false;
-            }
-        });
-    }
-
-    class ViewPageAdapter extends FragmentPagerAdapter{
+    class ViewPageAdapter extends FragmentPagerAdapter {
 
         private ArrayList<Fragment> fragments;
         private ArrayList<String> titles;

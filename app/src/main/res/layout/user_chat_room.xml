@@ -5,7 +5,7 @@
     android:background="#e6e6e6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Contact_Person_Chat_Room.ContactPersonMessageActivity">
+    >
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -15,7 +15,7 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/purplelight1"
+            android:background="@color/woodcolor"
             android:id="@+id/toolbar"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme= "@style/ThemeOverlay.AppCompat.Light"

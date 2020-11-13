@@ -8,27 +8,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.smart_home.Contact_Person_Chat_Room.ContactPersonMessageActivity;
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
-
-import java.util.concurrent.Executor;
 
 public class UserProfileFragment extends Fragment {
 
@@ -62,7 +58,7 @@ public class UserProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getActivity(), ContactPersonMessageActivity.class);
+                Intent intent = new Intent(getActivity(), Contact_Person_User_Profile.class);
                 intent.putExtra("userid",userid);
                 startActivity(intent);
             }

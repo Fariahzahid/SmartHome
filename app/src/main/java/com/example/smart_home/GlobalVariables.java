@@ -10,6 +10,25 @@ public class GlobalVariables extends  Application{
     private String contactpersonpassword;
     private float currentTemperature;
 
+    public String getSenderName() {
+        return SenderName;
+    }
+
+    public void setSenderName(String senderName) {
+        SenderName = senderName;
+    }
+
+    public String getRecieverName() {
+        return RecieverName;
+    }
+
+    public void setRecieverName(String recieverName) {
+        RecieverName = recieverName;
+    }
+
+    private String SenderName;
+
+    private String RecieverName;
     //WEATHER STRINGS
     private String city;
     private String windspeed;

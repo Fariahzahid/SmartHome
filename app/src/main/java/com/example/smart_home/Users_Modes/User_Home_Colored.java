@@ -14,31 +14,67 @@ import android.os.AsyncTask;
 import android.os.BatteryManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.smart_home.Adapter.MessageAdapter;
+import com.example.smart_home.Contact_Person_Chat_Room.APIService;
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.MainActivity;
+import com.example.smart_home.Model.Chat;
+import com.example.smart_home.Notifications.Client;
+import com.example.smart_home.Notifications.Data;
+import com.example.smart_home.Notifications.MyResponse;
+import com.example.smart_home.Notifications.Sender;
+import com.example.smart_home.Notifications.Token;
+import com.example.smart_home.User_Chat_Room.Test_Chatting;
+import com.example.smart_home.User_Chat_Room.User_Contact_List;
 import com.example.smart_home.Weather_Information.Common.Common;
 import com.example.smart_home.Weather_Information.Helper.Helper;
 import com.example.smart_home.Weather_Information.Model.OpenWeatherMap;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.auth.User;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.storage.StorageReference;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.smart_home.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import com.example.smart_home.User_Chat_Room.User_Message_Activity;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class User_Home_Colored extends AppCompatActivity implements LocationListener{
     private static final String TAG = "My Activity";
@@ -55,17 +91,15 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
     int MY_PERMISSION = 0;
 
     private String value;
-    private Button sleep_mode,moveout_mode,automatic_mode,manual_mode,log_out;
+    private Button sleep_mode,moveout_mode,automatic_mode,manual_mode,contact,log_out;
     FirebaseAuth mFirebaseAuth;
     FirebaseFirestore fStore;
-    String userID;
+    String userID,userid,message,name;
     ScrollView home_layout;
     String City, LastUpdate, Description, Humidity, TimeSunset, TimeSunrise, Celcius, Main, WindSpeed;
 
     ProgressDialog temporery;
-
-    String currentTime;
-
+    FirebaseAuth fuser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,19 +107,21 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
         fStore = FirebaseFirestore.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
 
+        fuser = FirebaseAuth.getInstance();
+
         home_layout = (ScrollView) findViewById(R.id.speechlayout);
         sleep_mode = (Button) findViewById(R.id.user_home_sleep_mode_button);
         moveout_mode = (Button) findViewById(R.id.user_home_moveoutmode_button);
         automatic_mode = (Button) findViewById(R.id.user_home_automatic_mode_button);
         manual_mode = (Button) findViewById(R.id.user_home_manual_mode_button);
+        contact = (Button) findViewById(R.id.user_home_contact_person_button);
         log_out = (Button) findViewById(R.id.user_logout);
 
         intentfilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         User_Home_Colored.this.registerReceiver(broadcastreceiver,intentfilter);
 
-//        Calendar c = Calendar.getInstance();
-//        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
-//        currentTime = df.format(c.getTime());
+        userID = mFirebaseAuth.getCurrentUser().getUid();
+
         temporery = new ProgressDialog(User_Home_Colored.this);
         temporery.setTitle("Please wait ....");
         temporery.show();
@@ -107,6 +143,10 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
         if (location == null) {
             Log.d(TAG, "No Location");
         }
+
+
+
+
         sleep_mode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,6 +173,34 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(User_Home_Colored.this, User_Manual_Mode_Colored.class);
+                startActivity(intent);
+            }
+        });
+
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                notify = true;
+//                // readMessages(fuser.getCurrentUser().getUid(),userID);
+//
+//
+//                final DocumentReference documentReference = fStore.collection("USER").document(userID);
+//
+//                documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                        userid = documentSnapshot.getString("ContactPersonUserId");
+//                        name = documentSnapshot.getString("Name");
+//                        message = "User" +name +"Wants to contact";
+//                        sendMessage(userID,userid,message,name);
+//                        System.out.println(" Message Send Contact Person : ");
+//
+//
+//                    }
+//                });
+
+                Intent intent = new Intent(User_Home_Colored.this, Test_Chatting.class);
                 startActivity(intent);
             }
         });
@@ -285,6 +353,11 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
             }, MY_PERMISSION);
         }
         locationManager.removeUpdates(this);
+    }
+    @Override
+    public void onDestroy() {
+        unregisterReceiver(broadcastreceiver);
+        super.onDestroy();
     }
     @Override
     protected void onResume() {
