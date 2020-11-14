@@ -81,7 +81,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
-                                android:layout_width="178dp"
+                                android:layout_width="150dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="right|center"
                                 android:orientation="vertical"
@@ -91,7 +91,7 @@
 
                                 <TextView
 
-                                    android:layout_width="173dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
                                     android:layout_marginLeft="0dp"
@@ -100,7 +100,7 @@
                                     android:paddingTop="0dp"
                                     android:text="Bulb On"
                                     android:textColor="@android:color/white"
-                                    android:textSize="20dp">
+                                    android:textSize="16dp">
 
                                 </TextView>
 
@@ -151,7 +151,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
-                                android:layout_width="178dp"
+                                android:layout_width="150dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="right|center"
                                 android:orientation="vertical"
@@ -161,7 +161,7 @@
 
                                 <TextView
 
-                                    android:layout_width="173dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
                                     android:layout_marginLeft="0dp"
@@ -170,7 +170,7 @@
                                     android:paddingTop="0dp"
                                     android:text="Bulb Off"
                                     android:textColor="@android:color/white"
-                                    android:textSize="20dp">
+                                    android:textSize="16dp">
 
                                 </TextView>
 
@@ -217,7 +217,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
-                                android:layout_width="178dp"
+                                android:layout_width="150dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="right|center"
                                 android:orientation="vertical"
@@ -227,7 +227,7 @@
 
                                 <TextView
 
-                                    android:layout_width="173dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
                                     android:layout_marginLeft="0dp"
@@ -236,7 +236,7 @@
                                     android:paddingTop="0dp"
                                     android:text="Bulb Intensity"
                                     android:textColor="@android:color/white"
-                                    android:textSize="20dp">
+                                    android:textSize="16dp">
 
                                 </TextView>
 
@@ -270,7 +270,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
-                                android:layout_width="178dp"
+                                android:layout_width="150dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="right|center"
                                 android:orientation="vertical"
@@ -280,7 +280,7 @@
 
                                 <TextView
 
-                                    android:layout_width="173dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
                                     android:layout_marginLeft="0dp"
@@ -289,7 +289,7 @@
                                     android:paddingTop="0dp"
                                     android:text="Table Lamp On"
                                     android:textColor="@android:color/white"
-                                    android:textSize="20dp">
+                                    android:textSize="16dp">
 
                                 </TextView>
 
@@ -339,7 +339,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
-                                android:layout_width="178dp"
+                                android:layout_width="150dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="right|center"
                                 android:orientation="vertical"
@@ -349,7 +349,7 @@
 
                                 <TextView
 
-                                    android:layout_width="173dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
                                     android:layout_marginLeft="0dp"
@@ -358,7 +358,7 @@
                                     android:paddingTop="0dp"
                                     android:text="Table Lamp Off"
                                     android:textColor="@android:color/white"
-                                    android:textSize="20dp">
+                                    android:textSize="16dp">
 
                                 </TextView>
 
@@ -407,7 +407,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
-                                android:layout_width="178dp"
+                                android:layout_width="150dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="right|center"
                                 android:orientation="vertical"
@@ -417,7 +417,7 @@
 
                                 <TextView
 
-                                    android:layout_width="173dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
                                     android:layout_marginLeft="0dp"
@@ -426,7 +426,7 @@
                                     android:paddingTop="0dp"
                                     android:text="Television On"
                                     android:textColor="@android:color/white"
-                                    android:textSize="20dp">
+                                    android:textSize="16dp">
 
                                 </TextView>
 
@@ -476,7 +476,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image">
 
                             <androidx.cardview.widget.CardView
-                                android:layout_width="178dp"
+                                android:layout_width="150dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="right|center"
                                 android:orientation="vertical"
@@ -486,7 +486,7 @@
 
                                 <TextView
 
-                                    android:layout_width="173dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center|center_horizontal|center_vertical"
                                     android:layout_marginLeft="0dp"
@@ -495,7 +495,7 @@
                                     android:paddingTop="0dp"
                                     android:text="Television Off"
                                     android:textColor="@android:color/white"
-                                    android:textSize="20dp">
+                                    android:textSize="16dp">
 
                                 </TextView>
 

@@ -41,6 +41,7 @@ public class Contact_Person_Users_List extends AppCompatActivity {
 
     Context context;
     ArrayList<User> users;
+    RecyclerView recyclerView;
 
     BottomNavigationView bottomNavigation;
 
@@ -49,6 +50,8 @@ public class Contact_Person_Users_List extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_person_user_list);
+
+        recyclerView = findViewById(R.id.recycle_view);
 
         bottomNavigation = findViewById(R.id.bottomNavView_Bar);
         buttomNavigationBar();
@@ -72,7 +75,6 @@ public class Contact_Person_Users_List extends AppCompatActivity {
 
         adapter = new NoteAdapter(options);
 
-        RecyclerView recyclerView = findViewById(R.id.recycle_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);

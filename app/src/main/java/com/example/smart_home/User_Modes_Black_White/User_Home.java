@@ -27,6 +27,7 @@ import androidx.core.app.ActivityCompat;
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.MainActivity;
 import com.example.smart_home.R;
+import com.example.smart_home.User_Chat_Room.Test_Chatting;
 import com.example.smart_home.Users_Modes.User_Automatic_Mode_Colored;
 import com.example.smart_home.Users_Modes.User_Home_Colored;
 import com.example.smart_home.Users_Modes.User_Manual_Mode_Colored;
@@ -58,7 +59,7 @@ public class User_Home  extends AppCompatActivity implements LocationListener{
     int MY_PERMISSION = 0;
 
     private String value;
-    private Button sleep_mode,moveout_mode,automatic_mode,manual_mode,log_out;
+    private Button sleep_mode,moveout_mode,automatic_mode,manual_mode,contact,log_out;
     FirebaseAuth mFirebaseAuth;
     FirebaseFirestore fStore;
     String userID;
@@ -67,7 +68,7 @@ public class User_Home  extends AppCompatActivity implements LocationListener{
 
     ProgressDialog temporery;
 
-    String currentTime;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +82,7 @@ public class User_Home  extends AppCompatActivity implements LocationListener{
         moveout_mode = (Button) findViewById(R.id.user_home_moveoutmode_button);
         automatic_mode = (Button) findViewById(R.id.user_home_automatic_mode_button);
         manual_mode = (Button) findViewById(R.id.user_home_manual_mode_button);
+        contact = (Button) findViewById(R.id.user_home_contact_person_button);
         log_out = (Button) findViewById(R.id.user_logout);
 
         intentfilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
@@ -136,6 +138,13 @@ public class User_Home  extends AppCompatActivity implements LocationListener{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(User_Home.this, User_Manual_Mode.class);
+                startActivity(intent);
+            }
+        });
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(User_Home.this, Test_Chatting.class);
                 startActivity(intent);
             }
         });

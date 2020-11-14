@@ -66,6 +66,7 @@ public class UserProfileFragment extends Fragment {
        userdata(v,userid);
         return v;
     }
+
     private void userdata(View v,String id){
         aname = (TextView) v.findViewById(R.id.text_cp_user_name_2);
         aemail = (TextView) v.findViewById(R.id.text_cp_user_email_2);

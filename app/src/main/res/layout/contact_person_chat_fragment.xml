@@ -12,6 +12,11 @@
         android:id="@+id/recycle_view">
 
     </androidx.recyclerview.widget.RecyclerView>
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:id="@+id/profile_image"
+        android:visibility="gone"></ImageView>
 
 
 </RelativeLayout>

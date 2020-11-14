@@ -169,8 +169,8 @@ public class ContactPersonMessageActivity extends AppCompatActivity {
         hashMap.put("reciver",reciver);
         hashMap.put("message",message);
 
-
         reference.child("Chats").push().setValue(hashMap);
+
 
         final String msg =  message;
         reference = FirebaseDatabase.getInstance().getReference("Users").child(fuser.getUid());

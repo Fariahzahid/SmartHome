@@ -99,7 +99,6 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
     String City, LastUpdate, Description, Humidity, TimeSunset, TimeSunrise, Celcius, Main, WindSpeed;
 
     ProgressDialog temporery;
-    FirebaseAuth fuser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +106,6 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
         fStore = FirebaseFirestore.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
 
-        fuser = FirebaseAuth.getInstance();
 
         home_layout = (ScrollView) findViewById(R.id.speechlayout);
         sleep_mode = (Button) findViewById(R.id.user_home_sleep_mode_button);
@@ -180,26 +178,6 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                notify = true;
-//                // readMessages(fuser.getCurrentUser().getUid(),userID);
-//
-//
-//                final DocumentReference documentReference = fStore.collection("USER").document(userID);
-//
-//                documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-//                    @Override
-//                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-//                        userid = documentSnapshot.getString("ContactPersonUserId");
-//                        name = documentSnapshot.getString("Name");
-//                        message = "User" +name +"Wants to contact";
-//                        sendMessage(userID,userid,message,name);
-//                        System.out.println(" Message Send Contact Person : ");
-//
-//
-//                    }
-//                });
-
                 Intent intent = new Intent(User_Home_Colored.this, Test_Chatting.class);
                 startActivity(intent);
             }

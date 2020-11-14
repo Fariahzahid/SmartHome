@@ -316,7 +316,7 @@ public class Register extends AppCompatActivity {
 //        String noteone = note;
 //        String settexttwo= setetxt;
 //        final Dialog dialog = new Dialog(activity);
-//        dialog.setContentView(R.layout.dialog_box);
+//        dialog.setContentView(R.layout.dialog_box_User);
 //
 //
 //        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
@@ -344,7 +344,7 @@ public class Register extends AppCompatActivity {
 //        String noteone = note;
 //        String settexttwo= setetxt;
 //        final Dialog dialog = new Dialog(activity);
-//        dialog.setContentView(R.layout.dialog_box);
+//        dialog.setContentView(R.layout.dialog_box_User);
 //
 //
 //        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);

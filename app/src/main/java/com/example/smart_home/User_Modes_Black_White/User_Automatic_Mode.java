@@ -115,15 +115,15 @@ public class User_Automatic_Mode extends AppCompatActivity {
         }
 
 
-        String nightlampOn = globalVariable.getAutomatic_mode_bedroom_nightlampon();
-        String[] nightlampOnArray = nightlampOn.split(":");
-        nightlamponhour = Integer.parseInt(nightlampOnArray[0]);
-        nightlamponmin = Integer.parseInt(nightlampOnArray[1]);
-
-        String nightLampOff = globalVariable.getAutomatic_mode_bedroom_nightlampoff();
-        String[] nightLampOffArray = nightLampOff.split(":");
-        nightlampoffhour = Integer.parseInt(nightLampOffArray[0]);
-        nightlampoffmin = Integer.parseInt(nightLampOffArray[1]);
+//        String nightlampOn = globalVariable.getAutomatic_mode_bedroom_nightlampon();
+//        String[] nightlampOnArray = nightlampOn.split(":");
+//        nightlamponhour = Integer.parseInt(nightlampOnArray[0]);
+//        nightlamponmin = Integer.parseInt(nightlampOnArray[1]);
+//
+//        String nightLampOff = globalVariable.getAutomatic_mode_bedroom_nightlampoff();
+//        String[] nightLampOffArray = nightLampOff.split(":");
+//        nightlampoffhour = Integer.parseInt(nightLampOffArray[0]);
+//        nightlampoffmin = Integer.parseInt(nightLampOffArray[1]);
 
         String bulbOn = globalVariable.getAutomatic_mode_livingroom_bulbon();
         String[] bulbOnArray = bulbOn.split(":");

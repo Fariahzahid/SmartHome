@@ -14,6 +14,8 @@ import android.widget.Toast;
 import android.widget.VideoView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 import com.example.smart_home.User_Modes_Black_White.User_Home;
@@ -40,7 +42,7 @@ public class User_Guide_Video extends AppCompatActivity {
     StorageReference storageReference;
     //String value,userid;
     FirebaseAuth fAuth;
-    LinearLayout layout;
+    ConstraintLayout layout;
 
     //FIREBASE FIRESTORE
     private FirebaseFirestore fStore;
@@ -77,7 +79,7 @@ public class User_Guide_Video extends AppCompatActivity {
         userid  = globalVariable.getUserIDUser();
         storageReference = FirebaseStorage.getInstance().getReference();
         fStore = FirebaseFirestore.getInstance();
-        layout = (LinearLayout) findViewById(R.id.layout);
+        layout = (ConstraintLayout) findViewById(R.id.layout);
         identify = (TextView) findViewById(R.id.identify);
         mediaController = new MediaController(this);
 
@@ -108,15 +110,6 @@ public class User_Guide_Video extends AppCompatActivity {
                     myVideo.setMediaController(mediaController);
                     mediaController.setAnchorView(myVideo);
                     myVideo.start();
-//                    myVideo.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//
-//                            Intent intent = new Intent(User_Guide_Video.this, User_Home_Colored.class);
-//                            startActivity(intent);
-//                        }
-//
-//                    });
                     layout.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

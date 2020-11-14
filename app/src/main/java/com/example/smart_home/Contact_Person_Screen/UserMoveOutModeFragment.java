@@ -168,8 +168,8 @@ public class UserMoveOutModeFragment extends Fragment {
                 lr_light.setText(documentSnapshot.getString("Bulb"));
                 lr_lightintensity.setText(documentSnapshot.getString("BulbIntensity"));
                 lr_blinds.setText(documentSnapshot.getString("WindowBlinds"));
-                lrlamp.setText(documentSnapshot.getString("NightLamp"));
-                lr_tv.setText(documentSnapshot.getString("ChargingPoints"));
+                lrlamp.setText(documentSnapshot.getString("TableLamp"));
+                lr_tv.setText(documentSnapshot.getString("Television"));
                 lr_ac.setText(documentSnapshot.getString("AC"));
                 lr_ac_temp.setText(documentSnapshot.getString("ACtemperature"));
                 lr_heating.setText(documentSnapshot.getString("Heating"));

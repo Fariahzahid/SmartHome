@@ -52,6 +52,7 @@ public class Contact_Person_Users_Fragment extends Fragment {
             recyclerView = view.findViewById(R.id.recycle_view);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
             mUsers = new ArrayList<>();
 
             fuser = FirebaseAuth.getInstance();
@@ -68,14 +69,8 @@ public class Contact_Person_Users_Fragment extends Fragment {
         Token token= new Token(refreshToken);
         FirebaseDatabase.getInstance().getReference("Tokens").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(token);
     }
-//        private void updateToken(String token){
-//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Tokens");
-//        Token token1 = new Token(token);
-//        reference.child(fuser.getUid()).setValue(token1);
 
-   // }
-
-        private void readUsers(View view){
+    private void readUsers(View view){
             Query query =  fStore.getInstance().collection("USER");
             FirestoreRecyclerOptions<User> options = new FirestoreRecyclerOptions.Builder<User>()
                     .setQuery(query,User.class)

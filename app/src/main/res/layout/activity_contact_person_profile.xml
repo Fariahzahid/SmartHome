@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background3"
-    tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Profile"
-    >
-
+    tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Profile">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -55,7 +53,6 @@
                 app:layout_constraintVertical_bias="0.022">
 
                 <TextView
-
                     android:id="@+id/text_contactperson_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -66,11 +63,9 @@
                     android:text="User Name"
                     android:textColor="@android:color/black"
                     android:textSize="18sp">
-
                 </TextView>
 
                 <EditText
-
                     android:id="@+id/text_contactperson_name_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -83,7 +78,6 @@
                 </EditText>
 
                 <TextView
-
                     android:id="@+id/text_contactperson_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,11 +88,9 @@
                     android:text="User Email"
                     android:textColor="@android:color/black"
                     android:textSize="18sp">
-
                 </TextView>
 
                 <EditText
-
                     android:id="@+id/text_contactperson_email_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -106,11 +98,9 @@
                     android:fontFamily="sans-serif"
                     android:textColor="@android:color/black"
                     android:textSize="15sp">
-
                 </EditText>
 
                 <TextView
-
                     android:id="@+id/text_contactperson_phoneno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -121,11 +111,9 @@
                     android:text="Phone Number"
                     android:textColor="@android:color/black"
                     android:textSize="18sp">
-
                 </TextView>
 
                 <EditText
-
                     android:id="@+id/text_contactperson_phoneno_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -138,7 +126,6 @@
                 </EditText>
 
                 <TextView
-
                     android:id="@+id/text_contactperson_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -149,11 +136,9 @@
                     android:text="Address"
                     android:textColor="@android:color/black"
                     android:textSize="18sp">
-
                 </TextView>
 
                 <EditText
-
                     android:id="@+id/text_contactperson_address_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -162,11 +147,9 @@
                     android:fontFamily="sans-serif"
                     android:textColor="@android:color/black"
                     android:textSize="15sp">
-
                 </EditText>
 
                 <TextView
-
                     android:id="@+id/text_contactperson_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -177,11 +160,9 @@
                     android:text="Gender"
                     android:textColor="@android:color/black"
                     android:textSize="18sp">
-
                 </TextView>
 
                 <EditText
-
                     android:id="@+id/text_contactperson_gender2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -190,7 +171,6 @@
                     android:fontFamily="sans-serif"
                     android:textColor="@android:color/black"
                     android:textSize="15sp">
-
                 </EditText>
 
 
@@ -206,7 +186,9 @@
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@+id/layout_contactperson_profile"></Button>
+                app:layout_constraintTop_toBottomOf="@+id/layout_contactperson_profile">
+
+            </Button>
 
             <Button
                 android:id="@+id/contact_person_logout"
@@ -220,10 +202,8 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@+id/contact_person_editprofile"></Button>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
         <RelativeLayout
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,12 +11,14 @@
     android:background="@drawable/brownbackground">
 
     <VideoView
-        android:clickable="true"
-        android:layout_gravity="center"
+        android:id="@+id/videoPlayer"
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
         android:layout_height="550dp"
-        android:id="@+id/videoPlayer"/>
+        android:layout_gravity="center"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="match_parent"
@@ -22,28 +28,41 @@
         android:textSize="30dp"
         android:text=""
         android:visibility="gone"></TextView>
+
     <TextView
+        android:id="@+id/texttovoice"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/texttovoice"
-        android:visibility="gone"></TextView>
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/videoPlayer"></TextView>
+
     <Button
         android:id="@+id/skipbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:background="@drawable/button_brown"
-        android:textSize="20dp"
         android:text="SKIP TUTORIAL VIDEO"
         android:textColor="@color/white"
-        android:layout_margin="10dp"></Button>
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videoPlayer"
+        app:layout_constraintVertical_bias="0.323"></Button>
+
     <Button
         android:id="@+id/skipbuttoncolour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:visibility="gone"
         android:background="@drawable/button_rectangle_grey"
-        android:textSize="20dp"
         android:text="SKIP TUTORIAL VIDEO"
         android:textColor="@color/black"
-        android:layout_margin="10dp"></Button>
-</LinearLayout>
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videoPlayer"></Button>
+</androidx.constraintlayout.widget.ConstraintLayout>

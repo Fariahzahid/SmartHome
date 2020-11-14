@@ -1,87 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background3"
+        tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background3"
-    tools:context="com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List"
-    >
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/activity_dashboard"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background3"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
 
-            android:paddingBottom="16dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="16dp"
-           >
-
-        <ImageView
-            android:id="@+id/user_main_mode_image"
-            android:layout_width="126dp"
-            android:layout_height="102dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.003"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/icondisabled" />
-
-            <TextView
-                android:id="@+id/user_main_mode_emergency_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:text="USER LIST"
-                android:textColor="@android:color/black"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.424"
-                app:layout_constraintStart_toEndOf="@+id/user_main_mode_image"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.045" />
-
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activity_dashboard"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:paddingTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image"
-                tools:layout_editor_absoluteX="12dp">
+                android:layout_height="wrap_content"
+                android:background="@drawable/background3"
+                android:layout_marginBottom="50dp"
+                android:padding="16dp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycle_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                <ImageView
+                    android:id="@+id/user_main_mode_image"
+                    android:layout_width="126dp"
+                    android:layout_height="102dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.003"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/icondisabled" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/button_add_user"
+                <TextView
+                    android:id="@+id/user_main_mode_emergency_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    android:src="@drawable/plus2"
-                    app:backgroundTint="@color/purple_dark2"
+                    android:fontFamily="sans-serif-black"
+                    android:text="USER LIST"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recycle_view"></com.google.android.material.floatingactionbutton.FloatingActionButton>
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintHorizontal_bias="0.424"
+                    app:layout_constraintStart_toEndOf="@+id/user_main_mode_image"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.045" />
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:id="@+id/coordinatorLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/user_main_mode_image"
+                    tools:layout_editor_absoluteX="12dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycle_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/button_add_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginBottom="50dp"
+                        android:src="@drawable/plus2"
+                        app:backgroundTint="@color/purple_dark2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout">
+
+                    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
         <RelativeLayout
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"
@@ -96,11 +94,7 @@
                 android:background="@color/purple_dark"
                 app:itemIconTint="@color/white"
                 app:itemTextColor="@color/white"
-                app:menu="@menu/bottom_navigation_menu"
-                >
-
-
+                app:menu="@menu/bottom_navigation_menu">
             </com.google.android.material.bottomnavigation.BottomNavigationView>
         </RelativeLayout>
     </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,14 +29,18 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class Login extends AppCompatActivity {
     private static final String TAG = "MyActivity";
 
-
+    //INITIALIZING THE ELEMENTS
     EditText email, password;
     String regemail,regpassword;
     Button contact_person_login,contact_person_signup;
-    FirebaseAuth mFirebaseAuth;
     Button forgetPassword;
-    FirebaseFirestore fStore;
+
+    //STRINGS
     private String userID;
+
+    //FIREBASE VARIABLES
+    FirebaseAuth mFirebaseAuth;
+    FirebaseFirestore fStore;
 
 
     @Override
@@ -49,8 +53,8 @@ public class Login extends AppCompatActivity {
         password = (EditText) findViewById(R.id.contact_person_login_password);
         contact_person_login = (Button) findViewById(R.id.contact_person_btn_login);
         contact_person_signup = (Button) findViewById(R.id.contact_person_btn_signup);
-
         forgetPassword = (Button) findViewById(R.id.contact_person_login_forget_password);
+
         mFirebaseAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
@@ -97,7 +101,6 @@ public class Login extends AppCompatActivity {
                                     });
 
                             Intent intent = new Intent(Login.this, Contact_Person_Users_List.class);
-                            // intent.putExtra("userID",userID);
                             startActivity(intent);
 
                         }

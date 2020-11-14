@@ -88,7 +88,7 @@ public class Test_Chatting extends AppCompatActivity {
                 String contactPersonId = documentSnapshot.getString("ContactPersonUserId");
                 String UserName = documentSnapshot.getString("Name");
                 String PhoneNo = documentSnapshot.getString("Phone No");
-                message = "User  " +UserName +"Wants To Contact : " +PhoneNo;
+                message = "User  " +UserName +"   Wants To Contact with you.    " +"Phone Number :  "+PhoneNo;
 
                 sendMessage(userID, contactPersonId, message);
             }

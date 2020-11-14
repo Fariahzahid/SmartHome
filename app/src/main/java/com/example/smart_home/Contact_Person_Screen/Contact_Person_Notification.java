@@ -40,8 +40,9 @@ public class Contact_Person_Notification extends AppCompatActivity {
 
         ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager());
 
-        viewPageAdapter.addFragment(new Contact_Person_Users_Fragment(),"Users");
         viewPageAdapter.addFragment(new Contact_Person_Chat_Fragment(),"Chat");
+        viewPageAdapter.addFragment(new Contact_Person_Users_Fragment(),"Users");
+
 
         viewPager.setAdapter(viewPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
