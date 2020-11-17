@@ -31,6 +31,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
+import com.example.smart_home.User_Chat_Room.Test_Chatting;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -216,13 +217,14 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
 
 
         if (test.equals(numberone)) {
-//            textofspeech.setText("Sleep Mode Activated");
-//            textspeak();
+
             Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Sleep_Mode_Voice_Mode.class);
+            textofspeech.setText("Sleep Mode Activated");
+            textspeak();
             startActivity(intent);
         } else if (test.equals(numbertwo)) {
-//            textofspeech.setText("Move Out Mode Activated");
-//            textspeak();
+            textofspeech.setText("Move Out Mode Activated");
+            textspeak();
             Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Move_Out_Mode_Voice_Mode.class);
             startActivity(intent);
         } else if (test.equals(numberthree)) {
@@ -233,7 +235,9 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
         } else if (test.equals(numberfour)) {
 //            textofspeech.setText("Manual Mode Activated");
 //            textspeak();
-            Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Sleep_Mode_Voice_Mode.class);
+            Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, Test_Chatting.class);
+            textofspeech.setText("Your message is sent to your contact person , He will contact you. Thanks");
+            textspeak();
             startActivity(intent);
         } else {
             textofspeech.setText("Sorry to understand your voice ,      Please Speck Again !");
