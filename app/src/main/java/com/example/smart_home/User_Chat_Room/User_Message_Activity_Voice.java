@@ -1,38 +1,28 @@
 package com.example.smart_home.User_Chat_Room;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.smart_home.Adapter.MessageAdapter;
 import com.example.smart_home.Contact_Person_Chat_Room.APIService;
-import com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List;
-import com.example.smart_home.Contact_Person_SignIn.Login;
 import com.example.smart_home.GlobalVariables;
-import com.example.smart_home.Model.Chat;
 import com.example.smart_home.Notifications.Client;
 import com.example.smart_home.Notifications.Data;
 import com.example.smart_home.Notifications.MyResponse;
 import com.example.smart_home.Notifications.Sender;
 import com.example.smart_home.Notifications.Token;
 import com.example.smart_home.R;
-import com.example.smart_home.Users_Modes.User_Home_Colored;
+import com.example.smart_home.User_Modes_Black_White.User_Home;
+import com.example.smart_home.User_Voice_Mode.User_Home_Weather;
+import com.example.smart_home.User_Voice_Mode.User_Home_Wooden_Voice_Mode;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -47,19 +37,16 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Test_Chatting extends AppCompatActivity {
+
+
+public class User_Message_Activity_Voice extends AppCompatActivity {
 
     private String userID;
     private String contactPersonId;
@@ -130,7 +117,7 @@ public class Test_Chatting extends AppCompatActivity {
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             String sendername = documentSnapshot.getString("Name");
                             //System.out.println("Sender Name : " +sendername);
-                             sendNotification(reciver, sendername, msg);
+                            sendNotification(reciver, sendername, msg);
 
 
                         }
@@ -173,15 +160,15 @@ public class Test_Chatting extends AppCompatActivity {
                                 public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
                                     if (response.code() == 200) {
                                         String success= "SUCCESS";
-                                        String note = "Notification sent to the contact person.";
-                                        AlertDialogBoxSuccess(Test_Chatting.this,success,note);
-                                       // Toast.makeText(Test_Chatting.this, "Success", Toast.LENGTH_SHORT).show();
+                                        String note = "Message Sent";
+                                        AlertDialogBoxSuccess(User_Message_Activity_Voice.this,success,note);
+                                        // Toast.makeText(Test_Chatting.this, "Success", Toast.LENGTH_SHORT).show();
 
                                         if (response.body().success != 1) {
                                             String warn= "WARNING";
                                             String note2 = "Message Not Sent";
-                                            AlertDialogBoxWarning(Test_Chatting.this,success,note);
-                                            Toast.makeText(Test_Chatting.this, "Failed", Toast.LENGTH_SHORT).show();
+                                            AlertDialogBoxWarning(User_Message_Activity_Voice.this,success,note);
+                                            Toast.makeText(User_Message_Activity_Voice.this, "Failed", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 }
@@ -221,7 +208,7 @@ public class Test_Chatting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Close dialog
-                startActivity(new Intent(Test_Chatting.this, User_Home_Colored.class));
+                startActivity(new Intent(User_Message_Activity_Voice.this, User_Home_Wooden_Voice_Mode.class));
                 dialog.dismiss();
             }
         });
@@ -260,7 +247,7 @@ public class Test_Chatting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Close dialog
-                startActivity(new Intent(Test_Chatting.this, User_Home_Colored.class));
+                startActivity(new Intent(User_Message_Activity_Voice.this, User_Home_Weather.class));
                 dialog.dismiss();
             }
         });

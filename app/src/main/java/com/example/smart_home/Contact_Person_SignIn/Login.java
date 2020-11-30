@@ -1,13 +1,18 @@
 package com.example.smart_home.Contact_Person_SignIn;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,6 +46,7 @@ public class Login extends AppCompatActivity {
     //FIREBASE VARIABLES
     FirebaseAuth mFirebaseAuth;
     FirebaseFirestore fStore;
+    ImageView imageView;
 
 
     @Override
@@ -54,6 +60,7 @@ public class Login extends AppCompatActivity {
         contact_person_login = (Button) findViewById(R.id.contact_person_btn_login);
         contact_person_signup = (Button) findViewById(R.id.contact_person_btn_signup);
         forgetPassword = (Button) findViewById(R.id.contact_person_login_forget_password);
+        imageView = (ImageView) findViewById(R.id.Dialog_Image);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -79,7 +86,9 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Login.this, "User Logged In.",Toast.LENGTH_SHORT).show();
+                            String success = "Success";
+                            String note = "User Login";
+                            //Toast.makeText(Login.this, "User Logged In.",Toast.LENGTH_SHORT).show();
                             userID =mFirebaseAuth.getCurrentUser().getUid();
                             GlobalVariables globalVariable=(GlobalVariables)getApplication();
 
@@ -99,14 +108,17 @@ public class Login extends AppCompatActivity {
                                             Log.w(TAG,"Error updating document",e);
                                         }
                                     });
+                            //imageView.setImageResource(R.drawable.success);
+                            AlertDialogBoxSuccess(Login.this,success,note);
 
-                            Intent intent = new Intent(Login.this, Contact_Person_Users_List.class);
-                            startActivity(intent);
 
                         }
                         else{
-                            Toast.makeText(Login.this, "Error."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-
+                            String error= "Error";
+                            String note = task.getException().getMessage();
+                            //imageView.setImageResource(R.drawable.warning);
+                            //Toast.makeText(Login.this, "Error."+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            AlertDialogBoxWarn(Login.this,error,note);
                         }
                     }
                 });
@@ -161,5 +173,80 @@ public class Login extends AppCompatActivity {
                 passwordResetDialog.create().show();
             }
         });
+    }
+
+    private  void AlertDialogBoxSuccess(Activity activity, String note, String setetxt){
+        String noteone = note;
+        String settexttwo= setetxt;
+        final Dialog dialog = new Dialog(activity);
+        dialog.setContentView(R.layout.dialog_box_contact_person);
+
+
+        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
+        TextView info = (TextView) dialog.findViewById(R.id.Text);
+        imageView = (ImageView) dialog.findViewById(R.id.profileimage);
+       // imageView.setImageResource(R.drawable.success);
+
+        notetext.setText(noteone);
+        info.setText(settexttwo);
+
+        Button okButton = (Button) dialog.findViewById(R.id.confirmbutton);
+        okButton.setText("OK");
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Close dialog
+                startActivity(new Intent(Login.this, Contact_Person_Users_List.class));
+                dialog.dismiss();
+            }
+        });
+        Button CancelButton = (Button) dialog.findViewById(R.id.cancelbutton);
+        CancelButton.setText("Cancel");
+        CancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        dialog.show();
+
+    }
+    private  void AlertDialogBoxWarn(Activity activity, String note, String setetxt){
+        String noteone = note;
+        String settexttwo= setetxt;
+        final Dialog dialog = new Dialog(activity);
+        dialog.setContentView(R.layout.dialog_box_contact_person_warning);
+
+
+        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
+        TextView info = (TextView) dialog.findViewById(R.id.Text);
+        imageView = (ImageView) dialog.findViewById(R.id.profileimage);
+        // imageView.setImageResource(R.drawable.success);
+
+        notetext.setText(noteone);
+        info.setText(settexttwo);
+
+        Button okButton = (Button) dialog.findViewById(R.id.confirmbutton);
+        okButton.setText("OK");
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Close dialog
+                startActivity(new Intent(Login.this, Contact_Person_Users_List.class));
+                dialog.dismiss();
+            }
+        });
+        Button CancelButton = (Button) dialog.findViewById(R.id.cancelbutton);
+        CancelButton.setText("Cancel");
+        CancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        dialog.show();
+
     }
 }

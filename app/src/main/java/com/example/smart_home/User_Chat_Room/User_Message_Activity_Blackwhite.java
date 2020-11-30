@@ -32,6 +32,7 @@ import com.example.smart_home.Notifications.MyResponse;
 import com.example.smart_home.Notifications.Sender;
 import com.example.smart_home.Notifications.Token;
 import com.example.smart_home.R;
+import com.example.smart_home.User_Modes_Black_White.User_Home;
 import com.example.smart_home.Users_Modes.User_Home_Colored;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -59,7 +60,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Test_Chatting extends AppCompatActivity {
+public class User_Message_Activity_Blackwhite extends AppCompatActivity {
 
     private String userID;
     private String contactPersonId;
@@ -75,7 +76,7 @@ public class Test_Chatting extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_chat_room);
+        setContentView(R.layout.user_chat_room_blackwhite);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -130,7 +131,7 @@ public class Test_Chatting extends AppCompatActivity {
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             String sendername = documentSnapshot.getString("Name");
                             //System.out.println("Sender Name : " +sendername);
-                             sendNotification(reciver, sendername, msg);
+                            sendNotification(reciver, sendername, msg);
 
 
                         }
@@ -173,15 +174,15 @@ public class Test_Chatting extends AppCompatActivity {
                                 public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
                                     if (response.code() == 200) {
                                         String success= "SUCCESS";
-                                        String note = "Notification sent to the contact person.";
-                                        AlertDialogBoxSuccess(Test_Chatting.this,success,note);
-                                       // Toast.makeText(Test_Chatting.this, "Success", Toast.LENGTH_SHORT).show();
+                                        String note = "Message Sent";
+                                        AlertDialogBoxSuccess(User_Message_Activity_Blackwhite.this,success,note);
+                                        // Toast.makeText(Test_Chatting.this, "Success", Toast.LENGTH_SHORT).show();
 
                                         if (response.body().success != 1) {
                                             String warn= "WARNING";
                                             String note2 = "Message Not Sent";
-                                            AlertDialogBoxWarning(Test_Chatting.this,success,note);
-                                            Toast.makeText(Test_Chatting.this, "Failed", Toast.LENGTH_SHORT).show();
+                                            AlertDialogBoxWarning(User_Message_Activity_Blackwhite.this,success,note);
+                                            Toast.makeText(User_Message_Activity_Blackwhite.this, "Failed", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 }
@@ -205,7 +206,7 @@ public class Test_Chatting extends AppCompatActivity {
         String noteone = note;
         String settexttwo= setetxt;
         final Dialog dialog = new Dialog(activity);
-        dialog.setContentView(R.layout.dialog_box_user_wooden);
+        dialog.setContentView(R.layout.dialog_box_user);
 
 
         TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
@@ -221,7 +222,7 @@ public class Test_Chatting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Close dialog
-                startActivity(new Intent(Test_Chatting.this, User_Home_Colored.class));
+                startActivity(new Intent(User_Message_Activity_Blackwhite.this, User_Home.class));
                 dialog.dismiss();
             }
         });
@@ -244,7 +245,7 @@ public class Test_Chatting extends AppCompatActivity {
         String noteone = note;
         String settexttwo= setetxt;
         final Dialog dialog = new Dialog(activity);
-        dialog.setContentView(R.layout.dialog_box_user_wooden_warning);
+        dialog.setContentView(R.layout.dialog_box_user_warning);
 
 
         TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
@@ -260,7 +261,7 @@ public class Test_Chatting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Close dialog
-                startActivity(new Intent(Test_Chatting.this, User_Home_Colored.class));
+                startActivity(new Intent(User_Message_Activity_Blackwhite.this, User_Home.class));
                 dialog.dismiss();
             }
         });

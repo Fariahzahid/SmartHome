@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +41,7 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
 
     //FIREBASE FIRESTORE
     private FirebaseFirestore fStore;
+    LinearLayout one,two,three,four,five;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,12 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         nightlamp_on = (Button) findViewById(R.id.user_sleep_mode_nl_on_button);
         nightlamp_off = (Button) findViewById(R.id.user_sleep_mode_nl_off_button);
 
+        one = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_one);
+        two = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_two);
+        three = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_three);
+        four = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_four);
+        five = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_five);
+
         String a= globalVariable.getSleep_mode_bedroom_light();
         String b = globalVariable.getSleep_mode_wc_light();
         String c = globalVariable.getSleep_mode_bedroom_heating();
@@ -68,6 +76,7 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         String e = globalVariable.getSleep_mode_bedroom_nightlamp();
 
         if(a.equals(on)){
+            one.setBackgroundColor(getColor(R.color.greentwo));
             bedroom_light_on.setVisibility(View.GONE);
             bedroom_light_off.setVisibility(View.VISIBLE);
         }else{
@@ -75,6 +84,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
             bedroom_light_off.setVisibility(View.GONE);
         }
         if(b.equals(on)){
+            two.setBackgroundColor(getColor(R.color.greentwo));
+
             wc_light_on.setVisibility(View.GONE);
             wc_light_off.setVisibility(View.VISIBLE);
         }else{
@@ -82,6 +93,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
             wc_light_off.setVisibility(View.GONE);
         }
         if(c.equals(on)){
+            three.setBackgroundColor(getColor(R.color.greentwo));
+
             heating_on.setVisibility(View.GONE);
             heating_off.setVisibility(View.VISIBLE);
         }
@@ -91,6 +104,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
             heating_off.setVisibility(View.GONE);
         }
         if(d.equals(on)){
+            four.setBackgroundColor(getColor(R.color.greentwo));
+
             cooling_on.setVisibility(View.GONE);
             cooling_off.setVisibility(View.VISIBLE);
         }
@@ -99,6 +114,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
             cooling_off.setVisibility(View.GONE);
         }
         if(e.equals(on)){
+            five.setBackgroundColor(getColor(R.color.greentwo));
+
             nightlamp_on.setVisibility(View.GONE);
             nightlamp_off.setVisibility(View.VISIBLE);
         }
@@ -110,6 +127,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         bedroom_light_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                one.setBackgroundColor(getColor(R.color.greentwo));
+
                 bedroom_light_on.setVisibility(View.GONE);
                 bedroom_light_off.setVisibility(View.VISIBLE);
             }
@@ -117,6 +136,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         bedroom_light_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                one.setBackgroundColor(getColor(android.R.color.transparent));
+
                 bedroom_light_on.setVisibility(View.VISIBLE);
                 bedroom_light_off.setVisibility(View.GONE);
             }
@@ -124,6 +145,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         wc_light_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                two.setBackgroundColor(getColor(R.color.greentwo));
+
                 wc_light_on.setVisibility(View.GONE);
                 wc_light_off.setVisibility(View.VISIBLE);
             }
@@ -131,6 +154,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         wc_light_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                two.setBackgroundColor(getColor(android.R.color.transparent));
+
                 wc_light_on.setVisibility(View.VISIBLE);
                 wc_light_off.setVisibility(View.GONE);
             }
@@ -138,6 +163,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         heating_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                three.setBackgroundColor(getColor(R.color.greentwo));
+
                 heating_on.setVisibility(View.GONE);
                 heating_off.setVisibility(View.VISIBLE);
             }
@@ -145,6 +172,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         heating_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                three.setBackgroundColor(getColor(android.R.color.transparent));
+
                 heating_on.setVisibility(View.VISIBLE);
                 heating_off.setVisibility(View.GONE);
             }
@@ -152,6 +181,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         cooling_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                four.setBackgroundColor(getColor(R.color.greentwo));
+
                 cooling_on.setVisibility(View.GONE);
                 cooling_off.setVisibility(View.VISIBLE);
             }
@@ -159,6 +190,8 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         cooling_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                four.setBackgroundColor(getColor(android.R.color.transparent));
+
                 cooling_on.setVisibility(View.VISIBLE);
                 cooling_off.setVisibility(View.GONE);
             }
@@ -166,6 +199,7 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         nightlamp_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                five.setBackgroundColor(getColor(R.color.greentwo));
                 nightlamp_on.setVisibility(View.GONE);
                 nightlamp_off.setVisibility(View.VISIBLE);
             }
@@ -173,6 +207,7 @@ public class User_Sleep_Mode_Colored extends AppCompatActivity {
         nightlamp_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                five.setBackgroundColor(getColor(android.R.color.transparent));
                 nightlamp_on.setVisibility(View.VISIBLE);
                 nightlamp_off.setVisibility(View.GONE);
             }

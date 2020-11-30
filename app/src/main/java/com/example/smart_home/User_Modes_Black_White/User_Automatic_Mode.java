@@ -34,11 +34,12 @@ public class User_Automatic_Mode extends AppCompatActivity {
     String on ="ON",off="OFF",open="OPEN",close="CLOSE";
 
     LinearLayout bedroombulblayout, livingroombulblayout, kitchenbulblayout, bedroomnightlamplayout,
-            livingroomtablelamplayout,livingroomtelevisionlayout;
+            livingroomtablelamplayout,livingroomtelevisionlayout,one,two,three,four,five,six;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_automatic_mode);
+        setContentView(R.layout.activity_user_automatic_mode_wooden);
 
 
         Calendar c = Calendar.getInstance();
@@ -100,30 +101,40 @@ public class User_Automatic_Mode extends AppCompatActivity {
         livingroomtablelamplayout = (LinearLayout) findViewById(R.id.livingroomtablelamplayout);
         livingroomtelevisionlayout = (LinearLayout) findViewById(R.id.livingroomtelevisionlayout);
 
+        one = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_one);
+        two = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_two);
+        three = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_three);
+        four = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_four);
+        five = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_five);
+        six = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_six);
 
-        if(HH > sunriseone && HH < sunsetone ){
-            if(mm > sunrisetwo && mm < sunsettwo){
+
+        if(HH >= sunriseone && HH <= sunsetone ){
+            if(mm >= sunrisetwo && mm <= sunsettwo){
+                four.setBackgroundColor(getColor(R.color.greentwo));
                 manualmode_bedroom_blinds_on.setVisibility(View.GONE);
                 manualmode_bedroom_blinds_off.setVisibility(View.VISIBLE);
                 Toast.makeText(User_Automatic_Mode.this, "Blinds On", Toast.LENGTH_SHORT).show();
             }
         }else
         {
+            four.setBackgroundColor(getColor(android.R.color.transparent));
+
             manualmode_bedroom_blinds_on.setVisibility(View.VISIBLE);
             manualmode_bedroom_blinds_off.setVisibility(View.GONE);
             Toast.makeText(User_Automatic_Mode.this, "Blinds Off", Toast.LENGTH_SHORT).show();
         }
 
 
-//        String nightlampOn = globalVariable.getAutomatic_mode_bedroom_nightlampon();
-//        String[] nightlampOnArray = nightlampOn.split(":");
-//        nightlamponhour = Integer.parseInt(nightlampOnArray[0]);
-//        nightlamponmin = Integer.parseInt(nightlampOnArray[1]);
-//
-//        String nightLampOff = globalVariable.getAutomatic_mode_bedroom_nightlampoff();
-//        String[] nightLampOffArray = nightLampOff.split(":");
-//        nightlampoffhour = Integer.parseInt(nightLampOffArray[0]);
-//        nightlampoffmin = Integer.parseInt(nightLampOffArray[1]);
+        String nightlampOn = globalVariable.getAutomatic_mode_bedroom_nightlampon();
+        String[] nightlampOnArray = nightlampOn.split(":");
+        nightlamponhour = Integer.parseInt(nightlampOnArray[0]);
+        nightlamponmin = Integer.parseInt(nightlampOnArray[1]);
+
+        String nightLampOff = globalVariable.getAutomatic_mode_bedroom_nightlampoff();
+        String[] nightLampOffArray = nightLampOff.split(":");
+        nightlampoffhour = Integer.parseInt(nightLampOffArray[0]);
+        nightlampoffmin = Integer.parseInt(nightLampOffArray[1]);
 
         String bulbOn = globalVariable.getAutomatic_mode_livingroom_bulbon();
         String[] bulbOnArray = bulbOn.split(":");
@@ -161,6 +172,9 @@ public class User_Automatic_Mode extends AppCompatActivity {
 
         if(HH > nightlamponhour && HH < nightlampoffhour){
             if(mm > nightlamponmin && mm < nightlampoffmin){
+
+                three.setBackgroundColor(getColor(R.color.greentwo));
+
                 Toast.makeText(User_Automatic_Mode.this, "Night Lamp On", Toast.LENGTH_SHORT).show();
                 manualmode_bedroom_nightlamp_on.setVisibility(View.GONE);
                 manualmode_bedroom_nightlamp_off.setVisibility(View.VISIBLE);
@@ -168,7 +182,9 @@ public class User_Automatic_Mode extends AppCompatActivity {
 
         }
         else if(HH >= tablelamponhour && HH <= tablelampoffhour  ){
-            if(mm >tablelamponmin && mm <tablelampoffmin ){
+            if(mm >=tablelamponmin && mm <=tablelampoffmin ){
+                three.setBackgroundColor(getColor(R.color.greentwo));
+
                 bedroomnightlamplayout.setVisibility(View.GONE);
                 livingroomtablelamplayout.setVisibility(View.VISIBLE);
 
@@ -178,6 +194,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
             }
         }else if(HH > televisiononhour && HH < televisionoffhour){
             if(mm >televisiononmin && mm <televisionoffmin ){
+
+                three.setBackgroundColor(getColor(R.color.greentwo));
 
                 bedroomnightlamplayout.setVisibility(View.GONE);
                 livingroomtablelamplayout.setVisibility(View.GONE);
@@ -190,6 +208,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
 
         if (HH > bulbonhour && HH < bulboffhour){
             if(mm >bulbonmin && mm <bulboffmin ){
+
+                two.setBackgroundColor(getColor(R.color.greentwo));
 
                 bedroombulblayout.setVisibility(View.GONE);
                 livingroombulblayout.setVisibility(View.VISIBLE);
@@ -205,19 +225,27 @@ public class User_Automatic_Mode extends AppCompatActivity {
 
 
         if(a.equals(on)){
+            five.setBackgroundColor(getColor(R.color.greentwo));
+
             manualmode_bedroom_heating_on.setVisibility(View.GONE);
             manualmode_bedroom_heating_off.setVisibility(View.VISIBLE);
         }
         else
         {
+            five.setBackgroundColor(getColor(android.R.color.transparent));
+
             manualmode_bedroom_heating_on.setVisibility(View.VISIBLE);
             manualmode_bedroom_heating_off.setVisibility(View.GONE);
         }
         if(d.equals(on)){
+            six.setBackgroundColor(getColor(R.color.greentwo));
+
             manualmode_bedroom_cooling_on.setVisibility(View.GONE);
             manualmode_bedroom_cooling_off.setVisibility(View.VISIBLE);
         }
         else {
+            six.setBackgroundColor(getColor(android.R.color.transparent));
+
             manualmode_bedroom_cooling_on.setVisibility(View.VISIBLE);
             manualmode_bedroom_cooling_off.setVisibility(View.GONE);
         }
@@ -228,6 +256,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_wc_bulb_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                one.setBackgroundColor(getColor(R.color.greentwo));
+
                 manualmode_wc_bulb_on.setVisibility(View.GONE);
                 manualmode_wc_bulb_off.setVisibility(View.VISIBLE);
 
@@ -236,6 +266,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_wc_bulb_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                one.setBackgroundColor(getColor(android.R.color.transparent));
+
                 manualmode_wc_bulb_on.setVisibility(View.VISIBLE);
                 manualmode_wc_bulb_off.setVisibility(View.GONE);
             }
@@ -245,6 +277,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_bedroom_bulb_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                two.setBackgroundColor(getColor(R.color.greentwo));
+
                 manualmode_bedroom_bulb_on.setVisibility(View.GONE);
                 manualmode_bedroom_bulb_off.setVisibility(View.VISIBLE);
             }
@@ -252,6 +286,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_bedroom_bulb_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                two.setBackgroundColor(getColor(android.R.color.transparent));
+
                 manualmode_bedroom_bulb_on.setVisibility(View.VISIBLE);
                 manualmode_bedroom_bulb_off.setVisibility(View.GONE);
             }
@@ -261,6 +297,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_bedroom_blinds_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                four.setBackgroundColor(getColor(R.color.greentwo));
+
                 manualmode_bedroom_blinds_on.setVisibility(View.GONE);
                 manualmode_bedroom_blinds_off.setVisibility(View.VISIBLE);
             }
@@ -268,6 +306,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_bedroom_blinds_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                four.setBackgroundColor(getColor(android.R.color.transparent));
+
                 manualmode_bedroom_blinds_on.setVisibility(View.VISIBLE);
                 manualmode_bedroom_blinds_off.setVisibility(View.GONE);
             }
@@ -276,6 +316,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_bedroom_nightlamp_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                three.setBackgroundColor(getColor(R.color.greentwo));
+
                 manualmode_bedroom_nightlamp_on.setVisibility(View.GONE);
                 manualmode_bedroom_nightlamp_off.setVisibility(View.VISIBLE);
             }
@@ -283,6 +325,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_bedroom_nightlamp_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                three.setBackgroundColor(getColor(android.R.color.transparent));
+
                 manualmode_bedroom_nightlamp_on.setVisibility(View.VISIBLE);
                 manualmode_bedroom_nightlamp_off.setVisibility(View.GONE);
             }
@@ -294,6 +338,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_lr_bulb_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                two.setBackgroundColor(getColor(R.color.greentwo));
+
                 manualmode_lr_bulb_on.setVisibility(View.GONE);
                 manualmode_lr_bulb_off.setVisibility(View.VISIBLE);
             }
@@ -301,6 +347,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_lr_bulb_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                two.setBackgroundColor(getColor(android.R.color.transparent));
+
                 manualmode_lr_bulb_on.setVisibility(View.VISIBLE);
                 manualmode_lr_bulb_off.setVisibility(View.GONE);
             }
@@ -310,6 +358,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_lr_tablelamp_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                three.setBackgroundColor(getColor(R.color.greentwo));
+
                 manualmode_lr_tablelamp_on.setVisibility(View.GONE);
                 manualmode_lr_tablelamp_off.setVisibility(View.VISIBLE);
             }
@@ -317,6 +367,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_lr_tablelamp_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                three.setBackgroundColor(getColor(android.R.color.transparent));
+
                 manualmode_lr_tablelamp_on.setVisibility(View.VISIBLE);
                 manualmode_lr_tablelamp_off.setVisibility(View.GONE);
             }
@@ -326,6 +378,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_lr_television_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                three.setBackgroundColor(getColor(R.color.greentwo));
+
                 manualmode_lr_television_on.setVisibility(View.GONE);
                 manualmode_lr_television_off.setVisibility(View.VISIBLE);
             }
@@ -333,6 +387,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_lr_television_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                three.setBackgroundColor(getColor(android.R.color.transparent));
+
                 manualmode_lr_television_on.setVisibility(View.VISIBLE);
                 manualmode_lr_television_off.setVisibility(View.GONE);
             }
@@ -342,6 +398,8 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_kitchen_bulb_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                two.setBackgroundColor(getColor(R.color.greentwo));
+
                 manualmode_kitchen_bulb_on.setVisibility(View.GONE);
                 manualmode_kitchen_bulb_off.setVisibility(View.VISIBLE);
             }
@@ -349,8 +407,47 @@ public class User_Automatic_Mode extends AppCompatActivity {
         manualmode_kitchen_bulb_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                two.setBackgroundColor(getColor(android.R.color.transparent));
+
                 manualmode_kitchen_bulb_on.setVisibility(View.VISIBLE);
                 manualmode_kitchen_bulb_off.setVisibility(View.GONE);
+            }
+        });
+
+        manualmode_bedroom_heating_on.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                five.setBackgroundColor(getColor(R.color.greentwo));
+
+                manualmode_bedroom_heating_on.setVisibility(View.GONE);
+                manualmode_bedroom_heating_off.setVisibility(View.VISIBLE);
+            }
+        });
+        manualmode_bedroom_heating_off.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                five.setBackgroundColor(getColor(android.R.color.transparent));
+
+                manualmode_bedroom_heating_on.setVisibility(View.VISIBLE);
+                manualmode_bedroom_heating_off.setVisibility(View.GONE);
+            }
+        });
+        manualmode_bedroom_cooling_on.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                six.setBackgroundColor(getColor(R.color.greentwo));
+
+                manualmode_bedroom_cooling_on.setVisibility(View.GONE);
+                manualmode_bedroom_cooling_off.setVisibility(View.VISIBLE);
+            }
+        });
+        manualmode_bedroom_cooling_off.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                six.setBackgroundColor(getColor(android.R.color.transparent));
+
+                manualmode_bedroom_cooling_on.setVisibility(View.VISIBLE);
+                manualmode_bedroom_cooling_off.setVisibility(View.GONE);
             }
         });
     }

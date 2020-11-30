@@ -316,6 +316,7 @@ public class User_Guide_Video extends AppCompatActivity {
                 moveout_mode_bedroom_actemp = documentSnapshot.getString("ACtemperature");
                 moveout_mode_bedroom_heating = documentSnapshot.getString("Heating");
                 moveout_mode_bedroom_heating_temp = documentSnapshot.getString("HeatingTemperature");
+
                 globalVariable.setMoveout_mode_bedroom_light(moveout_mode_bedroomlight);
                 globalVariable.setMoveout_mode_bedroom_windowblind(moveout_mode_bedroom_blinds);
                 globalVariable.setMoveout_mode_bedroom_nightlamp(moveout_mode_bedroom_chargingpoint);
@@ -344,6 +345,7 @@ public class User_Guide_Video extends AppCompatActivity {
                 moveout_mode_kitchen_actemp = documentSnapshot.getString("ACtemperature");
                 moveout_mode_kitchen_heating = documentSnapshot.getString("Heating");
                 moveout_mode_kitchen_heatingtemp= documentSnapshot.getString("HeatingTemperature");
+
                 globalVariable.setMoveout_mode_kitchen_light(moveout_mode_kitchen_light);
                 globalVariable.setMoveout_mode_kitchen_windowblind(moveout_mode_kitchen_blinds);
                 globalVariable.setMoveout_mode_kitchen_oven(moveout_mode_kitchen_oven);

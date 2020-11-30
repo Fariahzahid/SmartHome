@@ -312,33 +312,33 @@ public class Register extends AppCompatActivity {
     }
 
 
-//    private  void AlertDoalogBoxSuccess(Activity activity,String note,String setetxt){
-//        String noteone = note;
-//        String settexttwo= setetxt;
-//        final Dialog dialog = new Dialog(activity);
-//        dialog.setContentView(R.layout.dialog_box_User);
-//
-//
-//        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
-//        TextView info = (TextView) dialog.findViewById(R.id.Text);
-//        final ImageView image = (ImageView) findViewById(R.id.profileimage);
-//        notetext.setText(noteone);
-//        info.setText(settexttwo);
-//
-//        Button okButton = (Button) dialog.findViewById(R.id.confirmbuttom);
-//        okButton.setText("OK");
-//        okButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Close dialog
-//                startActivity(new Intent(Register.this, Contact_Person_Users_List.class));
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        dialog.show();
-//
-//    }
+    private  void AlertDoalogBoxSuccess(Activity activity,String note,String setetxt){
+        String noteone = note;
+        String settexttwo= setetxt;
+        final Dialog dialog = new Dialog(activity);
+        dialog.setContentView(R.layout.dialog_box_user);
+
+
+        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
+        TextView info = (TextView) dialog.findViewById(R.id.Text);
+        final ImageView image = (ImageView) findViewById(R.id.profileimage);
+        notetext.setText(noteone);
+        info.setText(settexttwo);
+
+        Button okButton = (Button) dialog.findViewById(R.id.confirmbutton);
+        okButton.setText("OK");
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Close dialog
+                startActivity(new Intent(Register.this, Contact_Person_Users_List.class));
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
+    }
 //
 //    private  void AlertDoalogBoxFailure(Activity activity,String note,String setetxt){
 //        String noteone = note;

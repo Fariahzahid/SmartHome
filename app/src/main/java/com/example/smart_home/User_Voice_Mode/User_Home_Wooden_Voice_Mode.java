@@ -30,8 +30,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import com.example.smart_home.GlobalVariables;
+import com.example.smart_home.MainActivity;
 import com.example.smart_home.R;
 import com.example.smart_home.User_Chat_Room.Test_Chatting;
+import com.example.smart_home.User_Chat_Room.User_Message_Activity;
+import com.example.smart_home.User_Chat_Room.User_Message_Activity_Voice;
+import com.example.smart_home.Users_Modes.User_Home_Colored;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -70,10 +74,13 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
         textofspeech = (TextView) findViewById(R.id.textofspeech);
         speechtotext = (TextView) findViewById(R.id.speechthetext);
         user_layout = (ImageView) findViewById(R.id.user_layout);
+        speechlayout = (ConstraintLayout) findViewById(R.id.speechlayout);
+
         textofspeech.setText("To activate sleep mode speak one   ," +
                 "  To activate move out speak two  ,  " +
                 " To activate automatic mode speak three  ," +
-                " To contact with codinator speak four");
+                " To contact with codinator speak four     " +
+                "To logout speak five");
 
         // Init TextToSpeech
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -87,6 +94,7 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
                                 Toast.LENGTH_SHORT);
                     } else {
                         speechlayout.setEnabled(true);
+                        user_layout.setEnabled(true);
                         textToSpeech.setPitch(0.6f);
                         textToSpeech.setSpeechRate(1.0f);
 
@@ -214,6 +222,7 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
         String numbertwo = "2";
         String numberthree = "3";
         String numberfour = "4";
+        String numberfive = "5";
 
 
         if (test.equals(numberone)) {
@@ -228,17 +237,20 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
             Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Move_Out_Mode_Voice_Mode.class);
             startActivity(intent);
         } else if (test.equals(numberthree)) {
-//            textofspeech.setText("Automatic Mode Activated");
-//            textspeak();
             Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Automatic_Mode_Voice_Mode.class);
             startActivity(intent);
         } else if (test.equals(numberfour)) {
-//            textofspeech.setText("Manual Mode Activated");
-//            textspeak();
-            Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, Test_Chatting.class);
+            Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Message_Activity_Voice.class);
             textofspeech.setText("Your message is sent to your contact person , He will contact you. Thanks");
             textspeak();
             startActivity(intent);
+        } else if(test.equals(numberfive)){
+            mFirebaseAuth.signOut();
+            textofspeech.setText("User Log out");
+            textspeak();
+            Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         } else {
             textofspeech.setText("Sorry to understand your voice ,      Please Speck Again !");
             textspeak();

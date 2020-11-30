@@ -51,22 +51,22 @@ public class User_Move_Out_Mode_Voice_Mode extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_move_out_mode_wooden);
+        setContentView(R.layout.activity_user_move_out_mode_wooden_voice_mode);
 
         user_sleep_mode_layout = (ScrollView) findViewById(R.id.user_sleep_mode_layout);
 
-        texttovoice = (TextView) findViewById(R.id.texttovoice);
+        texttovoice = (TextView) findViewById(R.id.progress);
         voicetotext = (TextView) findViewById(R.id.voicetotext);
-        bedroom_light_on = (TextView) findViewById(R.id.user_sleepmode_bedroom_bulb_on_button);
-        bedroom_light_off = (TextView) findViewById(R.id.user_sleepmode_bedroom_bulb_off_button);
-        wc_light_on = (TextView) findViewById(R.id.user_sleepmode_wc_bulb_on_button);
-        wc_light_off = (TextView) findViewById(R.id.user_sleepmode_wc_bulb_off_button);
-        heating_on = (TextView) findViewById(R.id.user_sleep_mode_heating_on_button);
-        heating_off = (TextView) findViewById(R.id.user_sleep_mode_heating_off_button);
-        cooling_on = (TextView) findViewById(R.id.user_sleep_mode_ac_on_button);
-        cooling_off = (TextView) findViewById(R.id.user_sleep_mode_ac_off_button);
-        nightlamp_on = (TextView) findViewById(R.id.user_sleep_mode_nl_on_button);
-        nightlamp_off = (TextView) findViewById(R.id.user_sleep_mode_nl_off_button);
+        bedroom_light_on = (TextView) findViewById(R.id.user_moveout_mode_bedroom_bulb_on_button);
+        bedroom_light_off = (TextView) findViewById(R.id.user_moveout_mode_bedroom_bulb_off_button);
+        wc_light_on = (TextView) findViewById(R.id.user_moveout_mode_wc_bulb_on_button);
+        wc_light_off = (TextView) findViewById(R.id.user_moveout_mode_wc_bulb_off_button);
+        heating_on = (TextView) findViewById(R.id.user_moveout_mode_heating_on_button);
+        heating_off = (TextView) findViewById(R.id.user_moveout_mode_heating_off_button);
+        cooling_on = (TextView) findViewById(R.id.user_moveout_mode_ac_on_button);
+        cooling_off = (TextView) findViewById(R.id.user_moveout_mode_ac_off_button);
+        nightlamp_on = (TextView) findViewById(R.id.user_moveout_mode_nl_on_button);
+        nightlamp_off = (TextView) findViewById(R.id.user_sleep_moveout_mode_off_button);
 
         texttovoice.setText("Speak 1 On or 1 Off for Bedroom Bulb Status, " +
                 "Speak 2 On or 2 Off for Toilet Bulb Status," +

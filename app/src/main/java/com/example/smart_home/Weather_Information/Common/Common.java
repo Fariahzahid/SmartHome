@@ -26,6 +26,4 @@ public class Common {
         Date date = new Date();
         return dateFormat.format(date);
     }
-
-
 }

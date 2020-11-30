@@ -1,12 +1,19 @@
 package com.example.smart_home.Contact_Person_Chat_Room;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -14,10 +21,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smart_home.Adapter.MessageAdapter;
+import com.example.smart_home.Contact_Person_Screen.Contact_Person_Users_List;
+import com.example.smart_home.Contact_Person_SignIn.Login;
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.Model.Chat;
 import com.example.smart_home.Notifications.Client;
@@ -77,6 +88,7 @@ public class ContactPersonMessageActivity extends AppCompatActivity {
     APIService apiService;
 
     String senderid,reciverid,sendername,recivername;
+    public static final int REQUEST_CALL = 1;
 
     boolean notify = false;
 
@@ -142,6 +154,11 @@ public class ContactPersonMessageActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 username.setText(documentSnapshot.getString("Name"));
+                String phoneno = documentSnapshot.getString("Phone No");
+                String succes = "SUCCESS";
+                String note = "Connecting to User";
+
+                AlertDialogBoxSuccess(ContactPersonMessageActivity.this,succes,note,phoneno);
                 if(username != null){
                     profileRef = storageReference.child("User_Profile/" +userid+".jpg");
                      profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -161,6 +178,53 @@ public class ContactPersonMessageActivity extends AppCompatActivity {
     }
 
 
+    private  void AlertDialogBoxSuccess(Activity activity, String note, String setetxt, final String PhoneNo){
+        String noteone = note;
+        String settexttwo= setetxt;
+        final Dialog dialog = new Dialog(activity);
+        dialog.setContentView(R.layout.dialog_box_contact_person);
+
+
+        TextView notetext = (TextView) dialog.findViewById(R.id.TextNote);
+        TextView info = (TextView) dialog.findViewById(R.id.Text);
+        // imageView.setImageResource(R.drawable.success);
+
+        notetext.setText(noteone);
+        info.setText(settexttwo);
+
+        Button okButton = (Button) dialog.findViewById(R.id.confirmbutton);
+        okButton.setText("Call");
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(ContextCompat.checkSelfPermission(ContactPersonMessageActivity.this,
+                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(ContactPersonMessageActivity.this,
+                            new String[]{Manifest.permission.CALL_PHONE},REQUEST_CALL);
+                }else {
+                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    callIntent.setData(Uri.parse("tel:"+PhoneNo));
+                    startActivity(callIntent);
+                    //startActivity(new Intent(ContactPersonMessageActivity.this, Contact_Person_Users_List.class));
+                }
+
+                //startActivity(new Intent(ContactPersonMessageActivity.this, Contact_Person_Users_List.class));
+                dialog.dismiss();
+            }
+        });
+        Button CancelButton = (Button) dialog.findViewById(R.id.cancelbutton);
+        CancelButton.setText("Cancel");
+        CancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        dialog.show();
+
+    }
     private void sendMessage(String sender, final String reciver, String message){
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();

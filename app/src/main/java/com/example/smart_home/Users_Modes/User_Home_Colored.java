@@ -96,7 +96,7 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
     FirebaseFirestore fStore;
     String userID,userid,message,name;
     ScrollView home_layout;
-    String City, LastUpdate, Description, Humidity, TimeSunset, TimeSunrise, Celcius, Main, WindSpeed;
+    String City, LastUpdate, Description, Humidity, TimeSunset, TimeSunrise, Celcius, Main, WindSpeed,Temperature;
 
     ProgressDialog temporery;
     @Override
@@ -413,6 +413,7 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
             Description = String.format("%s", openWeatherMap.getWeather().get(0).getDescription());
             Main = String.format("%s", openWeatherMap.getWeather().get(0).getMain());
             Humidity = String.format("Humidity :%d%%", openWeatherMap.getMain().getHumidity());
+            Temperature = String.format("Temperature :%d%%", openWeatherMap.getMain().getTemp());
             TimeSunset = String.format("%s", Common.unixTimeStampToDateTine(openWeatherMap.getSys().getSunset()));
             TimeSunrise = String.format("%s", Common.unixTimeStampToDateTine(openWeatherMap.getSys().getSunrise()));
             Celcius = String.format("Temperature : %.2f  °C", openWeatherMap.getMain().getTemp());

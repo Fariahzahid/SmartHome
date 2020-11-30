@@ -28,6 +28,7 @@ import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.MainActivity;
 import com.example.smart_home.R;
 import com.example.smart_home.User_Chat_Room.Test_Chatting;
+import com.example.smart_home.User_Chat_Room.User_Message_Activity_Blackwhite;
 import com.example.smart_home.Users_Modes.User_Automatic_Mode_Colored;
 import com.example.smart_home.Users_Modes.User_Home_Colored;
 import com.example.smart_home.Users_Modes.User_Manual_Mode_Colored;
@@ -56,6 +57,7 @@ public class User_Home  extends AppCompatActivity implements LocationListener{
     float batteryTemp;
     String currentBatterytemp ="Current Battery temp :",currectTemperature;
 
+
     int MY_PERMISSION = 0;
 
     private String value;
@@ -64,7 +66,7 @@ public class User_Home  extends AppCompatActivity implements LocationListener{
     FirebaseFirestore fStore;
     String userID;
     ScrollView home_layout;
-    String City, LastUpdate, Description, Humidity, TimeSunset, TimeSunrise, Celcius, Main, WindSpeed;
+    String City, LastUpdate, Description, Humidity, TimeSunset, TimeSunrise, Celcius, Main, WindSpeed,Temperature;
 
     ProgressDialog temporery;
 
@@ -144,7 +146,7 @@ public class User_Home  extends AppCompatActivity implements LocationListener{
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(User_Home.this, Test_Chatting.class);
+                Intent intent = new Intent(User_Home.this, User_Message_Activity_Blackwhite.class);
                 startActivity(intent);
             }
         });
@@ -374,6 +376,7 @@ public class User_Home  extends AppCompatActivity implements LocationListener{
             Description = String.format("%s", openWeatherMap.getWeather().get(0).getDescription());
             Main = String.format("%s", openWeatherMap.getWeather().get(0).getMain());
             Humidity = String.format("Humidity :%d%%", openWeatherMap.getMain().getHumidity());
+            Temperature = String.format("Temperature :%s", openWeatherMap.getMain().getTemp());
             TimeSunset = String.format("%s", Common.unixTimeStampToDateTine(openWeatherMap.getSys().getSunset()));
             TimeSunrise = String.format("%s", Common.unixTimeStampToDateTine(openWeatherMap.getSys().getSunrise()));
             Celcius = String.format("Temperature : %.2f  °C", openWeatherMap.getMain().getTemp());

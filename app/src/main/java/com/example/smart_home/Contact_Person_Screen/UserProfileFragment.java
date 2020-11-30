@@ -110,6 +110,7 @@ public class UserProfileFragment extends Fragment {
 
                 if(!colorblind.equals(no)){
                     disabilityone.setText("Color Blindness");
+                    disabilityone.setVisibility(View.VISIBLE);
                 }
                 if(!blind.equals(no)){
                     disabilitytwo.setText("Vision Impairment");

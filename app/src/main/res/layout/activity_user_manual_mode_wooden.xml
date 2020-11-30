@@ -6,11 +6,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/brownbackground"
-    tools:context="com.example.smart_home.Users_Modes.User_Sleep_Mode_Colored">
+    tools:context="com.example.smart_home.Users_Modes.User_Manual_Mode_Colored">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/manualmodelinearlayout"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/manualicon3"></ImageView>
+
+        <TextView
+            android:id="@+id/user_main_mode_text"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="sans-serif-black"
+            android:text="MANUAL MODE"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/manualmodelinearlayout"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,29 +45,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
             android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:src="@drawable/manualicon3"></ImageView>
-
-                <TextView
-                    android:id="@+id/user_main_mode_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="38dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="MANUAL MODE"
-                    android:textColor="@android:color/black"
-                    android:textSize="30sp" />
-            </LinearLayout>
 
 
             <LinearLayout
@@ -53,35 +57,38 @@
                     android:layout_width="126dp"
                     android:layout_height="102dp"
                     app:srcCompat="@drawable/ic_toiletcolour" />
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     app:cardBackgroundColor="@android:color/transparent"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="0dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="TOILET"
                         android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
+                        android:text="TOILET"
                         android:textColor="@color/darkbrown1"
-                        ></TextView>
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
                 </androidx.cardview.widget.CardView>
+
                 <Button
                     android:id="@+id/manualmode_wc_plus_button"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:background="@drawable/ic_plusbrown"></Button>
+
                 <Button
-                    android:id = "@+id/manualmode_wc_minus_button"
+                    android:id="@+id/manualmode_wc_minus_button"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
-                    android:visibility="gone"
-                    android:background="@drawable/ic_minusbrown"></Button>
+                    android:background="@drawable/ic_minusbrown"
+                    android:visibility="gone"></Button>
 
             </LinearLayout>
 
@@ -89,11 +96,14 @@
                 android:id="@+id/manualmode_wc_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone"
                 android:layout_gravity="center_horizontal"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_wc_light"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -140,8 +150,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -179,43 +188,47 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="105dp"
-                                android:layout_marginLeft="10dp"
                                 android:layout_gravity="right"
+                                android:layout_marginLeft="10dp"
                                 app:cardBackgroundColor="@android:color/transparent"
                                 app:cardCornerRadius="0dp"
                                 app:cardElevation="0dp">
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="WC LIGHT"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_wc_bulb_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_wc_bulb_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
 
                         </LinearLayout>
@@ -225,6 +238,8 @@
 
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_wc_fan"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -271,8 +286,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -318,35 +332,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="FAN"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_wc_fan_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_wc_fan_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -365,35 +382,38 @@
                     android:layout_width="126dp"
                     android:layout_height="102dp"
                     app:srcCompat="@drawable/ic_bedroomcolour" />
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     app:cardBackgroundColor="@android:color/transparent"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="0dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="BEDROOM"
                         android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
+                        android:text="BEDROOM"
                         android:textColor="@color/darkbrown1"
-                        ></TextView>
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
                 </androidx.cardview.widget.CardView>
+
                 <Button
                     android:id="@+id/manualmode_bedroom_plus_button"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:background="@drawable/ic_plusbrown"></Button>
+
                 <Button
                     android:id="@+id/manualmode_bedroom_minus_button"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
-                    android:visibility="gone"
-                    android:background="@drawable/ic_minusbrown"></Button>
+                    android:background="@drawable/ic_minusbrown"
+                    android:visibility="gone"></Button>
 
             </LinearLayout>
 
@@ -402,10 +422,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:visibility="gone"
                 android:orientation="vertical"
+                android:visibility="gone"
                 >
+
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_bedroom_light"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -452,8 +475,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -491,8 +513,8 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="105dp"
-                                android:layout_marginLeft="10dp"
                                 android:layout_gravity="right"
+                                android:layout_marginLeft="10dp"
                                 app:cardBackgroundColor="@android:color/transparent"
                                 app:cardCornerRadius="0dp"
                                 app:cardElevation="0dp">
@@ -500,36 +522,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="LIGHT"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_bedroom_bulb_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_bulb_off"
-
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
 
                         </LinearLayout>
@@ -538,6 +562,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_bedroom_blinds"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -584,8 +610,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -631,35 +656,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="BLINDS"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_bedroom_blinds_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_blinds_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -667,6 +695,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_bedroom_charger"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -759,35 +789,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="CHARGING"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_bedroom_charging_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_charging_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:visibility="gone"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -795,6 +828,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_bedroom_nl"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -841,8 +876,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -888,22 +922,23 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="NIGHT LAMP"
-                                    android:textStyle="bold"
-                                    android:textSize="15dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_bedroom_nightlamp_on"
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:fontFamily="sans-serif-black"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
@@ -911,13 +946,14 @@
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -925,6 +961,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_bedroom_heating"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -971,8 +1009,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1018,22 +1055,23 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="HEATING"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_bedroom_heating_on"
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:fontFamily="sans-serif-black"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
@@ -1041,13 +1079,14 @@
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -1055,6 +1094,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_bedroom_cooling"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -1101,8 +1142,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1148,42 +1188,43 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="COOLING"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_bedroom_cooling_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:fontFamily="sans-serif-black"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_cooling_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
-
 
 
             </LinearLayout>
@@ -1198,22 +1239,24 @@
                     android:layout_width="126dp"
                     android:layout_height="102dp"
                     app:srcCompat="@drawable/ic_livingroomcolour" />
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     app:cardBackgroundColor="@android:color/transparent"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="0dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="LIVING ROOM"
                         android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
+                        android:text="LIVING ROOM"
                         android:textColor="@color/darkbrown1"
-                        ></TextView>
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
                 </androidx.cardview.widget.CardView>
+
                 <Button
                     android:id="@+id/manualmode_lr_plus_button"
                     android:layout_width="80dp"
@@ -1225,9 +1268,9 @@
                     android:id="@+id/manualmode_lr_minus_button"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:visibility="gone"
                     android:layout_gravity="center"
-                    android:background="@drawable/ic_minusbrown"></Button>
+                    android:background="@drawable/ic_minusbrown"
+                    android:visibility="gone"></Button>
             </LinearLayout>
 
             <LinearLayout
@@ -1235,11 +1278,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
                 android:visibility="gone"
-                android:orientation="vertical">
+                >
 
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_livingroom_light"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -1286,8 +1332,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1325,8 +1370,8 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="105dp"
-                                android:layout_marginLeft="10dp"
                                 android:layout_gravity="right"
+                                android:layout_marginLeft="10dp"
                                 app:cardBackgroundColor="@android:color/transparent"
                                 app:cardCornerRadius="0dp"
                                 app:cardElevation="0dp">
@@ -1334,36 +1379,37 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="LIGHT"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_lr_bulb_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_lr_bulb_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
                                     android:textColor="@color/black"
-                                    android:textSize="20sp" />
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
 
                         </LinearLayout>
@@ -1372,6 +1418,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_livingroom_blinds"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -1464,37 +1512,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="BLINDS"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_lr_blinds_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_lr_blinds_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -1502,6 +1551,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_livingroom_tablelamp"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -1548,8 +1599,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1595,37 +1645,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="TABLE LAMP"
-                                    android:textStyle="bold"
-                                    android:textSize="15dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_lr_tablelamp_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_lr_tablelamp_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -1633,6 +1684,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_livingroom_television"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -1725,36 +1778,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="TELEVISION"
-                                    android:textStyle="bold"
-                                    android:textSize="18dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_lr_television_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_lr_television_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:visibility="gone"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -1762,6 +1817,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_livingroom_heating"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -1854,36 +1911,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="HEATING"
-                                    android:textStyle="bold"
-                                    android:textSize="18dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_lr_heating_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_lr_heating_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:visibility="gone"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -1891,6 +1950,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_livingroom_cooling"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -1983,42 +2044,43 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="COOLING"
-                                    android:textStyle="bold"
-                                    android:textSize="18dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_lr_cooling_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_lr_cooling_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:visibility="gone"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
-
 
 
             </LinearLayout>
@@ -2034,35 +2096,38 @@
                     android:layout_width="126dp"
                     android:layout_height="102dp"
                     app:srcCompat="@drawable/ic_kitchencolour" />
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     app:cardBackgroundColor="@android:color/transparent"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="0dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="KITCHEN"
                         android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
+                        android:text="KITCHEN"
                         android:textColor="@color/darkbrown1"
-                        ></TextView>
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
                 </androidx.cardview.widget.CardView>
+
                 <Button
                     android:id="@+id/manualmode_kitchen_plus_button"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:background="@drawable/ic_plusbrown"></Button>
+
                 <Button
                     android:id="@+id/manualmode_kitchen_minus_button"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
-                    android:visibility="gone"
-                    android:background="@drawable/ic_minusbrown"></Button>
+                    android:background="@drawable/ic_minusbrown"
+                    android:visibility="gone"></Button>
 
             </LinearLayout>
 
@@ -2071,10 +2136,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
                 android:visibility="gone"
-                android:orientation="vertical">
+                >
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_kitchen_light"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -2121,8 +2189,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2160,8 +2227,8 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="105dp"
-                                android:layout_marginLeft="10dp"
                                 android:layout_gravity="right"
+                                android:layout_marginLeft="10dp"
                                 app:cardBackgroundColor="@android:color/transparent"
                                 app:cardCornerRadius="0dp"
                                 app:cardElevation="0dp">
@@ -2169,35 +2236,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="LIGHT"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_kitchen_bulb_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_kitchen_bulb_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
 
                         </LinearLayout>
@@ -2206,6 +2276,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_kitchen_blinds"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -2252,8 +2324,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2299,36 +2370,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="BLINDS"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_kitchen_blinds_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_kitchen_blinds_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -2336,6 +2409,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_kitchen_oven"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -2428,37 +2503,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="OVEN"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_kitchen_oven_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_kitchen_oven_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:visibility="gone"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
                                     android:layout_marginTop="10dp"
+                                    android:background="@drawable/button_brown"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -2466,6 +2542,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_kitchen_stove"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -2512,8 +2590,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2559,35 +2636,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="STOVE"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_kitchen_stove_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_kitchen_stove_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -2595,6 +2675,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_kitchen_heating"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -2641,8 +2723,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2688,35 +2769,38 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="HEATING"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_kitchen_heating_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_kitchen_heating_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
@@ -2724,6 +2808,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_manual_mode_kitchen_cooling"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -2770,8 +2856,7 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="0dp"
                         app:cardElevation="0dp"
-                        app:cardMaxElevation="8dp"
-                        >
+                        app:cardMaxElevation="8dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2817,42 +2902,43 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
                                     android:layout_gravity="center_horizontal"
                                     android:text="COOLING"
-                                    android:textStyle="bold"
-                                    android:textSize="20dp"></TextView>
+                                    android:textColor="@color/darkbrown1"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"></TextView>
+
                                 <Button
                                     android:id="@+id/manualmode_kitchen_ac_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_kitchen_ac_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
                                     android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
-                                    android:visibility="gone"
-                                    android:textSize="20sp" />
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
-
-
 
 
             </LinearLayout>

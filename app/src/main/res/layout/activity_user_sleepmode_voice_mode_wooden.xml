@@ -98,6 +98,7 @@
             >
 
             <LinearLayout
+                android:id="@+id/layout_sleep_mode_card_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -153,7 +154,6 @@
                     >
 
                     <LinearLayout
-                        android:id="@+id/layout_sleep_mode_card_one"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:clickable="true"
@@ -237,6 +237,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_sleep_mode_card_two"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:addStatesFromChildren="true"
@@ -295,7 +297,6 @@
                     app:layout_constraintVertical_bias="0.25">
 
                     <LinearLayout
-                        android:id="@+id/layout_sleep_mode_card_two"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:clickable="true"
@@ -378,6 +379,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_sleep_mode_card_three"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -436,7 +438,6 @@
                     app:layout_constraintVertical_bias="0.25">
 
                     <LinearLayout
-                        android:id="@+id/layout_sleep_mode_card_three"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:clickable="true"
@@ -518,6 +519,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_sleep_mode_card_four"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -576,7 +579,6 @@
                     app:layout_constraintVertical_bias="0.25">
 
                     <LinearLayout
-                        android:id="@+id/layout_sleep_mode_card_four"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:clickable="true"
@@ -658,6 +660,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_sleep_mode_card_five"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -716,7 +720,6 @@
                     app:layout_constraintVertical_bias="0.25">
 
                     <LinearLayout
-                        android:id="@+id/layout_sleep_mode_card_five"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:clickable="true"

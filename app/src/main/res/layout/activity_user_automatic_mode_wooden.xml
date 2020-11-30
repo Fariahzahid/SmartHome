@@ -1,16 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/brownbackground"
     tools:context="com.example.smart_home.Users_Modes.User_Sleep_Mode_Colored">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/automaticicon"></ImageView>
+
+        <TextView
+            android:id="@+id/user_main_mode_text"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="sans-serif-black"
+            android:text="AUTOMATIC MODE"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -19,29 +44,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
             android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:src="@drawable/automaticicon"></ImageView>
-
-                <TextView
-                    android:id="@+id/user_main_mode_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="38dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="AUTOMATIC MODE"
-                    android:textColor="@android:color/black"
-                    android:textSize="30sp" />
-            </LinearLayout>
 
 
             <LinearLayout
@@ -52,6 +54,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/layout_sleep_mode_card_one"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -152,7 +155,7 @@
                                     android:textSize="20dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_wc_bulb_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -164,7 +167,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_wc_bulb_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -183,6 +186,8 @@
 
 
                 <LinearLayout
+                    android:id="@+id/layout_sleep_mode_card_two"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -284,7 +289,7 @@
                                     android:textSize="15dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_bedroom_bulb_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -298,7 +303,7 @@
                                 <Button
                                     android:id="@+id/manualmode_bedroom_bulb_off"
 
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -477,6 +482,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_sleep_mode_card_three"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -577,7 +584,7 @@
                                     android:textSize="15dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_bedroom_nightlamp_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:fontFamily="sans-serif-black"
@@ -590,7 +597,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_nightlamp_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -764,6 +771,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_sleep_mode_card_four"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -865,7 +873,7 @@
                                     android:textSize="20dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_bedroom_blinds_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -877,7 +885,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_blinds_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -896,6 +904,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+
+                    android:id="@+id/layout_sleep_mode_card_five"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -997,7 +1007,7 @@
                                     android:textSize="20dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_bedroom_heating_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:fontFamily="sans-serif-black"
@@ -1010,7 +1020,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_heating_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -1027,6 +1037,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_sleep_mode_card_six"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -1127,7 +1139,7 @@
                                     android:textSize="20dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_bedroom_cooling_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:fontFamily="sans-serif-black"
@@ -1140,12 +1152,13 @@
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_cooling_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
                                     android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
                                     android:visibility="gone"
@@ -1163,4 +1176,4 @@
         </LinearLayout>
     </ScrollView>
 
-</RelativeLayout>
+</LinearLayout>
