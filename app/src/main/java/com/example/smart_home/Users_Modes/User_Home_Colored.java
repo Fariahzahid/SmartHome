@@ -36,9 +36,12 @@ import com.example.smart_home.Notifications.Sender;
 import com.example.smart_home.Notifications.Token;
 import com.example.smart_home.User_Chat_Room.Test_Chatting;
 import com.example.smart_home.User_Chat_Room.User_Contact_List;
+import com.example.smart_home.User_Modes_Black_White.User_Home;
 import com.example.smart_home.Weather_Information.Common.Common;
 import com.example.smart_home.Weather_Information.Helper.Helper;
 import com.example.smart_home.Weather_Information.Model.OpenWeatherMap;
+import com.example.smart_home.Weather_Information.Model.Sys;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -59,6 +62,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.content.Intent;
 import android.view.View;
@@ -204,116 +208,30 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
 
             GlobalVariables globalVariable=(GlobalVariables)getApplication();
             globalVariable.setCurrentTemperature(batteryTemp);
-            if(batteryTemp <=25){
-                globalVariable.setSleep_mode_bedroom_ac("OFF");
-                globalVariable.setSleep_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
-                globalVariable.setSleep_mode_bedroom_heating("ON");
-                globalVariable.setSleep_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+            String temp = String.valueOf(batteryTemp);
 
-                globalVariable.setManual_mode_bedroom_ac("OFF");
-                globalVariable.setManual_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
-                globalVariable.setManual_mode_bedroom_heating("ON");
-                globalVariable.setManual_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+            DocumentReference documentReference = fStore.collection("USER").document(userID).collection("Temperature").document("Temperature");
+            Map<String, Object> user = new HashMap<>();
+            user.put("Temperature", temp);
 
-                globalVariable.setAutomatic_mode_bedroom_ac("OFF");
-                globalVariable.setAutomatic_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
-                globalVariable.setAutomatic_mode_bedroom_heating("ON");
-                globalVariable.setAutomatic_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
 
-                globalVariable.setSleep_mode_livingroom_ac("OFF");
-                globalVariable.setSleep_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
-                globalVariable.setSleep_mode_livingroom_heating("ON");
-                globalVariable.setSleep_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+                    Log.d(TAG, "OnSuccess: User Details Added " + userID);
 
-                globalVariable.setManual_mode_livingroom_ac("OFF");
-                globalVariable.setManual_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
-                globalVariable.setManual_mode_livingroom_heating("ON");
-                globalVariable.setManual_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+                    System.out.println("Temperature success");
 
-                globalVariable.setAutomatic_mode_livingroom_ac("OFF");
-                globalVariable.setAutomatic_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
-                globalVariable.setAutomatic_mode_livingroom_heating("ON");
-                globalVariable.setAutomatic_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d(TAG, "OnFailire: User Details Note added " + e.toString());
 
-                globalVariable.setSleep_mode_kitchen_ac("OFF");
-                globalVariable.setSleep_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
-                globalVariable.setSleep_mode_kitchen_heating("ON");
-                globalVariable.setSleep_mode_kitchen_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+                }
+            });
 
-                globalVariable.setManual_mode_kitchen_ac("OFF");
-                globalVariable.setManual_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
-                globalVariable.setManual_mode_kitchen_heating("ON");
-                globalVariable.setManual_mode_kitchen_ac_temperature("30 "+ (char) 0x00B0 +"C" );
 
-                globalVariable.setAutomatic_mode_kitchen_ac("OFF");
-                globalVariable.setAutomatic_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
-                globalVariable.setAutomatic_mode_kitchen_heating("ON");
-                globalVariable.setAutomatic_mode_kitchen_heating_temperature("30 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setSleep_mode_wc_heating("ON");
-                globalVariable.setSleep_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setManual_mode_wc_heating("ON");
-                globalVariable.setManual_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setAutomatic_mode_wc_heating("ON");
-                globalVariable.setAutomatic_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
-            }
-            if(batteryTemp >= 25){
-                globalVariable.setSleep_mode_bedroom_ac("ON");
-                globalVariable.setSleep_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
-                globalVariable.setSleep_mode_bedroom_heating("OFF");
-                globalVariable.setSleep_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setManual_mode_bedroom_ac("ON");
-                globalVariable.setManual_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
-                globalVariable.setManual_mode_bedroom_heating("OFF");
-                globalVariable.setManual_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setAutomatic_mode_bedroom_ac("ON");
-                globalVariable.setAutomatic_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
-                globalVariable.setAutomatic_mode_bedroom_heating("OFF");
-                globalVariable.setAutomatic_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setSleep_mode_livingroom_ac("ON");
-                globalVariable.setSleep_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
-                globalVariable.setSleep_mode_livingroom_heating("OFF");
-                globalVariable.setSleep_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setManual_mode_livingroom_ac("ON");
-                globalVariable.setManual_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
-                globalVariable.setManual_mode_livingroom_heating("OFF");
-                globalVariable.setManual_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setAutomatic_mode_livingroom_ac("ON");
-                globalVariable.setAutomatic_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
-                globalVariable.setAutomatic_mode_livingroom_heating("OFF");
-                globalVariable.setAutomatic_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setSleep_mode_kitchen_ac("ON");
-                globalVariable.setSleep_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
-                globalVariable.setSleep_mode_kitchen_heating("OFF");
-                globalVariable.setSleep_mode_kitchen_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setManual_mode_kitchen_ac("ON");
-                globalVariable.setManual_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
-                globalVariable.setManual_mode_kitchen_heating("OFF");
-                globalVariable.setManual_mode_kitchen_ac_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setAutomatic_mode_kitchen_ac("ON");
-                globalVariable.setAutomatic_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
-                globalVariable.setAutomatic_mode_kitchen_heating("OFF");
-                globalVariable.setAutomatic_mode_kitchen_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setSleep_mode_wc_heating("OFF");
-                globalVariable.setSleep_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setManual_mode_wc_heating("OFF");
-                globalVariable.setManual_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-
-                globalVariable.setAutomatic_mode_wc_heating("OFF");
-                globalVariable.setAutomatic_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
-            }
         }
     };
     @Override
@@ -413,10 +331,42 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
             Description = String.format("%s", openWeatherMap.getWeather().get(0).getDescription());
             Main = String.format("%s", openWeatherMap.getWeather().get(0).getMain());
             Humidity = String.format("Humidity :%d%%", openWeatherMap.getMain().getHumidity());
-            Temperature = String.format("Temperature :%d%%", openWeatherMap.getMain().getTemp());
+            Temperature = String.format("Temperature :%s", openWeatherMap.getMain().getTemp());
             TimeSunset = String.format("%s", Common.unixTimeStampToDateTine(openWeatherMap.getSys().getSunset()));
             TimeSunrise = String.format("%s", Common.unixTimeStampToDateTine(openWeatherMap.getSys().getSunrise()));
             Celcius = String.format("Temperature : %.2f  °C", openWeatherMap.getMain().getTemp());
+
+
+            DocumentReference documentReference = fStore.collection("USER").document(userID).collection("Weather").document("Weather");
+            Map<String, Object> user = new HashMap<>();
+            user.put("City", City );
+            user.put("WindSpeed", WindSpeed );
+            user.put("LastUpdate", LastUpdate );
+            user.put("Description", Description );
+            user.put("Main", Main );
+            user.put("Humidity", Humidity );
+            user.put("Temperature", Temperature );
+            user.put("TimeSunset", TimeSunset );
+            user.put("TimeSunrise", TimeSunrise );
+            user.put("Celcius", Celcius );
+
+            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+
+                    Log.d(TAG, "OnSuccess: User Details Added " + userID);
+
+                    System.out.println("Temperature success");
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d(TAG, "OnFailire: User Details Note added " + e.toString());
+
+                }
+            });
+
 
             GlobalVariables globalVariables = (GlobalVariables) getApplication();
             globalVariables.setCity(City);
@@ -425,34 +375,34 @@ public class User_Home_Colored extends AppCompatActivity implements LocationList
             globalVariables.setHumidity(Humidity);
             globalVariables.setSunrise(TimeSunrise);
             globalVariables.setSunset(TimeSunset);
-            globalVariables.setTemperature(Celcius);
+            globalVariables.setTemperature(Temperature);
 
-            String global = globalVariables.getCity();
-            String Main = String.format("%s", openWeatherMap.getWeather().get(0).getMain());
-            String Clear = "Clear";
-            String Rain = "Rain";
-            String Clouds = "Clouds";
-            Boolean found = Arrays.asList(Main.split(" ")).contains(Clouds);
-            Boolean foundtwo = Arrays.asList(Main.split(" ")).contains(Rain);
-            Boolean foundthree = Arrays.asList(Main.split(" ")).contains(Clear);
-            if (found) {
-                System.out.println("Show" + Clouds + "Weather is Cloudy");
-                //Toast.makeText(User_Home_Colored.this, "Show" + Clouds + "Weather is Cloudy", Toast.LENGTH_SHORT).show();
-            }
-            if (foundtwo) {
-                System.out.println("Show" + Rain + "Weather is Rainy");
-                //Toast.makeText(User_Home_Colored.this, "Show" + Rain + "Weather is Rainy", Toast.LENGTH_SHORT).show();
-            }
-            if (foundthree) {
-                System.out.println("Show" + Clear + "Weather is Clear");
-               // Toast.makeText(User_Home_Colored.this, "Show" + Clear + "Weather is Clear", Toast.LENGTH_SHORT).show();
-            }
-
-            if(global != null){
-//                Intent intent = new Intent(User_Home_Colored.this, User_Home_Colored.class);
-//                startActivity(intent);
-                home_layout.setVisibility(View.VISIBLE);
-            }
+//            String global = globalVariables.getCity();
+//            String Main = String.format("%s", openWeatherMap.getWeather().get(0).getMain());
+//            String Clear = "Clear";
+//            String Rain = "Rain";
+//            String Clouds = "Clouds";
+//            Boolean found = Arrays.asList(Main.split(" ")).contains(Clouds);
+//            Boolean foundtwo = Arrays.asList(Main.split(" ")).contains(Rain);
+//            Boolean foundthree = Arrays.asList(Main.split(" ")).contains(Clear);
+//            if (found) {
+//                System.out.println("Show" + Clouds + "Weather is Cloudy");
+//                //Toast.makeText(User_Home_Colored.this, "Show" + Clouds + "Weather is Cloudy", Toast.LENGTH_SHORT).show();
+//            }
+//            if (foundtwo) {
+//                System.out.println("Show" + Rain + "Weather is Rainy");
+//                //Toast.makeText(User_Home_Colored.this, "Show" + Rain + "Weather is Rainy", Toast.LENGTH_SHORT).show();
+//            }
+//            if (foundthree) {
+//                System.out.println("Show" + Clear + "Weather is Clear");
+//               // Toast.makeText(User_Home_Colored.this, "Show" + Clear + "Weather is Clear", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            if(global != null){
+////                Intent intent = new Intent(User_Home_Colored.this, User_Home_Colored.class);
+////                startActivity(intent);
+//                home_layout.setVisibility(View.VISIBLE);
+//            }
 
 
         }

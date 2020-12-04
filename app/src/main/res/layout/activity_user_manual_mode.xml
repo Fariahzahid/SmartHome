@@ -923,7 +923,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_nightlamp_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10dp"
@@ -935,7 +935,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_nightlamp_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10dp"
@@ -1054,7 +1054,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_heating_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10dp"
@@ -1066,7 +1066,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_bedroom_heating_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="10dp"
@@ -2682,7 +2682,7 @@
                             android:layout_width="90dp"
                             android:layout_height="89dp"
                             android:layout_gravity="center"
-                            android:background="@drawable/rectangle_brown"
+                            android:background="@drawable/rectangle"
                             android:clickable="true"
                             android:orientation="horizontal"
                             android:paddingLeft="5dp"

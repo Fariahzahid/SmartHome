@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public class Contact_Person_Sleep_Mode_WC extends Fragment {
     String userID;
     TextView temperature;
     Button save;
+    String Status;
 
     private android.widget.Spinner heating, heatingtemp, bulb, fan;
 
@@ -44,30 +46,46 @@ public class Contact_Person_Sleep_Mode_WC extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-//        if(getArguments() != null){
-//            userID= getArguments().getString("UserID");
-//            System.out.println(userID +"userid");
-//            Log.d(TAG,"UserID   "+userID);
-//
-//        }
-
         GlobalVariables globalVariables =(GlobalVariables)getActivity().getApplication();
         userID = globalVariables.getUserIDUser();
 
         View v = inflater.inflate(R.layout.activity_contact_person_sleepmode_wc, container, false);
-
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
         bedroom = "Sleep_Mode_WC";
 
         bulb = v.findViewById(R.id.bulb_sleepmode_wc_spinner);
         fan = v.findViewById(R.id.fan_sleepmode_wc_spinner);
         save = (Button) v.findViewById(R.id.wc_sleepmode_save);
 
-        Bulb();
-        Fan();
+        DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("WC");
+        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                String Fan = documentSnapshot.getString("Extractorfan");
+                String Bulb = documentSnapshot.getString("Bulb");
 
 
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+                if(Fan != null){
+                    Status = Fan;
+                    Fan(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    Fan(Status);
+                }
+                if(Bulb != null){
+                    Status = Bulb;
+                    Bulb(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    Bulb(Status);
+                }
+            }
+        });
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,10 +117,10 @@ public class Contact_Person_Sleep_Mode_WC extends Fragment {
         return v;
 
     }
-    private void Bulb(){
+    private void Bulb(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -118,7 +136,6 @@ public class Contact_Person_Sleep_Mode_WC extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -127,10 +144,10 @@ public class Contact_Person_Sleep_Mode_WC extends Fragment {
             }
         });
     }
-    private void Fan(){
+    private void Fan(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Intensity");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -142,11 +159,10 @@ public class Contact_Person_Sleep_Mode_WC extends Fragment {
         fan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Select Intensity")) {
+                if (parent.getItemAtPosition(position).equals("Select Status")) {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

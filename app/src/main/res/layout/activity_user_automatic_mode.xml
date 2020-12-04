@@ -32,7 +32,7 @@
             android:fontFamily="sans-serif-black"
             android:text="AUTOMATIC MODE"
             android:textColor="@android:color/black"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
     </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
@@ -325,8 +325,8 @@
                             android:layout_height="match_parent"
                             android:clickable="true"
                             android:id="@+id/livingroombulblayout"
-                            android:visibility="gone"
                             android:orientation="horizontal"
+                            android:visibility="gone"
                             android:paddingLeft="5dp"
                             android:paddingTop="5dp"
                             android:paddingRight="10dp"
@@ -350,7 +350,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_gravity="center"
-                                        app:srcCompat="@drawable/ic_bulb" />
+                                        app:srcCompat="@drawable/ic_bulbwhite" />
 
                                 </LinearLayout>
                             </androidx.cardview.widget.CardView>
@@ -367,18 +367,18 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
+                                    android:textColor="@color/black"
                                     android:layout_gravity="center_horizontal"
                                     android:text="LIVING ROOM LIGHT"
                                     android:textStyle="bold"
                                     android:textSize="15dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_lr_bulb_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
+                                    android:background="@drawable/button_rectangle_grey"
+                                    android:textColor="@color/black"
                                     android:layout_marginTop="10dp"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
@@ -387,15 +387,15 @@
 
                                 <Button
                                     android:id="@+id/manualmode_lr_bulb_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
+                                    android:background="@drawable/button_rectangle_grey"
+                                    android:textColor="@color/black"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
                                     android:visibility="gone"
-                                    android:textColor="@color/black"
                                     android:textSize="20sp" />
                             </androidx.cardview.widget.CardView>
 
@@ -430,7 +430,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_gravity="center"
-                                        app:srcCompat="@drawable/ic_bulb" />
+                                        app:srcCompat="@drawable/ic_bulbwhite" />
 
                                 </LinearLayout>
                             </androidx.cardview.widget.CardView>
@@ -447,31 +447,34 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
+                                    android:textColor="@color/black"
                                     android:layout_gravity="center_horizontal"
                                     android:text="KITCHEN LIGHT"
                                     android:textStyle="bold"
                                     android:textSize="15dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_kitchen_bulb_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:background="@drawable/button_rectangle_grey"
+                                    android:textColor="@color/black"
+
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="ON"
                                     android:textSize="20sp" />
 
                                 <Button
                                     android:id="@+id/manualmode_kitchen_bulb_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:background="@drawable/button_rectangle_grey"
+                                    android:textColor="@color/black"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
                                     android:visibility="gone"
@@ -643,7 +646,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_gravity="center"
-                                        app:srcCompat="@drawable/ic_lampcolournightlamp" />
+                                        app:srcCompat="@drawable/ic_lampnightlamp" />
 
                                 </LinearLayout>
                             </androidx.cardview.widget.CardView>
@@ -659,7 +662,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
+                                    android:textColor="@color/black"
                                     android:layout_gravity="center_horizontal"
                                     android:text="TABLE LAMP"
                                     android:textStyle="bold"
@@ -669,8 +672,8 @@
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
+                                    android:background="@drawable/button_rectangle_grey"
+                                    android:textColor="@color/black"
                                     android:layout_marginTop="10dp"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
@@ -682,8 +685,8 @@
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
+                                    android:background="@drawable/button_rectangle_grey"
+                                    android:textColor="@color/black"
                                     android:layout_marginTop="10dp"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
@@ -722,7 +725,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_gravity="center"
-                                        app:srcCompat="@drawable/ic_televisioncolor" />
+                                        app:srcCompat="@drawable/ic_television" />
 
                                 </LinearLayout>
                             </androidx.cardview.widget.CardView>
@@ -738,18 +741,18 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/darkbrown1"
+                                    android:textColor="@color/black"
                                     android:layout_gravity="center_horizontal"
                                     android:text="TELEVISION"
                                     android:textStyle="bold"
                                     android:textSize="18dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_lr_television_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
+                                    android:background="@drawable/button_rectangle_grey"
+                                    android:textColor="@color/black"
                                     android:layout_marginTop="10dp"
                                     android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
@@ -758,13 +761,14 @@
 
                                 <Button
                                     android:id="@+id/manualmode_lr_television_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:visibility="gone"
-                                    android:background="@drawable/button_brown"
-                                    android:textColor="@color/white"
-                                    android:layout_marginTop="10dp"                                    android:fontFamily="sans-serif-black"
+                                    android:background="@drawable/button_rectangle_grey"
+                                    android:textColor="@color/black"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="sans-serif-black"
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
                                     android:textSize="20sp" />

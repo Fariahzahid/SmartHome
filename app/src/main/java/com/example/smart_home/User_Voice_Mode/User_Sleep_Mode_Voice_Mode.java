@@ -30,6 +30,10 @@ import com.example.smart_home.Users_Modes.User_Automatic_Mode_Colored;
 import com.example.smart_home.Users_Modes.User_Manual_Mode_Colored;
 import com.example.smart_home.Users_Modes.User_Move_Out_Mode_Colored;
 import com.example.smart_home.Users_Modes.User_Sleep_Mode_Colored;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -51,7 +55,11 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
     ImageView user_layout;
 
     //FIREBASE FIRESTORE
-    private FirebaseFirestore fStore;
+
+    FirebaseAuth mFirebaseAuth;
+    FirebaseFirestore fStore;
+    LinearLayout one,two,three,four,five;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,11 +81,17 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
         nightlamp_on = (TextView) findViewById(R.id.user_sleep_mode_nl_on_button);
         nightlamp_off = (TextView) findViewById(R.id.user_sleep_mode_nl_off_button);
 
-        texttovoice.setText("Speak 1 On or 1 Off for Bedroom Bulb Status, " +
-                "Speak 2 On or 2 Off for Toilet Bulb Status," +
-                "Speak 3 On or 3 Off for heating Status," +
-                "Speak 4 On or 4 Off for cooling Status, " +
-                "Speak 5 On or 5 Off for night lamp Status");
+        one = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_one);
+        two = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_two);
+        three = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_three);
+        four = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_four);
+        five = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_five);
+
+        texttovoice.setText("Speak 1 A for ON or 1 B for OFF Bedroom Bulb Status, " +
+                "Speak 2 A ON or 2 B for OFF Toilet Bulb Status," +
+                "Speak 3 A ON or 3 B for OFF for heating Status," +
+                "Speak 4 A ON or 4 B for OFF for cooling Status, " +
+                "Speak 5 A ON or 5 B for OFF for night lamp Status");
         // Init TextToSpeech
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -162,7 +176,7 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
             }
         });
 
-        getValues();
+        getTemperature();
 
         checkPermission();
 
@@ -225,33 +239,43 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
         String numberfivefiveOf = "5 of";
 
         if (test.equals(numberoneON) || text.equals(numberoneoneON)) {
-                    bedroom_light_on.setVisibility(View.GONE);
-                    bedroom_light_off.setVisibility(View.VISIBLE);
+            one.setBackgroundColor(getColor(R.color.greentwo));
+            bedroom_light_on.setVisibility(View.GONE);
+            bedroom_light_off.setVisibility(View.VISIBLE);
         } else if (test.equals(numberoneOff) || test.equals(numberoneoneOff) || test.equals(numberoneOf) || test.equals(numberoneoneOf)) {
+            one.setBackgroundColor(getColor(android.R.color.transparent));
             bedroom_light_on.setVisibility(View.VISIBLE);
             bedroom_light_off.setVisibility(View.GONE);
         } else if  (test.equals(numbertwoON) || text.equals(numbertwotwoON)) {
+            two.setBackgroundColor(getColor(R.color.greentwo));
             wc_light_on.setVisibility(View.GONE);
             wc_light_off.setVisibility(View.VISIBLE);
         } else if (test.equals(numbertwoOff) || test.equals(numbertwotwoOff) || test.equals(numbertwoOf) || test.equals(numbertwotwoOf)) {
+            two.setBackgroundColor(getColor(android.R.color.transparent));
             wc_light_on.setVisibility(View.VISIBLE);
             wc_light_off.setVisibility(View.GONE);
         } else if  (test.equals(numberthreeON) || text.equals(numberthreethreeON)) {
+            three.setBackgroundColor(getColor(R.color.greentwo));
             heating_on.setVisibility(View.GONE);
             heating_off.setVisibility(View.VISIBLE);
         } else if (test.equals(numberthreeOff) || test.equals(numberthreethreeOff) || test.equals(numberthreeOf) || test.equals(numberthreethreeOf)) {
+            three.setBackgroundColor(getColor(android.R.color.transparent));
             heating_on.setVisibility(View.VISIBLE);
             heating_off.setVisibility(View.GONE);
         } else if  (test.equals(numberfourON) || text.equals(numberfourfourON)) {
+            four.setBackgroundColor(getColor(R.color.greentwo));
             cooling_on.setVisibility(View.GONE);
             cooling_off.setVisibility(View.VISIBLE);
         } else if (test.equals(numberfourOff) || test.equals(numberfourfourOff) || test.equals(numberfourOf) || test.equals(numberfourfourOf)) {
+            four.setBackgroundColor(getColor(android.R.color.transparent));
             cooling_on.setVisibility(View.VISIBLE);
             cooling_off.setVisibility(View.GONE);
         } else if  (test.equals(numberfiveON) || text.equals(numberfivefiveON)) {
+            five.setBackgroundColor(getColor(R.color.greentwo));
             nightlamp_on.setVisibility(View.GONE);
             nightlamp_off.setVisibility(View.VISIBLE);
         } else if (test.equals(numberfiveOff) || test.equals(numberfivefiveOff) || test.equals(numberfiveOf) || test.equals(numberfivefiveOf)) {
+            five.setBackgroundColor(getColor(android.R.color.transparent));
             nightlamp_on.setVisibility(View.VISIBLE);
             nightlamp_off.setVisibility(View.GONE);
         } else {
@@ -299,6 +323,7 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
         String e = globalVariable.getSleep_mode_bedroom_nightlamp();
 
         if(a.equals(on)){
+            one.setBackgroundColor(getColor(R.color.greentwo));
             bedroom_light_on.setVisibility(View.GONE);
             bedroom_light_off.setVisibility(View.VISIBLE);
         }else{
@@ -306,6 +331,8 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
             bedroom_light_off.setVisibility(View.GONE);
         }
         if(b.equals(on)){
+            two.setBackgroundColor(getColor(R.color.greentwo));
+
             wc_light_on.setVisibility(View.GONE);
             wc_light_off.setVisibility(View.VISIBLE);
         }else{
@@ -313,6 +340,8 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
             wc_light_off.setVisibility(View.GONE);
         }
         if(c.equals(on)){
+            three.setBackgroundColor(getColor(R.color.greentwo));
+
             heating_on.setVisibility(View.GONE);
             heating_off.setVisibility(View.VISIBLE);
         }
@@ -322,6 +351,8 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
             heating_off.setVisibility(View.GONE);
         }
         if(d.equals(on)){
+            four.setBackgroundColor(getColor(R.color.greentwo));
+
             cooling_on.setVisibility(View.GONE);
             cooling_off.setVisibility(View.VISIBLE);
         }
@@ -330,6 +361,8 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
             cooling_off.setVisibility(View.GONE);
         }
         if(e.equals(on)){
+            five.setBackgroundColor(getColor(R.color.greentwo));
+
             nightlamp_on.setVisibility(View.GONE);
             nightlamp_off.setVisibility(View.VISIBLE);
         }
@@ -338,76 +371,142 @@ public class User_Sleep_Mode_Voice_Mode extends AppCompatActivity {
             nightlamp_off.setVisibility(View.GONE);
         }
 
-//        bedroom_light_on.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                bedroom_light_on.setVisibility(View.GONE);
-//                bedroom_light_off.setVisibility(View.VISIBLE);
-//            }
-//        });
-//        bedroom_light_off.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                bedroom_light_on.setVisibility(View.VISIBLE);
-//                bedroom_light_off.setVisibility(View.GONE);
-//            }
-//        });
-//        wc_light_on.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                wc_light_on.setVisibility(View.GONE);
-//                wc_light_off.setVisibility(View.VISIBLE);
-//            }
-//        });
-//        wc_light_off.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                wc_light_on.setVisibility(View.VISIBLE);
-//                wc_light_off.setVisibility(View.GONE);
-//            }
-//        });
-//        heating_on.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                heating_on.setVisibility(View.GONE);
-//                heating_off.setVisibility(View.VISIBLE);
-//            }
-//        });
-//        heating_off.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                heating_on.setVisibility(View.VISIBLE);
-//                heating_off.setVisibility(View.GONE);
-//            }
-//        });
-//        cooling_on.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                cooling_on.setVisibility(View.GONE);
-//                cooling_off.setVisibility(View.VISIBLE);
-//            }
-//        });
-//        cooling_off.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                cooling_on.setVisibility(View.VISIBLE);
-//                cooling_off.setVisibility(View.GONE);
-//            }
-//        });
-//        nightlamp_on.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                nightlamp_on.setVisibility(View.GONE);
-//                nightlamp_off.setVisibility(View.VISIBLE);
-//            }
-//        });
-//        nightlamp_off.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                nightlamp_on.setVisibility(View.VISIBLE);
-//                nightlamp_off.setVisibility(View.GONE);
-//            }
-//        });
+
     }
+
+    private void getTemperature(){
+
+        fStore = FirebaseFirestore.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        String userID = mFirebaseAuth.getCurrentUser().getUid();
+        final GlobalVariables globalVariable=(GlobalVariables)getApplication();
+
+        DocumentReference documentReference = fStore.collection("USER").document(userID).collection("Temperature").document("Temperature");
+        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String currentTemperature = documentSnapshot.getString("Temperature");
+                String[] currenttimeArray = currentTemperature.split("\\.");
+
+                int one = Integer.parseInt(currenttimeArray[0]);
+                int two = Integer.parseInt(currenttimeArray[1]);
+
+                if(one <=25){
+                    globalVariable.setSleep_mode_bedroom_ac("OFF");
+                    globalVariable.setSleep_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_bedroom_heating("ON");
+                    globalVariable.setSleep_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_bedroom_ac("OFF");
+                    globalVariable.setManual_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_bedroom_heating("ON");
+                    globalVariable.setManual_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_bedroom_ac("OFF");
+                    globalVariable.setAutomatic_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_bedroom_heating("ON");
+                    globalVariable.setAutomatic_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_livingroom_ac("OFF");
+                    globalVariable.setSleep_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_livingroom_heating("ON");
+                    globalVariable.setSleep_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_livingroom_ac("OFF");
+                    globalVariable.setManual_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_livingroom_heating("ON");
+                    globalVariable.setManual_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_livingroom_ac("OFF");
+                    globalVariable.setAutomatic_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_livingroom_heating("ON");
+                    globalVariable.setAutomatic_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_kitchen_ac("OFF");
+                    globalVariable.setSleep_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_kitchen_heating("ON");
+                    globalVariable.setSleep_mode_kitchen_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_kitchen_ac("OFF");
+                    globalVariable.setManual_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_kitchen_heating("ON");
+                    globalVariable.setManual_mode_kitchen_ac_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_kitchen_ac("OFF");
+                    globalVariable.setAutomatic_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_kitchen_heating("ON");
+                    globalVariable.setAutomatic_mode_kitchen_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_wc_heating("ON");
+                    globalVariable.setSleep_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_wc_heating("ON");
+                    globalVariable.setManual_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_wc_heating("ON");
+                    globalVariable.setAutomatic_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+                }
+                if(one >= 25){
+                    globalVariable.setSleep_mode_bedroom_ac("ON");
+                    globalVariable.setSleep_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_bedroom_heating("OFF");
+                    globalVariable.setSleep_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_bedroom_ac("ON");
+                    globalVariable.setManual_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_bedroom_heating("OFF");
+                    globalVariable.setManual_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_bedroom_ac("ON");
+                    globalVariable.setAutomatic_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_bedroom_heating("OFF");
+                    globalVariable.setAutomatic_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_livingroom_ac("ON");
+                    globalVariable.setSleep_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_livingroom_heating("OFF");
+                    globalVariable.setSleep_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_livingroom_ac("ON");
+                    globalVariable.setManual_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_livingroom_heating("OFF");
+                    globalVariable.setManual_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_livingroom_ac("ON");
+                    globalVariable.setAutomatic_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_livingroom_heating("OFF");
+                    globalVariable.setAutomatic_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_kitchen_ac("ON");
+                    globalVariable.setSleep_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_kitchen_heating("OFF");
+                    globalVariable.setSleep_mode_kitchen_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_kitchen_ac("ON");
+                    globalVariable.setManual_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_kitchen_heating("OFF");
+                    globalVariable.setManual_mode_kitchen_ac_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_kitchen_ac("ON");
+                    globalVariable.setAutomatic_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_kitchen_heating("OFF");
+                    globalVariable.setAutomatic_mode_kitchen_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_wc_heating("OFF");
+                    globalVariable.setSleep_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_wc_heating("OFF");
+                    globalVariable.setManual_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_wc_heating("OFF");
+                    globalVariable.setAutomatic_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+                }
+
+                getValues();
+
+            }
+        });
+    }
+
 
 }

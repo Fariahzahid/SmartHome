@@ -59,7 +59,7 @@ public class User_Manual_Mode extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_manual_mode_wooden);
+        setContentView(R.layout.activity_user_manual_mode);
 
         manualmode_wc_plus_button = (Button) findViewById(R.id.manualmode_wc_plus_button);
         manualmode_wc_minus_button = (Button) findViewById(R.id.manualmode_wc_minus_button);
@@ -223,7 +223,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_wc_bulb_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                wc_light.setBackgroundColor(getColor(R.color.greentwo));
+                wc_light.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_wc_bulb_on.setVisibility(View.GONE);
                 manualmode_wc_bulb_off.setVisibility(View.VISIBLE);
@@ -243,7 +243,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_wc_fan_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                wc_fan.setBackgroundColor(getColor(R.color.greentwo));
+                wc_fan.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_wc_fan_on.setVisibility(View.GONE);
                 manualmode_wc_fan_off.setVisibility(View.VISIBLE);
@@ -262,7 +262,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_bedroom_bulb_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bedroom_light.setBackgroundColor(getColor(R.color.greentwo));
+                bedroom_light.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_bedroom_bulb_on.setVisibility(View.GONE);
                 manualmode_bedroom_bulb_off.setVisibility(View.VISIBLE);
@@ -282,7 +282,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_bedroom_blinds_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bedroom_blinds.setBackgroundColor(getColor(R.color.greentwo));
+                bedroom_blinds.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_bedroom_blinds_on.setVisibility(View.GONE);
                 manualmode_bedroom_blinds_off.setVisibility(View.VISIBLE);
@@ -301,7 +301,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_bedroom_nightlamp_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bedroom_nightlamp.setBackgroundColor(getColor(R.color.greentwo));
+                bedroom_nightlamp.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_bedroom_nightlamp_on.setVisibility(View.GONE);
                 manualmode_bedroom_nightlamp_off.setVisibility(View.VISIBLE);
@@ -321,7 +321,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_bedroom_charging_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bedroom_charging.setBackgroundColor(getColor(R.color.greentwo));
+                bedroom_charging.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_bedroom_charging_on.setVisibility(View.GONE);
                 manualmode_bedroom_charging_off.setVisibility(View.VISIBLE);
@@ -341,7 +341,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_bedroom_heating_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bedroom_heating.setBackgroundColor(getColor(R.color.greentwo));
+                bedroom_heating.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_bedroom_heating_on.setVisibility(View.GONE);
                 manualmode_bedroom_heating_off.setVisibility(View.VISIBLE);
@@ -361,7 +361,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_bedroom_cooling_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bedroom_cooling.setBackgroundColor(getColor(R.color.greentwo));
+                bedroom_cooling.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_bedroom_cooling_on.setVisibility(View.GONE);
                 manualmode_bedroom_cooling_off.setVisibility(View.VISIBLE);
@@ -382,7 +382,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_lr_bulb_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lv_light.setBackgroundColor(getColor(R.color.greentwo));
+                lv_light.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_lr_bulb_on.setVisibility(View.GONE);
                 manualmode_lr_bulb_off.setVisibility(View.VISIBLE);
@@ -401,7 +401,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_lr_blinds_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lv_blinds.setBackgroundColor(getColor(R.color.greentwo));
+                lv_blinds.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_lr_blinds_on.setVisibility(View.GONE);
                 manualmode_lr_blinds_off.setVisibility(View.VISIBLE);
@@ -420,7 +420,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_lr_tablelamp_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lv_tablelamp.setBackgroundColor(getColor(R.color.greentwo));
+                lv_tablelamp.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_lr_tablelamp_on.setVisibility(View.GONE);
                 manualmode_lr_tablelamp_off.setVisibility(View.VISIBLE);
@@ -440,7 +440,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_lr_television_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lv_television.setBackgroundColor(getColor(R.color.greentwo));
+                lv_television.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_lr_television_on.setVisibility(View.GONE);
                 manualmode_lr_television_off.setVisibility(View.VISIBLE);
@@ -460,7 +460,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_lv_heating_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lv_heating.setBackgroundColor(getColor(R.color.greentwo));
+                lv_heating.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_lv_heating_on.setVisibility(View.GONE);
                 manualmode_lv_heating_off.setVisibility(View.VISIBLE);
@@ -480,7 +480,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_lv_cooling_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lv_cooling.setBackgroundColor(getColor(R.color.greentwo));
+                lv_cooling.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_lv_cooling_on.setVisibility(View.GONE);
                 manualmode_lv_cooling_off.setVisibility(View.VISIBLE);
@@ -500,7 +500,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_kitchen_bulb_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kitchen_light.setBackgroundColor(getColor(R.color.greentwo));
+                kitchen_light.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_kitchen_bulb_on.setVisibility(View.GONE);
                 manualmode_kitchen_bulb_off.setVisibility(View.VISIBLE);
@@ -519,7 +519,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_kitchen_blinds_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kitchen_blinds.setBackgroundColor(getColor(R.color.greentwo));
+                kitchen_blinds.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_kitchen_blinds_on.setVisibility(View.GONE);
                 manualmode_kitchen_blinds_off.setVisibility(View.VISIBLE);
@@ -538,7 +538,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_kitchen_oven_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kitchen_oven.setBackgroundColor(getColor(R.color.greentwo));
+                kitchen_oven.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_kitchen_oven_on.setVisibility(View.GONE);
                 manualmode_kitchen_oven_off.setVisibility(View.VISIBLE);
@@ -557,7 +557,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_kitchen_stove_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kitchen_stove.setBackgroundColor(getColor(R.color.greentwo));
+                kitchen_stove.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_kitchen_stove_on.setVisibility(View.GONE);
                 manualmode_kitchen_stove_off.setVisibility(View.VISIBLE);
@@ -578,7 +578,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_kitchen_heating_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kitchen_heating.setBackgroundColor(getColor(R.color.greentwo));
+                kitchen_heating.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_kitchen_heating_on.setVisibility(View.GONE);
                 manualmode_kitchen_heating_off.setVisibility(View.VISIBLE);
@@ -598,7 +598,7 @@ public class User_Manual_Mode extends AppCompatActivity {
         manualmode_kitchen_cooling_on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lv_cooling.setBackgroundColor(getColor(R.color.greentwo));
+                kitchen_cooling.setBackgroundColor(getColor(R.color.greyshade2));
 
                 manualmode_kitchen_cooling_on.setVisibility(View.GONE);
                 manualmode_kitchen_cooling_off.setVisibility(View.VISIBLE);

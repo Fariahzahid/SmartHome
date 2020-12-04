@@ -1,5 +1,6 @@
 package com.example.smart_home.User_Voice_Mode;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -17,8 +18,10 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -35,28 +38,43 @@ import com.example.smart_home.R;
 import com.example.smart_home.User_Chat_Room.Test_Chatting;
 import com.example.smart_home.User_Chat_Room.User_Message_Activity;
 import com.example.smart_home.User_Chat_Room.User_Message_Activity_Voice;
+import com.example.smart_home.Users_Modes.User_Automatic_Mode_Colored;
 import com.example.smart_home.Users_Modes.User_Home_Colored;
+import com.example.smart_home.Users_Modes.User_Manual_Mode_Colored;
+import com.example.smart_home.Users_Modes.User_Move_Out_Mode_Colored;
+import com.example.smart_home.Users_Modes.User_Sleep_Mode_Colored;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
-    ConstraintLayout speechlayout;
+
+    private static final String TAG = "My Activity";
+
+    LinearLayout speechlayout;
     TextToSpeech textToSpeech;
     private TextView textofspeech, speechtotext;
     FirebaseAuth mFirebaseAuth;
     FirebaseFirestore fStore;
     String speaktotext;
     String currentTime;
-    ImageView user_layout;
+    //LinearLayout user_layout;
 
+    String userID;
     IntentFilter intentfilter;
     float batteryTemp;
     String currentBatterytemp ="Current Battery temp :",currectTemperature;
+    private Button sleep_mode,moveout_mode,automatic_mode,manual_mode,contact,log_out;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +89,12 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
         intentfilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         User_Home_Wooden_Voice_Mode.this.registerReceiver(broadcastreceiver,intentfilter);
 
-        textofspeech = (TextView) findViewById(R.id.textofspeech);
-        speechtotext = (TextView) findViewById(R.id.speechthetext);
-        user_layout = (ImageView) findViewById(R.id.user_layout);
-        speechlayout = (ConstraintLayout) findViewById(R.id.speechlayout);
+        textofspeech = (TextView) findViewById(R.id.texttovoice);
+        speechtotext = (TextView) findViewById(R.id.voicetotext);
+        //user_layout = (LinearLayout) findViewById(R.id.activity_dashboard_Voice);
+        speechlayout = (LinearLayout) findViewById(R.id.speechlayout);
+
+        userID = mFirebaseAuth.getCurrentUser().getUid();
 
         textofspeech.setText("To activate sleep mode speak one   ," +
                 "  To activate move out speak two  ,  " +
@@ -94,7 +114,7 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
                                 Toast.LENGTH_SHORT);
                     } else {
                         speechlayout.setEnabled(true);
-                        user_layout.setEnabled(true);
+                        //user_layout.setEnabled(true);
                         textToSpeech.setPitch(0.6f);
                         textToSpeech.setSpeechRate(1.0f);
 
@@ -170,7 +190,6 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
 
         checkPermission();
 
-        speechlayout = (ConstraintLayout) findViewById(R.id.speechlayout);
 
         speechlayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -192,28 +211,76 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
                 return false;
             }
         });
-        user_layout.setOnTouchListener(new View.OnTouchListener() {
+//        user_layout.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                textToSpeech.stop();
+//                switch (motionEvent.getAction()) {
+//                    case MotionEvent.ACTION_UP:
+//                        mSpeechRecognizer.stopListening();
+//                        speechtotext.setHint("You will see input here");
+//                        break;
+//
+//                    case MotionEvent.ACTION_DOWN:
+//                        mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
+//                        speechtotext.setText("");
+//                        speechtotext.setHint("Listening...");
+//
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
+
+
+        sleep_mode = (Button) findViewById(R.id.user_home_sleep_mode_button);
+        moveout_mode = (Button) findViewById(R.id.user_home_moveoutmode_button);
+        automatic_mode = (Button) findViewById(R.id.user_home_automatic_mode_button);
+        contact = (Button) findViewById(R.id.user_home_contact_person_button);
+        log_out = (Button) findViewById(R.id.user_logout);
+
+        sleep_mode.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                textToSpeech.stop();
-                switch (motionEvent.getAction()) {
-                    case MotionEvent.ACTION_UP:
-                        mSpeechRecognizer.stopListening();
-                        speechtotext.setHint("You will see input here");
-                        break;
+            public void onClick(View v) {
 
-                    case MotionEvent.ACTION_DOWN:
-                        mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
-                        speechtotext.setText("");
-                        speechtotext.setHint("Listening...");
-
-                        break;
-                }
-                return false;
+                Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Sleep_Mode_Voice_Mode.class);
+                startActivity(intent);
+            }
+        });
+        moveout_mode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Move_Out_Mode_Voice_Mode.class);
+                startActivity(intent);
+            }
+        });
+        automatic_mode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Automatic_Mode_Voice_Mode.class);
+                startActivity(intent);
             }
         });
 
 
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, User_Message_Activity_Voice.class);
+                startActivity(intent);
+            }
+        });
+        log_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFirebaseAuth.signOut();
+                Intent intent = new Intent(User_Home_Wooden_Voice_Mode.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+
+
+            }
+        });
     }
 
     private void speaktext(String text) {
@@ -286,126 +353,44 @@ public class User_Home_Wooden_Voice_Mode extends AppCompatActivity {
         }
     }
 
+
+
+
     private BroadcastReceiver broadcastreceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            batteryTemp = (float) (intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0)) / 10;
+            batteryTemp = (float)(intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE,0))/10;
 
-            currectTemperature = currentBatterytemp + " " + batteryTemp + " " + (char) 0x00B0 + "C";
+            currectTemperature = currentBatterytemp +" "+batteryTemp +" "+ (char) 0x00B0 +"C";
 
-            GlobalVariables globalVariable = (GlobalVariables) getApplication();
+            GlobalVariables globalVariable=(GlobalVariables)getApplication();
             globalVariable.setCurrentTemperature(batteryTemp);
-            if (batteryTemp <= 25) {
-                globalVariable.setSleep_mode_bedroom_ac("OFF");
-                globalVariable.setSleep_mode_bedroom_ac_temperature("0" + (char) 0x00B0 + "C");
-                globalVariable.setSleep_mode_bedroom_heating("ON");
-                globalVariable.setSleep_mode_bedroom_heating_temperature("30 " + (char) 0x00B0 + "C");
+            String temp = String.valueOf(batteryTemp);
 
-                globalVariable.setManual_mode_bedroom_ac("OFF");
-                globalVariable.setManual_mode_bedroom_ac_temperature("0" + (char) 0x00B0 + "C");
-                globalVariable.setManual_mode_bedroom_heating("ON");
-                globalVariable.setManual_mode_bedroom_heating_temperature("30 " + (char) 0x00B0 + "C");
+            DocumentReference documentReference = fStore.collection("USER").document(userID).collection("Temperature").document("Temperature");
+            Map<String, Object> user = new HashMap<>();
+            user.put("Temperature", temp);
 
-                globalVariable.setAutomatic_mode_bedroom_ac("OFF");
-                globalVariable.setAutomatic_mode_bedroom_ac_temperature("0" + (char) 0x00B0 + "C");
-                globalVariable.setAutomatic_mode_bedroom_heating("ON");
-                globalVariable.setAutomatic_mode_bedroom_heating_temperature("30 " + (char) 0x00B0 + "C");
+            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
 
-                globalVariable.setSleep_mode_livingroom_ac("OFF");
-                globalVariable.setSleep_mode_livingroom_ac_temperature("0" + (char) 0x00B0 + "C");
-                globalVariable.setSleep_mode_livingroom_heating("ON");
-                globalVariable.setSleep_mode_livingroom_heating_temperature("30 " + (char) 0x00B0 + "C");
+                    Log.d(TAG, "OnSuccess: User Details Added " + userID);
 
-                globalVariable.setManual_mode_livingroom_ac("OFF");
-                globalVariable.setManual_mode_livingroom_ac_temperature("0" + (char) 0x00B0 + "C");
-                globalVariable.setManual_mode_livingroom_heating("ON");
-                globalVariable.setManual_mode_livingroom_heating_temperature("30 " + (char) 0x00B0 + "C");
+                    System.out.println("Temperature success");
 
-                globalVariable.setAutomatic_mode_livingroom_ac("OFF");
-                globalVariable.setAutomatic_mode_livingroom_ac_temperature("0" + (char) 0x00B0 + "C");
-                globalVariable.setAutomatic_mode_livingroom_heating("ON");
-                globalVariable.setAutomatic_mode_livingroom_heating_temperature("30 " + (char) 0x00B0 + "C");
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d(TAG, "OnFailire: User Details Note added " + e.toString());
 
-                globalVariable.setSleep_mode_kitchen_ac("OFF");
-                globalVariable.setSleep_mode_kitchen_ac_temperature("0" + (char) 0x00B0 + "C");
-                globalVariable.setSleep_mode_kitchen_heating("ON");
-                globalVariable.setSleep_mode_kitchen_heating_temperature("30 " + (char) 0x00B0 + "C");
+                }
+            });
 
-                globalVariable.setManual_mode_kitchen_ac("OFF");
-                globalVariable.setManual_mode_kitchen_ac_temperature("0" + (char) 0x00B0 + "C");
-                globalVariable.setManual_mode_kitchen_heating("ON");
-                globalVariable.setManual_mode_kitchen_ac_temperature("30 " + (char) 0x00B0 + "C");
 
-                globalVariable.setAutomatic_mode_kitchen_ac("OFF");
-                globalVariable.setAutomatic_mode_kitchen_ac_temperature("0" + (char) 0x00B0 + "C");
-                globalVariable.setAutomatic_mode_kitchen_heating("ON");
-                globalVariable.setAutomatic_mode_kitchen_heating_temperature("30 " + (char) 0x00B0 + "C");
-
-                globalVariable.setSleep_mode_wc_heating("ON");
-                globalVariable.setSleep_mode_wc_heating_temperature("30 " + (char) 0x00B0 + "C");
-
-                globalVariable.setManual_mode_wc_heating("ON");
-                globalVariable.setManual_mode_wc_heating_temperature("30 " + (char) 0x00B0 + "C");
-
-                globalVariable.setAutomatic_mode_wc_heating("ON");
-                globalVariable.setAutomatic_mode_wc_heating_temperature("30 " + (char) 0x00B0 + "C");
-            }
-            if (batteryTemp >= 25) {
-                globalVariable.setSleep_mode_bedroom_ac("ON");
-                globalVariable.setSleep_mode_bedroom_ac_temperature("20" + (char) 0x00B0 + "C");
-                globalVariable.setSleep_mode_bedroom_heating("OFF");
-                globalVariable.setSleep_mode_bedroom_heating_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setManual_mode_bedroom_ac("ON");
-                globalVariable.setManual_mode_bedroom_ac_temperature("20" + (char) 0x00B0 + "C");
-                globalVariable.setManual_mode_bedroom_heating("OFF");
-                globalVariable.setManual_mode_bedroom_heating_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setAutomatic_mode_bedroom_ac("ON");
-                globalVariable.setAutomatic_mode_bedroom_ac_temperature("20" + (char) 0x00B0 + "C");
-                globalVariable.setAutomatic_mode_bedroom_heating("OFF");
-                globalVariable.setAutomatic_mode_bedroom_heating_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setSleep_mode_livingroom_ac("ON");
-                globalVariable.setSleep_mode_livingroom_ac_temperature("20" + (char) 0x00B0 + "C");
-                globalVariable.setSleep_mode_livingroom_heating("OFF");
-                globalVariable.setSleep_mode_livingroom_heating_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setManual_mode_livingroom_ac("ON");
-                globalVariable.setManual_mode_livingroom_ac_temperature("20" + (char) 0x00B0 + "C");
-                globalVariable.setManual_mode_livingroom_heating("OFF");
-                globalVariable.setManual_mode_livingroom_heating_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setAutomatic_mode_livingroom_ac("ON");
-                globalVariable.setAutomatic_mode_livingroom_ac_temperature("20" + (char) 0x00B0 + "C");
-                globalVariable.setAutomatic_mode_livingroom_heating("OFF");
-                globalVariable.setAutomatic_mode_livingroom_heating_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setSleep_mode_kitchen_ac("ON");
-                globalVariable.setSleep_mode_kitchen_ac_temperature("20" + (char) 0x00B0 + "C");
-                globalVariable.setSleep_mode_kitchen_heating("OFF");
-                globalVariable.setSleep_mode_kitchen_heating_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setManual_mode_kitchen_ac("ON");
-                globalVariable.setManual_mode_kitchen_ac_temperature("20" + (char) 0x00B0 + "C");
-                globalVariable.setManual_mode_kitchen_heating("OFF");
-                globalVariable.setManual_mode_kitchen_ac_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setAutomatic_mode_kitchen_ac("ON");
-                globalVariable.setAutomatic_mode_kitchen_ac_temperature("20" + (char) 0x00B0 + "C");
-                globalVariable.setAutomatic_mode_kitchen_heating("OFF");
-                globalVariable.setAutomatic_mode_kitchen_heating_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setSleep_mode_wc_heating("OFF");
-                globalVariable.setSleep_mode_wc_heating_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setManual_mode_wc_heating("OFF");
-                globalVariable.setManual_mode_wc_heating_temperature("0 " + (char) 0x00B0 + "C");
-
-                globalVariable.setAutomatic_mode_wc_heating("OFF");
-                globalVariable.setAutomatic_mode_wc_heating_temperature("0 " + (char) 0x00B0 + "C");
-            }
         }
     };
+
 }
 

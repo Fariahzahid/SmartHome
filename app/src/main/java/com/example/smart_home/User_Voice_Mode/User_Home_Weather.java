@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -28,6 +29,11 @@ import com.example.smart_home.R;
 import com.example.smart_home.Weather_Information.Common.Common;
 import com.example.smart_home.Weather_Information.Helper.Helper;
 import com.example.smart_home.Weather_Information.Model.OpenWeatherMap;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
@@ -36,7 +42,9 @@ import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class User_Home_Weather extends AppCompatActivity implements LocationListener {
     private static final String TAG = "My Activity";
@@ -48,11 +56,14 @@ public class User_Home_Weather extends AppCompatActivity implements LocationList
     String provider;
     static double lat, lng;
     OpenWeatherMap openWeatherMap = new OpenWeatherMap();
-    String City, LastUpdate, Description, Humidity, TimeSunset, TimeSunrise, Celcius, Main, WindSpeed;
+    String City, LastUpdate, Description, Humidity, TimeSunset, TimeSunrise, Celcius, Main, WindSpeed,Temperature;
 
     int MY_PERMISSION = 0;
     ProgressDialog temporery;
     TextToSpeech textToSpeech;
+    FirebaseAuth mFirebaseAuth;
+    FirebaseFirestore fStore;
+    String userID;
 
     String currentTime;
 
@@ -66,6 +77,10 @@ public class User_Home_Weather extends AppCompatActivity implements LocationList
         temporery = new ProgressDialog(User_Home_Weather.this);
         temporery.setTitle("Please wait ....");
         temporery.show();
+
+        fStore = FirebaseFirestore.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        userID = mFirebaseAuth.getCurrentUser().getUid();
 
         weatherLayout = (LinearLayout) findViewById(R.id.weatherLayout);
         txtwait = (TextView) findViewById(R.id.waittext);
@@ -228,10 +243,42 @@ public class User_Home_Weather extends AppCompatActivity implements LocationList
             LastUpdate = String.format("Last Updated: %s", Common.getDateNow());
             Description = String.format("%s", openWeatherMap.getWeather().get(0).getDescription());
             Main = String.format("%s", openWeatherMap.getWeather().get(0).getMain());
+            Temperature = String.format("Temperature :%s", openWeatherMap.getMain().getTemp());
             Humidity = String.format("Humidity :%d%%", openWeatherMap.getMain().getHumidity());
             TimeSunset = String.format("%s", Common.unixTimeStampToDateTine(openWeatherMap.getSys().getSunset()));
             TimeSunrise = String.format("%s", Common.unixTimeStampToDateTine(openWeatherMap.getSys().getSunrise()));
             Celcius = String.format("Temperature : %.2f  °C", openWeatherMap.getMain().getTemp());
+
+
+            DocumentReference documentReference = fStore.collection("USER").document(userID).collection("Weather").document("Weather");
+            Map<String, Object> user = new HashMap<>();
+            user.put("City", City );
+            user.put("WindSpeed", WindSpeed );
+            user.put("LastUpdate", LastUpdate );
+            user.put("Description", Description );
+            user.put("Main", Main );
+            user.put("Humidity", Humidity );
+            user.put("Temperature", Temperature );
+            user.put("TimeSunset", TimeSunset );
+            user.put("TimeSunrise", TimeSunrise );
+            user.put("Celcius", Celcius );
+
+            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+
+                    Log.d(TAG, "OnSuccess: User Details Added " + userID);
+
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d(TAG, "OnFailire: User Details Note added " + e.toString());
+
+                }
+            });
+
 
             GlobalVariables globalVariables = (GlobalVariables) getApplication();
             globalVariables.setCity(City);
@@ -243,25 +290,6 @@ public class User_Home_Weather extends AppCompatActivity implements LocationList
             globalVariables.setTemperature(Celcius);
 
             String global = globalVariables.getCity();
-            String Main = String.format("%s", openWeatherMap.getWeather().get(0).getMain());
-            String Clear = "Clear";
-            String Rain = "Rain";
-            String Clouds = "Clouds";
-            Boolean found = Arrays.asList(Main.split(" ")).contains(Clouds);
-            Boolean foundtwo = Arrays.asList(Main.split(" ")).contains(Rain);
-            Boolean foundthree = Arrays.asList(Main.split(" ")).contains(Clear);
-            if (found) {
-                System.out.println("Show" + Clouds + "Weather is Cloudy");
-                Toast.makeText(User_Home_Weather.this, "Show" + Clouds + "Weather is Cloudy", Toast.LENGTH_SHORT).show();
-            }
-            if (foundtwo) {
-                System.out.println("Show" + Rain + "Weather is Rainy");
-                Toast.makeText(User_Home_Weather.this, "Show" + Rain + "Weather is Rainy", Toast.LENGTH_SHORT).show();
-            }
-            if (foundthree) {
-                System.out.println("Show" + Clear + "Weather is Clear");
-                Toast.makeText(User_Home_Weather.this, "Show" + Clear + "Weather is Clear", Toast.LENGTH_SHORT).show();
-            }
 
             if(global != null){
                // weatherLayout.setVisibility(View.VISIBLE);

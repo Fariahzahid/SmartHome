@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
     FirebaseFirestore fStore;
     String userID;
     Button save;
+    String Status ;
 
     private android.widget.Spinner bulbintensity,windowblind, bulb, tablelamp,television;
 
@@ -43,15 +45,12 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-//        if(getArguments() != null){
-//            userID= getArguments().getString("UserID");
-//            System.out.println(userID +"userid");
-//            Log.d(TAG,"UserID   "+userID);
-//
-//        }
         GlobalVariables globalVariables =(GlobalVariables)getActivity().getApplication();
         userID = globalVariables.getUserIDUser();
         View v = inflater.inflate(R.layout.activity_contact_person_sleepmode_livingroom, container, false);
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         bedroom = "Sleep_Mode_Livingroom";
         windowblind =v.findViewById(R.id.window_blind_sleepmode_livingroom_spinner);
@@ -61,14 +60,59 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
         television = v.findViewById(R.id.tv_sleepmode_livingroom_spinner);
         save = (Button) v.findViewById(R.id.livingroom_sleepmode_save);
 
-        WindowBlind();
-        Bulb();
-        BulbIntensity();
-        TableLamp();
-        Television();
+        DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("LivingRoom");
+        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
 
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+                String Blinds = documentSnapshot.getString("WindowBlinds");
+                String Bulb = documentSnapshot.getString("Bulb");
+                String BulbIntensity = documentSnapshot.getString("BulbIntensity");
+                String TableLamp = documentSnapshot.getString("Table Lamp");
+                String Television = documentSnapshot.getString("Television");
+
+                if(Blinds != null){
+                    Status = Blinds;
+                    WindowBlind(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    WindowBlind(Status);
+                }
+                if(Bulb != null){
+                    Status = Bulb;
+                    Bulb(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    Bulb(Status);
+                }
+                if(BulbIntensity != null){
+                    Status = BulbIntensity;
+                    BulbIntensity(Status);
+                }else
+                {
+                    Status = "Select Intensity";
+                    BulbIntensity(Status);
+                }
+                if(TableLamp != null){
+                    Status = TableLamp;
+                    TableLamp(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    TableLamp(Status);
+                }
+                if(Television != null){
+                    Status = Television;
+                    Television(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    Television(Status);
+                }
+            }
+        });
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,13 +147,13 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
 
     }
 
-    private void BulbIntensity(){
+    private void BulbIntensity(String status){
         ArrayList<String> acarray = new ArrayList<>();
-        acarray.add(0, "Select Intensity");
+        acarray.add(0, status);
         acarray.add("OFF");
-        acarray.add("LOW 1");
-        acarray.add("MEDIUM 2");
-        acarray.add("HIGHT 3");
+        acarray.add("LOW");
+        acarray.add("MEDIUM ");
+        acarray.add("HIGH");
 
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, acarray);
@@ -123,7 +167,6 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -133,10 +176,10 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
             }
         });
     }
-    private void WindowBlind(){
+    private void WindowBlind(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("OPEN");
         timearray.add("CLOSE");
 
@@ -152,7 +195,6 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -162,10 +204,10 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
             }
         });
     }
-    private void Bulb(){
+    private void Bulb(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -181,7 +223,6 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -190,10 +231,10 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
             }
         });
     }
-    private void TableLamp(){
+    private void TableLamp(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Intensity");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -209,7 +250,6 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -218,10 +258,10 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
             }
         });
     }
-    private void Television(){
+    private void Television(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -237,7 +277,6 @@ public class Contact_Person_Sleep_Mode_Livingroom extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

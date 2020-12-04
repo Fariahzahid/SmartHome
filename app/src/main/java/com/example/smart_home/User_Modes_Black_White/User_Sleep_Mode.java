@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.smart_home.GlobalVariables;
 import com.example.smart_home.R;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
@@ -24,15 +28,15 @@ public class User_Sleep_Mode extends AppCompatActivity {
     String on ="ON",off="OFF",open="OPEN",close="CLOSE";
 
     LinearLayout one,two,three,four,five;
-
-    //FIREBASE FIRESTORE
-    private FirebaseFirestore fStore;
+    FirebaseAuth mFirebaseAuth;
+    FirebaseFirestore fStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_sleep_mode);
-        getValues();
+        getTemperature();
+
     }
 
     public void getValues(){
@@ -199,4 +203,137 @@ public class User_Sleep_Mode extends AppCompatActivity {
         });
     }
 
+    private void getTemperature(){
+
+        fStore = FirebaseFirestore.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        String userID = mFirebaseAuth.getCurrentUser().getUid();
+        final GlobalVariables globalVariable=(GlobalVariables)getApplication();
+
+        DocumentReference documentReference = fStore.collection("USER").document(userID).collection("Temperature").document("Temperature");
+        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String currentTemperature = documentSnapshot.getString("Temperature");
+                String[] currenttimeArray = currentTemperature.split("\\.");
+
+                int one = Integer.parseInt(currenttimeArray[0]);
+                int two = Integer.parseInt(currenttimeArray[1]);
+
+                if(one <=25){
+                    globalVariable.setSleep_mode_bedroom_ac("OFF");
+                    globalVariable.setSleep_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_bedroom_heating("ON");
+                    globalVariable.setSleep_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_bedroom_ac("OFF");
+                    globalVariable.setManual_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_bedroom_heating("ON");
+                    globalVariable.setManual_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_bedroom_ac("OFF");
+                    globalVariable.setAutomatic_mode_bedroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_bedroom_heating("ON");
+                    globalVariable.setAutomatic_mode_bedroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_livingroom_ac("OFF");
+                    globalVariable.setSleep_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_livingroom_heating("ON");
+                    globalVariable.setSleep_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_livingroom_ac("OFF");
+                    globalVariable.setManual_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_livingroom_heating("ON");
+                    globalVariable.setManual_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_livingroom_ac("OFF");
+                    globalVariable.setAutomatic_mode_livingroom_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_livingroom_heating("ON");
+                    globalVariable.setAutomatic_mode_livingroom_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_kitchen_ac("OFF");
+                    globalVariable.setSleep_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_kitchen_heating("ON");
+                    globalVariable.setSleep_mode_kitchen_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_kitchen_ac("OFF");
+                    globalVariable.setManual_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_kitchen_heating("ON");
+                    globalVariable.setManual_mode_kitchen_ac_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_kitchen_ac("OFF");
+                    globalVariable.setAutomatic_mode_kitchen_ac_temperature("0" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_kitchen_heating("ON");
+                    globalVariable.setAutomatic_mode_kitchen_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_wc_heating("ON");
+                    globalVariable.setSleep_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_wc_heating("ON");
+                    globalVariable.setManual_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_wc_heating("ON");
+                    globalVariable.setAutomatic_mode_wc_heating_temperature("30 "+ (char) 0x00B0 +"C" );
+                }
+                if(one >= 25){
+                    globalVariable.setSleep_mode_bedroom_ac("ON");
+                    globalVariable.setSleep_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_bedroom_heating("OFF");
+                    globalVariable.setSleep_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_bedroom_ac("ON");
+                    globalVariable.setManual_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_bedroom_heating("OFF");
+                    globalVariable.setManual_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_bedroom_ac("ON");
+                    globalVariable.setAutomatic_mode_bedroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_bedroom_heating("OFF");
+                    globalVariable.setAutomatic_mode_bedroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_livingroom_ac("ON");
+                    globalVariable.setSleep_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_livingroom_heating("OFF");
+                    globalVariable.setSleep_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_livingroom_ac("ON");
+                    globalVariable.setManual_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_livingroom_heating("OFF");
+                    globalVariable.setManual_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_livingroom_ac("ON");
+                    globalVariable.setAutomatic_mode_livingroom_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_livingroom_heating("OFF");
+                    globalVariable.setAutomatic_mode_livingroom_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_kitchen_ac("ON");
+                    globalVariable.setSleep_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setSleep_mode_kitchen_heating("OFF");
+                    globalVariable.setSleep_mode_kitchen_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_kitchen_ac("ON");
+                    globalVariable.setManual_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setManual_mode_kitchen_heating("OFF");
+                    globalVariable.setManual_mode_kitchen_ac_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_kitchen_ac("ON");
+                    globalVariable.setAutomatic_mode_kitchen_ac_temperature("20" + (char) 0x00B0 +"C");
+                    globalVariable.setAutomatic_mode_kitchen_heating("OFF");
+                    globalVariable.setAutomatic_mode_kitchen_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setSleep_mode_wc_heating("OFF");
+                    globalVariable.setSleep_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setManual_mode_wc_heating("OFF");
+                    globalVariable.setManual_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+
+                    globalVariable.setAutomatic_mode_wc_heating("OFF");
+                    globalVariable.setAutomatic_mode_wc_heating_temperature("0 "+ (char) 0x00B0 +"C" );
+                }
+
+                getValues();
+
+            }
+        });
+    }
 }

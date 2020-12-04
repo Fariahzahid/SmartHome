@@ -14,6 +14,7 @@ import android.speech.tts.TextToSpeech;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +45,7 @@ public class User_Move_Out_Mode_Voice_Mode extends AppCompatActivity {
 
     ScrollView user_sleep_mode_layout;
     String speaktotext;
+    LinearLayout one,two,three,four,five;
     ImageView user_layout;
 
     //FIREBASE FIRESTORE
@@ -67,6 +69,14 @@ public class User_Move_Out_Mode_Voice_Mode extends AppCompatActivity {
         cooling_off = (TextView) findViewById(R.id.user_moveout_mode_ac_off_button);
         nightlamp_on = (TextView) findViewById(R.id.user_moveout_mode_nl_on_button);
         nightlamp_off = (TextView) findViewById(R.id.user_sleep_moveout_mode_off_button);
+
+        one = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_one);
+        two = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_two);
+        three = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_three);
+        four = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_four);
+        five = (LinearLayout) findViewById(R.id.layout_sleep_mode_card_five);
+
+
 
         texttovoice.setText("Speak 1 On or 1 Off for Bedroom Bulb Status, " +
                 "Speak 2 On or 2 Off for Toilet Bulb Status," +
@@ -218,30 +228,40 @@ public class User_Move_Out_Mode_Voice_Mode extends AppCompatActivity {
         String numberfivefiveOf = "5 of";
 
         if (test.equals(numberoneON) || text.equals(numberoneoneON)) {
+            one.setBackgroundColor(getColor(R.color.greentwo));
+
             bedroom_light_on.setVisibility(View.GONE);
             bedroom_light_off.setVisibility(View.VISIBLE);
         } else if (test.equals(numberoneOff) || test.equals(numberoneoneOff) || test.equals(numberoneOf) || test.equals(numberoneoneOf)) {
             bedroom_light_on.setVisibility(View.VISIBLE);
             bedroom_light_off.setVisibility(View.GONE);
         } else if  (test.equals(numbertwoON) || text.equals(numbertwotwoON)) {
+            two.setBackgroundColor(getColor(R.color.greentwo));
+
             wc_light_on.setVisibility(View.GONE);
             wc_light_off.setVisibility(View.VISIBLE);
         } else if (test.equals(numbertwoOff) || test.equals(numbertwotwoOff) || test.equals(numbertwoOf) || test.equals(numbertwotwoOf)) {
             wc_light_on.setVisibility(View.VISIBLE);
             wc_light_off.setVisibility(View.GONE);
         } else if  (test.equals(numberthreeON) || text.equals(numberthreethreeON)) {
+            three.setBackgroundColor(getColor(R.color.greentwo));
+
             heating_on.setVisibility(View.GONE);
             heating_off.setVisibility(View.VISIBLE);
         } else if (test.equals(numberthreeOff) || test.equals(numberthreethreeOff) || test.equals(numberthreeOf) || test.equals(numberthreethreeOf)) {
             heating_on.setVisibility(View.VISIBLE);
             heating_off.setVisibility(View.GONE);
         } else if  (test.equals(numberfourON) || text.equals(numberfourfourON)) {
+            four.setBackgroundColor(getColor(R.color.greentwo));
+
             cooling_on.setVisibility(View.GONE);
             cooling_off.setVisibility(View.VISIBLE);
         } else if (test.equals(numberfourOff) || test.equals(numberfourfourOff) || test.equals(numberfourOf) || test.equals(numberfourfourOf)) {
             cooling_on.setVisibility(View.VISIBLE);
             cooling_off.setVisibility(View.GONE);
         } else if  (test.equals(numberfiveON) || text.equals(numberfivefiveON)) {
+            five.setBackgroundColor(getColor(R.color.greentwo));
+
             nightlamp_on.setVisibility(View.GONE);
             nightlamp_off.setVisibility(View.VISIBLE);
         } else if (test.equals(numberfiveOff) || test.equals(numberfivefiveOff) || test.equals(numberfiveOf) || test.equals(numberfivefiveOf)) {
@@ -292,6 +312,8 @@ public class User_Move_Out_Mode_Voice_Mode extends AppCompatActivity {
         String e = globalVariable.getSleep_mode_bedroom_nightlamp();
 
         if (a.equals(on)) {
+            one.setBackgroundColor(getColor(R.color.greentwo));
+
             bedroom_light_on.setVisibility(View.GONE);
             bedroom_light_off.setVisibility(View.VISIBLE);
         } else {
@@ -299,6 +321,8 @@ public class User_Move_Out_Mode_Voice_Mode extends AppCompatActivity {
             bedroom_light_off.setVisibility(View.GONE);
         }
         if (b.equals(on)) {
+            two.setBackgroundColor(getColor(R.color.greentwo));
+
             wc_light_on.setVisibility(View.GONE);
             wc_light_off.setVisibility(View.VISIBLE);
         } else {
@@ -306,6 +330,8 @@ public class User_Move_Out_Mode_Voice_Mode extends AppCompatActivity {
             wc_light_off.setVisibility(View.GONE);
         }
         if (c.equals(on)) {
+            three.setBackgroundColor(getColor(R.color.greentwo));
+
             heating_on.setVisibility(View.GONE);
             heating_off.setVisibility(View.VISIBLE);
         } else {
@@ -313,6 +339,9 @@ public class User_Move_Out_Mode_Voice_Mode extends AppCompatActivity {
             heating_off.setVisibility(View.GONE);
         }
         if (d.equals(on)) {
+            four.setBackgroundColor(getColor(R.color.greentwo));
+
+
             cooling_on.setVisibility(View.GONE);
             cooling_off.setVisibility(View.VISIBLE);
         } else {
@@ -320,6 +349,8 @@ public class User_Move_Out_Mode_Voice_Mode extends AppCompatActivity {
             cooling_off.setVisibility(View.GONE);
         }
         if (e.equals(on)) {
+            five.setBackgroundColor(getColor(R.color.greentwo));
+
             nightlamp_on.setVisibility(View.GONE);
             nightlamp_off.setVisibility(View.VISIBLE);
         } else {

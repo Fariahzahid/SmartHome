@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/brownbackground"
-    tools:context="com.example.smart_home.Users_Modes.User_Sleep_Mode_Colored">
+    tools:context="com.example.smart_home.Users_Modes.User_Automatic_Mode_Colored">
 
 
     <LinearLayout
@@ -30,7 +30,7 @@
             android:layout_marginLeft="20dp"
             android:fontFamily="sans-serif-black"
             android:text="AUTOMATIC MODE"
-            android:textColor="@android:color/black"
+            android:textColor="@color/darkbrown1"
             android:textSize="30sp" />
     </LinearLayout>
     <ScrollView
@@ -322,8 +322,8 @@
                             android:layout_height="match_parent"
                             android:clickable="true"
                             android:id="@+id/livingroombulblayout"
-                            android:visibility="gone"
                             android:orientation="horizontal"
+                            android:visibility="gone"
                             android:paddingLeft="5dp"
                             android:paddingTop="5dp"
                             android:paddingRight="10dp"
@@ -371,7 +371,7 @@
                                     android:textSize="15dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_lr_bulb_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -384,7 +384,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_lr_bulb_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -392,7 +392,8 @@
                                     android:gravity="center|center_horizontal|center_vertical"
                                     android:text="OFF"
                                     android:visibility="gone"
-                                    android:textColor="@color/black"
+                                    android:layout_marginTop="10dp"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp" />
                             </androidx.cardview.widget.CardView>
 
@@ -451,7 +452,7 @@
                                     android:textSize="15dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_kitchen_bulb_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -463,7 +464,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_kitchen_bulb_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -662,7 +663,7 @@
                                     android:textSize="15dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_lr_tablelamp_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -675,7 +676,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_lr_tablelamp_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -741,7 +742,7 @@
                                     android:textSize="18dp"></TextView>
                                 <Button
                                     android:id="@+id/manualmode_lr_television_on"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:background="@drawable/button_brown"
@@ -754,7 +755,7 @@
 
                                 <Button
                                     android:id="@+id/manualmode_lr_television_off"
-                                    android:layout_width="60dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:visibility="gone"

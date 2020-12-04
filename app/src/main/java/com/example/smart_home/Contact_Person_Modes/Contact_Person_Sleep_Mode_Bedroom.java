@@ -20,9 +20,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,24 +39,20 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
     TextView temperature;
     String userID;
     Button save;
+    String Status;
 
 
     android.widget.Spinner ac,actemp,heating,heatingtemp,time,winblind,bulb,bulbint,nightlamp,chrgpoint;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        if(getArguments() != null){
-//            userID= getArguments().getString("UserID");
-//            System.out.println(userID +"userid");
-//            Log.d(TAG,"UserID   "+userID);
-//
-//        }
 
 
         GlobalVariables globalVariables =(GlobalVariables)getActivity().getApplication();
         userID = globalVariables.getUserIDUser();
         View v = inflater.inflate(R.layout.activity_contact_person_sleepmode_bedroom, container, false);
-
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
         bedroom = "Sleep_Mode_Bedroom";
 
         winblind =v.findViewById(R.id.window_blind_sleepmode_bedroom_spinner);
@@ -63,14 +62,59 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
         chrgpoint = v.findViewById(R.id.charging_point_sleepmode_bedroom_spinner);
         save = (Button) v.findViewById(R.id.bedroom_sleepmode_save);
 
-        WindowBlind();
-        Bulb();
-        BulbIntensity();
-        NightLamp();
-        ChargingPoint();
+        DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("Bedroom");
+        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
 
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+                String Blinds = documentSnapshot.getString("WindowBlinds");
+                String Bulb = documentSnapshot.getString("Bulb");
+                String BulbIntensity = documentSnapshot.getString("BulbIntensity");
+                String NightLamp = documentSnapshot.getString("NightLamp");
+                String ChargingPoints = documentSnapshot.getString("ChargingPoints");
+
+                if(Blinds != null){
+                    Status = Blinds;
+                    WindowBlind(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    WindowBlind(Status);
+                }
+                if(Bulb != null){
+                    Status = Bulb;
+                    Bulb(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    Bulb(Status);
+                }
+                if(BulbIntensity != null){
+                    Status = BulbIntensity;
+                    BulbIntensity(Status);
+                }else
+                {
+                    Status = "Select Intensity";
+                    BulbIntensity(Status);
+                }
+                if(NightLamp != null){
+                    Status = NightLamp;
+                    NightLamp(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    NightLamp(Status);
+                }
+                if(ChargingPoints != null){
+                    Status = ChargingPoints;
+                    ChargingPoint(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    ChargingPoint(Status);
+                }
+            }
+        });
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,13 +150,14 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
 
     }
 
-    private void WindowBlind(){
+    private void WindowBlind(String status){
+
+
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("OPEN");
         timearray.add("CLOSE");
-
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, timearray);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
@@ -125,7 +170,7 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -134,10 +179,10 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
             }
         });
     }
-    private void Bulb(){
+    private void Bulb(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -153,7 +198,6 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -162,13 +206,14 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
             }
         });
     }
-    private void BulbIntensity(){
+    private void BulbIntensity(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Intensity");
+        timearray.add(0, status);
         timearray.add("OFF");
-        timearray.add("HIGH");
         timearray.add("LOW");
+        timearray.add("MEDIUM");
+        timearray.add("HIGH");
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, timearray);
@@ -182,7 +227,6 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -191,10 +235,10 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
             }
         });
     }
-    private void NightLamp(){
+    private void NightLamp(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -210,7 +254,6 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -219,10 +262,10 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
             }
         });
     }
-    private void ChargingPoint(){
+    private void ChargingPoint(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -238,7 +281,6 @@ public class Contact_Person_Sleep_Mode_Bedroom extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -37,22 +38,18 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
     TextView temperature;
     Button save;
 
+    String Status;
     private android.widget.Spinner ac, actemp, heating, heatingtemp, time, windowblind, bulb, oven, stove, refrigrator;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-//        if(getArguments() != null){
-//            userID= getArguments().getString("UserID");
-//            System.out.println(userID +"userid");
-//            Log.d(TAG,"UserID   "+userID);
-//
-//        }
         GlobalVariables globalVariables =(GlobalVariables)getActivity().getApplication();
         userID = globalVariables.getUserIDUser();
         View v = inflater.inflate(R.layout.activity_contact_person_sleepmode_kitchen, container, false);
-
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
         bedroom = "Sleep_Mode_Kitchen";
 
         windowblind =v.findViewById(R.id.window_blind_sleepmode_kitchen_spinner);
@@ -62,14 +59,58 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
         refrigrator = v.findViewById(R.id.refrigrator_sleepmode_kitchen_spinner);
         save = (Button) v.findViewById(R.id.kitchen_sleepmode_save);
 
-        WindowBlind();
-        Bulb();
-        Oven();
-        Stove();
-        Regrigrator();
+        DocumentReference documentReference = fStore.collection("USER").document(userID).collection(bedroom).document("Kitchen");
+        documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
 
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+                String Blinds = documentSnapshot.getString("WindowBlinds");
+                String Bulb = documentSnapshot.getString("Bulb");
+                String oven = documentSnapshot.getString("Oven");
+                String stove = documentSnapshot.getString("Stove");
+                String referigrator = documentSnapshot.getString("Refrigrator");
+                if(Blinds != null){
+                    Status = Blinds;
+                    WindowBlind(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    WindowBlind(Status);
+                }
+                if(Bulb != null){
+                    Status = Bulb;
+                    Bulb(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    Bulb(Status);
+                }
+                if(oven != null){
+                    Status = oven;
+                    Oven(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    Oven(Status);
+                }
+                if(stove != null){
+                    Status = stove;
+                    Stove(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    Stove(Status);
+                }
+                if(referigrator != null){
+                    Status = referigrator;
+                    Regrigrator(Status);
+                }else
+                {
+                    Status = "Select Status";
+                    Regrigrator(Status);
+                }
+            }
+        });
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,10 +146,10 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
         return v;
 
     }
-    private void WindowBlind(){
+    private void WindowBlind(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("OPEN");
         timearray.add("CLOSE");
 
@@ -123,7 +164,6 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -133,10 +173,10 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
             }
         });
     }
-    private void Bulb(){
+    private void Bulb(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -151,7 +191,6 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -161,10 +200,10 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
             }
         });
     }
-    private void Oven(){
+    private void Oven(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Intensity");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -176,11 +215,10 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
         oven.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Select Intensity")) {
+                if (parent.getItemAtPosition(position).equals("Select Status")) {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -190,10 +228,10 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
             }
         });
     }
-    private void Stove(){
+    private void Stove(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -209,7 +247,6 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -219,10 +256,10 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
             }
         });
     }
-    private void Regrigrator(){
+    private void Regrigrator(String status){
 
         ArrayList<String> timearray = new ArrayList<>();
-        timearray.add(0, "Select Status");
+        timearray.add(0, status);
         timearray.add("ON");
         timearray.add("OFF");
 
@@ -238,7 +275,6 @@ public class Contact_Person_Sleep_Mode_Kitchen extends Fragment {
 
                 } else {
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected" + item, Toast.LENGTH_SHORT).show();
                 }
 
             }
