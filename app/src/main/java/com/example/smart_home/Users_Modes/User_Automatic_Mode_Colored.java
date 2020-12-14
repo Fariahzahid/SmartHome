@@ -186,7 +186,7 @@ public class User_Automatic_Mode_Colored extends AppCompatActivity {
 
                 manualmode_lr_tablelamp_on.setVisibility(View.GONE);
                 manualmode_lr_tablelamp_off.setVisibility(View.VISIBLE);
-            }else if(current.after(date5) && current.before(date6)){
+            } else if(current.after(date5) && current.before(date6)){
                 three.setBackgroundColor(getColor(R.color.greentwo));
 
                 bedroomnightlamplayout.setVisibility(View.GONE);
